@@ -25,7 +25,7 @@ Artifact:
 - A local policy interface with three implementations:
   - central or statistical baseline,
   - log-derived resource-agent policy,
-  - constrained LLM-agent or deterministic LLM-proxy policy.
+  - constrained LLM-agent proxy and optional API-backed real LLM policy.
 - Event-log output compatible with process mining.
 - Reasoning-log and handover-log output for the LLM condition.
 
@@ -61,7 +61,8 @@ Run three simulation variants on the same arrival schedule:
 
 1. `central_baseline`: centralized FIFO scheduler and pooled/random qualified resources.
 2. `agent_profile`: decentralized resource agents choose tasks according to learned preferences and workload heuristics.
-3. `llm_agent`: same guardrails, but an LLM or LLM-proxy chooses among valid local actions using structured state, case context, memory, and historical priors.
+3. `llm_agent_proxy`: same guardrails, but a reproducible LLM-style proxy chooses among valid local actions using structured state, case context, memory, and historical priors.
+4. `llm_agent_real`: optional OpenAI-compatible API-backed version of the same local policy interface, with JSON validation and guarded fallback.
 
 Evaluate against the held-out test log:
 
@@ -88,7 +89,7 @@ Careful wording is important. The expected report should not claim that LLM agen
 
 ## Risks And Mitigations
 
-- LLM nondeterminism: use temperature 0, structured prompts, action masks, repeated seeds, and a deterministic proxy baseline.
+- LLM nondeterminism: use temperature 0, structured prompts, action masks, repeated seeds, diagnostics, and a deterministic proxy baseline.
 - LLM over-selection of "best" resources: use distributional guardrails and compare resource distribution distances.
 - Evaluation complexity: first run proxy metrics, then integrate `ComputeLogDistance.py` from Zenodo.
 - Data normalization: write one canonical event-log schema.

@@ -16,10 +16,10 @@ Test whether an agentic process simulator with log-derived constraints can gener
 |---|---|---|---|
 | `central_baseline` | central scheduler | activity durations, resource capabilities | none |
 | `agent_profile` | individual resource agents | capabilities, durations, preferences | none |
-| `llm_agent_proxy` | individual resource agents | same guardrails | deterministic proxy now; replace with LLM later |
-| `llm_agent_real` | individual resource agents | same guardrails | optional API-backed implementation |
+| `llm_agent_proxy` | individual resource agents | same guardrails | deterministic proxy for reproducible main experiments |
+| `llm_agent_real` | individual resource agents | same guardrails | optional OpenAI-compatible API-backed implementation with JSON validation and guarded fallback |
 
-Final MVP conditions should be narrowed to selected ambiguous local decision points rather than invoking an LLM for every event. Ordinary transitions can use log-derived priors; the LLM condition should activate when multiple valid local continuations or handover targets exist.
+The implemented real LLM condition preserves the same action-mask interface as the proxy. For the first optional smoke experiment, it may be invoked at every resource decision. For cost-controlled follow-up experiments, it should be narrowed to selected ambiguous local decision points rather than invoking an LLM for every event. Ordinary transitions can use log-derived priors; the LLM condition should activate when multiple valid local continuations or handover targets exist.
 
 ## Metrics
 
@@ -128,6 +128,20 @@ Repeated Chapela-Campa metrics over 10 runs produce a more conservative result t
 - `central_baseline` is best on circadian EMD, relative EMD, and cycle-time Wasserstein.
 
 This means the final paper should frame the artifact as a feasible, interpretable extension of resource-centric BPS, not as an accuracy-dominating simulator. The contribution is the framework and the decision/reasoning trace capability, with quality trade-offs measured rigorously.
+
+## Optional Real LLM Implementation Update
+
+The code now includes `llm_agent_real`, an API-backed implementation behind the same constrained local decision interface. The simulator sends a structured state containing the current activity, previous resource, feasible resources, historical priors, and current resource usage to an OpenAI-compatible chat-completions endpoint. The model is instructed to return only JSON with `resource` and `reason`.
+
+The implementation is intentionally guarded:
+
+- the LLM cannot choose resources outside the event-log-derived feasible set,
+- invalid JSON or infeasible resources are counted,
+- API errors and timeouts trigger a guarded proxy fallback,
+- diagnostics are saved as `llm_calls`, `llm_invalid_outputs`, and `llm_fallbacks`,
+- reasoning and handover logs are emitted for the real LLM condition as for the proxy.
+
+In the current local verification environment, no `OPENAI_API_KEY` was available, so the real LLM smoke test exercised the fallback path rather than producing API-backed empirical results. Therefore, the paper's quantitative conclusions should continue to use the reproducible proxy results unless a real LLM run is executed, archived, and evaluated with the same metrics.
 
 
 ## Reproducibility Protocol

@@ -12,8 +12,11 @@ import argparse
 import csv
 import gzip
 import json
+import os
 import random
 import statistics
+import urllib.error
+import urllib.request
 from collections import Counter, defaultdict
 from datetime import datetime, timedelta
 from pathlib import Path
@@ -36,6 +39,7 @@ REASONING_SCHEMA = [
 HANDOVER_SCHEMA = ["case_id", "from_resource", "to_resource", "activity", "timestamp", "message"]
 ACTIVITIES = ["Submit", "Check", "Review", "Approve"]
 RESOURCES = ["Alice", "Bob", "Cara"]
+AGENTIC_MODES = {"llm_agent_proxy", "llm_agent_real"}
 
 
 def parse_dt(value: str) -> datetime:
@@ -227,6 +231,99 @@ def top_items(values: dict[str, int] | dict[str, float], limit: int = 12) -> dic
     return dict(sorted(values.items(), key=lambda item: (-item[1], item[0]))[:limit])
 
 
+class OpenAICompatibleResourceSelector:
+    """Small OpenAI-compatible JSON client for constrained resource choices."""
+
+    def __init__(self, model: str, api_key: str, base_url: str, timeout: float = 30.0):
+        self.model = model
+        self.api_key = api_key
+        self.base_url = self._chat_completions_url(base_url)
+        self.timeout = timeout
+        self.calls = 0
+        self.invalid_outputs = 0
+        self.fallbacks = 0
+
+    @staticmethod
+    def _chat_completions_url(base_url: str) -> str:
+        normalized = base_url.rstrip("/")
+        if normalized.endswith("/chat/completions"):
+            return normalized
+        return f"{normalized}/chat/completions"
+
+    def choose(
+        self,
+        activity: str,
+        previous_resource: str | None,
+        candidates: dict[str, int],
+        priors: dict[str, float],
+        resource_usage: Counter,
+        reason_hint: str,
+    ) -> dict:
+        feasible = [
+            {
+                "resource": resource,
+                "historical_count": int(candidates[resource]),
+                "historical_prior": round(priors.get(resource, 0.0), 6),
+                "events_assigned_so_far": int(resource_usage[resource]),
+            }
+            for resource in sorted(candidates)
+        ]
+        payload = {
+            "model": self.model,
+            "temperature": 0,
+            "response_format": {"type": "json_object"},
+            "messages": [
+                {
+                    "role": "system",
+                    "content": (
+                        "You are a constrained business-process simulation agent. "
+                        "Choose exactly one resource from feasible_resources. "
+                        "Return only JSON with keys resource and reason. "
+                        "Do not invent resources, activities, timestamps, or schema fields."
+                    ),
+                },
+                {
+                    "role": "user",
+                    "content": json.dumps(
+                        {
+                            "activity": activity,
+                            "previous_resource": previous_resource,
+                            "decision_goal": (
+                                "Select a plausible next resource while respecting historical "
+                                "capabilities, handover context, and workload balance."
+                            ),
+                            "feasible_resources": feasible,
+                            "fallback_policy_if_uncertain": reason_hint,
+                        },
+                        sort_keys=True,
+                    ),
+                },
+            ],
+        }
+        request = urllib.request.Request(
+            self.base_url,
+            data=json.dumps(payload).encode("utf-8"),
+            headers={
+                "Authorization": f"Bearer {self.api_key}",
+                "Content-Type": "application/json",
+            },
+            method="POST",
+        )
+        self.calls += 1
+        with urllib.request.urlopen(request, timeout=self.timeout) as response:
+            data = json.loads(response.read().decode("utf-8"))
+        content = data["choices"][0]["message"]["content"]
+        parsed = json.loads(content)
+        selected = str(parsed.get("resource", ""))
+        if selected not in candidates:
+            self.invalid_outputs += 1
+            raise ValueError(f"LLM selected invalid resource: {selected!r}")
+        return {
+            "resource": selected,
+            "reason": str(parsed.get("reason", "")).strip() or "The LLM selected a feasible resource.",
+        }
+
+
 def decide_resource(
     activity: str,
     previous_resource: str | None,
@@ -234,6 +331,7 @@ def decide_resource(
     mode: str,
     rng: random.Random,
     resource_usage: Counter,
+    llm_selector: OpenAICompatibleResourceSelector | None = None,
 ) -> dict:
     candidates = profiles["capabilities"].get(activity, {})
     if not candidates:
@@ -253,7 +351,7 @@ def decide_resource(
     if mode == "agent_profile":
         selected = weighted_choice(candidates, rng)
         rule = "activity_frequency_weighted"
-    if mode == "llm_agent_proxy":
+    if mode in AGENTIC_MODES:
         handover_key = f"{previous_resource}||{activity}" if previous_resource is not None else ""
         handover_candidates = profiles.get("handover_priors", {}).get(handover_key)
         local_candidates = {
@@ -266,7 +364,53 @@ def decide_resource(
         selected = guarded_weighted_choice(local_candidates, priors, resource_usage, rng)
         rule = "guarded_handover_prior" if handover_candidates else "guarded_activity_prior"
         candidates = local_candidates
-    if mode not in {"central_baseline", "agent_profile", "llm_agent_proxy"}:
+        if mode == "llm_agent_real":
+            if llm_selector is None:
+                rule = f"real_llm_unavailable_fallback_{rule}"
+            else:
+                fallback_resource = selected
+                fallback_rule = rule
+                try:
+                    llm_decision = llm_selector.choose(
+                        activity,
+                        previous_resource,
+                        candidates,
+                        priors,
+                        resource_usage,
+                        reason_hint=fallback_rule,
+                    )
+                    selected = llm_decision["resource"]
+                    rule = f"real_llm_json_{fallback_rule}"
+                    return {
+                        "resource": selected,
+                        "feasible_resource_count": len(candidates),
+                        "feasible_resources_top": "|".join(top_items(candidates)),
+                        "historical_prior": json.dumps(
+                            {k: round(v, 4) for k, v in top_items(priors).items()},
+                            sort_keys=True,
+                        ),
+                        "selection_rule": rule,
+                        "reason": llm_decision["reason"],
+                    }
+                except (ValueError, KeyError, json.JSONDecodeError, urllib.error.URLError, TimeoutError) as exc:
+                    llm_selector.fallbacks += 1
+                    selected = fallback_resource
+                    rule = f"real_llm_fallback_{fallback_rule}"
+                    return {
+                        "resource": selected,
+                        "feasible_resource_count": len(candidates),
+                        "feasible_resources_top": "|".join(top_items(candidates)),
+                        "historical_prior": json.dumps(
+                            {k: round(v, 4) for k, v in top_items(priors).items()},
+                            sort_keys=True,
+                        ),
+                        "selection_rule": rule,
+                        "reason": (
+                            f"Real LLM decision failed ({type(exc).__name__}); "
+                            f"used guarded fallback resource {selected}."
+                        ),
+                    }
+    if mode not in {"central_baseline", "agent_profile", *AGENTIC_MODES}:
         raise ValueError(f"Unknown mode: {mode}")
     return {
         "resource": selected,
@@ -327,6 +471,7 @@ def simulate(
     mode: str,
     seed: int,
     base_start: datetime | None = None,
+    llm_selector: OpenAICompatibleResourceSelector | None = None,
 ) -> tuple[list[dict], list[dict], list[dict]]:
     rng = random.Random(seed)
     rows = []
@@ -342,7 +487,15 @@ def simulate(
         previous_activity = None
         previous_resource = None
         for step_index, activity in enumerate(sample_trace(profiles, rng), start=1):
-            decision = decide_resource(activity, previous_resource, profiles, mode, rng, resource_usage)
+            decision = decide_resource(
+                activity,
+                previous_resource,
+                profiles,
+                mode,
+                rng,
+                resource_usage,
+                llm_selector=llm_selector,
+            )
             resource = decision["resource"]
             duration = sample_duration(profiles, resource, activity, rng)
             wait = sample_wait(profiles, previous_activity, activity, rng)
@@ -358,7 +511,7 @@ def simulate(
                 }
             )
             resource_usage[resource] += 1
-            if mode == "llm_agent_proxy":
+            if mode in AGENTIC_MODES:
                 reasoning_rows.append(
                     {
                         "case_id": case_id,
@@ -451,6 +604,13 @@ def main() -> None:
     parser.add_argument("--output-dir", type=Path, default=Path("../05_results/pilot"))
     parser.add_argument("--cases", type=int, default=80)
     parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument("--include-real-llm", action="store_true")
+    parser.add_argument("--llm-model", default=os.getenv("OPENAI_MODEL", "gpt-4o-mini"))
+    parser.add_argument(
+        "--llm-base-url",
+        default=os.getenv("OPENAI_BASE_URL", "https://api.openai.com/v1/chat/completions"),
+    )
+    parser.add_argument("--llm-timeout", type=float, default=30.0)
     args = parser.parse_args()
 
     args.output_dir.mkdir(parents=True, exist_ok=True)
@@ -468,13 +628,28 @@ def main() -> None:
     metrics = []
     n_cases = len({r["case_id"] for r in test})
     base_start = first_case_start(test)
-    for mode in ["central_baseline", "agent_profile", "llm_agent_proxy"]:
+    modes = ["central_baseline", "agent_profile", "llm_agent_proxy"]
+    llm_selector = None
+    if args.include_real_llm:
+        api_key = os.getenv("OPENAI_API_KEY")
+        if api_key:
+            llm_selector = OpenAICompatibleResourceSelector(
+                model=args.llm_model,
+                api_key=api_key,
+                base_url=args.llm_base_url,
+                timeout=args.llm_timeout,
+            )
+        else:
+            print("OPENAI_API_KEY is not set; llm_agent_real will use guarded fallback decisions.")
+        modes.append("llm_agent_real")
+    for mode in modes:
         generated, reasoning_rows, handover_rows = simulate(
             profiles,
             n_cases,
             mode,
             args.seed + len(mode),
             base_start=base_start,
+            llm_selector=llm_selector if mode == "llm_agent_real" else None,
         )
         write_log(args.output_dir / f"simulated_{mode}.csv", generated)
         if reasoning_rows:
@@ -482,10 +657,20 @@ def main() -> None:
         if handover_rows:
             write_table(args.output_dir / f"handover_{mode}.csv", handover_rows, HANDOVER_SCHEMA)
         result = {"mode": mode, **evaluate(test, generated)}
+        if mode == "llm_agent_real":
+            result.update(
+                {
+                    "llm_model": args.llm_model,
+                    "llm_calls": llm_selector.calls if llm_selector else 0,
+                    "llm_invalid_outputs": llm_selector.invalid_outputs if llm_selector else 0,
+                    "llm_fallbacks": llm_selector.fallbacks if llm_selector else len(reasoning_rows),
+                }
+            )
         metrics.append(result)
 
+    metric_fields = sorted({key for row in metrics for key in row})
     with (args.output_dir / "metrics.csv").open("w", newline="", encoding="utf-8") as f:
-        writer = csv.DictWriter(f, fieldnames=list(metrics[0].keys()))
+        writer = csv.DictWriter(f, fieldnames=metric_fields)
         writer.writeheader()
         writer.writerows(metrics)
     (args.output_dir / "metrics.json").write_text(json.dumps(metrics, indent=2), encoding="utf-8")

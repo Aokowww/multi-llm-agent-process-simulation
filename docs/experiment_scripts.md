@@ -16,14 +16,37 @@ The pilot creates:
 - `simulated_central_baseline.csv`
 - `simulated_agent_profile.csv`
 - `simulated_llm_agent_proxy.csv`
+- `simulated_llm_agent_real.csv` when `--include-real-llm` is used
 - `metrics.csv`
 - `metrics.json`
 
+## Optional Real LLM Condition
+
+The optional `llm_agent_real` mode calls an OpenAI-compatible chat-completions endpoint after the simulator has already applied the event-log-derived action mask. The model receives the activity, previous resource, feasible resources, historical priors, and current usage counts. It must return JSON:
+
+```json
+{"resource": "selected feasible resource", "reason": "brief rationale"}
+```
+
+Run:
+
+```bash
+export OPENAI_API_KEY=...
+python3 pilot_simulation.py \
+  --train-log ../03_data/original-event-logs/AcademicCredentials_train.csv.gz \
+  --test-log ../03_data/original-event-logs/AcademicCredentials_test.csv.gz \
+  --output-dir ../05_results/academic_credentials_real_llm_smoke \
+  --include-real-llm \
+  --llm-model "${OPENAI_MODEL:-gpt-4o-mini}"
+```
+
+If the API key is missing, if the call fails, or if the model returns an infeasible resource, the simulator records a guarded fallback decision and continues. Relevant diagnostic columns are written to `metrics.csv`: `llm_model`, `llm_calls`, `llm_invalid_outputs`, and `llm_fallbacks`.
+
 ## Next Implementation Steps
 
-1. Run Chapela-Campa distances across repeated generated logs and summarize mean/std.
-2. Add summary metrics over `reasoning_llm_agent_proxy.csv` and `handover_llm_agent_proxy.csv`.
-3. Add an optional `llm_agent_real` policy that calls a model only after applying an action mask.
+1. Archive one small API-backed `llm_agent_real` smoke run once API credentials are available.
+2. Add summary metrics over `reasoning_llm_agent_proxy.csv`, `reasoning_llm_agent_real.csv`, and the handover logs.
+3. Run Chapela-Campa distances across repeated generated logs and summarize mean/std for any archived real LLM condition.
 
 ## Repeated Runs
 
@@ -37,6 +60,8 @@ python3 run_repeated.py \
   --runs 10 \
   --seed 1000
 ```
+
+Add `--include-real-llm` to include the optional API-backed condition. For cost control, run a one-seed smoke experiment before repeated real LLM runs.
 
 Outputs:
 

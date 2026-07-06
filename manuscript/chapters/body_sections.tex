@@ -448,6 +448,12 @@ handover priors when available, otherwise activity-resource priors;
 samples among feasible resources with an overuse penalty relative to
 historical target shares. & Simulated event log, reasoning log, handover
 log. \\
+\texttt{llm\_agent\_real} & Optional API-backed LLM policy & Sends the
+same constrained local state and feasible resource set to an
+OpenAI-compatible chat-completions endpoint; validates JSON output and
+falls back to the guarded proxy if the call fails or returns an
+infeasible resource. & Simulated event log, reasoning log, handover log,
+LLM call and fallback diagnostics. \\
 \end{longtable}
 
 The \texttt{central\_baseline} represents a conventional centralized
@@ -473,14 +479,19 @@ samples. The proxy can influence local resource allocation and handover
 behavior, but it cannot break the event-log schema. This keeps the
 artifact suitable for formal log-distance evaluation.
 
-The proxy is best understood as a reproducible stand-in for a future
-real LLM call. A real LLM module would receive the same structured
-state: current case context, previous resource, selected activity,
-feasible local resources, historical priors, and memory. It would then
-return a selected resource and a rationale. The current proxy implements
-this interface without external API calls, making the first experiment
-deterministic conditional on the random seed and avoiding prompt drift,
-token cost, and invalid natural-language outputs.
+The proxy is best understood as the reproducible member of a broader
+LLM-agent interface. The implementation also includes an optional
+\texttt{llm\_agent\_real} condition. This condition receives the same
+structured state: current case context, previous resource, selected
+activity, feasible local resources, historical priors, and memory. It
+then calls an OpenAI-compatible chat-completions endpoint and requires a
+JSON object containing a selected resource and a rationale. If the API is
+unavailable, the response is not valid JSON, or the selected resource is
+outside the feasible set, the simulator records a fallback and uses the
+guarded proxy decision. This makes the artifact capable of real
+LLM-agent experiments while keeping the reported main experiments
+deterministic conditional on the random seed and independent of prompt
+drift, token cost, and model availability.
 
 The implementation evolved through several design iterations. An early
 real-log smoke test generated plausible control-flow metrics but failed
@@ -741,11 +752,13 @@ resource because of capability priors, workload estimates, or handover
 preferences. This creates a pathway toward auditable agentic process
 simulation.
 
-Several limitations should be acknowledged. First, the current LLM-agent
-condition is a deterministic proxy rather than an API-backed LLM. This
-was intentional for reproducibility, but it means the study does not yet
-measure prompt sensitivity, model drift, invalid textual outputs, or
-token cost. Second, the experiment uses one primary dataset.
+Several limitations should be acknowledged. First, the main reported
+LLM-agent condition is a deterministic proxy even though the artifact now
+contains an optional API-backed LLM implementation. This was intentional
+for reproducibility, but it means the reported quantitative comparison
+does not yet measure prompt sensitivity, model drift, invalid textual
+outputs, or token cost from an archived real-LLM run. Second, the
+experiment uses one primary dataset.
 AcademicCredentials is useful for a pilot, but additional logs are
 needed before making general claims. Third, the temporal model remains
 simple. Although empirical waiting-time and case-arrival sampling
@@ -756,11 +769,12 @@ include full significance testing or confidence intervals for all
 pairwise comparisons.
 
 Future work should extend the artifact in four directions. The first is
-to replace the proxy with an optional real LLM module behind the same
-constrained action interface. The second is to add LLM-specific metrics
-such as invalid output rate, fallback rate, feasible action-set size,
-reason-action consistency, and handover-message consistency. The third
-is to evaluate additional logs from the Chapela-Campa artifact,
+to execute, archive, and evaluate a cost-controlled API-backed
+\texttt{llm\_agent\_real} experiment, preferably activating the model
+only at ambiguous handover decisions. The second is to add LLM-specific
+metrics such as invalid output rate, fallback rate, feasible action-set
+size, reason-action consistency, and handover-message consistency. The
+third is to evaluate additional logs from the Chapela-Campa artifact,
 especially logs with different resource density and timing
 characteristics. The fourth is to test intervention scenarios in which
 the LLM-agent module may have a clearer advantage, such as changes in

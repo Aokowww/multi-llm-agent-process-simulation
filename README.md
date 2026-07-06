@@ -15,8 +15,8 @@ manuscript/          LaTeX manuscript source and figures
 
 ## Experiment Scripts
 
-- `src/pilot_simulation.py`: learns log-derived profiles and simulates three policies.
-- `src/run_repeated.py`: repeats simulations across random seeds and aggregates lightweight metrics.
+- `src/pilot_simulation.py`: learns log-derived profiles and simulates three default policies, with an optional API-backed real LLM condition.
+- `src/run_repeated.py`: repeats simulations across random seeds and aggregates lightweight metrics, optionally including the real LLM condition.
 - `src/run_chapela_distances.py`: wraps the public Chapela-Campa distance script for one generated-log directory.
 - `src/run_chapela_repeated.py`: aggregates Chapela-Campa distances across repeated generated logs.
 
@@ -25,6 +25,7 @@ manuscript/          LaTeX manuscript source and figures
 - `central_baseline`: centralized resource sampling from feasible resources.
 - `agent_profile`: activity-resource frequency weighted resource-agent policy.
 - `llm_agent_proxy`: constrained LLM-style local decision policy using handover priors, activity priors, and distributional guardrails.
+- `llm_agent_real`: optional OpenAI-compatible API-backed resource-agent policy. The model receives only a structured local state and feasible resources, must return JSON, and falls back to the guarded proxy if the API is unavailable or the output is invalid.
 
 ## Data
 
@@ -48,6 +49,20 @@ python src/run_repeated.py \
   --save-logs
 ```
 
+Run an optional real LLM smoke experiment:
+
+```bash
+export OPENAI_API_KEY=...
+python src/pilot_simulation.py \
+  --train-log path/to/AcademicCredentials_train.csv.gz \
+  --test-log path/to/AcademicCredentials_test.csv.gz \
+  --output-dir outputs/real_llm_smoke \
+  --include-real-llm \
+  --llm-model "${OPENAI_MODEL:-gpt-4o-mini}"
+```
+
+If `OPENAI_API_KEY` is not set, `llm_agent_real` still runs through the same interface but records guarded fallback decisions. This keeps the repository reproducible without requiring paid API access.
+
 Run formal Chapela-Campa distances on repeated logs:
 
 ```bash
@@ -62,4 +77,17 @@ python src/run_chapela_repeated.py \
 
 The `results/` folder contains the repeated lightweight metric summary and repeated Chapela-Campa summary used in the manuscript.
 
-The main interpretation is not that the LLM-agent proxy dominates traditional BPS. The result is dimension-specific: the agent-profile policy is strongest on several formal control-flow and absolute/case-arrival timing metrics, while the LLM-agent proxy is competitive and strongest on workforce EMD.
+The main interpretation is not that the LLM-agent proxy dominates traditional BPS. The result is dimension-specific: the agent-profile policy is strongest on several formal control-flow and absolute/case-arrival timing metrics, while the LLM-agent proxy is competitive and strongest on workforce EMD. The optional `llm_agent_real` condition is implemented for follow-up experiments but is not included in the reported main result table unless an API-backed run is executed and archived.
+
+## Manuscript
+
+The `manuscript/` folder contains a LaTeX draft and figures. Compile from that folder with:
+
+```bash
+pdflatex main.tex
+bibtex main
+pdflatex main.tex
+pdflatex main.tex
+```
+
+The title-page personal and supervisor fields should be replaced before final submission.
