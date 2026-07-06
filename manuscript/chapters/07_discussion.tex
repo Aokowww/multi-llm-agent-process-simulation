@@ -1,0 +1,69 @@
+\section{Discussion}\label{discussion}
+
+The study began from a simple but risky idea: use LLM-style agents to
+simulate business processes. The results show that the idea becomes
+scientifically useful only after it is narrowed. A business process
+simulator cannot rely on unconstrained language generation. It needs
+log-derived feasible action spaces, timing distributions, resource
+priors, and validation metrics. Once those constraints are in place, an
+LLM-style decision module can be treated as one component inside a
+larger BPS architecture rather than as the whole simulator.
+
+The first implication is that resource-centric modeling is a strong
+foundation for LLM-agent BPS. The agent-profile baseline performs best
+on several formal metrics, which suggests that much of the process
+behavior can already be captured by careful log-derived resource
+profiles. This is not a problem for the proposed approach; it is a
+design lesson. LLM modules should be added where they provide
+incremental value, such as ambiguous handovers, policy-sensitive
+routing, exception handling, or explanation generation. They should not
+replace statistical components that already reproduce observed behavior
+well.
+
+The second implication is that LLM-agent simulation should be evaluated
+multidimensionally. The LLM-agent proxy looks favorable under some
+lightweight metrics, but the formal repeated Chapela-Campa evaluation
+shows a more mixed picture. This difference confirms the value of using
+a mature BPS quality framework. A single score or a single hand-picked
+example would be misleading. The artifact should be judged by how it
+changes control-flow, resource, and temporal behavior simultaneously.
+
+The third implication concerns interpretability. The LLM-agent proxy
+emits reasoning and handover traces that conventional event logs do not
+contain. These traces are not a substitute for quantitative validation,
+but they can support diagnosis and governance. For example, if an
+LLM-agent simulator overuses a historically strong resource, the
+reasoning log can reveal whether the policy is repeatedly selecting the
+resource because of capability priors, workload estimates, or handover
+preferences. This creates a pathway toward auditable agentic process
+simulation.
+
+Several limitations should be acknowledged. First, the main reported
+LLM-agent condition is a deterministic proxy even though the artifact now
+contains an optional API-backed LLM implementation. This was intentional
+for reproducibility, but it means the reported quantitative comparison
+does not yet measure prompt sensitivity, model drift, invalid textual
+outputs, or token cost from an archived real-LLM run. Second,
+AcademicCredentials remains the primary dataset and LoanApp is used only
+as a robustness check. This improves empirical breadth but is still not
+enough for broad generalization across process types. Third, the temporal model remains
+simple. Although empirical waiting-time and case-arrival sampling
+improved fidelity, the simulator does not yet include explicit resource
+calendars, multitasking, or data-aware case attributes. Fourth, the
+evaluation reports descriptive repeated-run statistics but does not yet
+include full significance testing or confidence intervals for all
+pairwise comparisons.
+
+Future work should extend the artifact in four directions. The first is
+to execute, archive, and evaluate a cost-controlled API-backed
+\texttt{llm\_agent\_real} experiment, preferably activating the model
+only at ambiguous handover decisions. The second is to add LLM-specific
+metrics such as invalid output rate, fallback rate, feasible action-set
+size, reason-action consistency, and handover-message consistency. The
+third is to evaluate additional logs from the Chapela-Campa and
+AgentSimulator artifact families, especially logs with different
+resource density and timing characteristics. The fourth is to test intervention scenarios in which
+the LLM-agent module may have a clearer advantage, such as changes in
+escalation policy or resource specialization that are difficult to
+express with static historical priors alone.
+

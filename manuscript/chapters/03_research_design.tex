@@ -1,0 +1,66 @@
+\section{Research Design}\label{research-design}
+
+This study follows a design science research logic. The practical
+problem is that process simulation needs richer resource behavior while
+remaining reproducible and measurable. The designed artifact is a
+resource-centric multi-agent simulator with log-derived constraints and
+an LLM-style local decision interface. The evaluation compares generated
+logs against held-out real logs, using both prototype metrics and formal
+BPS quality measures.
+
+Figure~\ref{fig:architecture} summarizes the central design choice: the LLM-style module is
+not allowed to invent process behavior, but is inserted as a constrained
+local decision component inside a log-derived simulation pipeline.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/figure1_architecture.pdf}
+\caption{Architecture of the resource-centric LLM-augmented multi-agent process simulator. A historical event log is transformed into resource capabilities, timing samples, arrival and waiting-time samples, and activity-resource/handover priors. During simulation, resource-agent policies choose among feasible local actions under shared event-log constraints. The LLM-agent proxy is additionally bounded by action masks, distributional penalties, and fallback rules. The simulator produces a process-mining-compatible event log and, for the LLM-agent condition, reasoning and handover logs. Generated outputs are evaluated against the held-out event log with prototype distances and Chapela-Campa BPS quality metrics, and diagnostic feedback informs later design iterations.}
+\label{fig:architecture}
+\end{figure}
+
+The artifact is summarized as:
+
+\[
+H_{R-LLM} = (L, A, P_{env}, X, \Pi_{log}, M, B_{LLM}, S, O, V)
+\]
+
+where \(L\) is the input event log, \(A\) is the set of resource agents,
+\(P_{env}\) describes the simulation environment including arrivals and
+enabled activities, \(X\) is the case and event state, \(\Pi_{log}\)
+contains log-derived priors, \(M\) is agent memory, \(B_{LLM}\) is the
+LLM-style behavior module, \(S\) is the simulator state transition
+function, \(O\) is the output, and \(V\) is the validation framework.
+
+Each agent \(a_i\) is represented by a profile:
+
+\[
+a_i = (s_i, c_i, \rho_i, m_i, b_i^{LLM})
+\]
+
+where \(s_i\) is the agent state, \(c_i\) contains capabilities and
+processing-time samples, \(\rho_i\) contains local resource and handover
+priors, \(m_i\) is memory, and \(b_i^{LLM}\) is the decision module.
+In the current implementation, \(b_i^{LLM}\) is represented by the
+deterministic LLM-agent proxy. The proxy receives a local state and
+chooses only among feasible resources and activities. It cannot invent
+activities, resources, or timestamps outside the learned simulation
+structure.
+
+The design principle is:
+
+\textbf{LLM agents should reason over log-grounded local feasible
+actions, not freely generate process behavior.}
+
+The simulator produces three output types:
+
+\[
+O = (L', R', H')
+\]
+
+where \(L'\) is the simulated event log, \(R'\) is the reasoning log, and
+\(H'\) is the handover log. The event log makes the artifact compatible
+with process mining and BPS evaluation. The reasoning and handover logs
+are specific to the LLM-agent condition and are intended to support
+interpretability and later qualitative analysis.
+

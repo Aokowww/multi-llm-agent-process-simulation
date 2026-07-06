@@ -1,0 +1,279 @@
+\section{Results}\label{results}
+
+\subsection{Lightweight Repeated
+Metrics}\label{lightweight-repeated-metrics}
+
+The lightweight repeated experiment provides an initial view of the
+trade-offs between the three simulation conditions.
+Table~\ref{tab:lightweight-metrics} reports mean and standard deviation
+over ten runs.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1579}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2105}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2105}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2105}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2105}}@{}}
+\caption{Lightweight repeated metrics on AcademicCredentials. Lower is better.}
+\label{tab:lightweight-metrics}\\
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Mode
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Trace variant distance
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Activity distance
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Resource distance
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Mean cycle-time relative error
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{central\_baseline} & 0.3357 +/- 0.0227 & 0.0988 +/- 0.0105 &
+0.7391 +/- 0.0031 & 0.0507 +/- 0.0371 \\
+\texttt{agent\_profile} & 0.3281 +/- 0.0242 & 0.0912 +/- 0.0145 & 0.6123
++/- 0.0046 & 0.0413 +/- 0.0249 \\
+\texttt{llm\_agent\_proxy} & 0.3271 +/- 0.0100 & 0.0945 +/- 0.0107 &
+0.6404 +/- 0.0121 & 0.0362 +/- 0.0247 \\
+\end{longtable}
+
+The lightweight results suggest that the LLM-agent proxy is competitive
+but not uniformly superior. It has the lowest mean trace variant
+distance and mean cycle-time relative error in this metric set. However,
+the agent-profile condition has the best activity distribution and
+resource distribution distances. The resource result is particularly
+important because the LLM-agent proxy was designed to alter local
+resource choices. Although the proxy improves substantially over an
+earlier greedy version, it still does not match the direct statistical
+resource profile.
+
+These results support two preliminary observations. First, a constrained
+LLM-style local decision module can be integrated without destroying
+basic control-flow or cycle-time behavior. Second, statistical resource
+profiles remain strong baselines for reproducing resource allocation.
+The LLM-agent condition should therefore be evaluated as an
+interpretable extension with trade-offs, not as a simple replacement for
+conventional BPS components.
+
+\subsection{Formal Chapela-Campa Distance
+Metrics}\label{formal-chapela-campa-distance-metrics}
+
+The formal repeated evaluation gives a stricter and more nuanced
+picture. Table~\ref{tab:formal-metrics} reports selected Chapela-Campa
+distance measures over ten generated logs per condition.
+
+Figure~\ref{fig:formal-tradeoffs} visualizes the formal metric table on a common relative scale,
+making clear that the experiment produces a trade-off profile rather
+than a single winning policy. Each bar reports the mean distance divided
+by the best mean for that metric, so the best condition for a metric has
+value 1.0 and larger values indicate greater distance from the held-out
+log.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/figure2_formal_metric_tradeoffs.pdf}
+\caption{Formal BPS metric trade-offs across simulation policies. Bars show the mean distance divided by the best mean for each Chapela-Campa metric over ten generated logs per condition; lower is better and a value of 1.0 marks the best mean for that metric. The agent-profile policy is strongest on control-flow n-grams and absolute/case-arrival timing, the LLM-agent proxy is strongest on workforce EMD, and the central baseline is strongest on circadian, relative-event, and cycle-time measures. The figure therefore visualizes the main empirical conclusion: the LLM-agent proxy is competitive and interpretable, but it does not dominate the statistical baselines.}
+\label{fig:formal-tradeoffs}
+\end{figure}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1667}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2222}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2222}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2222}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1667}}@{}}
+\caption{Formal BPS quality distances on AcademicCredentials. Lower is better.}
+\label{tab:formal-metrics}\\
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Metric
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Central baseline
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Agent profile
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+LLM-agent proxy
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Best mean
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Bigram & 0.1618 +/- 0.0093 & 0.1541 +/- 0.0117 & 0.1548 +/- 0.0071 &
+\texttt{agent\_profile} \\
+Trigram & 0.2065 +/- 0.0126 & 0.1982 +/- 0.0123 & 0.1988 +/- 0.0090 &
+\texttt{agent\_profile} \\
+Absolute EMD & 159.6972 +/- 95.8036 & 145.9101 +/- 56.3384 & 155.8600
++/- 84.0634 & \texttt{agent\_profile} \\
+Case-arrival EMD & 184.3430 +/- 99.4617 & 162.4802 +/- 53.4160 &
+186.0864 +/- 90.8550 & \texttt{agent\_profile} \\
+Circadian EMD & 3.0208 +/- 0.1159 & 3.0959 +/- 0.3805 & 3.0387 +/-
+0.2384 & \texttt{central\_baseline} \\
+Workforce EMD & 3.1951 +/- 0.2822 & 3.4284 +/- 0.3764 & 3.1338 +/-
+0.3358 & \texttt{llm\_agent\_proxy} \\
+Relative EMD & 16.8700 +/- 3.0403 & 17.3357 +/- 4.1486 & 19.3002 +/-
+5.1290 & \texttt{central\_baseline} \\
+Cycle-time Wasserstein & 16.5231 +/- 2.5704 & 17.2359 +/- 3.4244 &
+19.1726 +/- 5.4068 & \texttt{central\_baseline} \\
+\end{longtable}
+
+The formal metrics revise the stronger impression given by the
+lightweight table. The agent-profile condition is best on bigram and
+trigram distance, indicating that it reproduces local control-flow
+patterns slightly better than the other two policies. It is also best on
+absolute event timing and case-arrival distance. The LLM-agent proxy is
+close to the agent-profile baseline on n-gram metrics, but it does not
+improve absolute timing or case arrivals. Its clearest advantage is
+workforce EMD, where it achieves the best mean distance. The central
+baseline performs best on circadian event distance, relative event-time
+distance, and cycle-time Wasserstein distance.
+
+The main empirical conclusion is therefore not that LLM-agent simulation
+improves BPS quality overall. A more accurate conclusion is that the
+LLM-agent proxy changes the quality profile of the simulator. It
+preserves competitive control-flow behavior, improves workforce-distance
+performance in this experiment, and provides additional reasoning and
+handover traces, but it can underperform simpler baselines on temporal
+distribution metrics. This is a useful result because it identifies
+which behavioral dimensions require stronger modeling before a full
+LLM-agent simulator can be claimed to improve process simulation
+accuracy.
+
+\subsection{Robustness Check on AgentSimulator
+LoanApp}\label{robustness-check-on-agentsimulator-loanapp}
+
+The second dataset provides a useful robustness check because it has a
+clearer resource-role structure than AcademicCredentials. Under the
+lightweight metrics, LoanApp is easier to reproduce overall: the
+resource distribution distances are around 0.04--0.05 rather than above
+0.60. However, the result does not make the LLM-agent proxy a universal
+winner. The central baseline has the lowest trace, activity, and
+resource distribution distance. The LLM-agent proxy is better than the
+central baseline on mean cycle-time relative error and better than the
+agent-profile policy on resource distribution distance, but not best
+overall.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1800}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2050}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2050}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2050}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2050}}@{}}
+\caption{AgentSimulator LoanApp robustness results. Lower is better.}
+\label{tab:loanapp-robustness}\\
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Mode
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Bigram
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Trigram
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Workforce EMD
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Cycle-time Wasserstein
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{central\_baseline} & 0.0288 & 0.0453 & 8.7934 & 67.9520 \\
+\texttt{agent\_profile} & 0.0353 & 0.0517 & 8.6541 & 55.4577 \\
+\texttt{llm\_agent\_proxy} & 0.0399 & 0.0550 & 8.6489 & 55.6193 \\
+\end{longtable}
+
+The formal LoanApp metrics in Table~\ref{tab:loanapp-robustness}
+support the same conservative interpretation as the primary dataset.
+The central baseline remains strongest on control-flow n-grams, while
+the LLM-agent proxy is strongest on workforce EMD and nearly tied with
+the agent-profile policy on cycle-time Wasserstein distance. A separate
+LoanApp high-load what-if scenario is more favorable to the LLM-agent
+proxy: it has the lowest mean cycle time, lowest p90 cycle time, and
+highest throughput. Yet under the combined reduced-capacity and high-load
+stress test, the proxy performs worse temporally. AgentSimulator LoanApp
+therefore improves the empirical breadth of the study and shows where
+the proxy can be advantageous, but it also reinforces that LLM-agent BPS
+must be evaluated as a scenario-dependent trade-off.
+
+\subsection{What-If Stress Test}\label{what-if-stress-test}
+
+The previous results evaluate log reproduction. To examine whether the
+artifact can also support what-if analysis, an additional stress test was
+implemented. This experiment adds a simple resource-availability queue:
+if a selected resource is still busy or unavailable, the event waits
+until that resource becomes available. The intervention constrains the
+top 20 high-frequency resources to 50\% capacity and increases workload
+by compressing case arrivals with a 1.6x load multiplier. This combined
+scenario is intentionally not a held-out-log reproduction task. It asks
+how each policy reacts to a capacity and workload shock.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.2100}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1580}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1580}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1580}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1580}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1580}}@{}}
+\caption{What-if stress-test response under reduced capacity and high load on AcademicCredentials. Cycle times are reported in days because the original log contains long waiting intervals.}
+\label{tab:what-if}\\
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Mode
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Mean cycle time
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+P90 cycle time
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Handovers per case
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Constrained-group share
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Throughput
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{central\_baseline} & 87.6 & 191.7 & 3.86 & 0.202 & 1.21 \\
+\texttt{agent\_profile} & 215.1 & 451.4 & 3.77 & 0.447 & 0.60 \\
+\texttt{llm\_agent\_proxy} & 106.4 & 251.8 & 2.09 & 0.366 & 0.93 \\
+\end{longtable}
+
+Table~\ref{tab:what-if} shows a different kind of result from the
+reproduction metrics. The central baseline has the strongest temporal
+response in this stress test: it produces the lowest mean and p90 cycle
+time and the highest throughput. The LLM-agent proxy does not dominate
+on these temporal measures, but it substantially reduces handovers per
+case. The agent-profile policy relies most heavily on the constrained
+high-frequency resource group and suffers the largest cycle-time
+increase. This suggests that the value of an LLM-agent process simulator
+should not be evaluated only by log similarity. It can also expose how
+coordination style, resource concentration, and bottleneck behavior
+change under interventions.
+
+\subsection{Reasoning and Handover
+Outputs}\label{reasoning-and-handover-outputs}
+
+The LLM-agent proxy condition produces two additional artifacts beyond
+the simulated event log. The reasoning log records the local decision
+context and selected action for each generated event. The handover log
+records transitions between resources when a case moves from one
+resource to another. These logs do not directly improve the formal BPS
+distance scores, but they change the observability of the simulator. A
+conventional generated event log shows what happened; the reasoning and
+handover logs provide a structured record of why a local assignment was
+made and how work moved between resource agents.
+
+This additional observability is important for future LLM-agent BPS. If
+a real LLM is later used behind the same local policy interface,
+reasoning and handover logs can support audits of invalid outputs,
+fallback decisions, over-concentration on particular resources, and
+inconsistencies between the natural-language rationale and the
+executable event. In the current prototype, the logs demonstrate that
+the proposed output structure \(O=(L', R', H')\) is technically feasible
+and compatible with standard process-mining outputs.
+

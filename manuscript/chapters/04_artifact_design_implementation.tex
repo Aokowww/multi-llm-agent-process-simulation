@@ -1,0 +1,162 @@
+\section{Artifact Design and
+Implementation}\label{artifact-design-and-implementation}
+
+The implementation uses a canonical event-log schema with five fields:
+case identifier, activity, resource, start timestamp, and end timestamp.
+Table~\ref{tab:schemas} summarizes the three output schemas used by the artifact. The
+simulated event log is deliberately kept minimal because it must remain
+compatible with conventional process-mining and BPS evaluation tools.
+The reasoning and handover logs are additional outputs of the LLM-agent
+proxy condition and are not required by the baselines.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\caption{Output schemas produced by the simulator.}
+\label{tab:schemas}\\
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Output
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Fields
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Purpose
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Simulated event log (L') & \texttt{case\_id}, \texttt{activity},
+\texttt{resource}, \texttt{start\_time}, \texttt{end\_time} &
+Process-mining-compatible generated log used for quantitative
+evaluation. \\
+Reasoning log (R') & \texttt{case\_id}, \texttt{step\_index},
+\texttt{mode}, \texttt{previous\_resource}, \texttt{activity},
+\texttt{selected\_resource}, \texttt{feasible\_resource\_count},
+\texttt{feasible\_resources\_top}, \texttt{historical\_prior},
+\texttt{selection\_rule}, \texttt{reason} & Local decision trace emitted
+by the LLM-agent proxy. \\
+Handover log (H') & \texttt{case\_id}, \texttt{from\_resource},
+\texttt{to\_resource}, \texttt{activity}, \texttt{timestamp},
+\texttt{message} & Cross-resource transition trace emitted when a case
+moves between resources. \\
+\end{longtable}
+
+From the training split, the simulator learns activity-resource
+capabilities, service-time samples per activity/resource pair, empirical
+inter-event waiting-time samples, trace variant frequencies, case
+inter-arrival samples, and handover frequencies between resources. These
+learned components are stored as a profile object and shared by the
+simulation conditions so that policy differences can be compared under a
+common data foundation.
+
+The simulation procedure has four stages. First, the input log is
+normalized to the canonical schema and split into training and test
+logs. Second, the training log is transformed into log-derived profiles:
+resource capabilities, duration samples, waiting-time samples,
+case-arrival samples, trace variant counts, activity counts, resource
+counts, and handover priors. Third, each policy simulates the same
+number of cases as the held-out test log, beginning at the first
+timestamp of the test window and sampling empirical case inter-arrival
+times. Fourth, the generated logs are evaluated against the held-out
+test log with lightweight metrics and the Chapela-Campa distance
+measures.
+
+The three simulation conditions differ only in the resource decision
+policy. This isolation is important: if the timing model or trace
+sampler differed across conditions, any observed performance difference
+could not be attributed to the agent decision layer. Table~\ref{tab:conditions} summarizes
+the policy comparison.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}@{}}
+\caption{Simulation conditions and resource decision policies.}
+\label{tab:conditions}\\
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Condition
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Decision locus
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Resource selection rule
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Additional outputs
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{central\_baseline} & Centralized scheduler & Uniformly samples
+from resources historically capable of the activity. & Simulated event
+log only. \\
+\texttt{agent\_profile} & Resource-agent profile & Samples from
+historically capable resources weighted by activity-resource frequency.
+& Simulated event log only. \\
+\texttt{llm\_agent\_proxy} & Constrained local LLM-style policy & Uses
+handover priors when available, otherwise activity-resource priors;
+samples among feasible resources with an overuse penalty relative to
+historical target shares. & Simulated event log, reasoning log, handover
+log. \\
+\texttt{llm\_agent\_real} & Optional API-backed LLM policy & Sends the
+same constrained local state and feasible resource set to an
+OpenAI-compatible chat-completions endpoint; validates JSON output and
+falls back to the guarded proxy if the call fails or returns an
+infeasible resource. & Simulated event log, reasoning log, handover log,
+LLM call and fallback diagnostics. \\
+\end{longtable}
+
+The \texttt{central\_baseline} represents a conventional centralized
+simulation policy. It samples trace behavior and assigns qualified
+resources from a pooled perspective. The \texttt{agent\_profile}
+condition makes resource selection more local by using log-derived
+resource-agent profiles. It is still statistical and does not include an
+LLM-style reasoning module. The \texttt{llm\_agent\_proxy} condition
+uses the same feasible action constraints but adds a local decision rule
+inspired by an LLM-agent interface. It prefers handover priors when a
+previous resource exists, otherwise uses activity-level resource priors,
+samples among feasible resources, and penalizes resources that are
+already over-used relative to historical target shares. For each
+generated event, it emits a reasoning row; for cross-resource
+transitions, it emits a handover row.
+
+An important design decision is that the LLM-agent proxy is constrained
+at multiple levels. The activity sequence is generated from learned
+variants rather than free text. Resource choices are restricted to
+historically feasible resources for the selected activity. Timing is
+generated from empirical service-time, waiting-time, and case-arrival
+samples. The proxy can influence local resource allocation and handover
+behavior, but it cannot break the event-log schema. This keeps the
+artifact suitable for formal log-distance evaluation.
+
+The proxy is best understood as the reproducible member of a broader
+LLM-agent interface. The implementation also includes an optional
+\texttt{llm\_agent\_real} condition. This condition receives the same
+structured state: current case context, previous resource, selected
+activity, feasible local resources, historical priors, and memory. It
+then calls an OpenAI-compatible chat-completions endpoint and requires a
+JSON object containing a selected resource and a rationale. If the API is
+unavailable, the response is not valid JSON, or the selected resource is
+outside the feasible set, the simulator records a fallback and uses the
+guarded proxy decision. This makes the artifact capable of real
+LLM-agent experiments while keeping the reported main experiments
+deterministic conditional on the random seed and independent of prompt
+drift, token cost, and model availability.
+
+The implementation evolved through several design iterations. An early
+real-log smoke test generated plausible control-flow metrics but failed
+temporal fidelity because simulated cases were too short. The next
+version added empirical inter-event waiting times, reducing mean
+cycle-time relative error from approximately 98.6\% to approximately
+4.2\% for non-LLM baselines on AcademicCredentials. A later evaluation
+revealed another timing issue: generated logs were placed in a 2026
+simulation window while the held-out test log started in 2016. This made
+absolute event and case-arrival distances meaningless. The simulator was
+corrected to start at the first held-out timestamp and to sample
+empirical case inter-arrivals from the training log. These iterations
+show why validation must be integrated into the design cycle rather than
+postponed until the end.
+

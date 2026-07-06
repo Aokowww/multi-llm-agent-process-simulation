@@ -1,0 +1,82 @@
+\section{Introduction}\label{introduction}
+
+Business processes are rarely changed in a risk-free environment. Before
+a process owner changes staffing rules, routing policies, automation
+levels, or escalation procedures, they need some way to reason about the
+likely consequences of the intervention. Business process simulation
+supports this need by generating hypothetical executions of a process
+under a set of assumptions. In process mining, simulation is
+particularly attractive because historical event logs provide empirical
+evidence about activities, resources, timestamps, case arrivals, and
+observed variants. A data-driven simulator can therefore be calibrated
+from the same logs that are used for process discovery and conformance
+checking.
+
+Despite this empirical grounding, a central limitation remains: many BPS
+approaches are process-centric rather than resource-centric. They model
+the process as a control-flow structure with timing and resource
+parameters attached to it. This is useful for many what-if analyses, but
+it can underrepresent the decentralized nature of organizational work.
+In real processes, individual resources differ in capabilities,
+preferences, workload, availability, handover behavior, and local
+decision routines. A case does not move only because a global
+control-flow model says that the next activity is enabled; it moves
+because a person, team, or software resource accepts work, prioritizes
+it, performs it, and passes it to another actor.
+
+Recent agent-based approaches to process simulation respond to this
+limitation by representing resources as agents. AgentSimulator, for
+example, moves toward an agent-based view of data-driven BPS by learning
+agent behavior from event logs \cite{kirchdorfer2024agentsimulator}. In parallel,
+research on LLM-empowered agent-based modeling argues that LLMs can
+provide richer agent cognition, communication, and decision-making in
+simulations \cite{gao2024llmabm}. These developments create an appealing
+research opportunity: a business process could be simulated as a society
+of log-grounded resource agents, where LLM modules help agents reason
+about local choices and handovers.
+
+The opportunity is also a risk. If LLM agents are allowed to freely
+invent process behavior, the simulation may become less reproducible and
+less faithful to the observed process. A fluent explanation is not the
+same as a valid business event. For process-mining applications, every
+simulated action must remain compatible with an event-log schema, a
+feasible activity/resource assignment, and a measurable quality
+framework. This means that LLM agents should not be treated as
+unconstrained generators. They should operate inside action spaces
+derived from event logs, and their outputs should be evaluated with the
+same log-distance measures used for conventional BPS.
+
+This study asks the following research question:
+
+\textbf{How can log-derived resource-agent profiles and local behavior
+priors be used to constrain LLM-augmented agent decisions so that a
+resource-centric multi-agent simulator generates
+process-mining-compatible event logs and interpretable reasoning and
+handover traces?}
+
+The study contributes a design-science artifact and an initial
+controlled evaluation. The artifact, denoted as \(H_{R-LLM}\),
+represents resources as agents with learned capabilities, service-time
+distributions, local resource priors, handover priors, and memory. It
+compares three executable policies: a centralized baseline, a
+log-derived agent-profile policy, and a constrained LLM-agent proxy. The
+LLM-agent proxy is not presented as a full production LLM system; it is
+a deterministic, inspectable stand-in for the decision interface that a
+real LLM would occupy. This choice keeps the first evaluation
+reproducible while testing the architectural question: whether an
+LLM-style local decision module can be integrated into a BPS pipeline
+without breaking event-log compatibility.
+
+The evaluation uses the AcademicCredentials log from the public artifact
+accompanying Chapela-Campa et al.'s BPS quality framework
+\cite{chapela2025quality}. The experiment compares simulated logs against a held-out
+test log with lightweight prototype metrics and formal BPS log-distance
+measures. The findings are deliberately interpreted conservatively. The
+LLM-agent proxy does not dominate the baselines. Instead, it produces
+competitive but dimension-specific behavior: it is close to the
+agent-profile baseline on control-flow n-grams and achieves the best
+workforce distance, while the agent-profile and central baselines remain
+better on several other metrics. This result is useful precisely because
+it prevents overclaiming. It shows where LLM-agent process simulation is
+promising and where conventional statistical mechanisms remain stronger.
+
