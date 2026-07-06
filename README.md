@@ -63,16 +63,3 @@ python src/run_chapela_repeated.py \
 The `results/` folder contains the repeated lightweight metric summary and repeated Chapela-Campa summary used in the manuscript.
 
 The main interpretation is not that the LLM-agent proxy dominates traditional BPS. The result is dimension-specific: the agent-profile policy is strongest on several formal control-flow and absolute/case-arrival timing metrics, while the LLM-agent proxy is competitive and strongest on workforce EMD.
-
-## Manuscript
-
-The `manuscript/` folder contains a LaTeX draft and figures. Compile from that folder with:
-
-```bash
-pdflatex main.tex
-bibtex main
-pdflatex main.tex
-pdflatex main.tex
-```
-
-The title-page personal and supervisor fields should be replaced before final submission.
