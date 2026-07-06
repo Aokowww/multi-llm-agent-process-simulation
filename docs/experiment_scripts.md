@@ -68,6 +68,35 @@ Outputs:
 - `metrics_runs.csv`: one row per run and condition.
 - `metrics_summary.csv`: mean, standard deviation, min, and max by condition.
 
+## What-If Stress Test
+
+The what-if script complements the held-out log reproduction experiment. It adds a resource-availability queue and simulates intervention scenarios that change capacity and workload:
+
+- `baseline`
+- `reduced_capacity`
+- `high_load`
+- `reduced_capacity_high_load`
+
+Run:
+
+```bash
+python3 run_what_if.py \
+  --train-log ../03_data/original-event-logs/AcademicCredentials_train.csv.gz \
+  --test-log ../03_data/original-event-logs/AcademicCredentials_test.csv.gz \
+  --output-dir ../05_results/academic_credentials_what_if \
+  --runs 5 \
+  --seed 3000 \
+  --load-multiplier 1.6 \
+  --capacity-factor 0.5 \
+  --constrained-resource-limit 20
+```
+
+The default intervention constrains the top 20 high-frequency resources to 50% capacity and optionally compresses case arrivals by 1.6x. Outputs:
+
+- `what_if_runs.csv`: one row per run, scenario, and mode.
+- `what_if_summary.csv`: mean/std by scenario and mode.
+- Optional generated logs when `--save-logs` is used.
+
 ## Chapela-Campa Formal Distances
 
 Run:

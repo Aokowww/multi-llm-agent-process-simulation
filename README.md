@@ -17,6 +17,7 @@ manuscript/          LaTeX manuscript source and figures
 
 - `src/pilot_simulation.py`: learns log-derived profiles and simulates three default policies, with an optional API-backed real LLM condition.
 - `src/run_repeated.py`: repeats simulations across random seeds and aggregates lightweight metrics, optionally including the real LLM condition.
+- `src/run_what_if.py`: runs resource-capacity and high-load intervention scenarios with a resource-availability queue.
 - `src/run_chapela_distances.py`: wraps the public Chapela-Campa distance script for one generated-log directory.
 - `src/run_chapela_repeated.py`: aggregates Chapela-Campa distances across repeated generated logs.
 
@@ -73,9 +74,22 @@ python src/run_chapela_repeated.py \
   --distance-script path/to/ComputeLogDistance.py
 ```
 
+Run the what-if stress test:
+
+```bash
+python src/run_what_if.py \
+  --train-log path/to/AcademicCredentials_train.csv.gz \
+  --test-log path/to/AcademicCredentials_test.csv.gz \
+  --output-dir outputs/what_if \
+  --runs 5 \
+  --load-multiplier 1.6 \
+  --capacity-factor 0.5 \
+  --constrained-resource-limit 20
+```
+
 ## Current Result Summary
 
-The `results/` folder contains the repeated lightweight metric summary and repeated Chapela-Campa summary used in the manuscript.
+The `results/` folder contains the repeated lightweight metric summary, repeated Chapela-Campa summary, and the AcademicCredentials what-if stress-test summary used in the manuscript.
 
 The main interpretation is not that the LLM-agent proxy dominates traditional BPS. The result is dimension-specific: the agent-profile policy is strongest on several formal control-flow and absolute/case-arrival timing metrics, while the LLM-agent proxy is competitive and strongest on workforce EMD. The optional `llm_agent_real` condition is implemented for follow-up experiments but is not included in the reported main result table unless an API-backed run is executed and archived.
 

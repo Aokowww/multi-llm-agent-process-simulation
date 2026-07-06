@@ -690,6 +690,62 @@ which behavioral dimensions require stronger modeling before a full
 LLM-agent simulator can be claimed to improve process simulation
 accuracy.
 
+\subsection{What-If Stress Test}\label{what-if-stress-test}
+
+The previous results evaluate log reproduction. To examine whether the
+artifact can also support what-if analysis, an additional stress test was
+implemented. This experiment adds a simple resource-availability queue:
+if a selected resource is still busy or unavailable, the event waits
+until that resource becomes available. The intervention constrains the
+top 20 high-frequency resources to 50\% capacity and increases workload
+by compressing case arrivals with a 1.6x load multiplier. This combined
+scenario is intentionally not a held-out-log reproduction task. It asks
+how each policy reacts to a capacity and workload shock.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.2100}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1580}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1580}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1580}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1580}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 10\tabcolsep) * \real{0.1580}}@{}}
+\caption{What-if stress-test response under reduced capacity and high load on AcademicCredentials. Cycle times are reported in days because the original log contains long waiting intervals.}
+\label{tab:what-if}\\
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Mode
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Mean cycle time
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+P90 cycle time
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Handovers per case
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Constrained-group share
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Throughput
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{central\_baseline} & 87.6 & 191.7 & 3.86 & 0.202 & 1.21 \\
+\texttt{agent\_profile} & 215.1 & 451.4 & 3.77 & 0.447 & 0.60 \\
+\texttt{llm\_agent\_proxy} & 106.4 & 251.8 & 2.09 & 0.366 & 0.93 \\
+\end{longtable}
+
+Table~\ref{tab:what-if} shows a different kind of result from the
+reproduction metrics. The central baseline has the strongest temporal
+response in this stress test: it produces the lowest mean and p90 cycle
+time and the highest throughput. The LLM-agent proxy does not dominate
+on these temporal measures, but it substantially reduces handovers per
+case. The agent-profile policy relies most heavily on the constrained
+high-frequency resource group and suffers the largest cycle-time
+increase. This suggests that the value of an LLM-agent process simulator
+should not be evaluated only by log similarity. It can also expose how
+coordination style, resource concentration, and bottleneck behavior
+change under interventions.
+
 \subsection{Reasoning and Handover
 Outputs}\label{reasoning-and-handover-outputs}
 

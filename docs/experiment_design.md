@@ -143,6 +143,21 @@ The implementation is intentionally guarded:
 
 In the current local verification environment, no `OPENAI_API_KEY` was available, so the real LLM smoke test exercised the fallback path rather than producing API-backed empirical results. Therefore, the paper's quantitative conclusions should continue to use the reproducible proxy results unless a real LLM run is executed, archived, and evaluated with the same metrics.
 
+## What-If Stress-Test Update
+
+The project now includes a separate what-if experiment for operational response analysis. Unlike the held-out log reproduction experiment, this test does not ask which generated log is closest to the original log. It asks how each policy behaves when the environment changes.
+
+The implemented scenarios are:
+
+- `baseline`: learned arrival intensity and full resource availability,
+- `reduced_capacity`: the top 20 high-frequency resources operate at 50% capacity,
+- `high_load`: case arrivals are compressed by a 1.6x load multiplier,
+- `reduced_capacity_high_load`: both interventions are applied together.
+
+The what-if simulator adds a resource-availability queue: if a selected resource is still busy or unavailable, the next event waits until that resource becomes available. This makes capacity interventions visible in cycle time, p90 cycle time, throughput, bottleneck utilization, constrained-resource usage, and handovers per case.
+
+In the AcademicCredentials stress test, the central baseline is strongest on cycle-time and throughput response under the combined intervention. The LLM-agent proxy does not dominate temporally, but it produces far fewer handovers per case. The agent-profile policy relies most heavily on the constrained high-frequency resource group and has the weakest cycle-time response. This supports a multidimensional interpretation of LLM-agent BPS: the agentic policy changes coordination and bottleneck behavior, but it must be evaluated as an operational trade-off rather than as a universal improvement.
+
 
 ## Reproducibility Protocol
 

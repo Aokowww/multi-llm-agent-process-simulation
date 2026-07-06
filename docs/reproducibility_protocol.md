@@ -10,6 +10,7 @@ This protocol records how the current experiments behind `06_manuscript/manuscri
 |---|---|
 | `pilot_simulation.py` | Learns profiles, simulates the default policies, optionally adds `llm_agent_real`, writes generated logs, reasoning logs, handover logs, and lightweight metrics. |
 | `run_repeated.py` | Runs `pilot_simulation.py` logic for repeated seeds and aggregates lightweight metrics, optionally including the real LLM condition. |
+| `run_what_if.py` | Runs resource-capacity and high-load intervention scenarios with a resource-availability queue. |
 | `run_chapela_distances.py` | Wraps the Chapela-Campa `ComputeLogDistance.py` script for one generated-log directory. |
 | `run_chapela_repeated.py` | Runs formal Chapela-Campa distances across repeated run folders and aggregates results. |
 
@@ -66,6 +67,7 @@ AcademicCredentials from the Chapela-Campa et al. Zenodo artifact:
 | Repeated generated logs | `05_results/academic_credentials_repeated_arrival_logs_v7/` |
 | Lightweight repeated metrics | `05_results/academic_credentials_repeated_arrival_v6/metrics_summary.csv` |
 | Formal repeated Chapela-Campa metrics | `05_results/academic_credentials_chapela_repeated_v7/chapela_summary.csv` |
+| What-if stress-test summary | `results/academic_credentials_what_if/what_if_summary.csv` in the GitHub release repository. |
 
 ## Optional Real-LLM Extension
 
@@ -83,3 +85,21 @@ python3 src/pilot_simulation.py \
 ```
 
 If `OPENAI_API_KEY` is not set, the `llm_agent_real` condition exercises the same interface but records fallback decisions, so these outputs should be treated as an implementation smoke test rather than API-backed evidence.
+
+## What-If Stress-Test Settings
+
+The what-if experiment is run with:
+
+```bash
+python3 src/run_what_if.py \
+  --train-log path/to/AcademicCredentials_train.csv.gz \
+  --test-log path/to/AcademicCredentials_test.csv.gz \
+  --output-dir results/academic_credentials_what_if \
+  --runs 5 \
+  --seed 3000 \
+  --load-multiplier 1.6 \
+  --capacity-factor 0.5 \
+  --constrained-resource-limit 20
+```
+
+The script reports cycle time, p90 cycle time, handovers per case, bottleneck utilization, constrained-resource-group event share, constrained-resource-group utilization, and throughput. It is a stress-test analysis rather than a held-out log-distance evaluation.
