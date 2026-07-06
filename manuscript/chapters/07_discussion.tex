@@ -1,86 +1,82 @@
 \section{Discussion}\label{discussion}
 
-The study began from a simple but risky idea: use LLM-style agents to
-simulate business processes. The results show that the idea becomes
-scientifically useful only after it is narrowed. A business process
-simulator cannot rely on unconstrained language generation. It needs
-log-derived feasible action spaces, timing distributions, resource
-priors, and validation metrics. Once those constraints are in place, an
-LLM-style decision module can be treated as one component inside a
-larger BPS architecture rather than as the whole simulator.
+This study shows that LLM-agent process simulation becomes useful only
+when the agentic part is deliberately constrained. A business process
+simulator cannot rely on open-ended language generation and still remain
+usable for process mining. It needs feasible action spaces, timing
+samples, resource priors, handover priors, and explicit validation. Under
+these constraints, an LLM-style decision module is best understood as one
+component inside a BPS architecture, not as a replacement for the
+architecture itself.
 
-The first implication is that resource-centric modeling is a strong
-foundation for LLM-agent BPS. The agent-profile baseline performs best
-on several formal metrics, which suggests that much of the process
-behavior can already be captured by careful log-derived resource
-profiles. This is not a problem for the proposed approach; it is a
-design lesson. LLM modules should be added where they provide
-incremental value, such as ambiguous handovers, policy-sensitive
-routing, exception handling, or explanation generation. They should not
-replace statistical components that already reproduce observed behavior
-well.
+The mixed empirical results are therefore informative rather than
+disappointing. The agent-profile baseline performs best on several
+formal metrics, which means that much of the observed process behavior
+is already captured by careful log-derived resource profiles. This is a
+strong rival explanation for any apparent LLM-agent improvement: if the
+historical log already contains stable activity-resource and timing
+patterns, a statistical profile can reproduce them with less variance
+than a more flexible local decision module. The role of LLM modules
+should therefore be narrower. They are most plausible where static
+priors are not enough, such as ambiguous handovers, policy-sensitive
+routing, exception handling, and explanation generation.
 
-The second implication is that LLM-agent simulation should be evaluated
-multidimensionally. The LLM-agent proxy looks favorable under some
-lightweight metrics, but the formal repeated Chapela-Campa evaluation
-shows a more mixed picture. This difference confirms the value of using
-a mature BPS quality framework. A single score or a single hand-picked
-example would be misleading. The artifact should be judged by how it
-changes control-flow, resource, and temporal behavior simultaneously.
-At the same time, the absence of uniform outperformance under BPS
-log-quality metrics should not be interpreted as evidence that
-LLM-agent simulation has no added value. These metrics primarily reward
-historical distribution reproduction. They do not fully measure whether
-an agent selected only feasible actions, produced a faithful rationale,
-handled handovers coherently, adapted to an intervention, or left an
-auditable decision trace. This is why the proposed dual framework
-separates BPS log quality from LLM-agent behavioral quality.
+The results also show why LLM-agent BPS needs a dual evaluation
+framework. Formal BPS metrics ask whether a generated event log resembles
+a held-out event log. This is necessary, and the Chapela-Campa distances
+prevent the prototype from being judged by a few favorable examples.
+However, these metrics mainly reward historical distribution
+reproduction. They do not fully measure whether an agent stayed inside
+the feasible action set, produced a rationale consistent with its
+action, adapted coherently to an intervention, or left a decision trace
+that a process owner can audit. The absence of uniform outperformance on
+BPS log quality should therefore not be read as evidence that
+LLM-agent simulation has no value. It means that the value must be
+claimed on the right dimension.
 
-The third implication concerns interpretability. The LLM-agent proxy
-emits reasoning and handover traces that conventional event logs do not
-contain. These traces are not a substitute for quantitative validation,
-but they can support diagnosis and governance. For example, if an
-LLM-agent simulator overuses a historically strong resource, the
-reasoning log can reveal whether the policy is repeatedly selecting the
-resource because of capability priors, workload estimates, or handover
-preferences. This creates a pathway toward auditable agentic process
-simulation.
+The clearest added value in the current artifact is observability. The
+LLM-agent proxy emits reasoning and handover traces alongside the
+simulated event log. These traces do not replace quantitative validation,
+but they make failures easier to diagnose. If a simulator overuses a
+historically strong resource, for example, the reasoning log can show
+whether the choice came from capability priors, handover preferences, or
+workload estimates. This matters for process simulation because
+what-if analysis is not only about predicting a number. It is also about
+understanding which local decisions produced the bottleneck or handover
+pattern.
 
-The practical consequence is that future API-backed LLM experiments
-should not be judged only by whether they reduce n-gram or cycle-time
-distance. They should also report invalid-output rate, fallback rate,
-feasible-action compliance, reason-action consistency,
+The what-if experiments point in the same direction. In some LoanApp
+high-load settings, the LLM-agent proxy gives a favorable throughput and
+cycle-time response. Under combined reduced-capacity and high-load
+stress, the advantage disappears. This pattern suggests that the proxy
+is not a generally better simulator, but it can change how the system
+reacts to interventions. Future work should therefore evaluate
+intervention sensitivity directly, especially for changes in escalation
+policy, resource specialization, and handover rules that are difficult
+to express with static historical priors alone.
+
+Several limitations define the boundary of the claim. First, the main
+reported LLM-agent condition is a deterministic proxy, although the
+artifact includes an optional API-backed
+\texttt{llm\_agent\_real} condition. This keeps the reported experiments
+reproducible, but it does not yet measure prompt sensitivity, model
+drift, invalid textual outputs, token cost, or model-specific
+reasoning quality. Second, AcademicCredentials remains the primary
+dataset and LoanApp is used as a robustness check. This improves
+empirical breadth, but it is still not enough to generalize across
+process types. Third, the temporal model remains simple. The simulator
+uses empirical waiting-time and case-arrival sampling, but it does not
+yet model explicit resource calendars, multitasking, or data-aware case
+attributes. Fourth, the evaluation reports descriptive repeated-run
+statistics rather than full pairwise confidence intervals or hypothesis
+tests.
+
+The next evaluation should therefore report both BPS log quality and
+LLM-agent behavioral quality. For an API-backed LLM experiment, the
+minimum additional measures should include invalid-output rate, fallback
+rate, feasible-action compliance, reason-action consistency,
 reason-context consistency, handover-message consistency, and scenario
-sensitivity. Some of these metrics can be computed deterministically
-from the simulator logs, while others require a small human-coded or
-LLM-as-judge rubric. In the latter case, judge reliability and bias must
-be checked rather than assumed.
-
-Several limitations should be acknowledged. First, the main reported
-LLM-agent condition is a deterministic proxy even though the artifact now
-contains an optional API-backed LLM implementation. This was intentional
-for reproducibility, but it means the reported quantitative comparison
-does not yet measure prompt sensitivity, model drift, invalid textual
-outputs, or token cost from an archived real-LLM run. Second,
-AcademicCredentials remains the primary dataset and LoanApp is used only
-as a robustness check. This improves empirical breadth but is still not
-enough for broad generalization across process types. Third, the temporal model remains
-simple. Although empirical waiting-time and case-arrival sampling
-improved fidelity, the simulator does not yet include explicit resource
-calendars, multitasking, or data-aware case attributes. Fourth, the
-evaluation reports descriptive repeated-run statistics but does not yet
-include full significance testing or confidence intervals for all
-pairwise comparisons.
-
-Future work should extend the artifact in four directions. The first is
-to execute, archive, and evaluate a cost-controlled API-backed
-\texttt{llm\_agent\_real} experiment, preferably activating the model
-only at ambiguous handover decisions. The second is to add LLM-specific
-metrics such as invalid output rate, fallback rate, feasible action-set
-size, reason-action consistency, and handover-message consistency. The
-third is to evaluate additional logs from the Chapela-Campa and
-AgentSimulator artifact families, especially logs with different
-resource density and timing characteristics. The fourth is to test intervention scenarios in which
-the LLM-agent module may have a clearer advantage, such as changes in
-escalation policy or resource specialization that are difficult to
-express with static historical priors alone.
+sensitivity. Some of these measures can be computed directly from the
+simulator logs. Others may require a small human-coded or LLM-as-judge
+rubric, in which case judge reliability and bias must be checked rather
+than assumed.

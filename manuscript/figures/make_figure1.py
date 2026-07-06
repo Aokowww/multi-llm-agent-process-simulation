@@ -6,26 +6,30 @@ OUT = Path(__file__).resolve().parent / "figure1_architecture.svg"
 
 
 BOXES = [
-    ("Historical event log L", ["Cases, activities, resources", "Start and end timestamps", "Observed handovers"], 40, 55, 205, 125, "#e8f4f8"),
-    ("Log-derived profiles", ["Resource capabilities", "Service-time samples", "Case arrivals and waits", "Handover priors"], 295, 45, 230, 145, "#eaf7ea"),
-    ("Simulation environment", ["Case state", "Enabled activity", "Feasible action set", "Workload and memory"], 575, 45, 230, 145, "#fff3df"),
-    ("Decision layer", ["Central baseline", "Agent-profile policy", "Constrained LLM-agent proxy"], 855, 45, 235, 145, "#f4ecf7"),
-    ("Guardrails", ["Action mask", "Distributional penalty", "Fallback rule"], 595, 275, 205, 115, "#fdecea"),
-    ("Outputs O = L', R', H'", ["Simulated event log L'", "Reasoning log R'", "Handover log H'"], 855, 265, 235, 130, "#edf0fb"),
-    ("Validation", ["Prototype distances", "Chapela-Campa metrics", "Failure-mode analysis"], 295, 270, 230, 130, "#f2f2f2"),
+    ("Historical event log L", ["Cases and activities", "Resources and timestamps", "Observed handovers"], 35, 45, 205, 125, "#e8f4f8"),
+    ("Log-derived profiles", ["Resource capabilities", "Service-time samples", "Arrivals and waits", "Handover priors"], 285, 35, 230, 145, "#eaf7ea"),
+    ("Simulation environment", ["Case state", "Enabled activity", "Feasible action set", "Workload and memory"], 560, 35, 230, 145, "#fff3df"),
+    ("Policy layer", ["Central baseline", "Agent-profile policy", "LLM-agent proxy", "Optional real LLM"], 835, 35, 250, 145, "#f4ecf7"),
+    ("Guardrails", ["Action mask", "JSON validation", "Distributional penalty", "Fallback rule"], 580, 270, 225, 135, "#fdecea"),
+    ("Outputs O = L', R', H'", ["Simulated event log L'", "Reasoning log R'", "Handover log H'"], 835, 275, 250, 130, "#edf0fb"),
+    ("Dual evaluation", ["BPS log quality", "LLM-agent behavior", "What-if response"], 285, 270, 230, 130, "#f2f2f2"),
 ]
 
 
 ARROWS = [
-    (245, 118, 295, 118, None, False),
-    (525, 118, 575, 118, None, False),
-    (805, 118, 855, 118, None, False),
-    (972, 190, 972, 265, None, False),
-    (800, 333, 855, 333, None, False),
-    (855, 330, 525, 330, "event log quality", False),
-    (695, 275, 895, 190, "constraints", False),
-    (410, 270, 410, 190, "design feedback", True),
-    (525, 337, 595, 337, "diagnostics", True),
+    (240, 108, 285, 108, None, False),
+    (515, 108, 560, 108, None, False),
+    (790, 108, 835, 108, None, False),
+    (960, 180, 960, 275, None, False),
+    (805, 337, 835, 337, None, False),
+    (692, 270, 920, 180, "constraints", False),
+    (400, 270, 400, 180, "design feedback", True),
+    (515, 337, 580, 337, None, True),
+]
+
+
+PATH_ARROWS = [
+    ("M 960 405 L 960 430 L 400 430 L 400 400", "generated logs and traces", 680, 421, False),
 ]
 
 
@@ -59,10 +63,20 @@ def arrow(x1, y1, x2, y2, label=None, dashed=False):
     return "\n".join(parts)
 
 
+def path_arrow(path, label=None, label_x=0, label_y=0, dashed=False):
+    dash = ' stroke-dasharray="6 5"' if dashed else ""
+    parts = [
+        f'<path d="{path}" fill="none" stroke="#34495e" stroke-width="1.6" marker-end="url(#arrow)"{dash}/>'
+    ]
+    if label:
+        parts.append(text(label_x, label_y, label, 12, "400", "middle"))
+    return "\n".join(parts)
+
+
 def main():
     body = []
     body.append(
-        '<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="500" viewBox="0 0 1160 500" role="img" aria-label="Architecture diagram for resource-centric LLM-augmented process simulation">'
+        '<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="470" viewBox="0 0 1160 470" role="img" aria-label="Architecture diagram for resource-centric LLM-augmented process simulation">'
     )
     body.append(
         """
@@ -71,14 +85,15 @@ def main():
     <path d="M0,0 L10,4 L0,8 Z" fill="#34495e" />
   </marker>
 </defs>
-<rect x="0" y="0" width="1160" height="500" fill="#ffffff"/>
+<rect x="0" y="0" width="1160" height="470" fill="#ffffff"/>
 """
     )
     for item in BOXES:
         body.append(box(*item))
     for item in ARROWS:
         body.append(arrow(*item))
-    body.append(text(40, 462, "Figure 1. Log-grounded architecture for resource-centric LLM-augmented process simulation.", 15, "700"))
+    for item in PATH_ARROWS:
+        body.append(path_arrow(*item))
     body.append("</svg>\n")
     OUT.write_text("\n".join(body), encoding="utf-8")
 

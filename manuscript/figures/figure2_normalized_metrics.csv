@@ -1,0 +1,25 @@
+metric,label,mode,mean,relative_to_best,is_best
+bigram_mean,Bigram,central_baseline,0.16182938022862917,1.050423309011387,False
+bigram_mean,Bigram,agent_profile,0.15406110930738579,1.0,True
+bigram_mean,Bigram,llm_agent_proxy,0.15483095098210828,1.004996989040151,False
+trigram_mean,Trigram,central_baseline,0.2065093169485612,1.042149269243556,False
+trigram_mean,Trigram,agent_profile,0.1981571383708362,1.0,True
+trigram_mean,Trigram,llm_agent_proxy,0.1987650813430271,1.0030679842128785,False
+absolute_emd_mean,Absolute EMD,central_baseline,159.69717561521253,1.0944900345858153,False
+absolute_emd_mean,Absolute EMD,agent_profile,145.9101230425056,1.0,True
+absolute_emd_mean,Absolute EMD,llm_agent_proxy,155.8599832214765,1.0681917057672028,False
+case_arrival_emd_mean,Case-arrival EMD,central_baseline,184.3429648241206,1.1345568302892817,False
+case_arrival_emd_mean,Case-arrival EMD,agent_profile,162.48015075376884,1.0,True
+case_arrival_emd_mean,Case-arrival EMD,llm_agent_proxy,186.086432160804,1.1452871707560721,False
+circadian_emd_mean,Circadian EMD,central_baseline,3.020841372739761,1.0,True
+circadian_emd_mean,Circadian EMD,agent_profile,3.095889291908521,1.0248433829879307,False
+circadian_emd_mean,Circadian EMD,llm_agent_proxy,3.038715715851008,1.005917008179425,False
+workforce_emd_mean,Workforce EMD,central_baseline,3.195147075692997,1.0195674830914143,False
+workforce_emd_mean,Workforce EMD,agent_profile,3.428440652187553,1.0940111750320611,False
+workforce_emd_mean,Workforce EMD,llm_agent_proxy,3.1338259886486797,1.0,True
+relative_emd_mean,Relative EMD,central_baseline,16.870022371364655,1.0,True
+relative_emd_mean,Relative EMD,agent_profile,17.335654362416108,1.0276011484040366,False
+relative_emd_mean,Relative EMD,llm_agent_proxy,19.300167785234898,1.1440511079579359,False
+cycle_time_wass_mean,Cycle-time Wass.,central_baseline,16.52311557788945,1.0,True
+cycle_time_wass_mean,Cycle-time Wass.,agent_profile,17.235929648241207,1.0431404154374866,False
+cycle_time_wass_mean,Cycle-time Wass.,llm_agent_proxy,19.172613065326637,1.160350962561966,False

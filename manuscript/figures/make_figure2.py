@@ -6,7 +6,7 @@ from xml.sax.saxutils import escape
 
 
 ROOT = Path(__file__).resolve().parents[2]
-SUMMARY = ROOT / "05_results" / "academic_credentials_chapela_repeated_v7" / "chapela_summary.csv"
+SUMMARY = ROOT / "results" / "academic_credentials_chapela_summary.csv"
 FIG_DIR = Path(__file__).resolve().parent
 SVG_OUT = FIG_DIR / "figure2_formal_metric_tradeoffs.svg"
 CSV_OUT = FIG_DIR / "figure2_normalized_metrics.csv"
@@ -84,7 +84,7 @@ def main() -> None:
         writer.writerows(normalized)
 
     width, height = 1160, 640
-    margin_l, margin_r, margin_t, margin_b = 88, 40, 84, 135
+    margin_l, margin_r, margin_t, margin_b = 88, 40, 66, 135
     plot_w = width - margin_l - margin_r
     plot_h = height - margin_t - margin_b
     y_max = 1.18
@@ -95,8 +95,7 @@ def main() -> None:
     parts = [
         f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img" aria-label="Relative formal BPS distance metrics by simulation condition">',
         '<rect x="0" y="0" width="1160" height="640" fill="#ffffff"/>',
-        svg_text(40, 38, "Figure 2. Formal BPS metric trade-offs across simulation policies", 18, "700"),
-        svg_text(40, 62, "Bars show mean distance divided by the best mean for each metric; lower is better and 1.0 is best.", 13),
+        svg_text(40, 38, "Mean distance divided by best mean for each metric; lower is better and 1.0 is best.", 13),
     ]
 
     # Grid and y-axis labels
@@ -106,7 +105,6 @@ def main() -> None:
         parts.append(svg_text(margin_l - 12, y + 4, f"{tick:.2f}", 12, anchor="end", fill="#52616f"))
     parts.append(f'<line x1="{margin_l}" y1="{margin_t}" x2="{margin_l}" y2="{margin_t + plot_h}" stroke="#334155" stroke-width="1.3"/>')
     parts.append(f'<line x1="{margin_l}" y1="{margin_t + plot_h}" x2="{width - margin_r}" y2="{margin_t + plot_h}" stroke="#334155" stroke-width="1.3"/>')
-    parts.append(svg_text(18, 284, "Relative distance to best", 13, "700", anchor="middle"))
 
     # Bars
     for idx, (metric, label) in enumerate(METRICS):
@@ -127,7 +125,7 @@ def main() -> None:
         parts.append(multiline_text(cx, margin_t + plot_h + 26, label, 11, "middle"))
 
     # Legend
-    lx, ly = 700, 35
+    lx, ly = 700, 27
     for i, mode in enumerate(modes):
         x = lx + i * 145
         parts.append(f'<rect x="{x}" y="{ly}" width="14" height="14" fill="{COLORS[mode]}" rx="2"/>')
