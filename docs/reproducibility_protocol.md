@@ -9,6 +9,7 @@ This protocol records how the current experiments behind `06_manuscript/manuscri
 | Script | Role |
 |---|---|
 | `pilot_simulation.py` | Learns profiles, simulates the default policies, optionally adds `llm_agent_real`, writes generated logs, reasoning logs, handover logs, and lightweight metrics. |
+| `prepare_agentsimulator_loanapp.py` | Normalizes and splits the AgentSimulator LoanApp robustness dataset. |
 | `run_repeated.py` | Runs `pilot_simulation.py` logic for repeated seeds and aggregates lightweight metrics, optionally including the real LLM condition. |
 | `run_what_if.py` | Runs resource-capacity and high-load intervention scenarios with a resource-availability queue. |
 | `run_chapela_distances.py` | Wraps the Chapela-Campa `ComputeLogDistance.py` script for one generated-log directory. |
@@ -60,6 +61,16 @@ AcademicCredentials from the Chapela-Campa et al. Zenodo artifact:
 - 16 activities.
 - Around 300 resources.
 
+## Robustness Dataset
+
+AgentSimulator LoanApp from the public AgentSimulator repository:
+
+- Source: `https://github.com/lukaskirchdorfer/AgentSimulator/raw/main/raw_data/LoanApp.csv.gz`.
+- License: MIT License in the AgentSimulator repository; the license text is included in `data/agentsimulator_loanapp/AGENTSIMULATOR_LICENSE`.
+- Prepared split seed: 2408.
+- Train/test split: 700/300 cases.
+- Size: 7,492 events, 1,000 cases, 12 activities, 19 resources.
+
 ## Current Result Locations
 
 | Output | Path |
@@ -68,6 +79,9 @@ AcademicCredentials from the Chapela-Campa et al. Zenodo artifact:
 | Lightweight repeated metrics | `05_results/academic_credentials_repeated_arrival_v6/metrics_summary.csv` |
 | Formal repeated Chapela-Campa metrics | `05_results/academic_credentials_chapela_repeated_v7/chapela_summary.csv` |
 | What-if stress-test summary | `results/academic_credentials_what_if/what_if_summary.csv` in the GitHub release repository. |
+| AgentSimulator LoanApp lightweight metrics | `results/agentsimulator_loanapp_repeated/metrics_summary.csv` |
+| AgentSimulator LoanApp formal metrics | `results/agentsimulator_loanapp_chapela/chapela_summary.csv` |
+| AgentSimulator LoanApp what-if summary | `results/agentsimulator_loanapp_what_if/what_if_summary.csv` |
 
 ## Optional Real-LLM Extension
 

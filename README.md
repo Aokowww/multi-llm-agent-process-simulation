@@ -8,6 +8,7 @@ The core idea is conservative: an LLM-style agent module should not freely gener
 
 ```text
 src/                 Python experiment scripts
+data/                Small prepared robustness datasets and source notes
 results/             Paper-ready result summaries
 docs/                Research plan and reproducibility notes
 manuscript/          LaTeX manuscript source and figures
@@ -18,6 +19,7 @@ manuscript/          LaTeX manuscript source and figures
 - `src/pilot_simulation.py`: learns log-derived profiles and simulates three default policies, with an optional API-backed real LLM condition.
 - `src/run_repeated.py`: repeats simulations across random seeds and aggregates lightweight metrics, optionally including the real LLM condition.
 - `src/run_what_if.py`: runs resource-capacity and high-load intervention scenarios with a resource-availability queue.
+- `src/prepare_agentsimulator_loanapp.py`: prepares the AgentSimulator LoanApp robustness dataset.
 - `src/run_chapela_distances.py`: wraps the public Chapela-Campa distance script for one generated-log directory.
 - `src/run_chapela_repeated.py`: aggregates Chapela-Campa distances across repeated generated logs.
 
@@ -35,6 +37,12 @@ The experiments use the public Zenodo artifact associated with:
 Chapela-Campa, D., Benchekroun, I., Baron, O., Dumas, M., Krass, D., and Senderovich, A. 2025. "A Framework for Measuring the Quality of Business Process Simulation Models," Information Systems 127, 102447. https://doi.org/10.1016/j.is.2024.102447
 
 Raw event logs and the original `ComputeLogDistance.py` are not vendored here. Download the artifact from Zenodo and point the scripts to the local files.
+
+The repository also includes a small prepared robustness dataset from the public AgentSimulator repository:
+
+Kirchdorfer, L., Blumel, R., Kampik, T., Van der Aa, H., and Stuckenschmidt, H. 2024. "AgentSimulator: An Agent-Based Approach for Data-Driven Business Process Simulation," ICPM 2024. https://doi.org/10.1109/ICPM63005.2024.10680660
+
+The included `LoanApp` log comes from `https://github.com/lukaskirchdorfer/AgentSimulator` and is distributed there under the MIT License.
 
 ## Example Usage
 
@@ -87,11 +95,22 @@ python src/run_what_if.py \
   --constrained-resource-limit 20
 ```
 
+Run the AgentSimulator LoanApp robustness experiment:
+
+```bash
+python src/run_repeated.py \
+  --train-log data/agentsimulator_loanapp/prepared/LoanApp_train.csv.gz \
+  --test-log data/agentsimulator_loanapp/prepared/LoanApp_test.csv.gz \
+  --output-dir outputs/agentsimulator_loanapp_repeated \
+  --runs 10 \
+  --seed 4200
+```
+
 ## Current Result Summary
 
-The `results/` folder contains the repeated lightweight metric summary, repeated Chapela-Campa summary, and the AcademicCredentials what-if stress-test summary used in the manuscript.
+The `results/` folder contains the repeated lightweight metric summary, repeated Chapela-Campa summary, AcademicCredentials what-if stress-test summary, and AgentSimulator LoanApp robustness summaries used in the manuscript.
 
-The main interpretation is not that the LLM-agent proxy dominates traditional BPS. The result is dimension-specific: the agent-profile policy is strongest on several formal control-flow and absolute/case-arrival timing metrics, while the LLM-agent proxy is competitive and strongest on workforce EMD. The optional `llm_agent_real` condition is implemented for follow-up experiments but is not included in the reported main result table unless an API-backed run is executed and archived.
+The main interpretation is not that the LLM-agent proxy dominates traditional BPS. The result is dimension-specific: the agent-profile policy is strongest on several AcademicCredentials formal control-flow and absolute/case-arrival timing metrics, while the LLM-agent proxy is competitive and strongest on workforce EMD. On AgentSimulator LoanApp, the proxy is again best on workforce EMD and nearly tied on cycle-time Wasserstein, but central sampling remains strongest on control-flow n-grams. The optional `llm_agent_real` condition is implemented for follow-up experiments but is not included in the reported main result table unless an API-backed run is executed and archived.
 
 ## Manuscript
 

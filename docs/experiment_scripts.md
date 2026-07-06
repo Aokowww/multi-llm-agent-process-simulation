@@ -97,6 +97,49 @@ The default intervention constrains the top 20 high-frequency resources to 50% c
 - `what_if_summary.csv`: mean/std by scenario and mode.
 - Optional generated logs when `--save-logs` is used.
 
+## AgentSimulator LoanApp Robustness Dataset
+
+The repository includes a small prepared robustness dataset from the public AgentSimulator GitHub repository. The source file is `raw_data/LoanApp.csv.gz`, distributed under the AgentSimulator MIT License.
+
+Prepare the split from a downloaded AgentSimulator source log:
+
+```bash
+python3 prepare_agentsimulator_loanapp.py \
+  --input-log ../data/agentsimulator_loanapp/source/LoanApp.csv.gz \
+  --output-dir ../data/agentsimulator_loanapp/prepared \
+  --test-ratio 0.3 \
+  --seed 2408
+```
+
+Run repeated lightweight metrics:
+
+```bash
+python3 run_repeated.py \
+  --train-log ../data/agentsimulator_loanapp/prepared/LoanApp_train.csv.gz \
+  --test-log ../data/agentsimulator_loanapp/prepared/LoanApp_test.csv.gz \
+  --output-dir ../results/agentsimulator_loanapp_repeated \
+  --runs 10 \
+  --seed 4200
+```
+
+Run formal Chapela-Campa distances on saved repeated logs if needed:
+
+```bash
+python3 run_repeated.py \
+  --train-log ../data/agentsimulator_loanapp/prepared/LoanApp_train.csv.gz \
+  --test-log ../data/agentsimulator_loanapp/prepared/LoanApp_test.csv.gz \
+  --output-dir ../outputs/agentsimulator_loanapp_repeated_logs \
+  --runs 10 \
+  --seed 4200 \
+  --save-logs
+
+python3 run_chapela_repeated.py \
+  --original-log ../data/agentsimulator_loanapp/prepared/LoanApp_test.csv.gz \
+  --repeated-dir ../outputs/agentsimulator_loanapp_repeated_logs \
+  --output-dir ../results/agentsimulator_loanapp_chapela \
+  --distance-script path/to/ComputeLogDistance.py
+```
+
 ## Chapela-Campa Formal Distances
 
 Run:

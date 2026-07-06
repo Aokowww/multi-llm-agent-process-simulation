@@ -518,6 +518,17 @@ timestamps. The train and test splits contain approximately 398 cases
 each, around 1,800 to 1,900 events each, 16 activities, and about 300
 resources.
 
+As a robustness dataset, the study additionally uses the LoanApp log
+from the public AgentSimulator repository~\cite{kirchdorfer2024agentsimulator}. This
+dataset was selected because AgentSimulator is the closest related
+resource-centric BPS artifact and because the log already follows the
+canonical schema required by the prototype. The prepared split contains
+700 training cases and 300 test cases, with 7,492 events, 12
+activities, and 19 resources. Compared with AcademicCredentials,
+LoanApp has fewer resources and clearer role structure, making it a
+useful test of whether resource-local and handover-aware behavior is
+more visible on an AgentSimulator-style dataset.
+
 All conditions are trained on the training split and evaluated against
 the held-out test split. Each stochastic condition is repeated ten times
 with different random seeds. The simulation outputs are saved as event
@@ -690,6 +701,62 @@ which behavioral dimensions require stronger modeling before a full
 LLM-agent simulator can be claimed to improve process simulation
 accuracy.
 
+\subsection{Robustness Check on AgentSimulator
+LoanApp}\label{robustness-check-on-agentsimulator-loanapp}
+
+The second dataset provides a useful robustness check because it has a
+clearer resource-role structure than AcademicCredentials. Under the
+lightweight metrics, LoanApp is easier to reproduce overall: the
+resource distribution distances are around 0.04--0.05 rather than above
+0.60. However, the result does not make the LLM-agent proxy a universal
+winner. The central baseline has the lowest trace, activity, and
+resource distribution distance. The LLM-agent proxy is better than the
+central baseline on mean cycle-time relative error and better than the
+agent-profile policy on resource distribution distance, but not best
+overall.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1800}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2050}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2050}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2050}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2050}}@{}}
+\caption{AgentSimulator LoanApp robustness results. Lower is better.}
+\label{tab:loanapp-robustness}\\
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Mode
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Bigram
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Trigram
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Workforce EMD
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Cycle-time Wasserstein
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{central\_baseline} & 0.0288 & 0.0453 & 8.7934 & 67.9520 \\
+\texttt{agent\_profile} & 0.0353 & 0.0517 & 8.6541 & 55.4577 \\
+\texttt{llm\_agent\_proxy} & 0.0399 & 0.0550 & 8.6489 & 55.6193 \\
+\end{longtable}
+
+The formal LoanApp metrics in Table~\ref{tab:loanapp-robustness}
+support the same conservative interpretation as the primary dataset.
+The central baseline remains strongest on control-flow n-grams, while
+the LLM-agent proxy is strongest on workforce EMD and nearly tied with
+the agent-profile policy on cycle-time Wasserstein distance. A separate
+LoanApp high-load what-if scenario is more favorable to the LLM-agent
+proxy: it has the lowest mean cycle time, lowest p90 cycle time, and
+highest throughput. Yet under the combined reduced-capacity and high-load
+stress test, the proxy performs worse temporally. AgentSimulator LoanApp
+therefore improves the empirical breadth of the study and shows where
+the proxy can be advantageous, but it also reinforces that LLM-agent BPS
+must be evaluated as a scenario-dependent trade-off.
+
 \subsection{What-If Stress Test}\label{what-if-stress-test}
 
 The previous results evaluate log reproduction. To examine whether the
@@ -813,10 +880,10 @@ LLM-agent condition is a deterministic proxy even though the artifact now
 contains an optional API-backed LLM implementation. This was intentional
 for reproducibility, but it means the reported quantitative comparison
 does not yet measure prompt sensitivity, model drift, invalid textual
-outputs, or token cost from an archived real-LLM run. Second, the
-experiment uses one primary dataset.
-AcademicCredentials is useful for a pilot, but additional logs are
-needed before making general claims. Third, the temporal model remains
+outputs, or token cost from an archived real-LLM run. Second,
+AcademicCredentials remains the primary dataset and LoanApp is used only
+as a robustness check. This improves empirical breadth but is still not
+enough for broad generalization across process types. Third, the temporal model remains
 simple. Although empirical waiting-time and case-arrival sampling
 improved fidelity, the simulator does not yet include explicit resource
 calendars, multitasking, or data-aware case attributes. Fourth, the
@@ -830,9 +897,9 @@ to execute, archive, and evaluate a cost-controlled API-backed
 only at ambiguous handover decisions. The second is to add LLM-specific
 metrics such as invalid output rate, fallback rate, feasible action-set
 size, reason-action consistency, and handover-message consistency. The
-third is to evaluate additional logs from the Chapela-Campa artifact,
-especially logs with different resource density and timing
-characteristics. The fourth is to test intervention scenarios in which
+third is to evaluate additional logs from the Chapela-Campa and
+AgentSimulator artifact families, especially logs with different
+resource density and timing characteristics. The fourth is to test intervention scenarios in which
 the LLM-agent module may have a clearer advantage, such as changes in
 escalation policy or resource specialization that are difficult to
 express with static historical priors alone.

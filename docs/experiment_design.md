@@ -158,6 +158,25 @@ The what-if simulator adds a resource-availability queue: if a selected resource
 
 In the AcademicCredentials stress test, the central baseline is strongest on cycle-time and throughput response under the combined intervention. The LLM-agent proxy does not dominate temporally, but it produces far fewer handovers per case. The agent-profile policy relies most heavily on the constrained high-frequency resource group and has the weakest cycle-time response. This supports a multidimensional interpretation of LLM-agent BPS: the agentic policy changes coordination and bottleneck behavior, but it must be evaluated as an operational trade-off rather than as a universal improvement.
 
+## AgentSimulator LoanApp Robustness Update
+
+The project now includes a second dataset from the public AgentSimulator repository: `LoanApp.csv.gz`. This dataset is useful because it comes from the closest related agent-based BPS artifact, uses the same canonical fields needed by the prototype, and has a clearer role/resource structure than AcademicCredentials:
+
+- 1,000 cases,
+- 7,492 events,
+- 12 activities,
+- 19 resources,
+- 700/300 case-level train/test split.
+
+The expectation was that AgentSimulator-style data might better expose resource-centric and handover-aware behavior. The result is partly positive but still mixed:
+
+- Under lightweight metrics, LoanApp is easier to reproduce overall than AcademicCredentials. Distances are much lower, especially resource distribution distance.
+- The `llm_agent_proxy` does not dominate reproduction accuracy. `central_baseline` is best on trace, activity, and resource distance; the proxy is better than central on mean cycle-time relative error and better than `agent_profile` on resource distance.
+- Under formal Chapela-Campa metrics, `central_baseline` is best on bigram and trigram distance, while `llm_agent_proxy` is best on workforce EMD and nearly tied with `agent_profile` on cycle-time Wasserstein.
+- Under the high-load what-if scenario, `llm_agent_proxy` has the lowest mean cycle time, lowest p90 cycle time, and highest throughput. Under combined reduced-capacity and high-load stress, however, it performs worst temporally.
+
+This means AgentSimulator LoanApp is a better second dataset for demonstrating conditional value, not a dataset that makes the LLM-agent proxy universally superior. It strengthens the paper's main claim because the same trade-off pattern appears across two datasets: log-grounded LLM-style agents can improve or expose resource/workforce and scenario-response dimensions, but conventional baselines remain strong for control-flow reproduction.
+
 
 ## Reproducibility Protocol
 
