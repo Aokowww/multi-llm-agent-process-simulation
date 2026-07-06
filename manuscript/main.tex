@@ -1,0 +1,73 @@
+\documentclass[
+	a4paper,
+	pagesize,
+	pdftex,
+	12pt,
+	ngerman,
+	fleqn,
+	final,
+]{scrartcl}
+
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman,english]{babel}
+\usepackage[unicode=true]{hyperref}
+\usepackage{setspace}
+\usepackage{tikz}
+\usepackage{tabularx}
+\usepackage[draft=false,babel,tracking=true,kerning=true,spacing=true]{microtype}
+\microtypesetup{nopatch={footnote}}
+\usepackage{csquotes}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{comment}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{wrapfig}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{calc}
+\usepackage{pdflscape}
+\usepackage{afterpage}
+\usepackage{float}
+
+\begin{document}
+\selectlanguage{english}
+
+\input{Institutsvorlage}
+
+\titel{Resource-Centric LLM-Augmented Multi-Agent Process Simulation for Business Process Mining}
+\typ{Study Project Report}
+\grad{Master of Science (M. Sc.)}
+\autor{Qingzi}
+\gebdatum{DD.MM.YYYY}
+\gebort{Birthplace}
+\gutachter{First Supervisor}{Second Supervisor}
+% \mitverteidigung
+\makeTitel
+
+\begin{abstract}
+\textbf{Abstract.}
+Business process simulation (BPS) is widely used to evaluate process redesigns before interventions are implemented in real organizations. Existing data-driven BPS methods can learn control-flow, resource, and timing parameters from event logs, but they often represent resources as centralized pools or parameterized execution units. This study develops and evaluates a resource-centric LLM-augmented multi-agent process simulation artifact. The artifact extracts agent profiles, feasible action spaces, service-time samples, inter-event waiting-time samples, and handover priors from an event log, then compares a centralized baseline, a log-derived resource-agent baseline, and a constrained LLM-agent proxy. Using the AcademicCredentials log from the Chapela-Campa et al. BPS quality artifact, repeated experiments show that the agent-profile condition performs best on formal control-flow n-gram and absolute/case-arrival timing distances, while the LLM-agent proxy is close on control-flow metrics and performs best on workforce Earth Mover's Distance. The central baseline remains strongest on several temporal distribution measures. The results do not support a claim that LLM-agent simulation is uniformly more accurate than traditional BPS. Instead, they show that log-grounded LLM-style decision modules can be integrated into a process-mining-compatible simulator and can add interpretable reasoning and handover outputs, but their quality must be evaluated as a dimension-specific trade-off.
+\end{abstract}
+\newpage
+
+\pagenumbering{gobble}
+\tableofcontents
+\cleardoublepage
+
+\pagenumbering{arabic}
+\input{chapters/body_sections}
+
+\newpage
+\pagenumbering{roman}
+\bibliographystyle{abbrv}
+\bibliography{library/citations}
+
+\section*{Appendix}\label{Appendix}
+\addcontentsline{toc}{section}{Appendix}
+\selbstaendigkeitserklaerung{\today}
+
+\end{document}

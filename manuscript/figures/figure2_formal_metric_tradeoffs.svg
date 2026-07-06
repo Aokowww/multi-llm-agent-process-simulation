@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1160" height="640" viewBox="0 0 1160 640" role="img" aria-label="Relative formal BPS distance metrics by simulation condition">
+<rect x="0" y="0" width="1160" height="640" fill="#ffffff"/>
+<text x="40" y="38" font-family="Arial, DejaVu Sans, sans-serif" font-size="18" font-weight="700" text-anchor="start" fill="#1f2d3d">Figure 2. Formal BPS metric trade-offs across simulation policies</text>
+<text x="40" y="62" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#1f2d3d">Bars show mean distance divided by the best mean for each metric; lower is better and 1.0 is best.</text>
+<line x1="88" y1="505.0" x2="1120" y2="505.0" stroke="#e2e8f0" stroke-width="1"/>
+<text x="76" y="509.0" font-family="Arial, DejaVu Sans, sans-serif" font-size="12" font-weight="400" text-anchor="end" fill="#52616f">1.00</text>
+<line x1="88" y1="388.1" x2="1120" y2="388.1" stroke="#e2e8f0" stroke-width="1"/>
+<text x="76" y="392.05555555555543" font-family="Arial, DejaVu Sans, sans-serif" font-size="12" font-weight="400" text-anchor="end" fill="#52616f">1.05</text>
+<line x1="88" y1="271.1" x2="1120" y2="271.1" stroke="#e2e8f0" stroke-width="1"/>
+<text x="76" y="275.11111111111086" font-family="Arial, DejaVu Sans, sans-serif" font-size="12" font-weight="400" text-anchor="end" fill="#52616f">1.10</text>
+<line x1="88" y1="154.2" x2="1120" y2="154.2" stroke="#e2e8f0" stroke-width="1"/>
+<text x="76" y="158.16666666666674" font-family="Arial, DejaVu Sans, sans-serif" font-size="12" font-weight="400" text-anchor="end" fill="#52616f">1.15</text>
+<line x1="88" y1="84" x2="88" y2="505" stroke="#334155" stroke-width="1.3"/>
+<line x1="88" y1="505" x2="1120" y2="505" stroke="#334155" stroke-width="1.3"/>
+<text x="18" y="284" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="700" text-anchor="middle" fill="#1f2d3d">Relative distance to best</text>
+<rect x="109.5" y="387.1" width="24" height="117.9" fill="#0072B2" rx="2"/>
+<rect x="140.5" y="505.0" width="24" height="0.0" fill="#009E73" rx="2"/>
+<circle cx="152.5" cy="496.0" r="4" fill="#009E73"/>
+<rect x="171.5" y="493.3" width="24" height="11.7" fill="#D55E00" rx="2"/>
+<text x="152.5" y="531" font-family="Arial, DejaVu Sans, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#1f2d3d">Bigram</text>
+<rect x="238.5" y="406.4" width="24" height="98.6" fill="#0072B2" rx="2"/>
+<rect x="269.5" y="505.0" width="24" height="0.0" fill="#009E73" rx="2"/>
+<circle cx="281.5" cy="496.0" r="4" fill="#009E73"/>
+<rect x="300.5" y="497.8" width="24" height="7.2" fill="#D55E00" rx="2"/>
+<text x="281.5" y="531" font-family="Arial, DejaVu Sans, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#1f2d3d">Trigram</text>
+<rect x="367.5" y="284.0" width="24" height="221.0" fill="#0072B2" rx="2"/>
+<rect x="398.5" y="505.0" width="24" height="0.0" fill="#009E73" rx="2"/>
+<circle cx="410.5" cy="496.0" r="4" fill="#009E73"/>
+<rect x="429.5" y="345.5" width="24" height="159.5" fill="#D55E00" rx="2"/>
+<text x="410.5" y="531" font-family="Arial, DejaVu Sans, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#1f2d3d">Absolute</text>
+<text x="410.5" y="544" font-family="Arial, DejaVu Sans, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#1f2d3d">EMD</text>
+<rect x="496.5" y="190.3" width="24" height="314.7" fill="#0072B2" rx="2"/>
+<rect x="527.5" y="505.0" width="24" height="0.0" fill="#009E73" rx="2"/>
+<circle cx="539.5" cy="496.0" r="4" fill="#009E73"/>
+<rect x="558.5" y="165.2" width="24" height="339.8" fill="#D55E00" rx="2"/>
+<text x="539.5" y="531" font-family="Arial, DejaVu Sans, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#1f2d3d">Case-arrival</text>
+<text x="539.5" y="544" font-family="Arial, DejaVu Sans, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#1f2d3d">EMD</text>
+<rect x="625.5" y="505.0" width="24" height="0.0" fill="#0072B2" rx="2"/>
+<circle cx="637.5" cy="496.0" r="4" fill="#0072B2"/>
+<rect x="656.5" y="446.9" width="24" height="58.1" fill="#009E73" rx="2"/>
+<rect x="687.5" y="491.2" width="24" height="13.8" fill="#D55E00" rx="2"/>
+<text x="668.5" y="531" font-family="Arial, DejaVu Sans, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#1f2d3d">Circadian</text>
+<text x="668.5" y="544" font-family="Arial, DejaVu Sans, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#1f2d3d">EMD</text>
+<rect x="754.5" y="459.2" width="24" height="45.8" fill="#0072B2" rx="2"/>
+<rect x="785.5" y="285.1" width="24" height="219.9" fill="#009E73" rx="2"/>
+<rect x="816.5" y="505.0" width="24" height="0.0" fill="#D55E00" rx="2"/>
+<circle cx="828.5" cy="496.0" r="4" fill="#D55E00"/>
+<text x="797.5" y="531" font-family="Arial, DejaVu Sans, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#1f2d3d">Workforce</text>
+<text x="797.5" y="544" font-family="Arial, DejaVu Sans, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#1f2d3d">EMD</text>
+<rect x="883.5" y="505.0" width="24" height="0.0" fill="#0072B2" rx="2"/>
+<circle cx="895.5" cy="496.0" r="4" fill="#0072B2"/>
+<rect x="914.5" y="440.4" width="24" height="64.6" fill="#009E73" rx="2"/>
+<rect x="945.5" y="168.1" width="24" height="336.9" fill="#D55E00" rx="2"/>
+<text x="926.5" y="531" font-family="Arial, DejaVu Sans, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#1f2d3d">Relative</text>
+<text x="926.5" y="544" font-family="Arial, DejaVu Sans, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#1f2d3d">EMD</text>
+<rect x="1012.5" y="505.0" width="24" height="0.0" fill="#0072B2" rx="2"/>
+<circle cx="1024.5" cy="496.0" r="4" fill="#0072B2"/>
+<rect x="1043.5" y="404.1" width="24" height="100.9" fill="#009E73" rx="2"/>
+<rect x="1074.5" y="130.0" width="24" height="375.0" fill="#D55E00" rx="2"/>
+<text x="1055.5" y="531" font-family="Arial, DejaVu Sans, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#1f2d3d">Cycle-time</text>
+<text x="1055.5" y="544" font-family="Arial, DejaVu Sans, sans-serif" font-size="11" font-weight="400" text-anchor="middle" fill="#1f2d3d">Wass.</text>
+<rect x="700" y="35" width="14" height="14" fill="#0072B2" rx="2"/>
+<text x="720" y="47" font-family="Arial, DejaVu Sans, sans-serif" font-size="12" font-weight="400" text-anchor="start" fill="#1f2d3d">Central baseline</text>
+<rect x="845" y="35" width="14" height="14" fill="#009E73" rx="2"/>
+<text x="865" y="47" font-family="Arial, DejaVu Sans, sans-serif" font-size="12" font-weight="400" text-anchor="start" fill="#1f2d3d">Agent profile</text>
+<rect x="990" y="35" width="14" height="14" fill="#D55E00" rx="2"/>
+<text x="1010" y="47" font-family="Arial, DejaVu Sans, sans-serif" font-size="12" font-weight="400" text-anchor="start" fill="#1f2d3d">LLM-agent proxy</text>
+<text x="40" y="606" font-family="Arial, DejaVu Sans, sans-serif" font-size="12" font-weight="400" text-anchor="start" fill="#52616f">Dot marks the best mean for a metric. The complete mean +/- standard deviation values are reported in Table 4.</text>
+</svg>

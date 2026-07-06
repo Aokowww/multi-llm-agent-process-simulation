@@ -1,0 +1,805 @@
+\section{Introduction}\label{introduction}
+
+Business processes are rarely changed in a risk-free environment. Before
+a process owner changes staffing rules, routing policies, automation
+levels, or escalation procedures, they need some way to reason about the
+likely consequences of the intervention. Business process simulation
+supports this need by generating hypothetical executions of a process
+under a set of assumptions. In process mining, simulation is
+particularly attractive because historical event logs provide empirical
+evidence about activities, resources, timestamps, case arrivals, and
+observed variants. A data-driven simulator can therefore be calibrated
+from the same logs that are used for process discovery and conformance
+checking.
+
+Despite this empirical grounding, a central limitation remains: many BPS
+approaches are process-centric rather than resource-centric. They model
+the process as a control-flow structure with timing and resource
+parameters attached to it. This is useful for many what-if analyses, but
+it can underrepresent the decentralized nature of organizational work.
+In real processes, individual resources differ in capabilities,
+preferences, workload, availability, handover behavior, and local
+decision routines. A case does not move only because a global
+control-flow model says that the next activity is enabled; it moves
+because a person, team, or software resource accepts work, prioritizes
+it, performs it, and passes it to another actor.
+
+Recent agent-based approaches to process simulation respond to this
+limitation by representing resources as agents. AgentSimulator, for
+example, moves toward an agent-based view of data-driven BPS by learning
+agent behavior from event logs \cite{kirchdorfer2024agentsimulator}. In parallel,
+research on LLM-empowered agent-based modeling argues that LLMs can
+provide richer agent cognition, communication, and decision-making in
+simulations \cite{gao2024llmabm}. These developments create an appealing
+research opportunity: a business process could be simulated as a society
+of log-grounded resource agents, where LLM modules help agents reason
+about local choices and handovers.
+
+The opportunity is also a risk. If LLM agents are allowed to freely
+invent process behavior, the simulation may become less reproducible and
+less faithful to the observed process. A fluent explanation is not the
+same as a valid business event. For process-mining applications, every
+simulated action must remain compatible with an event-log schema, a
+feasible activity/resource assignment, and a measurable quality
+framework. This means that LLM agents should not be treated as
+unconstrained generators. They should operate inside action spaces
+derived from event logs, and their outputs should be evaluated with the
+same log-distance measures used for conventional BPS.
+
+This study asks the following research question:
+
+\textbf{How can log-derived resource-agent profiles and local behavior
+priors be used to constrain LLM-augmented agent decisions so that a
+resource-centric multi-agent simulator generates
+process-mining-compatible event logs and interpretable reasoning and
+handover traces?}
+
+The study contributes a design-science artifact and an initial
+controlled evaluation. The artifact, denoted as \(H_{R-LLM}\),
+represents resources as agents with learned capabilities, service-time
+distributions, local resource priors, handover priors, and memory. It
+compares three executable policies: a centralized baseline, a
+log-derived agent-profile policy, and a constrained LLM-agent proxy. The
+LLM-agent proxy is not presented as a full production LLM system; it is
+a deterministic, inspectable stand-in for the decision interface that a
+real LLM would occupy. This choice keeps the first evaluation
+reproducible while testing the architectural question: whether an
+LLM-style local decision module can be integrated into a BPS pipeline
+without breaking event-log compatibility.
+
+The evaluation uses the AcademicCredentials log from the public artifact
+accompanying Chapela-Campa et al.'s BPS quality framework
+\cite{chapela2025quality}. The experiment compares simulated logs against a held-out
+test log with lightweight prototype metrics and formal BPS log-distance
+measures. The findings are deliberately interpreted conservatively. The
+LLM-agent proxy does not dominate the baselines. Instead, it produces
+competitive but dimension-specific behavior: it is close to the
+agent-profile baseline on control-flow n-grams and achieves the best
+workforce distance, while the agent-profile and central baselines remain
+better on several other metrics. This result is useful precisely because
+it prevents overclaiming. It shows where LLM-agent process simulation is
+promising and where conventional statistical mechanisms remain stronger.
+
+\section{Background and Related
+Work}\label{background-and-related-work}
+
+\subsection{Data-Driven Business Process
+Simulation}\label{data-driven-business-process-simulation}
+
+Business process simulation estimates how a process may behave under
+given assumptions about arrivals, routing, resources, calendars, service
+times, and delays. In data-driven BPS, these assumptions are learned
+from event logs rather than specified only by domain experts. Event logs
+make it possible to estimate trace variant frequencies, activity
+durations, case inter-arrival times, resource assignments, and workload
+distributions. The simulator can then generate new event logs that are
+compared with observed behavior or used for what-if analysis.
+
+Early and mainstream data-driven BPS work focuses on discovering
+executable simulation models from event logs. Camargo, Dumas, and
+Gonzalez-Rojas~\cite{camargo2020automated} frame this as an
+accuracy-optimized model discovery problem: instead of manually tuning simulation parameters, the
+discovery procedure searches for configurations that maximize similarity
+between the event log generated by a simulation model and the observed
+log. This line of work is foundational for the present study because it
+establishes the event log as both calibration data and evaluation
+target. It also clarifies that simulation quality depends on multiple
+learned components, including control-flow, arrival behavior, service
+times, calendars, and resource assignments.
+
+The difficulty is that high-quality BPS requires more than replaying
+common traces. A simulator must reproduce multiple behavioral dimensions
+simultaneously. A model that matches control-flow variants may still
+fail on cycle time, resource workload, or circadian timing. Similarly, a
+model that matches average cycle time may hide unrealistic resource
+concentration or handover patterns. Chapela-Campa et al.~\cite{chapela2025quality} address
+this problem by proposing a framework for measuring BPS model quality
+across several log-distance dimensions. Their work is important for this
+study because it provides an evaluation anchor that is stricter than
+visual inspection or one-dimensional accuracy.
+
+This evaluation perspective also motivates the conservative
+interpretation of LLM-agent simulation. A generated log is not useful
+merely because the simulated agents produce plausible explanations. It
+must be compared with held-out behavior across control-flow, temporal,
+and resource dimensions. The present study therefore uses Chapela-Campa
+et al.'s framework not as an auxiliary check, but as the primary
+safeguard against overclaiming the value of LLM-style agents.
+
+\subsection{Resource Heterogeneity in
+BPS}\label{resource-heterogeneity-in-bps}
+
+Traditional BPS often attaches resources to a process model as
+capacities, calendars, or pools. This representation is useful but can
+flatten the heterogeneity of organizational work. In real processes,
+resources differ in their skills, performance, availability,
+interruption patterns, workload, and multitasking behavior. Several
+recent BPS studies have therefore shifted from undifferentiated resource
+pools toward individually parameterized resources.
+
+Resource calendars are one example. Martin et al.~\cite{martin2020calendars} propose methods
+for retrieving resource availability calendars from event logs, showing
+how timestamps can be used to infer when resources are likely available.
+Estrada-Torres et al.~\cite{estrada2020multitasking} extend the resource perspective by
+addressing multitasking, a common source of mismatch between simulated
+and real execution times. Their work shows that assuming monotasking
+resources can overestimate execution times when real resources handle
+overlapping work. Chapela-Campa and Dumas~\cite{chapela2024extraneous} further show that not
+all waiting time can be explained by resource contention or
+unavailability; some delays are extraneous to the modeled queue/resource
+mechanism and need to be captured explicitly.
+
+The strongest resource-centric bridge for this study is the work on
+differentiated resources. Lopez-Pintado, Dumas, and Berx~\cite{lopezpintado2024differentiated} show
+that treating each resource as an individual entity with its own
+performance and availability model can improve the reproduction of
+cycle-time distributions and work rhythm compared with undifferentiated
+pools. Lopez-Pintado and Dumas~\cite{lopezpintado2025probabilistic} further model intermittent
+availability and multitasking probabilistically, estimating availability
+and multitasking probabilities from event logs. Together, these studies
+show that many agent-like characteristics can already be derived
+statistically from logs: capabilities, processing-time distributions,
+calendars, intermittent availability, multitasking capacity, and delay
+distributions.
+
+This literature is directly relevant to the proposed artifact. It
+suggests that an LLM-agent simulator should not start from open-ended
+prompts. It should first inherit the strongest available data-driven
+resource models. In the present implementation, this insight is
+operationalized through log-derived capabilities, service-time samples,
+waiting-time samples, case-arrival samples, and handover priors. The
+LLM-agent proxy is therefore added on top of a resource-centric
+statistical foundation rather than replacing it.
+
+\subsection{Agent System Mining and Agent-Based Process
+Simulation}\label{agent-system-mining-and-agent-based-process-simulation}
+
+Resource-centric simulation reverses part of the process-centric
+perspective. It asks what behavior can be learned about the actors
+themselves: which activities they perform, how quickly they perform
+them, how they interact, and how their local choices shape the global
+process. Agent-based process simulation develops this idea further by
+treating resources as autonomous agents rather than passive execution
+capacity.
+
+Agent System Mining (ASM) provides the conceptual link between process
+mining and multi-agent simulation. Tour, Polyvyanyy, and Kalenkova
+\cite{tour2021asm} argue that organizations can be viewed as multi-agent systems
+whose behavior is recorded in event data. Instead of discovering only a
+control-flow process model, ASM seeks to discover agents and
+interactions among agents. Tour et al.~\cite{tour2023agentminer} instantiate this idea in
+Agent Miner, an algorithm for discovering agent models and interaction
+patterns from event data.
+
+AgentSimulator is the most direct simulation starting point for this
+project. It proposes a resource-first approach to data-driven BPS in
+which agents correspond primarily to individual resources with
+discovered behavior models \cite{kirchdorfer2024agentsimulator}. AgentSimulator is
+important because it demonstrates that agent-based data-driven BPS can
+be constructed from event logs and evaluated against conventional
+process simulation approaches. The present study builds on the same
+broad motivation but focuses on a narrower question: how an LLM-style
+decision module can be inserted into a resource-centric simulator while
+remaining constrained by log-derived behavior.
+
+The relationship to ASM and AgentSimulator also clarifies the novelty
+boundary. This study does not claim to introduce agent-based BPS from
+scratch. Rather, it asks how the agent decision layer can be augmented
+with an LLM-style local behavior module while retaining event-log
+compatibility, action masks, statistical priors, and measurable BPS
+quality. In this sense, the proposed artifact is positioned between
+resource-centric BPS and LLM-based multi-agent simulation.
+
+\subsection{LLM-Empowered Agent-Based Modeling and Agentic
+BPM}\label{llm-empowered-agent-based-modeling-and-agentic-bpm}
+
+LLM-based agents have become a prominent design pattern in multi-agent
+systems. Compared with simple rule-based agents, LLM agents can produce
+natural-language rationales, condition decisions on richer context, and
+simulate heterogeneous behavioral styles. Gao et al.~\cite{gao2024llmabm} summarize
+this opportunity for agent-based modeling and simulation, arguing that
+LLMs can enrich agent cognition and interaction.
+
+For business process simulation, these strengths are attractive but
+insufficient by themselves. A process simulator must generate valid,
+measurable process events. An LLM that produces plausible text but
+invalid event-log behavior would weaken rather than strengthen BPS.
+Therefore, the relevant research question is not whether an LLM can
+describe a process, but whether LLM-like decision-making can be grounded
+in event-log-derived constraints. This study uses the term LLM-agent
+proxy for a local policy that occupies the same interface as a future
+LLM call: it observes state, memory, feasible actions, resource priors,
+and handover context, then selects an action and emits a reason. The
+proxy allows the design to be tested without introducing API
+nondeterminism, latency, cost, or prompt instability into the first
+experiment.
+
+The emerging literature on Agentic Business Process Management gives
+this question a broader BPM context. Dumas, Milani, and Chapela-Campa
+describe Agentic BPMS as a new class of platforms that combine
+autonomy, reasoning, learning, and process mining. In such systems,
+agents may sense process states, reason about improvement opportunities,
+and act to maintain or optimize performance. This vision makes LLM-agent
+process simulation relevant beyond a single simulator: simulation can
+become a controlled environment for testing agent policies before they
+are deployed in operational process management \cite{dumas2026agenticbpms}.
+
+At the same time, Agentic BPM strengthens the need for guardrails. If
+future process-aware agents are allowed to act autonomously, their
+behavior must remain auditable and grounded in process evidence. The
+proposed simulator contributes to this agenda by separating three
+layers: a log-derived process environment, a constrained local decision
+interface, and validation against held-out event logs. This separation
+makes it possible to study LLM-style decision behavior without allowing
+language generation to overwrite the empirical process structure.
+
+\subsection{Simulation Verification and
+Validation}\label{simulation-verification-and-validation}
+
+Simulation research has long emphasized verification and validation.
+Sargent~\cite{sargent2013vv} distinguishes whether a simulation is implemented
+correctly from whether it is an adequate representation of the target
+system. This distinction is essential for LLM-agent BPS. A system may
+execute without errors and still be invalid as a process simulation.
+Conversely, a failed metric can be diagnostically useful if it reveals
+which behavioral assumption is missing. In this project, early temporal
+failures led to the addition of empirical inter-event waiting times and
+case inter-arrival sampling. The evaluation is therefore not only a
+final scorecard; it is part of the artifact design cycle.
+
+Taken together, the literature suggests a specific research gap.
+Data-driven BPS provides log-derived control-flow, timing, and resource
+parameters. Resource-centric BPS shows that individual resources can and
+should be modeled heterogeneously. ASM and AgentSimulator show how event
+logs can be interpreted as traces of interacting agents. LLM-empowered
+ABM and Agentic BPM suggest richer reasoning and communication among
+agents. What remains underdeveloped is an evaluable bridge between these
+streams: a process-mining-compatible simulator in which an LLM-style
+agent policy reasons locally, is constrained by log-derived feasible
+actions, emits interpretable reasoning and handover traces, and is
+evaluated with standard BPS log-distance measures.
+
+\section{Research Design}\label{research-design}
+
+This study follows a design science research logic. The practical
+problem is that process simulation needs richer resource behavior while
+remaining reproducible and measurable. The designed artifact is a
+resource-centric multi-agent simulator with log-derived constraints and
+an LLM-style local decision interface. The evaluation compares generated
+logs against held-out real logs, using both prototype metrics and formal
+BPS quality measures.
+
+Figure~\ref{fig:architecture} summarizes the central design choice: the LLM-style module is
+not allowed to invent process behavior, but is inserted as a constrained
+local decision component inside a log-derived simulation pipeline.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/figure1_architecture.pdf}
+\caption{Architecture of the resource-centric LLM-augmented multi-agent process simulator. A historical event log is transformed into resource capabilities, timing samples, arrival and waiting-time samples, and activity-resource/handover priors. During simulation, resource-agent policies choose among feasible local actions under shared event-log constraints. The LLM-agent proxy is additionally bounded by action masks, distributional penalties, and fallback rules. The simulator produces a process-mining-compatible event log and, for the LLM-agent condition, reasoning and handover logs. Generated outputs are evaluated against the held-out event log with prototype distances and Chapela-Campa BPS quality metrics, and diagnostic feedback informs later design iterations.}
+\label{fig:architecture}
+\end{figure}
+
+The artifact is summarized as:
+
+\[
+H_{R-LLM} = (L, A, P_{env}, X, \Pi_{log}, M, B_{LLM}, S, O, V)
+\]
+
+where \(L\) is the input event log, \(A\) is the set of resource agents,
+\(P_{env}\) describes the simulation environment including arrivals and
+enabled activities, \(X\) is the case and event state, \(\Pi_{log}\)
+contains log-derived priors, \(M\) is agent memory, \(B_{LLM}\) is the
+LLM-style behavior module, \(S\) is the simulator state transition
+function, \(O\) is the output, and \(V\) is the validation framework.
+
+Each agent \(a_i\) is represented by a profile:
+
+\[
+a_i = (s_i, c_i, \rho_i, m_i, b_i^{LLM})
+\]
+
+where \(s_i\) is the agent state, \(c_i\) contains capabilities and
+processing-time samples, \(\rho_i\) contains local resource and handover
+priors, \(m_i\) is memory, and \(b_i^{LLM}\) is the decision module.
+In the current implementation, \(b_i^{LLM}\) is represented by the
+deterministic LLM-agent proxy. The proxy receives a local state and
+chooses only among feasible resources and activities. It cannot invent
+activities, resources, or timestamps outside the learned simulation
+structure.
+
+The design principle is:
+
+\textbf{LLM agents should reason over log-grounded local feasible
+actions, not freely generate process behavior.}
+
+The simulator produces three output types:
+
+\[
+O = (L', R', H')
+\]
+
+where \(L'\) is the simulated event log, \(R'\) is the reasoning log, and
+\(H'\) is the handover log. The event log makes the artifact compatible
+with process mining and BPS evaluation. The reasoning and handover logs
+are specific to the LLM-agent condition and are intended to support
+interpretability and later qualitative analysis.
+
+\section{Artifact Design and
+Implementation}\label{artifact-design-and-implementation}
+
+The implementation uses a canonical event-log schema with five fields:
+case identifier, activity, resource, start timestamp, and end timestamp.
+Table~\ref{tab:schemas} summarizes the three output schemas used by the artifact. The
+simulated event log is deliberately kept minimal because it must remain
+compatible with conventional process-mining and BPS evaluation tools.
+The reasoning and handover logs are additional outputs of the LLM-agent
+proxy condition and are not required by the baselines.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\caption{Output schemas produced by the simulator.}
+\label{tab:schemas}\\
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Output
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Fields
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Purpose
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Simulated event log (L') & \texttt{case\_id}, \texttt{activity},
+\texttt{resource}, \texttt{start\_time}, \texttt{end\_time} &
+Process-mining-compatible generated log used for quantitative
+evaluation. \\
+Reasoning log (R') & \texttt{case\_id}, \texttt{step\_index},
+\texttt{mode}, \texttt{previous\_resource}, \texttt{activity},
+\texttt{selected\_resource}, \texttt{feasible\_resource\_count},
+\texttt{feasible\_resources\_top}, \texttt{historical\_prior},
+\texttt{selection\_rule}, \texttt{reason} & Local decision trace emitted
+by the LLM-agent proxy. \\
+Handover log (H') & \texttt{case\_id}, \texttt{from\_resource},
+\texttt{to\_resource}, \texttt{activity}, \texttt{timestamp},
+\texttt{message} & Cross-resource transition trace emitted when a case
+moves between resources. \\
+\end{longtable}
+
+From the training split, the simulator learns activity-resource
+capabilities, service-time samples per activity/resource pair, empirical
+inter-event waiting-time samples, trace variant frequencies, case
+inter-arrival samples, and handover frequencies between resources. These
+learned components are stored as a profile object and shared by the
+simulation conditions so that policy differences can be compared under a
+common data foundation.
+
+The simulation procedure has four stages. First, the input log is
+normalized to the canonical schema and split into training and test
+logs. Second, the training log is transformed into log-derived profiles:
+resource capabilities, duration samples, waiting-time samples,
+case-arrival samples, trace variant counts, activity counts, resource
+counts, and handover priors. Third, each policy simulates the same
+number of cases as the held-out test log, beginning at the first
+timestamp of the test window and sampling empirical case inter-arrival
+times. Fourth, the generated logs are evaluated against the held-out
+test log with lightweight metrics and the Chapela-Campa distance
+measures.
+
+The three simulation conditions differ only in the resource decision
+policy. This isolation is important: if the timing model or trace
+sampler differed across conditions, any observed performance difference
+could not be attributed to the agent decision layer. Table~\ref{tab:conditions} summarizes
+the policy comparison.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}@{}}
+\caption{Simulation conditions and resource decision policies.}
+\label{tab:conditions}\\
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Condition
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Decision locus
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Resource selection rule
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Additional outputs
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{central\_baseline} & Centralized scheduler & Uniformly samples
+from resources historically capable of the activity. & Simulated event
+log only. \\
+\texttt{agent\_profile} & Resource-agent profile & Samples from
+historically capable resources weighted by activity-resource frequency.
+& Simulated event log only. \\
+\texttt{llm\_agent\_proxy} & Constrained local LLM-style policy & Uses
+handover priors when available, otherwise activity-resource priors;
+samples among feasible resources with an overuse penalty relative to
+historical target shares. & Simulated event log, reasoning log, handover
+log. \\
+\end{longtable}
+
+The \texttt{central\_baseline} represents a conventional centralized
+simulation policy. It samples trace behavior and assigns qualified
+resources from a pooled perspective. The \texttt{agent\_profile}
+condition makes resource selection more local by using log-derived
+resource-agent profiles. It is still statistical and does not include an
+LLM-style reasoning module. The \texttt{llm\_agent\_proxy} condition
+uses the same feasible action constraints but adds a local decision rule
+inspired by an LLM-agent interface. It prefers handover priors when a
+previous resource exists, otherwise uses activity-level resource priors,
+samples among feasible resources, and penalizes resources that are
+already over-used relative to historical target shares. For each
+generated event, it emits a reasoning row; for cross-resource
+transitions, it emits a handover row.
+
+An important design decision is that the LLM-agent proxy is constrained
+at multiple levels. The activity sequence is generated from learned
+variants rather than free text. Resource choices are restricted to
+historically feasible resources for the selected activity. Timing is
+generated from empirical service-time, waiting-time, and case-arrival
+samples. The proxy can influence local resource allocation and handover
+behavior, but it cannot break the event-log schema. This keeps the
+artifact suitable for formal log-distance evaluation.
+
+The proxy is best understood as a reproducible stand-in for a future
+real LLM call. A real LLM module would receive the same structured
+state: current case context, previous resource, selected activity,
+feasible local resources, historical priors, and memory. It would then
+return a selected resource and a rationale. The current proxy implements
+this interface without external API calls, making the first experiment
+deterministic conditional on the random seed and avoiding prompt drift,
+token cost, and invalid natural-language outputs.
+
+The implementation evolved through several design iterations. An early
+real-log smoke test generated plausible control-flow metrics but failed
+temporal fidelity because simulated cases were too short. The next
+version added empirical inter-event waiting times, reducing mean
+cycle-time relative error from approximately 98.6\% to approximately
+4.2\% for non-LLM baselines on AcademicCredentials. A later evaluation
+revealed another timing issue: generated logs were placed in a 2026
+simulation window while the held-out test log started in 2016. This made
+absolute event and case-arrival distances meaningless. The simulator was
+corrected to start at the first held-out timestamp and to sample
+empirical case inter-arrivals from the training log. These iterations
+show why validation must be integrated into the design cycle rather than
+postponed until the end.
+
+\section{Experimental Setup}\label{experimental-setup}
+
+The primary experiment uses the AcademicCredentials event log from the
+public Zenodo artifact associated with Chapela-Campa et al.~\cite{chapela2025quality}. The
+dataset was selected because it is small enough for rapid repeated
+simulation while containing the fields needed for resource-centric BPS:
+case identifiers, activities, resources, start timestamps, and end
+timestamps. The train and test splits contain approximately 398 cases
+each, around 1,800 to 1,900 events each, 16 activities, and about 300
+resources.
+
+All conditions are trained on the training split and evaluated against
+the held-out test split. Each stochastic condition is repeated ten times
+with different random seeds. The simulation outputs are saved as event
+logs in the same canonical schema as the input logs. For the LLM-agent
+proxy condition, reasoning and handover logs are also saved.
+
+The repeated simulation protocol uses ten runs per condition. For run
+\(r\) and mode index \(m\), the implementation sets the random seed to
+\(1000 + 100r + m\). Each run produces a generated event log for every
+condition. When full logs are saved, the LLM-agent proxy also produces
+one reasoning file and one handover file per run. The repeated outputs
+are aggregated into run-level and summary-level CSV/JSON files.
+
+Two evaluation layers are used. The first layer contains lightweight
+prototype metrics: trace variant distribution distance, activity
+distribution distance, resource distribution distance, and mean
+cycle-time relative error. These metrics are useful during development
+because they are fast and interpretable. The second layer applies formal
+distance measures from the Chapela-Campa et al.~framework, including
+bigram and trigram control-flow distance, absolute event-time distance,
+case-arrival distance, circadian event distance, workforce distance,
+relative event-time distance, and cycle-time distribution distance.
+Lower values indicate closer agreement with the held-out test log. The
+formal repeated evaluation wraps the public
+\texttt{ComputeLogDistance.py} script from the Chapela-Campa artifact
+and aggregates results across the ten generated logs per condition.
+
+\section{Results}\label{results}
+
+\subsection{Lightweight Repeated
+Metrics}\label{lightweight-repeated-metrics}
+
+The lightweight repeated experiment provides an initial view of the
+trade-offs between the three simulation conditions.
+Table~\ref{tab:lightweight-metrics} reports mean and standard deviation
+over ten runs.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1579}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2105}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2105}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2105}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2105}}@{}}
+\caption{Lightweight repeated metrics on AcademicCredentials. Lower is better.}
+\label{tab:lightweight-metrics}\\
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Mode
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Trace variant distance
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Activity distance
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Resource distance
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Mean cycle-time relative error
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{central\_baseline} & 0.3357 +/- 0.0227 & 0.0988 +/- 0.0105 &
+0.7391 +/- 0.0031 & 0.0507 +/- 0.0371 \\
+\texttt{agent\_profile} & 0.3281 +/- 0.0242 & 0.0912 +/- 0.0145 & 0.6123
++/- 0.0046 & 0.0413 +/- 0.0249 \\
+\texttt{llm\_agent\_proxy} & 0.3271 +/- 0.0100 & 0.0945 +/- 0.0107 &
+0.6404 +/- 0.0121 & 0.0362 +/- 0.0247 \\
+\end{longtable}
+
+The lightweight results suggest that the LLM-agent proxy is competitive
+but not uniformly superior. It has the lowest mean trace variant
+distance and mean cycle-time relative error in this metric set. However,
+the agent-profile condition has the best activity distribution and
+resource distribution distances. The resource result is particularly
+important because the LLM-agent proxy was designed to alter local
+resource choices. Although the proxy improves substantially over an
+earlier greedy version, it still does not match the direct statistical
+resource profile.
+
+These results support two preliminary observations. First, a constrained
+LLM-style local decision module can be integrated without destroying
+basic control-flow or cycle-time behavior. Second, statistical resource
+profiles remain strong baselines for reproducing resource allocation.
+The LLM-agent condition should therefore be evaluated as an
+interpretable extension with trade-offs, not as a simple replacement for
+conventional BPS components.
+
+\subsection{Formal Chapela-Campa Distance
+Metrics}\label{formal-chapela-campa-distance-metrics}
+
+The formal repeated evaluation gives a stricter and more nuanced
+picture. Table~\ref{tab:formal-metrics} reports selected Chapela-Campa
+distance measures over ten generated logs per condition.
+
+Figure~\ref{fig:formal-tradeoffs} visualizes the formal metric table on a common relative scale,
+making clear that the experiment produces a trade-off profile rather
+than a single winning policy. Each bar reports the mean distance divided
+by the best mean for that metric, so the best condition for a metric has
+value 1.0 and larger values indicate greater distance from the held-out
+log.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{figures/figure2_formal_metric_tradeoffs.pdf}
+\caption{Formal BPS metric trade-offs across simulation policies. Bars show the mean distance divided by the best mean for each Chapela-Campa metric over ten generated logs per condition; lower is better and a value of 1.0 marks the best mean for that metric. The agent-profile policy is strongest on control-flow n-grams and absolute/case-arrival timing, the LLM-agent proxy is strongest on workforce EMD, and the central baseline is strongest on circadian, relative-event, and cycle-time measures. The figure therefore visualizes the main empirical conclusion: the LLM-agent proxy is competitive and interpretable, but it does not dominate the statistical baselines.}
+\label{fig:formal-tradeoffs}
+\end{figure}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1667}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2222}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2222}}
+  >{\raggedleft\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2222}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1667}}@{}}
+\caption{Formal BPS quality distances on AcademicCredentials. Lower is better.}
+\label{tab:formal-metrics}\\
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Metric
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Central baseline
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Agent profile
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+LLM-agent proxy
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Best mean
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Bigram & 0.1618 +/- 0.0093 & 0.1541 +/- 0.0117 & 0.1548 +/- 0.0071 &
+\texttt{agent\_profile} \\
+Trigram & 0.2065 +/- 0.0126 & 0.1982 +/- 0.0123 & 0.1988 +/- 0.0090 &
+\texttt{agent\_profile} \\
+Absolute EMD & 159.6972 +/- 95.8036 & 145.9101 +/- 56.3384 & 155.8600
++/- 84.0634 & \texttt{agent\_profile} \\
+Case-arrival EMD & 184.3430 +/- 99.4617 & 162.4802 +/- 53.4160 &
+186.0864 +/- 90.8550 & \texttt{agent\_profile} \\
+Circadian EMD & 3.0208 +/- 0.1159 & 3.0959 +/- 0.3805 & 3.0387 +/-
+0.2384 & \texttt{central\_baseline} \\
+Workforce EMD & 3.1951 +/- 0.2822 & 3.4284 +/- 0.3764 & 3.1338 +/-
+0.3358 & \texttt{llm\_agent\_proxy} \\
+Relative EMD & 16.8700 +/- 3.0403 & 17.3357 +/- 4.1486 & 19.3002 +/-
+5.1290 & \texttt{central\_baseline} \\
+Cycle-time Wasserstein & 16.5231 +/- 2.5704 & 17.2359 +/- 3.4244 &
+19.1726 +/- 5.4068 & \texttt{central\_baseline} \\
+\end{longtable}
+
+The formal metrics revise the stronger impression given by the
+lightweight table. The agent-profile condition is best on bigram and
+trigram distance, indicating that it reproduces local control-flow
+patterns slightly better than the other two policies. It is also best on
+absolute event timing and case-arrival distance. The LLM-agent proxy is
+close to the agent-profile baseline on n-gram metrics, but it does not
+improve absolute timing or case arrivals. Its clearest advantage is
+workforce EMD, where it achieves the best mean distance. The central
+baseline performs best on circadian event distance, relative event-time
+distance, and cycle-time Wasserstein distance.
+
+The main empirical conclusion is therefore not that LLM-agent simulation
+improves BPS quality overall. A more accurate conclusion is that the
+LLM-agent proxy changes the quality profile of the simulator. It
+preserves competitive control-flow behavior, improves workforce-distance
+performance in this experiment, and provides additional reasoning and
+handover traces, but it can underperform simpler baselines on temporal
+distribution metrics. This is a useful result because it identifies
+which behavioral dimensions require stronger modeling before a full
+LLM-agent simulator can be claimed to improve process simulation
+accuracy.
+
+\subsection{Reasoning and Handover
+Outputs}\label{reasoning-and-handover-outputs}
+
+The LLM-agent proxy condition produces two additional artifacts beyond
+the simulated event log. The reasoning log records the local decision
+context and selected action for each generated event. The handover log
+records transitions between resources when a case moves from one
+resource to another. These logs do not directly improve the formal BPS
+distance scores, but they change the observability of the simulator. A
+conventional generated event log shows what happened; the reasoning and
+handover logs provide a structured record of why a local assignment was
+made and how work moved between resource agents.
+
+This additional observability is important for future LLM-agent BPS. If
+a real LLM is later used behind the same local policy interface,
+reasoning and handover logs can support audits of invalid outputs,
+fallback decisions, over-concentration on particular resources, and
+inconsistencies between the natural-language rationale and the
+executable event. In the current prototype, the logs demonstrate that
+the proposed output structure \(O=(L', R', H')\) is technically feasible
+and compatible with standard process-mining outputs.
+
+\section{Discussion}\label{discussion}
+
+The study began from a simple but risky idea: use LLM-style agents to
+simulate business processes. The results show that the idea becomes
+scientifically useful only after it is narrowed. A business process
+simulator cannot rely on unconstrained language generation. It needs
+log-derived feasible action spaces, timing distributions, resource
+priors, and validation metrics. Once those constraints are in place, an
+LLM-style decision module can be treated as one component inside a
+larger BPS architecture rather than as the whole simulator.
+
+The first implication is that resource-centric modeling is a strong
+foundation for LLM-agent BPS. The agent-profile baseline performs best
+on several formal metrics, which suggests that much of the process
+behavior can already be captured by careful log-derived resource
+profiles. This is not a problem for the proposed approach; it is a
+design lesson. LLM modules should be added where they provide
+incremental value, such as ambiguous handovers, policy-sensitive
+routing, exception handling, or explanation generation. They should not
+replace statistical components that already reproduce observed behavior
+well.
+
+The second implication is that LLM-agent simulation should be evaluated
+multidimensionally. The LLM-agent proxy looks favorable under some
+lightweight metrics, but the formal repeated Chapela-Campa evaluation
+shows a more mixed picture. This difference confirms the value of using
+a mature BPS quality framework. A single score or a single hand-picked
+example would be misleading. The artifact should be judged by how it
+changes control-flow, resource, and temporal behavior simultaneously.
+
+The third implication concerns interpretability. The LLM-agent proxy
+emits reasoning and handover traces that conventional event logs do not
+contain. These traces are not a substitute for quantitative validation,
+but they can support diagnosis and governance. For example, if an
+LLM-agent simulator overuses a historically strong resource, the
+reasoning log can reveal whether the policy is repeatedly selecting the
+resource because of capability priors, workload estimates, or handover
+preferences. This creates a pathway toward auditable agentic process
+simulation.
+
+Several limitations should be acknowledged. First, the current LLM-agent
+condition is a deterministic proxy rather than an API-backed LLM. This
+was intentional for reproducibility, but it means the study does not yet
+measure prompt sensitivity, model drift, invalid textual outputs, or
+token cost. Second, the experiment uses one primary dataset.
+AcademicCredentials is useful for a pilot, but additional logs are
+needed before making general claims. Third, the temporal model remains
+simple. Although empirical waiting-time and case-arrival sampling
+improved fidelity, the simulator does not yet include explicit resource
+calendars, multitasking, or data-aware case attributes. Fourth, the
+evaluation reports descriptive repeated-run statistics but does not yet
+include full significance testing or confidence intervals for all
+pairwise comparisons.
+
+Future work should extend the artifact in four directions. The first is
+to replace the proxy with an optional real LLM module behind the same
+constrained action interface. The second is to add LLM-specific metrics
+such as invalid output rate, fallback rate, feasible action-set size,
+reason-action consistency, and handover-message consistency. The third
+is to evaluate additional logs from the Chapela-Campa artifact,
+especially logs with different resource density and timing
+characteristics. The fourth is to test intervention scenarios in which
+the LLM-agent module may have a clearer advantage, such as changes in
+escalation policy or resource specialization that are difficult to
+express with static historical priors alone.
+
+\section{Code and Data Availability}\label{code-and-data-availability}
+
+The experiment uses public input data from the Zenodo artifact associated
+with the Chapela-Campa et al. BPS quality framework. The local project
+repository separates source materials, data, experiment scripts, result
+files, figures, and manuscript outputs. The main experimental scripts are
+\texttt{pilot\_simulation.py}, \texttt{run\_repeated.py},
+\texttt{run\_chapela\_distances.py}, and
+\texttt{run\_chapela\_repeated.py}. The current result files include
+repeated generated logs, lightweight metric summaries, and repeated
+Chapela-Campa distance summaries. The reproducibility protocol in
+\texttt{04\_experiments/reproducibility\_protocol.md} records the
+canonical event schema, simulation conditions, seed rule, dataset choice,
+and output locations used for this draft.
+
+\section{Conclusion}\label{conclusion}
+
+This study designed and evaluated a resource-centric LLM-augmented
+multi-agent process simulation artifact. The central contribution is not
+a claim that LLM agents automatically make process simulation more
+accurate. The contribution is a constrained architecture in which
+LLM-style local decisions are grounded in event-log-derived action
+spaces, generate process-mining-compatible event logs, and add reasoning
+and handover traces for interpretability.
+
+The empirical evaluation on AcademicCredentials shows dimension-specific
+trade-offs. The log-derived agent-profile baseline performs best on
+formal control-flow n-grams and absolute/case-arrival timing distances.
+The LLM-agent proxy remains close on control-flow measures and performs
+best on workforce distance, but it is not the best overall simulator and
+underperforms on some temporal distribution metrics. These findings
+support a careful answer to the research question: log-derived resource
+profiles and local priors can constrain LLM-style agent decisions
+sufficiently to produce valid event logs and interpretable traces, but
+the resulting simulator must be validated across multiple BPS quality
+dimensions before any accuracy claim is made.

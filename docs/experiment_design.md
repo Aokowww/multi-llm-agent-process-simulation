@@ -1,0 +1,139 @@
+# Experiment Design
+
+## Experiment Objective
+
+Test whether an agentic process simulator with log-derived constraints can generate event logs closer to a held-out real log than a traditional centralized simulation baseline, and whether an LLM-agent decision module changes accuracy, interpretability, and failure modes.
+
+## Experimental Units
+
+- Input: event log with `case_id`, `activity`, `resource`, `start_time`, `end_time`.
+- Output: simulated event log in the same schema.
+- Unit of comparison: test log vs generated logs.
+
+## Conditions
+
+| Condition | Decision locus | Learned from log | LLM involvement |
+|---|---|---|---|
+| `central_baseline` | central scheduler | activity durations, resource capabilities | none |
+| `agent_profile` | individual resource agents | capabilities, durations, preferences | none |
+| `llm_agent_proxy` | individual resource agents | same guardrails | deterministic proxy now; replace with LLM later |
+| `llm_agent_real` | individual resource agents | same guardrails | optional API-backed implementation |
+
+Final MVP conditions should be narrowed to selected ambiguous local decision points rather than invoking an LLM for every event. Ordinary transitions can use log-derived priors; the LLM condition should activate when multiple valid local continuations or handover targets exist.
+
+## Metrics
+
+Primary metrics aligned with BPS quality:
+
+- Control-flow: trace variant distribution distance.
+- Temporal: cycle-time error, activity duration error, waiting-time error.
+- Resource: resource workload distribution distance.
+- Composite: normalized average across metric families.
+
+LLM-specific metrics:
+
+- Invalid output rate.
+- Fallback rate.
+- Reason-action consistency.
+- Reason-context consistency.
+- Handover-message consistency.
+- Profile-intervention sensitivity, such as high vs low escalation tendency.
+
+Full evaluation target:
+
+- Use Chapela-Campa et al.'s `ComputeLogDistance.py` from the Zenodo artifact for formal metrics once real datasets are downloaded.
+
+## Pilot Result Interpretation
+
+The pilot experiment is only a pipeline check. It can validate:
+
+- code can learn profiles from logs,
+- each simulator condition emits a valid event log,
+- metrics are computed reproducibly,
+- outputs are organized for the manuscript.
+
+It cannot validate the research claim until run on real train/test logs.
+
+## First Real-Log Smoke Test
+
+The upgraded pilot was run on `AcademicCredentials_train.csv.gz` and `AcademicCredentials_test.csv.gz`. It successfully produced logs and metric files, but the temporal metric failed badly: the test log's mean cycle time is around 11,027 minutes, while the simple simulator generated roughly 110-158 minutes. This is expected because the current pilot learns service durations and trace variants, but not calendars, waiting time, extraneous delays, or arrival schedules.
+
+Design implication:
+
+- Add inter-event waiting and extraneous delay models.
+- Preserve or sample realistic case-arrival timestamps.
+- Add resource calendars or availability profiles.
+- Treat LLM/agent policies as decision modules after temporal realism is controlled, otherwise LLM decisions will be evaluated against a broken time model.
+- Add reasoning and handover logs only after the event-log generator is temporally plausible.
+
+This failure should be kept in the methodology notes because it connects directly to the literature on resource calendars, multitasking, and extraneous delays.
+
+## Temporal V2 Update
+
+The pilot was upgraded to sample empirical service times and inter-event waiting times from the training log. On `AcademicCredentials`, this reduced mean cycle-time relative error from roughly 98.6% to roughly 4.2% for the central and agent-profile baselines.
+
+The deterministic `llm_agent_proxy` achieved very low mean cycle-time error in this single run, but it had the worst resource distribution distance. This supports an important design rule for the thesis:
+
+> LLM-agent decisions must be constrained not only by valid action masks, but also by distributional realism over resources, handovers, and local behavior priors.
+
+Next experimental refinement:
+
+- log the local feasible action set,
+- make the LLM/proxy choose from `(activity, next_resource)` pairs with historical priors,
+- report fallback/invalid/over-concentration rates,
+- run repeated simulations before comparing conditions.
+
+## Guardrails V3 Update
+
+The `llm_agent_proxy` was revised to use handover priors, activity-level priors, stochastic sampling, and a penalty against over-concentrating work on resources that are already over-used relative to historical target shares. It also emits reasoning and handover logs.
+
+On `AcademicCredentials`, this reduced the proxy's resource distribution distance from 0.8926 to 0.6442 while keeping mean cycle-time relative error at 0.0209. This supports the framework premise that an LLM-style agent policy should be:
+
+- local, not global,
+- constrained by feasible resources,
+- informed by handover priors,
+- checked against distributional realism,
+- transparent through reasoning and handover traces.
+
+This is still not a final comparative result because only one stochastic run has been executed.
+
+## Repeated V4 Update
+
+The `AcademicCredentials` experiment was repeated 10 times per condition. In the lightweight metric set, `llm_agent_proxy` has the lowest mean trace variant distance and activity distribution distance, while `agent_profile` remains best on resource distribution distance. Mean cycle-time error is similar for `agent_profile` and `llm_agent_proxy`, but the proxy has larger variance.
+
+Implication for the paper:
+
+- The LLM-style local decision module is plausible and can improve some behavioral distributions.
+- The resource-centric statistical profile remains stronger for reproducing resource allocation.
+- The LLM/proxy condition should be presented as an interpretable extension, not as a universally more accurate simulator.
+- Formal BPS distance metrics are needed before final claims.
+
+## Formal Chapela-Campa Metric Update
+
+The project now wraps the public `ComputeLogDistance.py` artifact from Chapela-Campa et al. The first formal run revealed an evaluation-design issue: simulated logs must be aligned to the held-out evaluation window. After adding empirical case inter-arrival sampling and using the test-window start time, absolute/case-arrival metrics became meaningful.
+
+Initial formal result on one `AcademicCredentials` generated log per condition:
+
+- `agent_profile` is best on bigram/trigram control-flow and absolute/case-arrival distances.
+- `llm_agent_proxy` is best on circadian event distance, workforce distance, relative event distance, and cycle-time distribution distance.
+
+This strengthens the planned discussion: the proposed LLM-style behavior module should be evaluated as a trade-off across dimensions, not as a simple accuracy improvement.
+
+## Repeated Formal Metric Update
+
+Repeated Chapela-Campa metrics over 10 runs produce a more conservative result than the single-run formal table:
+
+- `agent_profile` is best on bigram, trigram, absolute event EMD, and case-arrival EMD.
+- `llm_agent_proxy` is close to `agent_profile` on n-grams and best on workforce EMD.
+- `central_baseline` is best on circadian EMD, relative EMD, and cycle-time Wasserstein.
+
+This means the final paper should frame the artifact as a feasible, interpretable extension of resource-centric BPS, not as an accuracy-dominating simulator. The contribution is the framework and the decision/reasoning trace capability, with quality trade-offs measured rigorously.
+
+
+## Reproducibility Protocol
+
+- Fixed random seeds.
+- Save all generated logs and metrics.
+- Keep raw data separate from derived outputs.
+- Log configuration per run.
+- Run each stochastic condition at least 10 times in the real experiment.
