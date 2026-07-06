@@ -21,27 +21,34 @@ Test whether an agentic process simulator with log-derived constraints can gener
 
 The implemented real LLM condition preserves the same action-mask interface as the proxy. For the first optional smoke experiment, it may be invoked at every resource decision. For cost-controlled follow-up experiments, it should be narrowed to selected ambiguous local decision points rather than invoking an LLM for every event. Ordinary transitions can use log-derived priors; the LLM condition should activate when multiple valid local continuations or handover targets exist.
 
-## Metrics
+## Dual Evaluation Framework
 
-Primary metrics aligned with BPS quality:
+The project uses a dual evaluation framework. The first layer evaluates generated event-log quality, while the second layer evaluates LLM-agent-specific behavioral quality.
+
+### BPS Log-Quality Metrics
 
 - Control-flow: trace variant distribution distance.
 - Temporal: cycle-time error, activity duration error, waiting-time error.
 - Resource: resource workload distribution distance.
 - Composite: normalized average across metric families.
 
-LLM-specific metrics:
-
-- Invalid output rate.
-- Fallback rate.
-- Reason-action consistency.
-- Reason-context consistency.
-- Handover-message consistency.
-- Profile-intervention sensitivity, such as high vs low escalation tendency.
-
 Full evaluation target:
 
 - Use Chapela-Campa et al.'s `ComputeLogDistance.py` from the Zenodo artifact for formal metrics once real datasets are downloaded.
+
+### LLM-Agent Behavioral Metrics
+
+These metrics complement, rather than replace, BPS log-quality metrics:
+
+| Dimension | Question | Example metrics |
+|---|---|---|
+| Validity / constraint compliance | Does the agent stay inside the event-log-derived action space? | Invalid output rate, fallback rate, feasible-action compliance, schema compliance. |
+| Reasoning quality | Does the rationale match the selected action and local context? | Reason-action consistency, reason-context consistency, hallucinated resource/activity mentions. |
+| Handover and coordination quality | Are cross-resource transitions coherent and explainable? | Handover-message consistency, handover rate, role-consistent transfer decisions. |
+| Scenario adaptivity | Does the agent respond appropriately when workload or resource capacity changes? | High-load response, reduced-capacity response, bottleneck sensitivity, throughput/cycle-time change. |
+| Auditability / governance | Can decisions be traced and reviewed? | Reasoning-log coverage, handover-log coverage, fallback traceability, judge/human-review agreement. |
+
+The current implementation partially supports the second layer through action masks, fallback diagnostics, reasoning logs, handover logs, and what-if stress tests. Full LLM-specific evaluation should be added once API-backed `llm_agent_real` runs are archived.
 
 ## Pilot Result Interpretation
 

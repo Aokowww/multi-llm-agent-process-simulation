@@ -27,6 +27,14 @@ shows a more mixed picture. This difference confirms the value of using
 a mature BPS quality framework. A single score or a single hand-picked
 example would be misleading. The artifact should be judged by how it
 changes control-flow, resource, and temporal behavior simultaneously.
+At the same time, the absence of uniform outperformance under BPS
+log-quality metrics should not be interpreted as evidence that
+LLM-agent simulation has no added value. These metrics primarily reward
+historical distribution reproduction. They do not fully measure whether
+an agent selected only feasible actions, produced a faithful rationale,
+handled handovers coherently, adapted to an intervention, or left an
+auditable decision trace. This is why the proposed dual framework
+separates BPS log quality from LLM-agent behavioral quality.
 
 The third implication concerns interpretability. The LLM-agent proxy
 emits reasoning and handover traces that conventional event logs do not
@@ -37,6 +45,16 @@ reasoning log can reveal whether the policy is repeatedly selecting the
 resource because of capability priors, workload estimates, or handover
 preferences. This creates a pathway toward auditable agentic process
 simulation.
+
+The practical consequence is that future API-backed LLM experiments
+should not be judged only by whether they reduce n-gram or cycle-time
+distance. They should also report invalid-output rate, fallback rate,
+feasible-action compliance, reason-action consistency,
+reason-context consistency, handover-message consistency, and scenario
+sensitivity. Some of these metrics can be computed deterministically
+from the simulator logs, while others require a small human-coded or
+LLM-as-judge rubric. In the latter case, judge reliability and bias must
+be checked rather than assumed.
 
 Several limitations should be acknowledged. First, the main reported
 LLM-agent condition is a deterministic proxy even though the artifact now
@@ -66,4 +84,3 @@ resource density and timing characteristics. The fourth is to test intervention 
 the LLM-agent module may have a clearer advantage, such as changes in
 escalation policy or resource specialization that are difficult to
 express with static historical priors alone.
-

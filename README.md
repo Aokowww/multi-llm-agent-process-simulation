@@ -110,7 +110,9 @@ python src/run_repeated.py \
 
 The `results/` folder contains the repeated lightweight metric summary, repeated Chapela-Campa summary, AcademicCredentials what-if stress-test summary, and AgentSimulator LoanApp robustness summaries used in the manuscript.
 
-The main interpretation is not that the LLM-agent proxy dominates traditional BPS. The result is dimension-specific: the agent-profile policy is strongest on several AcademicCredentials formal control-flow and absolute/case-arrival timing metrics, while the LLM-agent proxy is competitive and strongest on workforce EMD. On AgentSimulator LoanApp, the proxy is again best on workforce EMD and nearly tied on cycle-time Wasserstein, but central sampling remains strongest on control-flow n-grams. The optional `llm_agent_real` condition is implemented for follow-up experiments but is not included in the reported main result table unless an API-backed run is executed and archived.
+The main interpretation is not that the LLM-agent proxy dominates traditional BPS. The result is dimension-specific: the agent-profile policy is strongest on several AcademicCredentials formal control-flow and absolute/case-arrival timing metrics, while the LLM-agent proxy is competitive and strongest on workforce EMD. On AgentSimulator LoanApp, the proxy is again best on workforce EMD and nearly tied on cycle-time Wasserstein, but central sampling remains strongest on control-flow n-grams.
+
+The manuscript therefore uses a dual evaluation view: conventional BPS log-quality metrics measure historical distribution reproduction, while LLM-agent-specific behavioral metrics measure validity, faithful reasoning, coordination, scenario adaptivity, and auditability. The optional `llm_agent_real` condition is implemented for follow-up experiments but is not included in the reported main result table unless an API-backed run is executed and archived.
 
 ## Manuscript
 

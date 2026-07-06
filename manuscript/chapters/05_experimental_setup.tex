@@ -47,3 +47,63 @@ formal repeated evaluation wraps the public
 \texttt{ComputeLogDistance.py} script from the Chapela-Campa artifact
 and aggregates results across the ten generated logs per condition.
 
+\subsection{Dual Evaluation Framework}\label{dual-evaluation-framework}
+
+The evaluation is deliberately split into two complementary layers.
+Conventional BPS quality metrics answer whether a generated event log is
+distributionally similar to a held-out log. This is necessary for
+process-mining compatibility, but it is not sufficient for evaluating an
+LLM-agent simulator. Work on LLM agents evaluates systems not only by a
+final output but also by their behavior in interactive environments,
+their ability to follow instructions, make decisions, and use tools
+\cite{liu2023agentbench,qin2023toolllm,zhou2023webarena}. Similarly,
+LLM-as-judge and NLG evaluation work motivates rubric-based assessment
+of qualities such as consistency, relevance, and explanation quality,
+while also warning that automated judges require careful design and bias
+control \cite{liu2023geval,gu2024llmjudge}.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.1800}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2600}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.3100}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}@{}}
+\caption{Dual evaluation framework for LLM-agent process simulation.}
+\label{tab:dual-evaluation}\\
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Layer
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Evaluation question
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Example metrics
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Role in this study
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+BPS log quality & Does the generated event log resemble the held-out
+event log? & N-gram distance, activity/resource distribution distance,
+absolute and relative event-time distance, workforce EMD, cycle-time
+distance. & Implemented as the main quantitative evaluation using
+lightweight metrics and Chapela-Campa distances. \\
+LLM-agent behavioral quality & Does the agent behave validly,
+faithfully, adaptively, and auditably while making local decisions? &
+Invalid-output rate, fallback rate, feasible-action compliance,
+reason-action consistency, reason-context consistency,
+handover-message consistency, intervention sensitivity, decision
+traceability. & Partly implemented through action masks, fallback
+diagnostics, reasoning logs, handover logs, and what-if stress tests;
+full rubric-based evaluation is left for follow-up API-backed LLM
+experiments. \\
+\end{longtable}
+
+This dual view prevents overinterpreting the absence of uniform
+outperformance under BPS log-quality metrics. A traditional simulator
+may be better at reproducing historical distributions, while an
+LLM-agent simulator may add value through valid constrained reasoning,
+handover explanations, scenario response, and auditability. The present
+prototype therefore treats LLM-agent-specific evaluation as an
+additional behavioral layer rather than a replacement for established
+BPS quality metrics.
