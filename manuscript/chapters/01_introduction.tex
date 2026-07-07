@@ -29,7 +29,8 @@ agent cognition, communication, and decision-making in simulations
 \cite{gao2024llmabm}. Together, these lines of work suggest a concrete
 research opportunity: a business process can be simulated as a set of
 log-grounded resource agents, with LLM-style modules used for local
-decisions and handovers rather than for free-form process generation.
+resource-assignment and handover decisions rather than for free-form
+process generation.
 
 This opportunity also introduces a methodological risk. If LLM agents
 freely invent process behaviour, the resulting simulation may be
@@ -42,13 +43,27 @@ action spaces derived from event logs, and their generated event logs
 remain subject to the same log-distance measures used for conventional
 BPS.
 
-The research question is:
+The current prototype focuses on the resource-assignment and handover
+layer. Activity occurrences are generated from log-derived trace
+behaviour, while the compared policies decide which feasible resource
+performs each activity and how work moves between resource agents. A
+process-mining-compatible simulated log therefore means an event log
+with the required case, activity, resource, start-time, and end-time
+fields, with activity-resource assignments restricted to feasible
+combinations and with outputs that can be evaluated by BPS log-distance
+measures.
 
-\textbf{How can log-derived resource-agent profiles and local behaviour
-priors be used to constrain LLM-augmented agent decisions so that a
-resource-centric multi-agent simulator generates
-process-mining-compatible event logs and interpretable reasoning and
-handover traces?}
+The main research question is:
+
+\textbf{How can LLM-style local decision modules be embedded into a
+resource-centric, log-derived business process simulator without
+breaking event-log compatibility?}
+
+This question is examined through two subquestions. First, how can
+resource capabilities, timing samples, and handover priors constrain
+local resource-assignment decisions? Second, how should such a simulator
+be evaluated both as a generated event-log model and as an auditable
+agent-behaviour system?
 
 The contribution is a design-science artifact and an initial controlled
 evaluation. The artifact, denoted as \(H_{R-LLM}\),
@@ -57,23 +72,30 @@ distributions, local resource priors, handover priors, and memory. It
 compares three executable policies: a centralised baseline, a
 log-derived agent-profile policy, and a constrained LLM-agent proxy. The
 LLM-agent proxy is a deterministic, inspectable stand-in for the
-decision interface that a real LLM would occupy. That choice keeps the
-first evaluation reproducible while testing whether an LLM-style local
-decision module can enter a BPS pipeline without breaking event-log
-compatibility.
+decision interface that a real LLM would occupy. The artifact also
+includes an optional API-backed LLM condition behind the same
+action-masked interface. The reported quantitative experiments use the
+proxy so that the architecture can be evaluated reproducibly before
+introducing prompt nondeterminism, latency, and cost.
+
+Compared with AgentSimulator-style behaviour learners, the proposed
+artifact makes the local decision interface explicit. Feasible resources
+are action-masked, log-derived priors are exposed to the policy,
+decisions produce machine-readable resource assignments, and LLM-agent
+conditions additionally emit reasoning and handover traces. The study
+therefore extends resource-centric BPS by adding a constrained local
+decision interface and trace outputs, rather than by replacing
+log-derived process simulation.
 
 The evaluation uses two public event logs: AcademicCredentials from the
 artifact accompanying Chapela-Campa et al.'s BPS quality framework
 \cite{chapela2025quality}, and LoanApp from AgentSimulator
 \cite{kirchdorfer2024agentsimulator}. Simulated logs are compared with
 held-out logs using lightweight prototype metrics and formal BPS
-log-distance measures; additional what-if stress tests examine scenario
-response. The LLM-agent proxy does not dominate the baselines. It is
-competitive on control-flow reproduction and obtains the best workforce
-distance on both datasets, whereas the agent-profile and central
-baselines remain stronger on several temporal and control-flow
-measures. Under some LoanApp high-load conditions the proxy gives a
-favourable response, but the advantage does not persist under every
-stress scenario. These results motivate a dual evaluation view:
-LLM-agent process simulation should be assessed both as generated
-process data and as constrained agent behaviour.
+log-distance measures, and additional what-if stress tests examine
+scenario response. The results show that the LLM-agent proxy does not
+dominate statistical baselines, but remains competitive on selected
+log-quality dimensions, improves workforce-distribution distance in
+both datasets, and provides additional reasoning and handover
+observability. These findings motivate a dual evaluation perspective
+combining BPS log quality with LLM-agent behavioural quality.
