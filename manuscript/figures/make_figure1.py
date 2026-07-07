@@ -5,14 +5,26 @@ from xml.sax.saxutils import escape
 OUT = Path(__file__).resolve().parent / "figure1_architecture.svg"
 
 
+PALETTE = {
+    "blue_main": "#0F4D92",
+    "blue_light": "#DCEAF7",
+    "green_light": "#DDF3DE",
+    "green_mid": "#AADCA9",
+    "red_light": "#F6CFCB",
+    "neutral_light": "#F4F4F4",
+    "neutral": "#4D4D4D",
+    "ink": "#272727",
+}
+
+
 BOXES = [
-    ("Historical event log L", ["Cases and activities", "Resources and timestamps", "Observed handovers"], 35, 45, 205, 125, "#e8f4f8"),
-    ("Log-derived profiles", ["Resource capabilities", "Service-time samples", "Arrivals and waits", "Handover priors"], 285, 35, 230, 145, "#eaf7ea"),
-    ("Simulation environment", ["Case state", "Enabled activity", "Feasible action set", "Workload and memory"], 560, 35, 230, 145, "#fff3df"),
-    ("Policy layer", ["Central baseline", "Agent-profile policy", "LLM-agent proxy", "Optional real LLM"], 835, 35, 250, 145, "#f4ecf7"),
-    ("Guardrails", ["Action mask", "JSON validation", "Distributional penalty", "Fallback rule"], 580, 270, 225, 135, "#fdecea"),
-    ("Outputs O = L', R', H'", ["Simulated event log L'", "Reasoning log R'", "Handover log H'"], 835, 275, 250, 130, "#edf0fb"),
-    ("Dual evaluation", ["BPS log quality", "LLM-agent behavior", "What-if response"], 285, 270, 230, 130, "#f2f2f2"),
+    ("Historical event log L", ["Cases and activities", "Resources and timestamps", "Observed handovers"], 35, 45, 205, 125, PALETTE["neutral_light"]),
+    ("Log-derived profiles", ["Resource capabilities", "Service-time samples", "Arrivals and waits", "Handover priors"], 285, 35, 230, 145, PALETTE["green_light"]),
+    ("Simulation environment", ["Case state", "Enabled activity", "Feasible action set", "Workload and memory"], 560, 35, 230, 145, "#FFF7E6"),
+    ("Policy layer", ["Central baseline", "Agent-profile policy", "LLM-agent proxy", "Optional real LLM"], 835, 35, 250, 145, PALETTE["blue_light"]),
+    ("Guardrails", ["Action mask", "JSON validation", "Distributional penalty", "Fallback rule"], 580, 270, 225, 135, PALETTE["red_light"]),
+    ("Outputs O = L', R', H'", ["Simulated event log L'", "Reasoning log R'", "Handover log H'"], 835, 275, 250, 130, "#E9F0FA"),
+    ("Dual evaluation", ["BPS log quality", "LLM-agent behavior", "What-if response"], 285, 270, 230, 130, PALETTE["neutral_light"]),
 ]
 
 
@@ -36,14 +48,14 @@ PATH_ARROWS = [
 def text(x, y, value, size=14, weight="400", anchor="start"):
     return (
         f'<text x="{x}" y="{y}" font-family="Arial, DejaVu Sans, sans-serif" '
-        f'font-size="{size}" font-weight="{weight}" text-anchor="{anchor}" fill="#1f2d3d">'
+        f'font-size="{size}" font-weight="{weight}" text-anchor="{anchor}" fill="{PALETTE["ink"]}">'
         f"{escape(value)}</text>"
     )
 
 
 def box(title, lines, x, y, w, h, fill):
     parts = [
-        f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="8" fill="{fill}" stroke="#34495e" stroke-width="1.6"/>',
+        f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="6" fill="{fill}" stroke="{PALETTE["ink"]}" stroke-width="1.8"/>',
         text(x + w / 2, y + 28, title, 15, "700", "middle"),
     ]
     for i, line in enumerate(lines):
@@ -54,7 +66,7 @@ def box(title, lines, x, y, w, h, fill):
 def arrow(x1, y1, x2, y2, label=None, dashed=False):
     dash = ' stroke-dasharray="6 5"' if dashed else ""
     parts = [
-        f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="#34495e" stroke-width="1.6" marker-end="url(#arrow)"{dash}/>'
+        f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="{PALETTE["ink"]}" stroke-width="1.8" marker-end="url(#arrow)"{dash}/>'
     ]
     if label:
         parts.append(
@@ -66,7 +78,7 @@ def arrow(x1, y1, x2, y2, label=None, dashed=False):
 def path_arrow(path, label=None, label_x=0, label_y=0, dashed=False):
     dash = ' stroke-dasharray="6 5"' if dashed else ""
     parts = [
-        f'<path d="{path}" fill="none" stroke="#34495e" stroke-width="1.6" marker-end="url(#arrow)"{dash}/>'
+        f'<path d="{path}" fill="none" stroke="{PALETTE["ink"]}" stroke-width="1.8" marker-end="url(#arrow)"{dash}/>'
     ]
     if label:
         parts.append(text(label_x, label_y, label, 12, "400", "middle"))
@@ -82,7 +94,7 @@ def main():
         """
 <defs>
   <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto" markerUnits="strokeWidth">
-    <path d="M0,0 L10,4 L0,8 Z" fill="#34495e" />
+    <path d="M0,0 L10,4 L0,8 Z" fill="#272727" />
   </marker>
 </defs>
 <rect x="0" y="0" width="1160" height="470" fill="#ffffff"/>

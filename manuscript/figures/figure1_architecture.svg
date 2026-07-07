@@ -2,60 +2,60 @@
 
 <defs>
   <marker id="arrow" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto" markerUnits="strokeWidth">
-    <path d="M0,0 L10,4 L0,8 Z" fill="#34495e" />
+    <path d="M0,0 L10,4 L0,8 Z" fill="#272727" />
   </marker>
 </defs>
 <rect x="0" y="0" width="1160" height="470" fill="#ffffff"/>
 
-<rect x="35" y="45" width="205" height="125" rx="8" fill="#e8f4f8" stroke="#34495e" stroke-width="1.6"/>
-<text x="137.5" y="73" font-family="Arial, DejaVu Sans, sans-serif" font-size="15" font-weight="700" text-anchor="middle" fill="#1f2d3d">Historical event log L</text>
-<text x="53" y="103" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#1f2d3d">Cases and activities</text>
-<text x="53" y="124" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#1f2d3d">Resources and timestamps</text>
-<text x="53" y="145" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#1f2d3d">Observed handovers</text>
-<rect x="285" y="35" width="230" height="145" rx="8" fill="#eaf7ea" stroke="#34495e" stroke-width="1.6"/>
-<text x="400.0" y="63" font-family="Arial, DejaVu Sans, sans-serif" font-size="15" font-weight="700" text-anchor="middle" fill="#1f2d3d">Log-derived profiles</text>
-<text x="303" y="93" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#1f2d3d">Resource capabilities</text>
-<text x="303" y="114" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#1f2d3d">Service-time samples</text>
-<text x="303" y="135" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#1f2d3d">Arrivals and waits</text>
-<text x="303" y="156" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#1f2d3d">Handover priors</text>
-<rect x="560" y="35" width="230" height="145" rx="8" fill="#fff3df" stroke="#34495e" stroke-width="1.6"/>
-<text x="675.0" y="63" font-family="Arial, DejaVu Sans, sans-serif" font-size="15" font-weight="700" text-anchor="middle" fill="#1f2d3d">Simulation environment</text>
-<text x="578" y="93" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#1f2d3d">Case state</text>
-<text x="578" y="114" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#1f2d3d">Enabled activity</text>
-<text x="578" y="135" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#1f2d3d">Feasible action set</text>
-<text x="578" y="156" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#1f2d3d">Workload and memory</text>
-<rect x="835" y="35" width="250" height="145" rx="8" fill="#f4ecf7" stroke="#34495e" stroke-width="1.6"/>
-<text x="960.0" y="63" font-family="Arial, DejaVu Sans, sans-serif" font-size="15" font-weight="700" text-anchor="middle" fill="#1f2d3d">Policy layer</text>
-<text x="853" y="93" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#1f2d3d">Central baseline</text>
-<text x="853" y="114" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#1f2d3d">Agent-profile policy</text>
-<text x="853" y="135" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#1f2d3d">LLM-agent proxy</text>
-<text x="853" y="156" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#1f2d3d">Optional real LLM</text>
-<rect x="580" y="270" width="225" height="135" rx="8" fill="#fdecea" stroke="#34495e" stroke-width="1.6"/>
-<text x="692.5" y="298" font-family="Arial, DejaVu Sans, sans-serif" font-size="15" font-weight="700" text-anchor="middle" fill="#1f2d3d">Guardrails</text>
-<text x="598" y="328" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#1f2d3d">Action mask</text>
-<text x="598" y="349" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#1f2d3d">JSON validation</text>
-<text x="598" y="370" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#1f2d3d">Distributional penalty</text>
-<text x="598" y="391" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#1f2d3d">Fallback rule</text>
-<rect x="835" y="275" width="250" height="130" rx="8" fill="#edf0fb" stroke="#34495e" stroke-width="1.6"/>
-<text x="960.0" y="303" font-family="Arial, DejaVu Sans, sans-serif" font-size="15" font-weight="700" text-anchor="middle" fill="#1f2d3d">Outputs O = L', R', H'</text>
-<text x="853" y="333" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#1f2d3d">Simulated event log L'</text>
-<text x="853" y="354" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#1f2d3d">Reasoning log R'</text>
-<text x="853" y="375" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#1f2d3d">Handover log H'</text>
-<rect x="285" y="270" width="230" height="130" rx="8" fill="#f2f2f2" stroke="#34495e" stroke-width="1.6"/>
-<text x="400.0" y="298" font-family="Arial, DejaVu Sans, sans-serif" font-size="15" font-weight="700" text-anchor="middle" fill="#1f2d3d">Dual evaluation</text>
-<text x="303" y="328" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#1f2d3d">BPS log quality</text>
-<text x="303" y="349" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#1f2d3d">LLM-agent behavior</text>
-<text x="303" y="370" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#1f2d3d">What-if response</text>
-<line x1="240" y1="108" x2="285" y2="108" stroke="#34495e" stroke-width="1.6" marker-end="url(#arrow)"/>
-<line x1="515" y1="108" x2="560" y2="108" stroke="#34495e" stroke-width="1.6" marker-end="url(#arrow)"/>
-<line x1="790" y1="108" x2="835" y2="108" stroke="#34495e" stroke-width="1.6" marker-end="url(#arrow)"/>
-<line x1="960" y1="180" x2="960" y2="275" stroke="#34495e" stroke-width="1.6" marker-end="url(#arrow)"/>
-<line x1="805" y1="337" x2="835" y2="337" stroke="#34495e" stroke-width="1.6" marker-end="url(#arrow)"/>
-<line x1="692" y1="270" x2="920" y2="180" stroke="#34495e" stroke-width="1.6" marker-end="url(#arrow)"/>
-<text x="806.0" y="217.0" font-family="Arial, DejaVu Sans, sans-serif" font-size="12" font-weight="400" text-anchor="middle" fill="#1f2d3d">constraints</text>
-<line x1="400" y1="270" x2="400" y2="180" stroke="#34495e" stroke-width="1.6" marker-end="url(#arrow)" stroke-dasharray="6 5"/>
-<text x="400.0" y="217.0" font-family="Arial, DejaVu Sans, sans-serif" font-size="12" font-weight="400" text-anchor="middle" fill="#1f2d3d">design feedback</text>
-<line x1="515" y1="337" x2="580" y2="337" stroke="#34495e" stroke-width="1.6" marker-end="url(#arrow)" stroke-dasharray="6 5"/>
-<path d="M 960 405 L 960 430 L 400 430 L 400 400" fill="none" stroke="#34495e" stroke-width="1.6" marker-end="url(#arrow)"/>
-<text x="680" y="421" font-family="Arial, DejaVu Sans, sans-serif" font-size="12" font-weight="400" text-anchor="middle" fill="#1f2d3d">generated logs and traces</text>
+<rect x="35" y="45" width="205" height="125" rx="6" fill="#F4F4F4" stroke="#272727" stroke-width="1.8"/>
+<text x="137.5" y="73" font-family="Arial, DejaVu Sans, sans-serif" font-size="15" font-weight="700" text-anchor="middle" fill="#272727">Historical event log L</text>
+<text x="53" y="103" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#272727">Cases and activities</text>
+<text x="53" y="124" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#272727">Resources and timestamps</text>
+<text x="53" y="145" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#272727">Observed handovers</text>
+<rect x="285" y="35" width="230" height="145" rx="6" fill="#DDF3DE" stroke="#272727" stroke-width="1.8"/>
+<text x="400.0" y="63" font-family="Arial, DejaVu Sans, sans-serif" font-size="15" font-weight="700" text-anchor="middle" fill="#272727">Log-derived profiles</text>
+<text x="303" y="93" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#272727">Resource capabilities</text>
+<text x="303" y="114" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#272727">Service-time samples</text>
+<text x="303" y="135" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#272727">Arrivals and waits</text>
+<text x="303" y="156" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#272727">Handover priors</text>
+<rect x="560" y="35" width="230" height="145" rx="6" fill="#FFF7E6" stroke="#272727" stroke-width="1.8"/>
+<text x="675.0" y="63" font-family="Arial, DejaVu Sans, sans-serif" font-size="15" font-weight="700" text-anchor="middle" fill="#272727">Simulation environment</text>
+<text x="578" y="93" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#272727">Case state</text>
+<text x="578" y="114" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#272727">Enabled activity</text>
+<text x="578" y="135" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#272727">Feasible action set</text>
+<text x="578" y="156" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#272727">Workload and memory</text>
+<rect x="835" y="35" width="250" height="145" rx="6" fill="#DCEAF7" stroke="#272727" stroke-width="1.8"/>
+<text x="960.0" y="63" font-family="Arial, DejaVu Sans, sans-serif" font-size="15" font-weight="700" text-anchor="middle" fill="#272727">Policy layer</text>
+<text x="853" y="93" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#272727">Central baseline</text>
+<text x="853" y="114" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#272727">Agent-profile policy</text>
+<text x="853" y="135" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#272727">LLM-agent proxy</text>
+<text x="853" y="156" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#272727">Optional real LLM</text>
+<rect x="580" y="270" width="225" height="135" rx="6" fill="#F6CFCB" stroke="#272727" stroke-width="1.8"/>
+<text x="692.5" y="298" font-family="Arial, DejaVu Sans, sans-serif" font-size="15" font-weight="700" text-anchor="middle" fill="#272727">Guardrails</text>
+<text x="598" y="328" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#272727">Action mask</text>
+<text x="598" y="349" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#272727">JSON validation</text>
+<text x="598" y="370" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#272727">Distributional penalty</text>
+<text x="598" y="391" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#272727">Fallback rule</text>
+<rect x="835" y="275" width="250" height="130" rx="6" fill="#E9F0FA" stroke="#272727" stroke-width="1.8"/>
+<text x="960.0" y="303" font-family="Arial, DejaVu Sans, sans-serif" font-size="15" font-weight="700" text-anchor="middle" fill="#272727">Outputs O = L', R', H'</text>
+<text x="853" y="333" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#272727">Simulated event log L'</text>
+<text x="853" y="354" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#272727">Reasoning log R'</text>
+<text x="853" y="375" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#272727">Handover log H'</text>
+<rect x="285" y="270" width="230" height="130" rx="6" fill="#F4F4F4" stroke="#272727" stroke-width="1.8"/>
+<text x="400.0" y="298" font-family="Arial, DejaVu Sans, sans-serif" font-size="15" font-weight="700" text-anchor="middle" fill="#272727">Dual evaluation</text>
+<text x="303" y="328" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#272727">BPS log quality</text>
+<text x="303" y="349" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#272727">LLM-agent behavior</text>
+<text x="303" y="370" font-family="Arial, DejaVu Sans, sans-serif" font-size="13" font-weight="400" text-anchor="start" fill="#272727">What-if response</text>
+<line x1="240" y1="108" x2="285" y2="108" stroke="#272727" stroke-width="1.8" marker-end="url(#arrow)"/>
+<line x1="515" y1="108" x2="560" y2="108" stroke="#272727" stroke-width="1.8" marker-end="url(#arrow)"/>
+<line x1="790" y1="108" x2="835" y2="108" stroke="#272727" stroke-width="1.8" marker-end="url(#arrow)"/>
+<line x1="960" y1="180" x2="960" y2="275" stroke="#272727" stroke-width="1.8" marker-end="url(#arrow)"/>
+<line x1="805" y1="337" x2="835" y2="337" stroke="#272727" stroke-width="1.8" marker-end="url(#arrow)"/>
+<line x1="692" y1="270" x2="920" y2="180" stroke="#272727" stroke-width="1.8" marker-end="url(#arrow)"/>
+<text x="806.0" y="217.0" font-family="Arial, DejaVu Sans, sans-serif" font-size="12" font-weight="400" text-anchor="middle" fill="#272727">constraints</text>
+<line x1="400" y1="270" x2="400" y2="180" stroke="#272727" stroke-width="1.8" marker-end="url(#arrow)" stroke-dasharray="6 5"/>
+<text x="400.0" y="217.0" font-family="Arial, DejaVu Sans, sans-serif" font-size="12" font-weight="400" text-anchor="middle" fill="#272727">design feedback</text>
+<line x1="515" y1="337" x2="580" y2="337" stroke="#272727" stroke-width="1.8" marker-end="url(#arrow)" stroke-dasharray="6 5"/>
+<path d="M 960 405 L 960 430 L 400 430 L 400 400" fill="none" stroke="#272727" stroke-width="1.8" marker-end="url(#arrow)"/>
+<text x="680" y="421" font-family="Arial, DejaVu Sans, sans-serif" font-size="12" font-weight="400" text-anchor="middle" fill="#272727">generated logs and traces</text>
 </svg>
