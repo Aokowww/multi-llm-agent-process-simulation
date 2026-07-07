@@ -4,8 +4,8 @@ Implementation}\label{artifact-design-and-implementation}
 The implementation uses a canonical event-log schema with five fields:
 case identifier, activity, resource, start timestamp, and end timestamp.
 Table~\ref{tab:schemas} summarizes the three output schemas used by the artifact. The
-simulated event log is deliberately kept minimal because it must remain
-compatible with conventional process-mining and BPS evaluation tools.
+simulated event log is kept minimal so that it remains compatible with
+conventional process-mining and BPS evaluation tools.
 The reasoning and handover logs are additional outputs of the LLM-agent
 proxy condition and are not required by the baselines.
 
@@ -64,10 +64,10 @@ test log with lightweight metrics and the Chapela-Campa distance
 measures.
 
 The three simulation conditions differ only in the resource decision
-policy. This isolation is important: if the timing model or trace
-sampler differed across conditions, any observed performance difference
-could not be attributed to the agent decision layer. Table~\ref{tab:conditions} summarizes
-the policy comparison.
+policy. This isolates the comparison: if the timing model or trace
+sampler differed across conditions, any performance difference could not
+be attributed to the agent decision layer. Table~\ref{tab:conditions}
+summarizes the policy comparison.
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
@@ -159,4 +159,3 @@ corrected to start at the first held-out timestamp and to sample
 empirical case inter-arrivals from the training log. These iterations
 show why validation must be integrated into the design cycle rather than
 postponed until the end.
-
