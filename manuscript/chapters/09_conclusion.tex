@@ -1,12 +1,10 @@
 \section{Conclusion}\label{conclusion}
 
 This study designed and evaluated a resource-centric LLM-augmented
-multi-agent process simulation artifact. The central contribution is not
-a claim that LLM agents automatically make process simulation more
-accurate. The contribution is a constrained architecture in which
-LLM-style local decisions are grounded in event-log-derived action
-spaces, generate process-mining-compatible event logs, and add reasoning
-and handover traces for interpretability.
+multi-agent process simulation artifact. The contribution is a
+constrained architecture in which LLM-style local decisions are grounded
+in event-log-derived action spaces, generate process-mining-compatible
+event logs, and add reasoning and handover traces for interpretability.
 
 The empirical evaluation shows dimension-specific trade-offs. On
 AcademicCredentials, the log-derived agent-profile baseline performs
@@ -17,9 +15,7 @@ simulator and underperforms on some temporal distribution metrics. The
 LoanApp robustness check leads to the same bounded interpretation: the
 proxy can improve workforce distance and some high-load what-if
 responses, but it does not keep that advantage under every stress
-condition. These findings support a careful answer to the research
-question. Log-derived resource profiles and local priors can constrain
-LLM-style agent decisions sufficiently to produce valid event logs and
-interpretable traces, but the resulting simulator must be validated
-across multiple BPS quality and agent-behavior dimensions before any
-accuracy claim is made.
+condition. Log-derived resource profiles and local priors can constrain
+LLM-style agent decisions enough to produce valid event logs and
+interpretable traces. Accuracy claims still require validation across
+BPS quality and agent-behavior dimensions.

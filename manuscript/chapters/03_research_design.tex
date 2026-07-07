@@ -8,9 +8,9 @@ an LLM-style local decision interface. The evaluation compares generated
 logs against held-out real logs, using both prototype metrics and formal
 BPS quality measures.
 
-Figure~\ref{fig:architecture} summarizes the central design choice: the LLM-style module is
-not allowed to invent process behavior, but is inserted as a constrained
-local decision component inside a log-derived simulation pipeline.
+Figure~\ref{fig:architecture} summarizes the central design choice: the
+simulator places the LLM-style module inside a log-derived pipeline as a
+constrained local decision component.
 
 \begin{figure}[htbp]
 \centering
@@ -59,7 +59,6 @@ O = (L', R', H')
 \]
 
 where \(L'\) is the simulated event log, \(R'\) is the reasoning log, and
-\(H'\) is the handover log. The event log makes the artifact compatible
-with process mining and BPS evaluation. The reasoning and handover logs
-are specific to the LLM-agent condition and are intended to support
-interpretability and later qualitative analysis.
+\(H'\) is the handover log. \(L'\) supports process-mining and BPS
+evaluation, while \(R'\) and \(H'\) expose local reasoning and
+cross-resource transitions for LLM-agent conditions.

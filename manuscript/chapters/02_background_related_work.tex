@@ -31,16 +31,15 @@ fail on cycle time, resource workload, or circadian timing. Similarly, a
 model that matches average cycle time may hide unrealistic resource
 concentration or handover patterns. Chapela-Campa et al.~\cite{chapela2025quality} address
 this problem by proposing a framework for measuring BPS model quality
-across several log-distance dimensions. Their work is important for this
-study because it provides an evaluation anchor that is stricter than
-visual inspection or one-dimensional accuracy.
+across several log-distance dimensions. Their framework gives this study
+an evaluation anchor that is stricter than visual inspection or
+one-dimensional accuracy.
 
-This evaluation perspective is central to the present study. A generated
-log is not useful merely because simulated agents produce plausible
-explanations. It must also resemble held-out behavior across
-control-flow, temporal, and resource dimensions. Chapela-Campa et al.'s
-framework is therefore used as the main guardrail against overclaiming
-the value of LLM-style agents.
+For this artifact, plausible agent explanations are not enough. The
+generated log must also resemble held-out behavior across control-flow,
+temporal, and resource dimensions. Chapela-Campa et al.'s framework is
+used as the main guardrail against overclaiming the value of LLM-style
+agents.
 
 \subsection{Resource Heterogeneity in
 BPS}\label{resource-heterogeneity-in-bps}
@@ -50,8 +49,8 @@ capacities, calendars, or pools. This representation is useful but can
 flatten the heterogeneity of organizational work. In real processes,
 resources differ in their skills, performance, availability,
 interruption patterns, workload, and multitasking behavior. Several
-recent BPS studies have therefore shifted from undifferentiated resource
-pools toward individually parameterized resources.
+recent BPS studies have shifted from undifferentiated resource pools
+toward individually parameterized resources.
 
 Resource calendars are one example. Martin et al.~\cite{martin2020calendars} propose methods
 for retrieving resource availability calendars from event logs, showing
@@ -78,14 +77,11 @@ statistically from logs: capabilities, processing-time distributions,
 calendars, intermittent availability, multitasking capacity, and delay
 distributions.
 
-This literature is directly relevant to the proposed artifact. It
-suggests that an LLM-agent simulator should not start from open-ended
-prompts. It should first inherit the strongest available data-driven
-resource models. In the present implementation, this insight is
-operationalized through log-derived capabilities, service-time samples,
-waiting-time samples, case-arrival samples, and handover priors. The
-LLM-agent proxy is therefore added on top of a resource-centric
-statistical foundation rather than replacing it.
+This literature sets the design constraint for the artifact. The
+LLM-agent simulator starts from log-derived capabilities, service-time
+samples, waiting-time samples, case-arrival samples, and handover priors.
+The LLM-agent proxy is added on top of this resource-centric statistical
+foundation.
 
 \subsection{Agent System Mining and Agent-Based Process
 Simulation}\label{agent-system-mining-and-agent-based-process-simulation}
@@ -119,12 +115,11 @@ inserted into a resource-centric simulator while remaining constrained
 by log-derived behavior?
 
 The relationship to ASM and AgentSimulator also clarifies the novelty
-boundary. This study does not claim to introduce agent-based BPS from
-scratch. Rather, it asks how the agent decision layer can be augmented
+boundary. This study asks how the agent decision layer can be augmented
 with an LLM-style local behavior module while retaining event-log
 compatibility, action masks, statistical priors, and measurable BPS
-quality. In this sense, the proposed artifact is positioned between
-resource-centric BPS and LLM-based multi-agent simulation.
+quality. The proposed artifact sits between resource-centric BPS and
+LLM-based multi-agent simulation.
 
 \subsection{LLM-Empowered Agent-Based Modeling and Agentic
 BPM}\label{llm-empowered-agent-based-modeling-and-agentic-bpm}
@@ -160,8 +155,8 @@ process simulation relevant beyond a single simulator: simulation can
 become a controlled environment for testing agent policies before they
 are deployed in operational process management \cite{dumas2026agenticbpms}.
 
-At the same time, Agentic BPM strengthens the need for guardrails. If
-future process-aware agents act autonomously, their behavior must remain
+Agentic BPM also strengthens the need for guardrails. If future
+process-aware agents act autonomously, their behavior must remain
 auditable and grounded in process evidence. The proposed simulator
 contributes to this agenda by separating three layers: a log-derived
 process environment, a constrained local decision interface, and
@@ -178,12 +173,10 @@ correctly from whether it is an adequate representation of the target
 system. The distinction matters for LLM-agent BPS. A system may
 execute without errors and still be invalid as a process simulation.
 Conversely, a failed metric can be diagnostically useful if it reveals
-which behavioral assumption is missing. In this project, early temporal
-failures led to the addition of empirical inter-event waiting times and
-case inter-arrival sampling. Evaluation is therefore part of the
-artifact design cycle, not only a final scorecard.
+which behavioral assumption is missing. Evaluation belongs in the
+artifact design cycle from the beginning.
 
-Taken together, the literature suggests a specific research gap.
+The literature suggests a specific research gap.
 Data-driven BPS provides log-derived control-flow, timing, and resource
 parameters. Resource-centric BPS shows that individual resources can and
 should be modeled heterogeneously. ASM and AgentSimulator show how event

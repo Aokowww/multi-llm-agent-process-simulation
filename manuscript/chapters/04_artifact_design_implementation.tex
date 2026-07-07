@@ -109,42 +109,15 @@ infeasible resource. & Simulated event log, reasoning log, handover log,
 LLM call and fallback diagnostics. \\
 \end{longtable}
 
-The \texttt{central\_baseline} represents a conventional centralized
-simulation policy. It samples trace behavior and assigns qualified
-resources from a pooled perspective. The \texttt{agent\_profile}
-condition makes resource selection more local by using log-derived
-resource-agent profiles. It is still statistical and does not include an
-LLM-style reasoning module. The \texttt{llm\_agent\_proxy} condition
-uses the same feasible action constraints but adds a local decision rule
-inspired by an LLM-agent interface. It prefers handover priors when a
-previous resource exists, otherwise uses activity-level resource priors,
-samples among feasible resources, and penalizes resources that are
-already over-used relative to historical target shares. For each
-generated event, it emits a reasoning row; for cross-resource
-transitions, it emits a handover row.
-
-An important design decision is that the LLM-agent proxy is constrained
-at multiple levels. The activity sequence is generated from learned
-variants rather than free text. Resource choices are restricted to
-historically feasible resources for the selected activity. Timing is
-generated from empirical service-time, waiting-time, and case-arrival
-samples. The proxy can influence local resource allocation and handover
-behavior, but it cannot break the event-log schema. This keeps the
-artifact suitable for formal log-distance evaluation.
-
-The proxy is best understood as the reproducible member of a broader
-LLM-agent interface. The implementation also includes an optional
-\texttt{llm\_agent\_real} condition. This condition receives the same
-structured state: current case context, previous resource, selected
-activity, feasible local resources, historical priors, and memory. It
-then calls an OpenAI-compatible chat-completions endpoint and requires a
-JSON object containing a selected resource and a rationale. If the API is
-unavailable, the response is not valid JSON, or the selected resource is
-outside the feasible set, the simulator records a fallback and uses the
-guarded proxy decision. This makes the artifact capable of real
-LLM-agent experiments while keeping the reported main experiments
-deterministic conditional on the random seed and independent of prompt
-drift, token cost, and model availability.
+The \texttt{llm\_agent\_proxy} can influence local resource allocation
+and handover behavior, but it cannot create activities, resources, or
+timestamps outside the learned event-log structure. The optional
+\texttt{llm\_agent\_real} condition uses the same constrained state and
+feasible resource set. It requires a JSON resource choice and rationale
+from an OpenAI-compatible endpoint, and falls back to the guarded proxy
+if the call fails or returns an infeasible resource. The reported
+experiments use the proxy so that the quantitative comparison remains
+reproducible.
 
 The implementation evolved through several design iterations. An early
 real-log smoke test generated plausible control-flow metrics but failed
