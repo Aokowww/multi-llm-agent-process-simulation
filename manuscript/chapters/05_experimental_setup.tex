@@ -17,7 +17,7 @@ canonical schema required by the prototype. The prepared split contains
 700 training cases and 300 test cases, with 7,492 events, 12
 activities, and 19 resources. Compared with AcademicCredentials,
 LoanApp has fewer resources and clearer role structure. It tests whether
-resource-local and handover-aware behavior is more visible on an
+resource-local and handover-aware behaviour is more visible on an
 AgentSimulator-style dataset.
 
 All conditions are trained on the training split and evaluated against
@@ -49,13 +49,13 @@ and aggregates results across the ten generated logs per condition.
 
 \subsection{Dual Evaluation Framework}\label{dual-evaluation-framework}
 
-The dual framework separates two questions that are easy to conflate.
-Conventional BPS quality metrics ask whether a generated event log is
-distributionally similar to a held-out log. That question is necessary
-for process-mining compatibility, but it does not cover the full
-behavior of an LLM-agent simulator. Work on LLM agents evaluates systems
-by their behavior in interactive environments, including instruction
-following, decision-making, and tool use
+The dual framework separates two evaluation questions. Conventional BPS
+quality metrics ask whether a generated event log is distributionally
+similar to a held-out log. This question is necessary for process-mining
+compatibility, but it does not cover the full behaviour of an LLM-agent
+simulator. Work on LLM agents evaluates systems by their behaviour in
+interactive environments, including instruction following,
+decision-making, and tool use
 \cite{liu2023agentbench,qin2023toolllm,zhou2023webarena}. Work on
 LLM-as-judge and NLG evaluation also supports rubric-based assessment of
 consistency, relevance, and explanation quality, while warning that

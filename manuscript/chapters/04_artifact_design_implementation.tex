@@ -63,10 +63,10 @@ times. Fourth, the generated logs are evaluated against the held-out
 test log with lightweight metrics and the Chapela-Campa distance
 measures.
 
-The three simulation conditions differ only in the resource decision
-policy. This isolates the comparison: if the timing model or trace
-sampler differed across conditions, any performance difference could not
-be attributed to the agent decision layer. Table~\ref{tab:conditions}
+The three main simulation conditions differ only in the resource
+decision policy. This isolates the comparison: if the timing model or
+trace sampler differed across conditions, performance differences could
+not be attributed to the agent decision layer. Table~\ref{tab:conditions}
 summarizes the policy comparison.
 
 \begin{longtable}[]{@{}
@@ -110,7 +110,7 @@ LLM call and fallback diagnostics. \\
 \end{longtable}
 
 The \texttt{llm\_agent\_proxy} can influence local resource allocation
-and handover behavior, but it cannot create activities, resources, or
+and handover behaviour, but it cannot create activities, resources, or
 timestamps outside the learned event-log structure. The optional
 \texttt{llm\_agent\_real} condition uses the same constrained state and
 feasible resource set. It requires a JSON resource choice and rationale
@@ -119,16 +119,15 @@ if the call fails or returns an infeasible resource. The reported
 experiments use the proxy so that the quantitative comparison remains
 reproducible.
 
-The implementation evolved through several design iterations. An early
-real-log smoke test generated plausible control-flow metrics but failed
-temporal fidelity because simulated cases were too short. The next
+The implementation was refined through validation-driven iterations. An
+early real-log smoke test generated plausible control-flow metrics but
+poor temporal fidelity because simulated cases were too short. The next
 version added empirical inter-event waiting times, reducing mean
 cycle-time relative error from approximately 98.6\% to approximately
 4.2\% for non-LLM baselines on AcademicCredentials. A later evaluation
-revealed another timing issue: generated logs were placed in a 2026
-simulation window while the held-out test log started in 2016. This made
-absolute event and case-arrival distances meaningless. The simulator was
-corrected to start at the first held-out timestamp and to sample
+identified a second timing issue: generated logs were placed in a 2026
+simulation window whereas the held-out test log started in 2016, making
+absolute event and case-arrival distances uninformative. The simulator
+was corrected to start at the first held-out timestamp and to sample
 empirical case inter-arrivals from the training log. These iterations
-show why validation must be integrated into the design cycle rather than
-postponed until the end.
+illustrate the role of validation as part of artifact construction.

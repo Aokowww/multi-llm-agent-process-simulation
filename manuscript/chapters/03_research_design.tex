@@ -1,12 +1,12 @@
 \section{Research Design}\label{research-design}
 
-The project follows a design science research logic. The practical
-problem is clear: process simulation needs richer resource behavior, but
-it still has to remain reproducible and measurable. The designed artifact
-is a resource-centric multi-agent simulator with log-derived constraints
-and an LLM-style local decision interface. The evaluation compares
-generated logs against held-out real logs, using both prototype metrics
-and formal BPS quality measures.
+The study follows a design science research logic. The practical problem
+is to enrich resource behaviour in process simulation while preserving
+reproducibility and measurability. The resulting artifact is a
+resource-centric multi-agent simulator with log-derived constraints and
+an LLM-style local decision interface. Generated logs are evaluated
+against held-out real logs using prototype metrics and formal BPS
+quality measures.
 
 Figure~\ref{fig:architecture} summarizes the central design choice: the
 simulator places the LLM-style module inside a log-derived pipeline as a
@@ -29,7 +29,7 @@ where \(L\) is the input event log, \(A\) is the set of resource agents,
 \(P_{env}\) describes the simulation environment including arrivals and
 enabled activities, \(X\) is the case and event state, \(\Pi_{log}\)
 contains log-derived priors, \(M\) is agent memory, \(B_{LLM}\) is the
-LLM-style behavior module, \(S\) is the simulator state transition
+LLM-style behaviour module, \(S\) is the simulator state transition
 function, \(O\) is the output, and \(V\) is the validation framework.
 
 Each agent \(a_i\) is represented by a profile:
@@ -47,10 +47,10 @@ chooses only among feasible resources and activities. It cannot invent
 activities, resources, or timestamps outside the learned simulation
 structure.
 
-The design principle is:
+The central design principle is:
 
 \textbf{LLM agents should reason over log-grounded local feasible
-actions, not freely generate process behavior.}
+actions, not freely generate process behaviour.}
 
 The simulator produces three output types:
 
@@ -60,5 +60,5 @@ O = (L', R', H')
 
 where \(L'\) is the simulated event log, \(R'\) is the reasoning log, and
 \(H'\) is the handover log. \(L'\) supports process-mining and BPS
-evaluation, while \(R'\) and \(H'\) expose local reasoning and
+evaluation, whereas \(R'\) and \(H'\) expose local reasoning and
 cross-resource transitions for LLM-agent conditions.

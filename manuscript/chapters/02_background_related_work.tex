@@ -11,7 +11,7 @@ from event logs rather than specified only by domain experts. Event logs
 make it possible to estimate trace variant frequencies, activity
 durations, case inter-arrival times, resource assignments, and workload
 distributions. The simulator can then generate new event logs that are
-compared with observed behavior or used for what-if analysis.
+compared with observed behaviour or used for what-if analysis.
 
 Early and mainstream data-driven BPS work focuses on discovering
 executable simulation models from event logs. Camargo, Dumas, and
@@ -22,7 +22,7 @@ configurations that make a generated log resemble the observed log. This
 line of work establishes the event log as both calibration data and
 evaluation target. It also shows why simulation quality depends on
 several learned components at once, including control-flow, arrival
-behavior, service times, calendars, and resource assignments.
+behaviour, service times, calendars, and resource assignments.
 
 The difficulty is that high-quality BPS requires more than replaying
 common traces. A simulator must reproduce multiple behavioral dimensions
@@ -36,7 +36,7 @@ an evaluation anchor that is stricter than visual inspection or
 one-dimensional accuracy.
 
 For this artifact, plausible agent explanations are not enough. The
-generated log must also resemble held-out behavior across control-flow,
+generated log must also resemble held-out behaviour across control-flow,
 temporal, and resource dimensions. Chapela-Campa et al.'s framework
 keeps that comparison tied to established BPS quality measures.
 
@@ -45,11 +45,11 @@ BPS}\label{resource-heterogeneity-in-bps}
 
 Traditional BPS often attaches resources to a process model as
 capacities, calendars, or pools. This representation is useful but can
-flatten the heterogeneity of organizational work. In real processes,
+flatten the heterogeneity of organisational work. In real processes,
 resources differ in their skills, performance, availability,
-interruption patterns, workload, and multitasking behavior. Several
+interruption patterns, workload, and multitasking behaviour. Several
 recent BPS studies have shifted from undifferentiated resource pools
-toward individually parameterized resources.
+toward individually parameterised resources.
 
 Resource calendars are one example. Martin et al.~\cite{martin2020calendars} propose methods
 for retrieving resource availability calendars from event logs, showing
@@ -86,7 +86,7 @@ foundation.
 Simulation}\label{agent-system-mining-and-agent-based-process-simulation}
 
 Resource-centric simulation reverses part of the process-centric
-perspective. It asks what behavior can be learned about the actors
+perspective. It asks what behaviour can be learned about the actors
 themselves: which activities they perform, how quickly they perform
 them, how they interact, and how their local choices shape the global
 process. Agent-based process simulation develops this idea further by
@@ -96,7 +96,7 @@ capacity.
 Agent System Mining (ASM) provides the conceptual link between process
 mining and multi-agent simulation. Tour, Polyvyanyy, and Kalenkova
 \cite{tour2021asm} argue that organizations can be viewed as multi-agent systems
-whose behavior is recorded in event data. Instead of discovering only a
+whose behaviour is recorded in event data. Instead of discovering only a
 control-flow process model, ASM seeks to discover agents and
 interactions among agents. Tour et al.~\cite{tour2023agentminer} instantiate this idea in
 Agent Miner, an algorithm for discovering agent models and interaction
@@ -105,35 +105,35 @@ patterns from event data.
 AgentSimulator is the most direct simulation starting point for this
 project. It proposes a resource-first approach to data-driven BPS in
 which agents correspond primarily to individual resources with
-discovered behavior models \cite{kirchdorfer2024agentsimulator}. It
+discovered behaviour models \cite{kirchdorfer2024agentsimulator}. It
 demonstrates that agent-based data-driven BPS can be constructed from
 event logs and evaluated against conventional process simulation
 approaches. The present study builds on the same broad motivation but
 asks a narrower question: how can an LLM-style decision module be
 inserted into a resource-centric simulator while remaining constrained
-by log-derived behavior?
+by log-derived behaviour?
 
 The relationship to ASM and AgentSimulator also clarifies the novelty
 boundary. The open question is how the agent decision layer can be
-augmented with an LLM-style local behavior module while retaining
+augmented with an LLM-style local behaviour module while retaining
 event-log compatibility, action masks, statistical priors, and
 measurable BPS quality. The proposed artifact sits between
 resource-centric BPS and LLM-based multi-agent simulation.
 
-\subsection{LLM-Empowered Agent-Based Modeling and Agentic
-BPM}\label{llm-empowered-agent-based-modeling-and-agentic-bpm}
+\subsection{LLM-Empowered Agent-Based Modelling and Agentic
+BPM}\label{llm-empowered-agent-based-modelling-and-agentic-bpm}
 
 LLM-based agents have become a prominent design pattern in multi-agent
 systems. Compared with simple rule-based agents, LLM agents can produce
 natural-language rationales, condition decisions on richer context, and
 simulate heterogeneous behavioral styles. Gao et al.~\cite{gao2024llmabm} summarize
-this opportunity for agent-based modeling and simulation, arguing that
+this opportunity for agent-based modelling and simulation, arguing that
 LLMs can enrich agent cognition and interaction.
 
 For business process simulation, these strengths are attractive but
 insufficient by themselves. A process simulator must generate valid,
 measurable process events. An LLM that produces plausible text but
-invalid event-log behavior would weaken rather than strengthen BPS.
+invalid event-log behaviour would weaken rather than strengthen BPS.
 Therefore, the relevant research question is not whether an LLM can
 describe a process, but whether LLM-like decision-making can be grounded
 in event-log-derived constraints. This study uses the term LLM-agent
@@ -155,12 +155,12 @@ become a controlled environment for testing agent policies before they
 are deployed in operational process management \cite{dumas2026agenticbpms}.
 
 Agentic BPM also strengthens the need for guardrails. If future
-process-aware agents act autonomously, their behavior must remain
+process-aware agents act autonomously, their behaviour must remain
 auditable and grounded in process evidence. The proposed simulator
 contributes to this agenda by separating three layers: a log-derived
 process environment, a constrained local decision interface, and
 validation against held-out event logs. This separation allows
-LLM-style decision behavior to be studied without letting language
+LLM-style decision behaviour to be studied without letting language
 generation overwrite the empirical process structure.
 
 \subsection{Simulation Verification and

@@ -3,8 +3,8 @@
 \subsection{Lightweight Repeated
 Metrics}\label{lightweight-repeated-metrics}
 
-The lightweight repeated experiment gives a first, development-oriented
-view of the trade-offs between the three simulation conditions.
+The lightweight repeated experiment provides an initial
+development-oriented comparison of the three simulation conditions.
 Table~\ref{tab:lightweight-metrics} reports mean and standard deviation
 over ten runs.
 
@@ -40,34 +40,26 @@ Mean cycle-time relative error
 0.6404 +/- 0.0121 & 0.0362 +/- 0.0247 \\
 \end{longtable}
 
-The lightweight results show the main tension in the artifact.
-The LLM-agent proxy has the lowest mean trace variant distance and mean
-cycle-time relative error in this metric set. The agent-profile
-condition remains best on activity and resource distribution
-distance. This matters because the proxy was designed to alter local
-resource choices. Although it improves substantially over an earlier
-greedy version, it still does not match the direct statistical resource
-profile.
-
-The preliminary result is mixed. A constrained LLM-style local decision
-module can be inserted without destroying basic control-flow or
-cycle-time behavior, but statistical resource profiles remain strong
-baselines for resource allocation. The LLM-agent condition should be
-read as an extension with trade-offs.
+The lightweight results show a trade-off between control-flow, timing,
+and resource-distribution behaviour. The LLM-agent proxy has the lowest
+mean trace variant distance and mean cycle-time relative error in this
+metric set. The agent-profile condition remains best on activity and
+resource distribution distance. Thus, a constrained LLM-style local
+decision module can be inserted without disrupting basic control-flow or
+cycle-time behaviour, but direct statistical resource profiles remain
+strong baselines for resource allocation.
 
 \subsection{Formal Chapela-Campa Distance
 Metrics}\label{formal-chapela-campa-distance-metrics}
 
-The formal repeated evaluation gives a stricter and more nuanced
-picture. Table~\ref{tab:formal-metrics} reports selected Chapela-Campa
-distance measures over ten generated logs per condition.
+The formal repeated evaluation gives a stricter comparison.
+Table~\ref{tab:formal-metrics} reports selected Chapela-Campa distance
+measures over ten generated logs per condition.
 
-Figure~\ref{fig:formal-tradeoffs} visualizes the formal metric table on a common relative scale,
-making clear that the experiment produces a trade-off profile rather
-than a single winning policy. Each bar reports the mean distance divided
-by the best mean for that metric, so the best condition for a metric has
-value 1.0 and larger values indicate greater distance from the held-out
-log.
+Figure~\ref{fig:formal-tradeoffs} visualizes the formal metric table on
+a common relative scale. Each bar reports the mean distance divided by
+the best mean for that metric; the best condition for a metric has value
+1.0, and larger values indicate greater distance from the held-out log.
 
 \begin{figure}[htbp]
 \centering
@@ -118,39 +110,35 @@ Cycle-time Wasserstein & 16.5231 +/- 2.5704 & 17.2359 +/- 3.4244 &
 19.1726 +/- 5.4068 & \texttt{central\_baseline} \\
 \end{longtable}
 
-The formal metrics temper the stronger impression given by the
-lightweight table. The agent-profile condition is best on bigram and
-trigram distance, indicating that it reproduces local control-flow
-patterns slightly better than the other two policies. It is also best on
+The formal metrics qualify the lightweight result. The agent-profile
+condition is best on bigram and trigram distance, indicating slightly
+better reproduction of local control-flow patterns. It is also best on
 absolute event timing and case-arrival distance. The LLM-agent proxy is
-close to the agent-profile baseline on n-gram metrics, but it does not
+close to the agent-profile baseline on n-gram metrics, but does not
 improve absolute timing or case arrivals. Its clearest advantage is
 workforce EMD, where it achieves the best mean distance. The central
 baseline performs best on circadian event distance, relative event-time
 distance, and cycle-time Wasserstein distance.
 
-The formal evaluation supports a narrower claim than overall BPS
-improvement. The LLM-agent proxy changes the quality profile of the
-simulator. It preserves competitive control-flow behavior, improves
-workforce-distance performance in this experiment, and provides
-additional reasoning and handover traces. It also underperforms simpler
-baselines on some temporal distribution metrics. These temporal
-dimensions need stronger modeling before a full LLM-agent simulator can
-claim improved process simulation accuracy.
+These results support a dimension-specific claim. The LLM-agent proxy
+changes the quality profile of the simulator: it preserves competitive
+control-flow behaviour, improves workforce-distance performance in this
+experiment, and provides reasoning and handover traces. It does not
+improve all temporal distribution measures. A stronger temporal model is
+therefore required before an LLM-agent simulator can be claimed to
+improve BPS accuracy overall.
 
 \subsection{Robustness Check on AgentSimulator
 LoanApp}\label{robustness-check-on-agentsimulator-loanapp}
 
-The second dataset tests whether the result changes in a log with a
+The second dataset tests whether the result changes for a log with a
 clearer resource-role structure than AcademicCredentials. Under the
-lightweight metrics, LoanApp is easier to reproduce overall: the
-resource distribution distances are around 0.04--0.05 rather than above
-0.60. However, the result does not make the LLM-agent proxy a universal
-winner. The central baseline has the lowest trace, activity, and
-resource distribution distance. The LLM-agent proxy is better than the
-central baseline on mean cycle-time relative error and better than the
-agent-profile policy on resource distribution distance, but not best
-overall.
+lightweight metrics, LoanApp is easier to reproduce overall: resource
+distribution distances are around 0.04--0.05 rather than above 0.60.
+The central baseline has the lowest trace, activity, and resource
+distribution distance. The LLM-agent proxy improves on the central
+baseline in mean cycle-time relative error and on the agent-profile
+policy in resource distribution distance, but it is not best overall.
 
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.1800}}
@@ -182,28 +170,27 @@ Cycle-time Wasserstein
 \end{longtable}
 
 The formal LoanApp metrics in Table~\ref{tab:loanapp-robustness}
-support the same bounded interpretation as the primary dataset.
-The central baseline remains best on control-flow n-grams, while
-the LLM-agent proxy is best on workforce EMD and nearly tied with
-the agent-profile policy on cycle-time Wasserstein distance. A separate
-LoanApp high-load what-if scenario is more favorable to the LLM-agent
+support the same bounded interpretation as the primary dataset. The
+central baseline remains best on control-flow n-grams, whereas the
+LLM-agent proxy is best on workforce EMD and nearly tied with the
+agent-profile policy on cycle-time Wasserstein distance. A separate
+LoanApp high-load what-if scenario is more favourable to the LLM-agent
 proxy: it has the lowest mean cycle time, lowest p90 cycle time, and
-highest throughput. Yet under the combined reduced-capacity and high-load
-stress test, the proxy performs worse temporally. AgentSimulator LoanApp
-broadens the empirical basis of the study and reinforces the main
-claim: LLM-agent BPS should be evaluated as a scenario-dependent
-trade-off.
+highest throughput. Under the combined reduced-capacity and high-load
+stress test, however, the proxy performs worse temporally.
+AgentSimulator LoanApp therefore broadens the empirical basis of the
+study and reinforces the interpretation of LLM-agent BPS as a
+scenario-dependent trade-off.
 
 \subsection{What-If Stress Test}\label{what-if-stress-test}
 
-The previous results evaluate log reproduction. To examine whether the
-artifact can also support what-if analysis, an additional stress test was
-implemented. This experiment adds a simple resource-availability queue:
-if a selected resource is still busy or unavailable, the event waits
-until that resource becomes available. The intervention constrains the
-top 20 high-frequency resources to 50\% capacity and increases workload
-by compressing case arrivals with a 1.6x load multiplier. This combined
-scenario is intentionally not a held-out-log reproduction task. It asks
+The previous results evaluate log reproduction. To examine what-if
+analysis, an additional stress test adds a simple resource-availability
+queue: if a selected resource is still busy or unavailable, the event
+waits until that resource becomes available. The intervention constrains
+the top 20 high-frequency resources to 50\% capacity and increases
+workload by compressing case arrivals with a 1.6x load multiplier. This
+combined scenario is not a held-out-log reproduction task; it evaluates
 how each policy reacts to a capacity and workload shock.
 
 \begin{longtable}[]{@{}
@@ -238,26 +225,26 @@ Throughput
 \texttt{llm\_agent\_proxy} & 106.4 & 251.8 & 2.09 & 0.366 & 0.93 \\
 \end{longtable}
 
-Table~\ref{tab:what-if} shows a different kind of result from the
-reproduction metrics. The central baseline has the strongest temporal
-response in this stress test: it produces the lowest mean and p90 cycle
-time and the highest throughput. The LLM-agent proxy does not dominate
-on these temporal measures, but it substantially reduces handovers per
-case. The agent-profile policy relies most heavily on the constrained
-high-frequency resource group and suffers the largest cycle-time
-increase. Log similarity alone would miss this behavior. The stress test
-also exposes how coordination style, resource concentration, and
-bottleneck behavior change under interventions.
+Table~\ref{tab:what-if} differs from the reproduction metrics. The
+central baseline has the strongest temporal response in this stress
+test, producing the lowest mean and p90 cycle time and the highest
+throughput. The LLM-agent proxy does not dominate these temporal
+measures, but it substantially reduces handovers per case. The
+agent-profile policy relies most heavily on the constrained
+high-frequency resource group and shows the largest cycle-time increase.
+The stress test therefore captures intervention effects that would be
+missed by log similarity alone, including changes in coordination style,
+resource concentration, and bottleneck behaviour.
 
 \subsection{Reasoning and Handover
 Outputs}\label{reasoning-and-handover-outputs}
 
-The LLM-agent proxy condition produces two additional artifacts beyond
-the simulated event log. The reasoning log records the local decision
+The LLM-agent proxy condition produces two artifacts in addition to the
+simulated event log. The reasoning log records the local decision
 context and selected action for each generated event. The handover log
 records transitions between resources when a case moves from one
 resource to another. These logs do not directly improve the formal BPS
-distance scores, but they change the observability of the simulator. A
-conventional generated event log shows what happened; the reasoning and
-handover logs provide a structured record of why a local assignment was
-made and how work moved between resource agents.
+distance scores, but they increase simulator observability. A generated
+event log records what happened; the reasoning and handover logs record
+why a local assignment was made and how work moved between resource
+agents.
