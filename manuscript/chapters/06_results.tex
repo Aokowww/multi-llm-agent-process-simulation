@@ -40,10 +40,10 @@ Mean cycle-time relative error
 0.6404 +/- 0.0121 & 0.0362 +/- 0.0247 \\
 \end{longtable}
 
-The lightweight results already show the main tension in the artifact.
+The lightweight results show the main tension in the artifact.
 The LLM-agent proxy has the lowest mean trace variant distance and mean
 cycle-time relative error in this metric set. The agent-profile
-condition, however, remains best on activity and resource distribution
+condition remains best on activity and resource distribution
 distance. This matters because the proxy was designed to alter local
 resource choices. Although it improves substantially over an earlier
 greedy version, it still does not match the direct statistical resource
@@ -118,7 +118,7 @@ Cycle-time Wasserstein & 16.5231 +/- 2.5704 & 17.2359 +/- 3.4244 &
 19.1726 +/- 5.4068 & \texttt{central\_baseline} \\
 \end{longtable}
 
-The formal metrics revise the stronger impression given by the
+The formal metrics temper the stronger impression given by the
 lightweight table. The agent-profile condition is best on bigram and
 trigram distance, indicating that it reproduces local control-flow
 patterns slightly better than the other two policies. It is also best on
@@ -183,8 +183,8 @@ Cycle-time Wasserstein
 
 The formal LoanApp metrics in Table~\ref{tab:loanapp-robustness}
 support the same bounded interpretation as the primary dataset.
-The central baseline remains strongest on control-flow n-grams, while
-the LLM-agent proxy is strongest on workforce EMD and nearly tied with
+The central baseline remains best on control-flow n-grams, while
+the LLM-agent proxy is best on workforce EMD and nearly tied with
 the agent-profile policy on cycle-time Wasserstein distance. A separate
 LoanApp high-load what-if scenario is more favorable to the LLM-agent
 proxy: it has the lowest mean cycle time, lowest p90 cycle time, and

@@ -9,16 +9,16 @@ timestamps. The train and test splits contain approximately 398 cases
 each, around 1,800 to 1,900 events each, 16 activities, and about 300
 resources.
 
-As a robustness dataset, the study additionally uses the LoanApp log
-from the public AgentSimulator repository~\cite{kirchdorfer2024agentsimulator}. This
+As a robustness dataset, the study uses the LoanApp log from the public
+AgentSimulator repository~\cite{kirchdorfer2024agentsimulator}. This
 dataset was selected because AgentSimulator is the closest related
 resource-centric BPS artifact and because the log already follows the
 canonical schema required by the prototype. The prepared split contains
 700 training cases and 300 test cases, with 7,492 events, 12
 activities, and 19 resources. Compared with AcademicCredentials,
-LoanApp has fewer resources and clearer role structure, making it a
-useful test of whether resource-local and handover-aware behavior is
-more visible on an AgentSimulator-style dataset.
+LoanApp has fewer resources and clearer role structure. It tests whether
+resource-local and handover-aware behavior is more visible on an
+AgentSimulator-style dataset.
 
 All conditions are trained on the training split and evaluated against
 the held-out test split. Each stochastic condition is repeated ten times

@@ -37,9 +37,8 @@ one-dimensional accuracy.
 
 For this artifact, plausible agent explanations are not enough. The
 generated log must also resemble held-out behavior across control-flow,
-temporal, and resource dimensions. Chapela-Campa et al.'s framework is
-used as the main guardrail against overclaiming the value of LLM-style
-agents.
+temporal, and resource dimensions. Chapela-Campa et al.'s framework
+keeps that comparison tied to established BPS quality measures.
 
 \subsection{Resource Heterogeneity in
 BPS}\label{resource-heterogeneity-in-bps}
@@ -64,8 +63,8 @@ all waiting time can be explained by resource contention or
 unavailability; some delays are extraneous to the modeled queue/resource
 mechanism and need to be captured explicitly.
 
-The strongest resource-centric bridge for this study is the work on
-differentiated resources. Lopez-Pintado, Dumas, and Berx~\cite{lopezpintado2024differentiated} show
+The work on differentiated resources is the closest resource-centric
+foundation for this study. Lopez-Pintado, Dumas, and Berx~\cite{lopezpintado2024differentiated} show
 that treating each resource as an individual entity with its own
 performance and availability model can improve the reproduction of
 cycle-time distributions and work rhythm compared with undifferentiated
@@ -80,7 +79,7 @@ distributions.
 This literature sets the design constraint for the artifact. The
 LLM-agent simulator starts from log-derived capabilities, service-time
 samples, waiting-time samples, case-arrival samples, and handover priors.
-The LLM-agent proxy is added on top of this resource-centric statistical
+The LLM-agent proxy sits on this resource-centric statistical
 foundation.
 
 \subsection{Agent System Mining and Agent-Based Process
@@ -115,11 +114,11 @@ inserted into a resource-centric simulator while remaining constrained
 by log-derived behavior?
 
 The relationship to ASM and AgentSimulator also clarifies the novelty
-boundary. This study asks how the agent decision layer can be augmented
-with an LLM-style local behavior module while retaining event-log
-compatibility, action masks, statistical priors, and measurable BPS
-quality. The proposed artifact sits between resource-centric BPS and
-LLM-based multi-agent simulation.
+boundary. The open question is how the agent decision layer can be
+augmented with an LLM-style local behavior module while retaining
+event-log compatibility, action masks, statistical priors, and
+measurable BPS quality. The proposed artifact sits between
+resource-centric BPS and LLM-based multi-agent simulation.
 
 \subsection{LLM-Empowered Agent-Based Modeling and Agentic
 BPM}\label{llm-empowered-agent-based-modeling-and-agentic-bpm}

@@ -1,44 +1,40 @@
 \section{Discussion}\label{discussion}
 
-The experiments narrow the claim for LLM-agent process simulation. A business process
-simulator cannot rely on open-ended language generation and still remain
-usable for process mining. It needs feasible action spaces, timing
-samples, resource priors, handover priors, and explicit validation. Under
-these constraints, an LLM-style decision module is best understood as one
-component inside a BPS architecture, not as a replacement for the
-architecture itself.
+The experiments narrow the claim for LLM-agent process simulation. A
+business process simulator cannot rely on open-ended language generation
+and still remain usable for process mining. It needs feasible action
+spaces, timing samples, resource priors, handover priors, and explicit
+validation. With those constraints in place, an LLM-style decision
+module becomes one component inside a BPS architecture.
 
-The mixed empirical results are informative rather than
-disappointing. The agent-profile baseline performs best on several
-formal metrics, which means that much of the observed process behavior
-is already captured by careful log-derived resource profiles. This is a
-strong rival explanation for any apparent LLM-agent improvement: if the
-historical log already contains stable activity-resource and timing
-patterns, a statistical profile can reproduce them with less variance
-than a more flexible local decision module. The role of LLM modules is
-likely to be narrower. They are most plausible where static priors are
-not enough, such as ambiguous handovers, policy-sensitive routing,
-exception handling, and explanation generation.
+The mixed empirical results locate the narrow space where the proxy can
+help. The agent-profile baseline performs best on several formal
+metrics, so much of the observed process behavior is already captured by
+log-derived resource profiles. If the historical log contains stable
+activity-resource and timing patterns, a statistical profile can
+reproduce them with less variance than a more flexible local decision
+module. LLM modules are more plausible where static priors are thin:
+ambiguous handovers, policy-sensitive routing, exception handling, and
+explanation generation.
 
-LLM-agent BPS needs a dual evaluation framework. Formal BPS metrics ask whether a generated event log resembles
-a held-out event log. The Chapela-Campa distances prevent the prototype
-from being judged by a few favorable examples.
-However, these metrics mainly reward historical distribution
-reproduction. They do not fully measure whether an agent stayed inside
+LLM-agent BPS needs a dual evaluation framework. Formal BPS metrics ask
+whether a generated event log resembles a held-out event log. The
+Chapela-Campa distances prevent the prototype from being judged by a few
+favorable examples. These metrics mainly reward historical distribution
+reproduction. They do not measure whether an agent stayed inside
 the feasible action set, produced a rationale consistent with its
 action, adapted coherently to an intervention, or left a decision trace
-that a process owner can audit. The absence of uniform outperformance on
-BPS log quality does not remove the value of LLM-agent simulation. It
-places the claim on a different dimension.
+that a process owner can audit. Lack of uniform outperformance on BPS
+log quality places the claim on a different dimension.
 
-The clearest added value in the current artifact is observability. The
-LLM-agent proxy emits reasoning and handover traces alongside the
-simulated event log. These traces do not replace quantitative validation,
-but they make failures easier to diagnose. If a simulator overuses a
-historically strong resource, for example, the reasoning log can show
-whether the choice came from capability priors, handover preferences, or
-workload estimates. What-if analysis needs both the predicted number and
-the local decisions that produced the bottleneck or handover pattern.
+The current artifact adds observability. The LLM-agent proxy emits
+reasoning and handover traces alongside the simulated event log. These
+traces do not replace quantitative validation, but they make failures
+easier to diagnose. If a simulator overuses a historically strong
+resource, the reasoning log can show whether the choice came from
+capability priors, handover preferences, or workload estimates. What-if
+analysis needs both the predicted number and the local decisions that
+produced the bottleneck or handover pattern.
 
 The what-if experiments point in the same direction. In some LoanApp
 high-load settings, the LLM-agent proxy gives a favorable throughput and
@@ -50,19 +46,17 @@ especially for changes in escalation policy, resource specialization,
 and handover rules that are difficult to express with static historical
 priors alone.
 
-Several limitations define the boundary of the claim. First, the main
-reported LLM-agent condition is a deterministic proxy, although the
-artifact includes an optional API-backed
-\texttt{llm\_agent\_real} condition. This keeps the reported experiments
-reproducible, but it does not yet measure prompt sensitivity, model
-drift, invalid textual outputs, token cost, or model-specific
-reasoning quality. Second, AcademicCredentials remains the primary
-dataset and LoanApp is used as a robustness check. This improves
-empirical breadth, but it is still not enough to generalize across
-process types. Third, the temporal model remains simple. The simulator
-uses empirical waiting-time and case-arrival sampling, but it does not
-yet model explicit resource calendars, multitasking, or data-aware case
-attributes. Fourth, the evaluation reports descriptive repeated-run
+Several limitations set the boundary of the claim. The main reported
+LLM-agent condition is a deterministic proxy, although the artifact
+includes an optional API-backed \texttt{llm\_agent\_real} condition.
+This keeps the reported experiments reproducible. It also means the
+results do not yet measure prompt sensitivity, model drift, invalid
+textual outputs, token cost, or model-specific reasoning quality.
+AcademicCredentials remains the primary dataset, and LoanApp is a
+robustness check. The temporal model is still simple: the simulator uses
+empirical waiting-time and case-arrival sampling, but it does not model
+explicit resource calendars, multitasking, or data-aware case
+attributes. The evaluation also reports descriptive repeated-run
 statistics rather than full pairwise confidence intervals or hypothesis
 tests.
 
