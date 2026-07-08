@@ -1,9 +1,6 @@
 \section{Background and Related
 Work}\label{background-and-related-work}
 
-\subsection{Data-Driven Business Process
-Simulation}\label{data-driven-business-process-simulation}
-
 Business process simulation estimates how a process may behave under
 given assumptions about arrivals, routing, resources, calendars, service
 times, and delays. In data-driven BPS, these assumptions are learned
@@ -18,30 +15,28 @@ executable simulation models from event logs. Camargo, Dumas, and
 Gonzalez-Rojas~\cite{camargo2020automated} frame this as an
 accuracy-optimized model discovery problem: instead of manually tuning
 simulation parameters, the discovery procedure searches for
-configurations that make a generated log resemble the observed log. This
-line of work establishes the event log as both calibration data and
-evaluation target. It also shows why simulation quality depends on
-several learned components at once, including control-flow, arrival
-behaviour, service times, calendars, and resource assignments.
+configurations that make a generated log resemble the observed log.
 
 The difficulty is that high-quality BPS requires more than replaying
-common traces. A simulator must reproduce multiple behavioral dimensions
+common traces. A simulator must reproduce multiple behavioural dimensions
 simultaneously. A model that matches control-flow variants may still
 fail on cycle time, resource workload, or circadian timing. Similarly, a
 model that matches average cycle time may hide unrealistic resource
 concentration or handover patterns. Chapela-Campa et al.~\cite{chapela2025quality} address
 this problem by proposing a framework for measuring BPS model quality
-across several log-distance dimensions. Their framework gives this study
-an evaluation anchor that is stricter than visual inspection or
-one-dimensional accuracy.
+across several log-distance dimensions.
 
 For this artifact, plausible agent explanations are not enough. The
 generated log must also resemble held-out behaviour across control-flow,
 temporal, and resource dimensions. Chapela-Campa et al.'s framework
 keeps that comparison tied to established BPS quality measures.
 
-\subsection{Resource Heterogeneity in
-BPS}\label{resource-heterogeneity-in-bps}
+This evaluation perspective motivates a closer look at resources,
+because several relevant quality dimensions depend not only on the
+control-flow model but also on how resource behaviour is represented.
+
+\subsection{Resource Heterogeneity in Business Process
+Simulation}\label{resource-heterogeneity-in-business-process-simulation}
 
 Traditional BPS often attaches resources to a process model as
 capacities, calendars, or pools. This representation is useful but can
@@ -60,25 +55,23 @@ and real execution times. Their work shows that assuming monotasking
 resources can overestimate execution times when real resources handle
 overlapping work. Chapela-Campa and Dumas~\cite{chapela2024extraneous} further show that not
 all waiting time can be explained by resource contention or
-unavailability; some delays are extraneous to the modeled queue/resource
-mechanism and need to be captured explicitly.
+unavailability; some delays are extraneous to the modelled queue or
+resource mechanism and need to be captured explicitly.
 
-The work on differentiated resources is the closest resource-centric
-foundation for this study. Lopez-Pintado, Dumas, and Berx~\cite{lopezpintado2024differentiated} show
+Lopez-Pintado, Dumas, and Berx~\cite{lopezpintado2024differentiated} show
 that treating each resource as an individual entity with its own
 performance and availability model can improve the reproduction of
 cycle-time distributions and work rhythm compared with undifferentiated
 pools. Lopez-Pintado and Dumas~\cite{lopezpintado2025probabilistic} further model intermittent
 availability and multitasking probabilistically, estimating availability
 and multitasking probabilities from event logs. Together, these studies
-show that many agent-like characteristics can already be derived
-statistically from logs: capabilities, processing-time distributions,
-calendars, intermittent availability, multitasking capacity, and delay
-distributions.
+show that many agent characteristics can already be derived from logs:
+capabilities, processing-time distributions, calendars, intermittent
+availability, multitasking capacity, and delay distributions.
 
-This literature sets the design constraint for the artifact. The
-LLM-agent simulator starts from log-derived capabilities, service-time
-samples, waiting-time samples, case-arrival samples, and handover priors.
+The LLM-agent simulator in this study starts from log-derived
+capabilities, service-time samples, waiting-time samples, case-arrival
+samples, and handover priors.
 The LLM-agent proxy sits on this resource-centric statistical
 foundation.
 
@@ -95,7 +88,7 @@ capacity.
 
 Agent System Mining (ASM) provides the conceptual link between process
 mining and multi-agent simulation. Tour, Polyvyanyy, and Kalenkova
-\cite{tour2021asm} argue that organizations can be viewed as multi-agent systems
+\cite{tour2021asm} argue that organisations can be viewed as multi-agent systems
 whose behaviour is recorded in event data. Instead of discovering only a
 control-flow process model, ASM seeks to discover agents and
 interactions among agents. Tour et al.~\cite{tour2023agentminer} instantiate this idea in
@@ -126,7 +119,7 @@ BPM}\label{llm-empowered-agent-based-modelling-and-agentic-bpm}
 LLM-based agents have become a prominent design pattern in multi-agent
 systems. Compared with simple rule-based agents, LLM agents can produce
 natural-language rationales, condition decisions on richer context, and
-simulate heterogeneous behavioral styles. Gao et al.~\cite{gao2024llmabm} summarize
+simulate heterogeneous behavioural styles. Gao et al.~\cite{gao2024llmabm} summarize
 this opportunity for agent-based modelling and simulation, arguing that
 LLMs can enrich agent cognition and interaction.
 
@@ -172,13 +165,13 @@ correctly from whether it is an adequate representation of the target
 system. The distinction matters for LLM-agent BPS. A system may
 execute without errors and still be invalid as a process simulation.
 Conversely, a failed metric can be diagnostically useful if it reveals
-which behavioral assumption is missing. Evaluation belongs in the
+which behavioural assumption is missing. Evaluation belongs in the
 artifact design cycle from the beginning.
 
 The literature suggests a specific research gap.
 Data-driven BPS provides log-derived control-flow, timing, and resource
 parameters. Resource-centric BPS shows that individual resources can and
-should be modeled heterogeneously. ASM and AgentSimulator show how event
+should be modelled heterogeneously. ASM and AgentSimulator show how event
 logs can be interpreted as traces of interacting agents. LLM-empowered
 ABM and Agentic BPM suggest richer reasoning and communication among
 agents. What remains underdeveloped is an evaluable bridge between these
