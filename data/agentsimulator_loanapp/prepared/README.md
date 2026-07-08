@@ -1,16 +1,31 @@
-# AgentSimulator LoanApp Prepared Dataset
+# Prepared LoanApp Event Log
 
-- `source`: https://github.com/lukaskirchdorfer/AgentSimulator/raw/main/raw_data/LoanApp.csv.gz
-- `license`: MIT License, AgentSimulator repository
-- `seed`: 2408
-- `test_ratio`: 0.3
-- `events`: 7492
-- `train_events`: 5239
-- `test_events`: 2253
-- `cases`: 1000
-- `train_cases`: 700
-- `test_cases`: 300
-- `activities`: 12
-- `resources`: 19
+This directory contains the normalized AgentSimulator LoanApp event log
+and the train/test split used in the robustness experiments.
 
-The source log is distributed in the AgentSimulator GitHub repository under the MIT License.
+## Preparation
+
+- Source: `../source/LoanApp.csv.gz`
+- Canonical schema: `case_id`, `activity`, `resource`, `start_time`,
+  `end_time`
+- Split seed: `2408`
+- Test ratio: `0.3`
+
+## Dataset Statistics
+
+| Quantity | Value |
+|---|---:|
+| Events | 7,492 |
+| Cases | 1,000 |
+| Activities | 12 |
+| Resources | 19 |
+| Training cases | 700 |
+| Test cases | 300 |
+| Training events | 5,239 |
+| Test events | 2,253 |
+
+## Files
+
+- `LoanApp_full.csv.gz`: full normalized event log.
+- `LoanApp_train.csv.gz`: training split.
+- `LoanApp_test.csv.gz`: held-out test split.

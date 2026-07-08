@@ -4,7 +4,8 @@ __pycache__/
 .venv/
 .deps/
 outputs/
-data/
+docs/
+manuscript/
 *.zip
 *.log
 *.aux

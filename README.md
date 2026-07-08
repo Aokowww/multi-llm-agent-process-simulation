@@ -1,95 +1,115 @@
 # Resource-Centric LLM-Augmented Multi-Agent Process Simulation
 
-This repository contains a reproducible research prototype for a study project on resource-centric, LLM-augmented multi-agent business process simulation.
+This repository contains the public research artifact for a
+resource-centric, LLM-augmented business process simulation prototype.
+The repository is intended to support inspection and reproducibility of
+the implemented experiments. It contains data, source code, and result
+files only; draft writing materials are intentionally not included.
 
-The core idea is conservative: an LLM-style agent module should not freely generate process behavior. It should choose among event-log-derived feasible actions, emit process-mining-compatible event logs, and be evaluated with standard BPS quality measures.
+## Purpose
 
-## Repository Structure
+The prototype studies whether an LLM-style local decision module can be
+embedded in a data-driven business process simulation pipeline without
+breaking event-log compatibility. The simulator does not allow the
+LLM-style component to freely generate process behaviour. Instead, local
+resource-assignment decisions are constrained by event-log-derived
+capabilities, timing samples, resource priors, and handover priors.
+
+## Repository Contents
 
 ```text
-src/                 Python experiment scripts
-data/                Small prepared robustness datasets and source notes
-results/             Paper-ready result summaries
-docs/                Research plan and reproducibility notes
-manuscript/          LaTeX manuscript source and figures
+data/       Prepared public benchmark data and license information
+src/        Python scripts for data preparation, simulation, and evaluation
+results/    Archived result summaries used for analysis
 ```
 
-## Experiment Scripts
+The top-level files are:
 
-- `src/pilot_simulation.py`: learns log-derived profiles and simulates three default policies, with an optional API-backed real LLM condition.
-- `src/run_repeated.py`: repeats simulations across random seeds and aggregates lightweight metrics, optionally including the real LLM condition.
-- `src/run_what_if.py`: runs resource-capacity and high-load intervention scenarios with a resource-availability queue.
-- `src/prepare_agentsimulator_loanapp.py`: prepares the AgentSimulator LoanApp robustness dataset.
-- `src/run_chapela_distances.py`: wraps the public Chapela-Campa distance script for one generated-log directory.
-- `src/run_chapela_repeated.py`: aggregates Chapela-Campa distances across repeated generated logs.
+- `README.md`: public repository guide.
+- `requirements.txt`: minimal Python package requirements.
+- `.gitignore`: local output, cache, and excluded writing folders.
 
 ## Simulation Conditions
 
-- `central_baseline`: centralized resource sampling from feasible resources.
-- `agent_profile`: activity-resource frequency weighted resource-agent policy.
-- `llm_agent_proxy`: constrained LLM-style local decision policy using handover priors, activity priors, and distributional guardrails.
-- `llm_agent_real`: optional OpenAI-compatible API-backed resource-agent policy. The model receives only a structured local state and feasible resources, must return JSON, and falls back to the guarded proxy if the API is unavailable or the output is invalid.
+The implementation compares three main policies:
 
-## Data
+- `central_baseline`: samples a feasible resource from the resources
+  that historically performed the activity.
+- `agent_profile`: samples feasible resources using learned
+  activity-resource frequencies.
+- `llm_agent_proxy`: uses handover priors, activity-resource priors, and
+  a resource overuse penalty to emulate a constrained LLM-style local
+  decision module.
 
-The experiments use the public Zenodo artifact associated with:
+The code also includes an optional `llm_agent_real` condition behind the
+same action-masked interface. It requires an OpenAI-compatible API key
+and falls back to the guarded proxy if an API call is unavailable or
+returns an infeasible resource.
 
-Chapela-Campa, D., Benchekroun, I., Baron, O., Dumas, M., Krass, D., and Senderovich, A. 2025. "A Framework for Measuring the Quality of Business Process Simulation Models," Information Systems 127, 102447. https://doi.org/10.1016/j.is.2024.102447
+## Data Sources
 
-Raw event logs and the original `ComputeLogDistance.py` are not vendored here. Download the artifact from Zenodo and point the scripts to the local files.
+The primary evaluation uses the public artifact associated with:
 
-The repository also includes a small prepared robustness dataset from the public AgentSimulator repository:
+Chapela-Campa, D., Benchekroun, I., Baron, O., Dumas, M., Krass, D., and
+Senderovich, A. 2025. "A Framework for Measuring the Quality of Business
+Process Simulation Models," Information Systems 127, 102447.
+https://doi.org/10.1016/j.is.2024.102447
 
-Kirchdorfer, L., Blumel, R., Kampik, T., Van der Aa, H., and Stuckenschmidt, H. 2024. "AgentSimulator: An Agent-Based Approach for Data-Driven Business Process Simulation," ICPM 2024. https://doi.org/10.1109/ICPM63005.2024.10680660
+Raw AcademicCredentials logs and the original `ComputeLogDistance.py`
+script are not redistributed in this repository. They should be
+downloaded from the authors' public artifact and passed to the scripts
+through command-line arguments.
 
-The included `LoanApp` log comes from `https://github.com/lukaskirchdorfer/AgentSimulator` and is distributed there under the MIT License.
+The repository includes a prepared robustness dataset derived from:
 
-## Example Usage
+Kirchdorfer, L., Blumel, R., Kampik, T., Van der Aa, H., and
+Stuckenschmidt, H. 2024. "AgentSimulator: An Agent-Based Approach for
+Data-Driven Business Process Simulation," ICPM 2024.
+https://doi.org/10.1109/ICPM63005.2024.10680660
 
-Run repeated lightweight metrics:
+The included LoanApp source log is from the public AgentSimulator GitHub
+repository and is distributed there under the MIT License. The license
+text is included in `data/agentsimulator_loanapp/AGENTSIMULATOR_LICENSE`.
+
+## Reproduction Commands
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Run repeated lightweight metrics on AcademicCredentials:
 
 ```bash
 python src/run_repeated.py \
   --train-log path/to/AcademicCredentials_train.csv.gz \
   --test-log path/to/AcademicCredentials_test.csv.gz \
-  --output-dir outputs/repeated \
+  --output-dir outputs/academic_credentials_repeated \
   --runs 10 \
   --seed 1000 \
   --save-logs
 ```
 
-Run an optional real LLM smoke experiment:
-
-```bash
-export OPENAI_API_KEY=...
-python src/pilot_simulation.py \
-  --train-log path/to/AcademicCredentials_train.csv.gz \
-  --test-log path/to/AcademicCredentials_test.csv.gz \
-  --output-dir outputs/real_llm_smoke \
-  --include-real-llm \
-  --llm-model "${OPENAI_MODEL:-gpt-4o-mini}"
-```
-
-If `OPENAI_API_KEY` is not set, `llm_agent_real` still runs through the same interface but records guarded fallback decisions. This keeps the repository reproducible without requiring paid API access.
-
-Run formal Chapela-Campa distances on repeated logs:
+Run formal Chapela-Campa distances on repeated generated logs:
 
 ```bash
 python src/run_chapela_repeated.py \
   --original-log path/to/AcademicCredentials_test.csv.gz \
-  --repeated-dir outputs/repeated \
-  --output-dir outputs/chapela \
+  --repeated-dir outputs/academic_credentials_repeated \
+  --output-dir outputs/academic_credentials_chapela \
   --distance-script path/to/ComputeLogDistance.py
 ```
 
-Run the what-if stress test:
+Run a what-if intervention experiment:
 
 ```bash
 python src/run_what_if.py \
   --train-log path/to/AcademicCredentials_train.csv.gz \
   --test-log path/to/AcademicCredentials_test.csv.gz \
-  --output-dir outputs/what_if \
+  --output-dir outputs/academic_credentials_what_if \
   --runs 5 \
+  --seed 3000 \
   --load-multiplier 1.6 \
   --capacity-factor 0.5 \
   --constrained-resource-limit 20
@@ -106,23 +126,18 @@ python src/run_repeated.py \
   --seed 4200
 ```
 
-## Current Result Summary
+## Result Interpretation
 
-The `results/` folder contains the repeated lightweight metric summary, repeated Chapela-Campa summary, AcademicCredentials what-if stress-test summary, and AgentSimulator LoanApp robustness summaries used in the manuscript.
+The archived results support a bounded interpretation. The
+`llm_agent_proxy` changes the quality profile of the simulator and adds
+reasoning and handover traces, but it does not uniformly outperform the
+statistical baselines. The strongest result for the proxy is observed on
+workforce distance and simulator observability. Control-flow and
+temporal reproduction remain scenario- and dataset-dependent.
 
-The main interpretation is not that the LLM-agent proxy dominates traditional BPS. The result is dimension-specific: the agent-profile policy is strongest on several AcademicCredentials formal control-flow and absolute/case-arrival timing metrics, while the LLM-agent proxy is competitive and strongest on workforce EMD. On AgentSimulator LoanApp, the proxy is again best on workforce EMD and nearly tied on cycle-time Wasserstein, but central sampling remains strongest on control-flow n-grams.
+## Review Notes
 
-The manuscript therefore uses a dual evaluation view: conventional BPS log-quality metrics measure historical distribution reproduction, while LLM-agent-specific behavioral metrics measure validity, faithful reasoning, coordination, scenario adaptivity, and auditability. The optional `llm_agent_real` condition is implemented for follow-up experiments but is not included in the reported main result table unless an API-backed run is executed and archived.
-
-## Manuscript
-
-The `manuscript/` folder contains a LaTeX draft and figures. Compile from that folder with:
-
-```bash
-pdflatex main.tex
-bibtex main
-pdflatex main.tex
-pdflatex main.tex
-```
-
-The title-page personal and supervisor fields should be replaced before final submission.
+This repository is organized for artifact inspection. The source code,
+data, and archived result summaries are included. Draft writing files,
+LaTeX sources, literature notes, and planning documents are excluded
+from the public repository.
