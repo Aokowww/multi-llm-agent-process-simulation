@@ -134,10 +134,3 @@ reasoning and handover traces, but it does not uniformly outperform the
 statistical baselines. The strongest result for the proxy is observed on
 workforce distance and simulator observability. Control-flow and
 temporal reproduction remain scenario- and dataset-dependent.
-
-## Review Notes
-
-This repository is organized for artifact inspection. The source code,
-data, and archived result summaries are included. Draft writing files,
-LaTeX sources, literature notes, and planning documents are excluded
-from the public repository.
