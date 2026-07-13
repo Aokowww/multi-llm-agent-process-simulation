@@ -1,0 +1,3 @@
+comparison,accuracy_difference_percentage_points,bootstrap_95_ci_low,bootstrap_95_ci_high,llm_only_correct,baseline_only_correct,mcnemar_exact_p
+real_llm_vs_activity_prior,1.0101,-7.0707,10.1010,10,9,1.0000
+real_llm_vs_handover_prior,6.0606,-5.0505,18.1818,21,15,0.4050

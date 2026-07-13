@@ -2,3 +2,4 @@ numpy
 scipy
 pulp
 jellyfish
+certifi

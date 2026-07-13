@@ -193,3 +193,11 @@ decision-level accuracy, feasible-action coverage, invalid-output and
 fallback rates, reason-action consistency, latency, and token use. This
 prevents a local decision effect from being hidden by control-flow and
 timing components that are shared across policies.
+
+The archived Groq/GPT-OSS pilot validates the API-backed execution path:
+149 of 149 end-to-end decisions and 100 of 100 benchmark decisions
+completed without invalid output or fallback. It does not establish
+outperformance. On 100 sampled held-out decisions, real-LLM top-1
+agreement was 34.34%, compared with 33.33% for activity-prior argmax;
+the paired confidence interval included zero. The corresponding files
+are under `results/real_llm_loanapp_pilot/`.

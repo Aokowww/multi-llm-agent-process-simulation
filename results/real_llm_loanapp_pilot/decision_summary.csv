@@ -1,0 +1,4 @@
+policy,sampled_decisions,evaluated_decisions,actual_resource_coverage,top1_accuracy,handover_context_share,mean_feasible_resources,fallback_rate,reason_mentions_action_rate,valid_factor_rate
+activity_prior_argmax,100,100,0.99,0.3333333333,0.84,5.03,0.0,0.0,0.0
+handover_prior_argmax,100,100,0.99,0.2828282828,0.84,5.03,0.0,0.0,0.0
+llm_agent_real,100,100,0.99,0.3434343434,0.84,5.03,0.0,1.0,1.0

@@ -25,6 +25,9 @@ distance metrics unless stated otherwise.
   the LoanApp robustness dataset.
 - `agentsimulator_loanapp_what_if/`: capacity and workload intervention
   results for LoanApp.
+- `real_llm_loanapp_pilot/`: clean API-backed LoanApp smoke-test and
+  decision-benchmark summaries. These are feasibility results, not the
+  planned repeated performance experiment.
 
 The result files are retained to make the reported analysis inspectable
 without rerunning all simulations.

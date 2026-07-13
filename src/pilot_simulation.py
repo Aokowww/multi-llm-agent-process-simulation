@@ -14,6 +14,7 @@ import gzip
 import json
 import os
 import random
+import ssl
 import statistics
 import time
 import urllib.error
@@ -21,6 +22,8 @@ import urllib.request
 from collections import Counter, defaultdict
 from datetime import datetime, timedelta
 from pathlib import Path
+
+import certifi
 
 
 SCHEMA = ["case_id", "activity", "resource", "start_time", "end_time"]
@@ -261,9 +264,11 @@ class OpenAICompatibleResourceSelector:
         self.min_interval = max(0.0, min_interval)
         self.seed = seed
         self.calls = 0
+        self.api_attempts = 0
         self.successful_calls = 0
         self.invalid_outputs = 0
         self.fallbacks = 0
+        self.rate_limit_retries = 0
         self.prompt_tokens = 0
         self.completion_tokens = 0
         self.total_tokens = 0
@@ -299,7 +304,7 @@ class OpenAICompatibleResourceSelector:
         payload = {
             "model": self.model,
             "temperature": 0,
-            "max_tokens": 160,
+            "max_tokens": 256,
             "response_format": {"type": "json_object"},
             "messages": [
                 {
@@ -332,6 +337,8 @@ class OpenAICompatibleResourceSelector:
                 },
             ],
         }
+        if self.model.startswith("openai/gpt-oss-"):
+            payload["reasoning_effort"] = "low"
         if self.seed is not None:
             payload["seed"] = self.seed
         wait = self.min_interval - (time.monotonic() - self._last_request_at)
@@ -343,6 +350,7 @@ class OpenAICompatibleResourceSelector:
             headers={
                 "Authorization": f"Bearer {self.api_key}",
                 "Content-Type": "application/json",
+                "User-Agent": "multi-llm-agent-process-simulation/1.0",
             },
             method="POST",
         )
@@ -350,6 +358,8 @@ class OpenAICompatibleResourceSelector:
         started = time.monotonic()
         diagnostic = {
             "call": self.calls,
+            "api_attempts": 0,
+            "rate_limit_retries": 0,
             "model": self.model,
             "activity": activity,
             "previous_resource": previous_resource or "",
@@ -365,9 +375,28 @@ class OpenAICompatibleResourceSelector:
             "error_message": "",
         }
         try:
-            with urllib.request.urlopen(request, timeout=self.timeout) as response:
-                self._last_request_at = time.monotonic()
-                data = json.loads(response.read().decode("utf-8"))
+            ssl_context = ssl.create_default_context(cafile=certifi.where())
+            retries_for_call = 0
+            for attempt in range(1, 4):
+                self.api_attempts += 1
+                diagnostic["api_attempts"] = attempt
+                try:
+                    with urllib.request.urlopen(request, timeout=self.timeout, context=ssl_context) as response:
+                        data = json.loads(response.read().decode("utf-8"))
+                    break
+                except urllib.error.HTTPError as exc:
+                    if exc.code != 429 or attempt == 3:
+                        raise
+                    retries_for_call += 1
+                    self.rate_limit_retries += 1
+                    diagnostic["rate_limit_retries"] = retries_for_call
+                    self._last_request_at = time.monotonic()
+                    retry_after = 0.0
+                    try:
+                        retry_after = float(exc.headers.get("retry-after", 0) or 0)
+                    except (TypeError, ValueError):
+                        pass
+                    time.sleep(max(self.min_interval, retry_after + 0.25))
             content = data["choices"][0]["message"]["content"]
             parsed = json.loads(content)
             selected = str(parsed.get("resource", ""))
@@ -403,9 +432,18 @@ class OpenAICompatibleResourceSelector:
             }
         except Exception as exc:
             diagnostic["error_type"] = type(exc).__name__
-            diagnostic["error_message"] = str(exc)[:500]
+            error_message = str(exc)
+            if isinstance(exc, urllib.error.HTTPError):
+                try:
+                    response_body = exc.read().decode("utf-8", errors="replace")
+                    if response_body:
+                        error_message = f"{error_message}: {response_body}"
+                except Exception:
+                    pass
+            diagnostic["error_message"] = error_message[:1000]
             raise
         finally:
+            self._last_request_at = time.monotonic()
             latency = time.monotonic() - started
             diagnostic["latency_seconds"] = round(latency, 6)
             self.total_latency_seconds += latency
@@ -415,9 +453,11 @@ class OpenAICompatibleResourceSelector:
         return {
             "llm_model": self.model,
             "llm_calls": self.calls,
+            "llm_api_attempts": self.api_attempts,
             "llm_successful_calls": self.successful_calls,
             "llm_invalid_outputs": self.invalid_outputs,
             "llm_fallbacks": self.fallbacks,
+            "llm_rate_limit_retries": self.rate_limit_retries,
             "llm_prompt_tokens": self.prompt_tokens,
             "llm_completion_tokens": self.completion_tokens,
             "llm_total_tokens": self.total_tokens,

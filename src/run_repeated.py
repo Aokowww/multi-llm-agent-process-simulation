@@ -27,7 +27,7 @@ PROVIDERS = {
         "api_key_env": "GROQ_API_KEY",
         "base_url": "https://api.groq.com/openai/v1",
         "model": "openai/gpt-oss-20b",
-        "min_interval": 2.1,
+        "min_interval": 4.2,
     },
     "gemini": {
         "api_key_env": "GEMINI_API_KEY",

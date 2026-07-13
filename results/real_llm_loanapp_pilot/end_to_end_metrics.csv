@@ -1,0 +1,5 @@
+mode,cases,seed,trace_variant_distance,activity_distribution_distance,resource_distribution_distance,mean_cycle_time_relative_error
+central_baseline,20,8100,0.7000000000,0.0337917116,0.1665649786,0.3484510812
+agent_profile,20,8100,0.7000000000,0.0337917116,0.1559112029,0.2104891542
+llm_agent_proxy,20,8100,0.7000000000,0.0337917116,0.1771718215,1.3545839165
+llm_agent_real,20,8100,0.7000000000,0.0337917116,0.2372929084,1.2082037544

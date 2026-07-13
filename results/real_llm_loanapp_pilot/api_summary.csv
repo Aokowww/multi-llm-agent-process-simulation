@@ -1,0 +1,3 @@
+condition,model,calls,api_attempts,successful_calls,invalid_outputs,fallbacks,rate_limit_retries,prompt_tokens,completion_tokens,total_tokens,mean_latency_seconds
+end_to_end_20_cases,openai/gpt-oss-20b,149,149,149,0,0,0,64725,16167,80892,0.532342
+decision_benchmark_100,openai/gpt-oss-20b,100,100,100,0,0,0,43502,11190,54692,0.437050
