@@ -35,7 +35,8 @@ def prepare_script(source_script: Path, output_dir: Path) -> Path:
 )"""
     if old not in text:
         raise RuntimeError("Could not find default log_2_ids block to patch.")
-    target.write_text(text.replace(old, new), encoding="utf-8")
+    patched = text.replace(old, new).replace("freq='H'", "freq='h'")
+    target.write_text(patched, encoding="utf-8")
     return target
 
 
@@ -57,8 +58,10 @@ def run_distance_script(script: Path, original_log: Path, sim_dir: Path, output_
     if cfld:
         cmd.append("-cfld")
     cmd.extend([str(original_log.resolve()), str(sim_dir.resolve())])
+    output_csv = output_dir / "output.csv"
+    output_csv.unlink(missing_ok=True)
     subprocess.run(cmd, cwd=output_dir, env=env, check=True)
-    return output_dir / "output.csv"
+    return output_csv
 
 
 def add_short_names(path: Path) -> Path:

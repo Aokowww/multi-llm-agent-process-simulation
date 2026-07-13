@@ -42,9 +42,11 @@ The implementation compares three main policies:
   decision module.
 
 The code also includes an optional `llm_agent_real` condition behind the
-same action-masked interface. It requires an OpenAI-compatible API key
-and falls back to the guarded proxy if an API call is unavailable or
-returns an infeasible resource.
+same action-masked interface. The real-LLM runner supports Groq, Gemini,
+OpenRouter, and custom OpenAI-compatible endpoints. It records API
+successes, invalid outputs, fallbacks, latency, and token use. A missing
+API key causes the experiment to stop so that fallback-only output cannot
+be reported as a real-LLM result.
 
 ## Data Sources
 
@@ -126,11 +128,68 @@ python src/run_repeated.py \
   --seed 4200
 ```
 
+Run a quota-aware real-LLM pilot on a fixed 100-case LoanApp sample. Groq
+is the recommended no-cost starting point because its OpenAI-compatible
+API supports JSON output. The default `openai/gpt-oss-20b` free quota is
+sufficient for approximately one 100-case LoanApp run per daily quota
+window. Create a Groq API key, expose it only through the environment,
+and run one replication:
+
+```bash
+export GROQ_API_KEY="..."
+python src/run_repeated.py \
+  --train-log data/agentsimulator_loanapp/prepared/LoanApp_train.csv.gz \
+  --test-log data/agentsimulator_loanapp/prepared/LoanApp_test.csv.gz \
+  --output-dir outputs/agentsimulator_loanapp_real_llm \
+  --runs 1 \
+  --seed 8100 \
+  --max-cases 100 \
+  --include-real-llm \
+  --llm-provider groq \
+  --save-logs
+```
+
+Schedule additional replications over separate daily quota windows and
+use distinct base seeds. The bounded study protocol uses three
+replications in total.
+
+Evaluate local resource choices separately from end-to-end log quality:
+
+```bash
+python src/evaluate_agent_decisions.py \
+  --train-log data/agentsimulator_loanapp/prepared/LoanApp_train.csv.gz \
+  --test-log data/agentsimulator_loanapp/prepared/LoanApp_test.csv.gz \
+  --output-dir outputs/agentsimulator_loanapp_decisions \
+  --max-cases 100 \
+  --max-decisions 300 \
+  --seed 7300 \
+  --include-real-llm \
+  --llm-provider groq
+```
+
+The provider presets use these environment variables: `GROQ_API_KEY`,
+`GEMINI_API_KEY`, `OPENROUTER_API_KEY`, and `OPENAI_API_KEY` for a custom
+endpoint. API keys are never written to result files.
+
 ## Result Interpretation
 
 The archived results support a bounded interpretation. The
 `llm_agent_proxy` changes the quality profile of the simulator and adds
 reasoning and handover traces, but it does not uniformly outperform the
-statistical baselines. The strongest result for the proxy is observed on
-workforce distance and simulator observability. Control-flow and
-temporal reproduction remain scenario- and dataset-dependent.
+statistical baselines. The repeated experiments use paired common random
+numbers: policies share the same process-structure and timing draws in
+each run, while resource decisions use a separate random stream. As a
+result, control-flow distances are identical across policies by design
+and are not evidence for or against a resource-assignment policy.
+
+The proxy has the lowest mean workforce EMD on both archived datasets
+and adds decision and handover traces. Other temporal and resource
+metrics remain dataset- and scenario-dependent. These results motivate
+a multidimensional comparison rather than a claim of overall
+outperformance.
+
+For real-LLM experiments, end-to-end BPS metrics should be reported with
+decision-level accuracy, feasible-action coverage, invalid-output and
+fallback rates, reason-action consistency, latency, and token use. This
+prevents a local decision effect from being hidden by control-flow and
+timing components that are shared across policies.

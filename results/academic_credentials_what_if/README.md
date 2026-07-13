@@ -29,6 +29,8 @@ The archived scenarios are:
 ## Main Observation
 
 Under the combined reduced-capacity and high-load scenario, the central
-baseline has the strongest temporal response, while the LLM-agent proxy
-substantially reduces handovers per case. The result supports a
-multidimensional interpretation rather than a single overall winner.
+baseline has the shortest mean cycle time among the three policies
+(86.7 days), while the LLM-agent proxy substantially reduces mean
+handovers per case (1.99, compared with 3.78 for the central baseline).
+The result supports a multidimensional interpretation rather than a
+single overall winner.

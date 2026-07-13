@@ -15,6 +15,7 @@ import json
 import os
 import random
 import statistics
+import time
 import urllib.error
 import urllib.request
 from collections import Counter, defaultdict
@@ -34,6 +35,7 @@ REASONING_SCHEMA = [
     "feasible_resources_top",
     "historical_prior",
     "selection_rule",
+    "factors",
     "reason",
 ]
 HANDOVER_SCHEMA = ["case_id", "from_resource", "to_resource", "activity", "timestamp", "message"]
@@ -43,7 +45,16 @@ AGENTIC_MODES = {"llm_agent_proxy", "llm_agent_real"}
 
 
 def parse_dt(value: str) -> datetime:
-    return datetime.fromisoformat(value)
+    normalized = value.strip().replace("Z", "+00:00")
+    try:
+        return datetime.fromisoformat(normalized)
+    except ValueError:
+        for pattern in ("%Y-%m-%dT%H:%M:%S.%f", "%Y-%m-%d %H:%M:%S.%f", "%Y-%m-%d %H:%M:%S"):
+            try:
+                return datetime.strptime(normalized, pattern)
+            except ValueError:
+                continue
+        raise
 
 
 def fmt_dt(value: datetime) -> str:
@@ -234,14 +245,31 @@ def top_items(values: dict[str, int] | dict[str, float], limit: int = 12) -> dic
 class OpenAICompatibleResourceSelector:
     """Small OpenAI-compatible JSON client for constrained resource choices."""
 
-    def __init__(self, model: str, api_key: str, base_url: str, timeout: float = 30.0):
+    def __init__(
+        self,
+        model: str,
+        api_key: str,
+        base_url: str,
+        timeout: float = 30.0,
+        min_interval: float = 0.0,
+        seed: int | None = None,
+    ):
         self.model = model
         self.api_key = api_key
         self.base_url = self._chat_completions_url(base_url)
         self.timeout = timeout
+        self.min_interval = max(0.0, min_interval)
+        self.seed = seed
         self.calls = 0
+        self.successful_calls = 0
         self.invalid_outputs = 0
         self.fallbacks = 0
+        self.prompt_tokens = 0
+        self.completion_tokens = 0
+        self.total_tokens = 0
+        self.total_latency_seconds = 0.0
+        self.call_diagnostics: list[dict] = []
+        self._last_request_at = 0.0
 
     @staticmethod
     def _chat_completions_url(base_url: str) -> str:
@@ -271,6 +299,7 @@ class OpenAICompatibleResourceSelector:
         payload = {
             "model": self.model,
             "temperature": 0,
+            "max_tokens": 160,
             "response_format": {"type": "json_object"},
             "messages": [
                 {
@@ -278,7 +307,10 @@ class OpenAICompatibleResourceSelector:
                     "content": (
                         "You are a constrained business-process simulation agent. "
                         "Choose exactly one resource from feasible_resources. "
-                        "Return only JSON with keys resource and reason. "
+                        "Return only JSON with keys resource, reason, and factors. "
+                        "The factors value must be a list containing one or more of "
+                        "historical_capability, handover_continuity, and workload_balance. "
+                        "Name the selected resource in the reason. "
                         "Do not invent resources, activities, timestamps, or schema fields."
                     ),
                 },
@@ -300,6 +332,11 @@ class OpenAICompatibleResourceSelector:
                 },
             ],
         }
+        if self.seed is not None:
+            payload["seed"] = self.seed
+        wait = self.min_interval - (time.monotonic() - self._last_request_at)
+        if wait > 0:
+            time.sleep(wait)
         request = urllib.request.Request(
             self.base_url,
             data=json.dumps(payload).encode("utf-8"),
@@ -310,17 +347,82 @@ class OpenAICompatibleResourceSelector:
             method="POST",
         )
         self.calls += 1
-        with urllib.request.urlopen(request, timeout=self.timeout) as response:
-            data = json.loads(response.read().decode("utf-8"))
-        content = data["choices"][0]["message"]["content"]
-        parsed = json.loads(content)
-        selected = str(parsed.get("resource", ""))
-        if selected not in candidates:
-            self.invalid_outputs += 1
-            raise ValueError(f"LLM selected invalid resource: {selected!r}")
+        started = time.monotonic()
+        diagnostic = {
+            "call": self.calls,
+            "model": self.model,
+            "activity": activity,
+            "previous_resource": previous_resource or "",
+            "feasible_resource_count": len(candidates),
+            "status": "error",
+            "selected_resource": "",
+            "factors": "",
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+            "latency_seconds": 0.0,
+            "error_type": "",
+            "error_message": "",
+        }
+        try:
+            with urllib.request.urlopen(request, timeout=self.timeout) as response:
+                self._last_request_at = time.monotonic()
+                data = json.loads(response.read().decode("utf-8"))
+            content = data["choices"][0]["message"]["content"]
+            parsed = json.loads(content)
+            selected = str(parsed.get("resource", ""))
+            factors = parsed.get("factors", [])
+            if selected not in candidates:
+                self.invalid_outputs += 1
+                raise ValueError(f"LLM selected invalid resource: {selected!r}")
+            if not isinstance(factors, list):
+                factors = []
+            usage = data.get("usage", {})
+            prompt_tokens = int(usage.get("prompt_tokens", 0) or 0)
+            completion_tokens = int(usage.get("completion_tokens", 0) or 0)
+            total_tokens = int(usage.get("total_tokens", prompt_tokens + completion_tokens) or 0)
+            self.prompt_tokens += prompt_tokens
+            self.completion_tokens += completion_tokens
+            self.total_tokens += total_tokens
+            self.successful_calls += 1
+            diagnostic.update(
+                {
+                    "status": "success",
+                    "selected_resource": selected,
+                    "factors": "|".join(str(value) for value in factors),
+                    "prompt_tokens": prompt_tokens,
+                    "completion_tokens": completion_tokens,
+                    "total_tokens": total_tokens,
+                }
+            )
+            return {
+                "resource": selected,
+                "reason": str(parsed.get("reason", "")).strip()
+                or f"Selected feasible resource {selected}.",
+                "factors": factors,
+            }
+        except Exception as exc:
+            diagnostic["error_type"] = type(exc).__name__
+            diagnostic["error_message"] = str(exc)[:500]
+            raise
+        finally:
+            latency = time.monotonic() - started
+            diagnostic["latency_seconds"] = round(latency, 6)
+            self.total_latency_seconds += latency
+            self.call_diagnostics.append(diagnostic)
+
+    def summary(self) -> dict:
         return {
-            "resource": selected,
-            "reason": str(parsed.get("reason", "")).strip() or "The LLM selected a feasible resource.",
+            "llm_model": self.model,
+            "llm_calls": self.calls,
+            "llm_successful_calls": self.successful_calls,
+            "llm_invalid_outputs": self.invalid_outputs,
+            "llm_fallbacks": self.fallbacks,
+            "llm_prompt_tokens": self.prompt_tokens,
+            "llm_completion_tokens": self.completion_tokens,
+            "llm_total_tokens": self.total_tokens,
+            "llm_total_latency_seconds": self.total_latency_seconds,
+            "llm_mean_latency_seconds": self.total_latency_seconds / self.calls if self.calls else 0.0,
         }
 
 
@@ -342,6 +444,7 @@ def decide_resource(
             "feasible_resources_top": selected,
             "historical_prior": "fallback",
             "selection_rule": "fallback_random",
+            "factors": "fallback",
             "reason": "No learned capability set was available, so a fallback resource was sampled.",
         }
     priors = normalized_priors(candidates)
@@ -390,9 +493,18 @@ def decide_resource(
                             sort_keys=True,
                         ),
                         "selection_rule": rule,
+                        "factors": "|".join(llm_decision.get("factors", [])),
                         "reason": llm_decision["reason"],
                     }
-                except (ValueError, KeyError, json.JSONDecodeError, urllib.error.URLError, TimeoutError) as exc:
+                except (
+                    ValueError,
+                    KeyError,
+                    IndexError,
+                    TypeError,
+                    json.JSONDecodeError,
+                    urllib.error.URLError,
+                    TimeoutError,
+                ) as exc:
                     llm_selector.fallbacks += 1
                     selected = fallback_resource
                     rule = f"real_llm_fallback_{fallback_rule}"
@@ -405,6 +517,7 @@ def decide_resource(
                             sort_keys=True,
                         ),
                         "selection_rule": rule,
+                        "factors": "fallback",
                         "reason": (
                             f"Real LLM decision failed ({type(exc).__name__}); "
                             f"used guarded fallback resource {selected}."
@@ -418,6 +531,9 @@ def decide_resource(
         "feasible_resources_top": "|".join(top_items(candidates)),
         "historical_prior": json.dumps({k: round(v, 4) for k, v in top_items(priors).items()}, sort_keys=True),
         "selection_rule": rule,
+        "factors": "handover_continuity|historical_capability|workload_balance"
+        if mode in AGENTIC_MODES
+        else "historical_capability",
         "reason": (
             f"Selected {selected} for {activity} from resource-local feasible candidates "
             f"using {rule}."
@@ -473,7 +589,9 @@ def simulate(
     base_start: datetime | None = None,
     llm_selector: OpenAICompatibleResourceSelector | None = None,
 ) -> tuple[list[dict], list[dict], list[dict]]:
-    rng = random.Random(seed)
+    structure_rng = random.Random(seed)
+    decision_rng = random.Random(seed + 1_000_003)
+    timing_rng = random.Random(seed + 2_000_003)
     rows = []
     reasoning_rows = []
     handover_rows = []
@@ -481,24 +599,24 @@ def simulate(
     t_arrival = base_start or datetime(2026, 2, 2, 9, 0, 0)
     for case in range(n_cases):
         if case > 0:
-            t_arrival = t_arrival + timedelta(minutes=sample_case_interarrival(profiles, rng))
+            t_arrival = t_arrival + timedelta(minutes=sample_case_interarrival(profiles, structure_rng))
         t = t_arrival
         case_id = f"S_{mode}_{case:04d}"
         previous_activity = None
         previous_resource = None
-        for step_index, activity in enumerate(sample_trace(profiles, rng), start=1):
+        for step_index, activity in enumerate(sample_trace(profiles, structure_rng), start=1):
             decision = decide_resource(
                 activity,
                 previous_resource,
                 profiles,
                 mode,
-                rng,
+                decision_rng,
                 resource_usage,
                 llm_selector=llm_selector,
             )
             resource = decision["resource"]
-            duration = sample_duration(profiles, resource, activity, rng)
-            wait = sample_wait(profiles, previous_activity, activity, rng)
+            duration = sample_duration(profiles, resource, activity, timing_rng)
+            wait = sample_wait(profiles, previous_activity, activity, timing_rng)
             start = t + timedelta(minutes=wait)
             end = start + timedelta(minutes=duration)
             rows.append(
@@ -524,6 +642,7 @@ def simulate(
                         "feasible_resources_top": decision["feasible_resources_top"],
                         "historical_prior": decision["historical_prior"],
                         "selection_rule": decision["selection_rule"],
+                        "factors": decision["factors"],
                         "reason": decision["reason"],
                     }
                 )

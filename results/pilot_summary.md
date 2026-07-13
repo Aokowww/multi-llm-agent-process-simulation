@@ -39,9 +39,16 @@ reasoning and handover logs.
 ## Final Repeated Evaluation
 
 The final archived AcademicCredentials results use ten repeated runs per
-condition. The formal Chapela-Campa results show a dimension-specific
-trade-off: the agent-profile policy is strongest on several
-control-flow and absolute/case-arrival timing metrics, the central
-baseline is strongest on several temporal metrics, and the LLM-agent
-proxy is strongest on workforce EMD while adding reasoning and handover
-observability.
+condition. The final implementation uses paired common random numbers:
+the policies share process-structure and timing draws within a run, and
+resource choices use a separate random stream. This correction removes
+random trace-generation differences from the policy comparison.
+
+The formal Chapela-Campa results show a dimension-specific trade-off.
+Control-flow and case-arrival metrics are identical across policies by
+construction. The agent-profile policy has the lowest mean absolute
+timing EMD, while the LLM-agent proxy has the lowest mean workforce EMD,
+relative EMD, and cycle-time Wasserstein distance. These are descriptive
+prototype results, not evidence of uniform or statistically robust
+outperformance. The proxy also adds decision and handover traces that
+the statistical policies do not provide.

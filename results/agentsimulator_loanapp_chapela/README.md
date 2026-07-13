@@ -14,8 +14,9 @@ with the Chapela-Campa et al. `ComputeLogDistance.py` script.
 
 ## Main Observation
 
-The central baseline remains strongest on control-flow n-grams. The
-LLM-agent proxy is strongest on workforce EMD and is close to the
-agent-profile policy on cycle-time Wasserstein distance. The result
-supports a bounded robustness claim: the proxy changes the quality
-profile, but it is not a universal accuracy winner.
+Control-flow n-gram and case-arrival distances are identical across
+policies because paired runs share process-structure and arrival draws.
+The LLM-agent proxy has the lowest mean workforce EMD, relative EMD, and
+cycle-time Wasserstein distance, but the latter two metrics also have
+the highest run-to-run variation. The result supports a bounded
+robustness claim, not a universal accuracy claim.

@@ -20,7 +20,8 @@ increase through compressed case arrivals.
 
 ## Main Observation
 
-The LoanApp intervention results are included to inspect whether the
-policy response changes on a dataset with fewer resources and clearer
-role structure. They should be interpreted as intervention-response
-evidence, not as held-out log-reproduction metrics.
+Under the combined reduced-capacity and high-load scenario, the
+LLM-agent proxy has the shortest mean cycle time (2.01 days) and the
+highest throughput (2.33 cases per day), but it also produces slightly
+more handovers per case (6.43) than the statistical policies. These are
+intervention-response results, not held-out log-reproduction metrics.

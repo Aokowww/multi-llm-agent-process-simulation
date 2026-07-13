@@ -10,6 +10,8 @@ distance metrics unless stated otherwise.
   lightweight metric summary for AcademicCredentials.
 - `academic_credentials_chapela_summary.csv`: repeated formal
   Chapela-Campa metric summary for AcademicCredentials.
+- `dataset_suitability_summary.csv`: train/test resource overlap,
+  feasible-action coverage, and action-set size for candidate datasets.
 - `pilot_summary.md`: formal record of the pilot and iterative
   development checks.
 
@@ -26,3 +28,9 @@ distance metrics unless stated otherwise.
 
 The result files are retained to make the reported analysis inspectable
 without rerunning all simulations.
+
+The archived repeated experiments use paired common random numbers.
+Within each run, every policy receives the same process-structure and
+timing draws; resource decisions use an independent random stream. This
+design isolates policy effects and makes control-flow metrics identical
+across resource-assignment policies by construction.

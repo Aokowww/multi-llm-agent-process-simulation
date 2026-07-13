@@ -10,7 +10,15 @@ simulations, and compute evaluation metrics.
 - `pilot_simulation.py`: learns log-derived profiles, simulates the
   default policies, and writes generated event logs and diagnostics.
 - `run_repeated.py`: repeats simulations across random seeds and
-  aggregates lightweight log-reproduction metrics.
+  aggregates lightweight log-reproduction metrics. It also provides
+  quota-aware real-LLM provider presets, fixed case sampling, fail-fast
+  API-key checks, and per-call diagnostics.
+- `evaluate_agent_decisions.py`: evaluates resource selections separately
+  from end-to-end event-log distances, including top-1 agreement,
+  feasible-action coverage, fallback rate, and structured-reason checks.
+- `analyze_dataset_suitability.py`: reports train/test resource overlap,
+  action-mask coverage, handover-context coverage, and feasible-set size
+  before a dataset is used for resource-agent evaluation.
 - `run_chapela_distances.py`: runs the Chapela-Campa distance script for
   one generated-log directory.
 - `run_chapela_repeated.py`: applies Chapela-Campa distances to repeated

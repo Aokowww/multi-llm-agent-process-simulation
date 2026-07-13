@@ -20,6 +20,8 @@ def read_distance_rows(path: Path, run_index: int) -> list[dict]:
         reader = csv.DictReader(f)
         rows = []
         for row in reader:
+            if row.get("name") == "name" or row.get("mode") == "mode":
+                continue
             row["run"] = run_index
             rows.append(row)
         return rows

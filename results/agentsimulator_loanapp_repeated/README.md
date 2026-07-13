@@ -23,8 +23,8 @@ for the AgentSimulator LoanApp robustness dataset.
 ## Main Observation
 
 LoanApp is easier to reproduce than AcademicCredentials under the
-lightweight metrics. The central baseline is strongest on trace,
-activity, and resource distribution distance. The LLM-agent proxy
-improves on the central baseline in mean cycle-time error and improves
-on the agent-profile policy in resource distance, but it is not best
-overall.
+lightweight metrics. Trace-variant and activity-distribution distances
+are identical across policies because paired runs share the same
+process-structure draws. The central baseline has the lowest mean
+resource-distribution distance, while the LLM-agent proxy has the lowest
+mean cycle-time relative error. No policy is best across all dimensions.

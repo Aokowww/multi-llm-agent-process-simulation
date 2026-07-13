@@ -75,7 +75,9 @@ def simulate_with_resource_queue(
 ) -> tuple[list[dict], list[dict], list[dict]]:
     import random
 
-    rng = random.Random(seed)
+    structure_rng = random.Random(seed)
+    decision_rng = random.Random(seed + 1_000_003)
+    timing_rng = random.Random(seed + 2_000_003)
     rows = []
     reasoning_rows = []
     handover_rows = []
@@ -85,16 +87,20 @@ def simulate_with_resource_queue(
 
     for case in range(n_cases):
         if case > 0:
-            t_arrival = t_arrival + timedelta(minutes=sample_case_interarrival_scaled(profiles, rng, load_multiplier))
+            t_arrival = t_arrival + timedelta(
+                minutes=sample_case_interarrival_scaled(profiles, structure_rng, load_multiplier)
+            )
         t = t_arrival
         case_id = f"W_{mode}_{case:04d}"
         previous_activity = None
         previous_resource = None
-        for step_index, activity in enumerate(sample_trace(profiles, rng), start=1):
-            decision = decide_resource(activity, previous_resource, profiles, mode, rng, resource_usage)
+        for step_index, activity in enumerate(sample_trace(profiles, structure_rng), start=1):
+            decision = decide_resource(
+                activity, previous_resource, profiles, mode, decision_rng, resource_usage
+            )
             resource = decision["resource"]
-            duration = sample_duration(profiles, resource, activity, rng)
-            wait = sample_wait(profiles, previous_activity, activity, rng)
+            duration = sample_duration(profiles, resource, activity, timing_rng)
+            wait = sample_wait(profiles, previous_activity, activity, timing_rng)
             earliest_case_start = t + timedelta(minutes=wait)
             start = max(earliest_case_start, resource_available_at[resource])
             end = start + timedelta(minutes=duration)
@@ -123,6 +129,7 @@ def simulate_with_resource_queue(
                         "feasible_resources_top": decision["feasible_resources_top"],
                         "historical_prior": decision["historical_prior"],
                         "selection_rule": decision["selection_rule"],
+                        "factors": decision["factors"],
                         "reason": decision["reason"],
                     }
                 )
@@ -286,8 +293,8 @@ def main() -> None:
         for scenario, load_multiplier, capacity in scenarios:
             resource_capacity = {resource: capacity for resource in constrained_resources}
             scenario_profile = scenario_profiles(profiles, constrained_resources if capacity < 1.0 else [])
-            for mode_index, mode in enumerate(WHAT_IF_MODES):
-                seed = args.seed + run_index * 1000 + mode_index * 100 + len(scenario)
+            for mode in WHAT_IF_MODES:
+                seed = args.seed + run_index * 1000 + len(scenario)
                 generated, reasoning_rows, handover_rows = simulate_with_resource_queue(
                     scenario_profile,
                     n_cases,
