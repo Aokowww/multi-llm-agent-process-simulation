@@ -1,0 +1,170 @@
+[
+  {
+    "seed": 9400,
+    "metric": "trace_variant_distance",
+    "real_multi_llm": 0.9000000000000001,
+    "mock_multi_agent": 0.7000000000000001,
+    "delta_real_minus_mock": 0.20000000000000007,
+    "real_wins": false
+  },
+  {
+    "seed": 9400,
+    "metric": "activity_distribution_distance",
+    "real_multi_llm": 0.07631578947368423,
+    "mock_multi_agent": 0.06081081081081084,
+    "delta_real_minus_mock": 0.015504978662873384,
+    "real_wins": false
+  },
+  {
+    "seed": 9400,
+    "metric": "resource_distribution_distance",
+    "real_multi_llm": 0.18035087719298246,
+    "mock_multi_agent": 0.13620199146514936,
+    "delta_real_minus_mock": 0.0441488857278331,
+    "real_wins": false
+  },
+  {
+    "seed": 9400,
+    "metric": "mean_cycle_time_relative_error",
+    "real_multi_llm": 0.023859838744488125,
+    "mock_multi_agent": 0.48528305941259864,
+    "delta_real_minus_mock": -0.46142322066811053,
+    "real_wins": true
+  },
+  {
+    "seed": 9400,
+    "metric": "proposal_execution_rate",
+    "real_multi_llm": 0.96,
+    "mock_multi_agent": 0.972972972972973,
+    "delta_real_minus_mock": -0.012972972972973063,
+    "real_wins": false
+  },
+  {
+    "seed": 9400,
+    "metric": "bid_disagreement_rate",
+    "real_multi_llm": 0.24,
+    "mock_multi_agent": 0.13513513513513514,
+    "delta_real_minus_mock": 0.10486486486486485,
+    "real_wins": false
+  },
+  {
+    "seed": 9400,
+    "metric": "generated_resource_entropy_normalized",
+    "real_multi_llm": 0.9836444088026804,
+    "mock_multi_agent": 0.9904743088349021,
+    "delta_real_minus_mock": -0.006829900032221614,
+    "real_wins": false
+  },
+  {
+    "seed": 9500,
+    "metric": "trace_variant_distance",
+    "real_multi_llm": 0.9,
+    "mock_multi_agent": 0.5,
+    "delta_real_minus_mock": 0.4,
+    "real_wins": false
+  },
+  {
+    "seed": 9500,
+    "metric": "activity_distribution_distance",
+    "real_multi_llm": 0.11842105263157894,
+    "mock_multi_agent": 0.1819419237749546,
+    "delta_real_minus_mock": -0.06352087114337567,
+    "real_wins": true
+  },
+  {
+    "seed": 9500,
+    "metric": "resource_distribution_distance",
+    "real_multi_llm": 0.17105263157894732,
+    "mock_multi_agent": 0.16515426497277677,
+    "delta_real_minus_mock": 0.005898366606170546,
+    "real_wins": false
+  },
+  {
+    "seed": 9500,
+    "metric": "mean_cycle_time_relative_error",
+    "real_multi_llm": 0.259648258702709,
+    "mock_multi_agent": 0.6383877452273721,
+    "delta_real_minus_mock": -0.37873948652466305,
+    "real_wins": true
+  },
+  {
+    "seed": 9500,
+    "metric": "proposal_execution_rate",
+    "real_multi_llm": 1.0,
+    "mock_multi_agent": 0.9655172413793104,
+    "delta_real_minus_mock": 0.03448275862068961,
+    "real_wins": false
+  },
+  {
+    "seed": 9500,
+    "metric": "bid_disagreement_rate",
+    "real_multi_llm": 0.2236842105263158,
+    "mock_multi_agent": 0.06896551724137931,
+    "delta_real_minus_mock": 0.15471869328493648,
+    "real_wins": false
+  },
+  {
+    "seed": 9500,
+    "metric": "generated_resource_entropy_normalized",
+    "real_multi_llm": 0.9855118425072488,
+    "mock_multi_agent": 0.9929270235756351,
+    "delta_real_minus_mock": -0.007415181068386345,
+    "real_wins": false
+  },
+  {
+    "seed": 9600,
+    "metric": "trace_variant_distance",
+    "real_multi_llm": 0.7999999999999999,
+    "mock_multi_agent": 1.0,
+    "delta_real_minus_mock": -0.20000000000000007,
+    "real_wins": true
+  },
+  {
+    "seed": 9600,
+    "metric": "activity_distribution_distance",
+    "real_multi_llm": 0.10716550412175016,
+    "mock_multi_agent": 0.1921052631578947,
+    "delta_real_minus_mock": -0.08493975903614454,
+    "real_wins": true
+  },
+  {
+    "seed": 9600,
+    "metric": "resource_distribution_distance",
+    "real_multi_llm": 0.1277742549143944,
+    "mock_multi_agent": 0.19210526315789475,
+    "delta_real_minus_mock": -0.06433100824350035,
+    "real_wins": true
+  },
+  {
+    "seed": 9600,
+    "metric": "mean_cycle_time_relative_error",
+    "real_multi_llm": 1.0272547849580371,
+    "mock_multi_agent": 0.8434036673342937,
+    "delta_real_minus_mock": 0.1838511176237434,
+    "real_wins": false
+  },
+  {
+    "seed": 9600,
+    "metric": "proposal_execution_rate",
+    "real_multi_llm": 0.9879518072289156,
+    "mock_multi_agent": 0.9875,
+    "delta_real_minus_mock": 0.00045180722891557945,
+    "real_wins": false
+  },
+  {
+    "seed": 9600,
+    "metric": "bid_disagreement_rate",
+    "real_multi_llm": 0.21686746987951808,
+    "mock_multi_agent": 0.0625,
+    "delta_real_minus_mock": 0.15436746987951808,
+    "real_wins": false
+  },
+  {
+    "seed": 9600,
+    "metric": "generated_resource_entropy_normalized",
+    "real_multi_llm": 0.9914972879422872,
+    "mock_multi_agent": 0.980847436062388,
+    "delta_real_minus_mock": 0.010649851879899197,
+    "real_wins": false
+  }
+]

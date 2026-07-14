@@ -1,0 +1,138 @@
+[
+  {
+    "metric": "trace_variant_distance",
+    "n": 3,
+    "mean": 0.8666666666666667,
+    "sample_sd": 0.05773502691896266,
+    "minimum": 0.7999999999999999,
+    "maximum": 0.9000000000000001
+  },
+  {
+    "metric": "activity_distribution_distance",
+    "n": 3,
+    "mean": 0.10063411540900445,
+    "sample_sd": 0.021799256301227986,
+    "minimum": 0.07631578947368423,
+    "maximum": 0.11842105263157894
+  },
+  {
+    "metric": "resource_distribution_distance",
+    "n": 3,
+    "mean": 0.15972592122877471,
+    "sample_sd": 0.028058796803745182,
+    "minimum": 0.1277742549143944,
+    "maximum": 0.18035087719298246
+  },
+  {
+    "metric": "mean_cycle_time_relative_error",
+    "n": 3,
+    "mean": 0.43692096080174475,
+    "sample_sd": 0.5246613790854466,
+    "minimum": 0.023859838744488125,
+    "maximum": 1.0272547849580371
+  },
+  {
+    "metric": "allocation_decisions",
+    "n": 3,
+    "mean": 82.0,
+    "sample_sd": 5.196152422706632,
+    "minimum": 79.0,
+    "maximum": 88.0
+  },
+  {
+    "metric": "executed_decisions",
+    "n": 3,
+    "mean": 78.0,
+    "sample_sd": 4.358898943540674,
+    "minimum": 75.0,
+    "maximum": 83.0
+  },
+  {
+    "metric": "agent_bids",
+    "n": 3,
+    "mean": 148.33333333333334,
+    "sample_sd": 8.082903768654761,
+    "minimum": 141.0,
+    "maximum": 157.0
+  },
+  {
+    "metric": "valid_bid_rate",
+    "n": 3,
+    "mean": 1.0,
+    "sample_sd": 0.0,
+    "minimum": 1.0,
+    "maximum": 1.0
+  },
+  {
+    "metric": "agent_acceptance_rate",
+    "n": 3,
+    "mean": 1.0,
+    "sample_sd": 0.0,
+    "minimum": 1.0,
+    "maximum": 1.0
+  },
+  {
+    "metric": "proposal_execution_rate",
+    "n": 3,
+    "mean": 0.9826506024096385,
+    "sample_sd": 0.020520162752813285,
+    "minimum": 0.96,
+    "maximum": 1.0
+  },
+  {
+    "metric": "bid_disagreement_rate",
+    "n": 3,
+    "mean": 0.22685056013527793,
+    "sample_sd": 0.011886875738745731,
+    "minimum": 0.21686746987951808,
+    "maximum": 0.24
+  },
+  {
+    "metric": "policy_fallbacks",
+    "n": 3,
+    "mean": 0.0,
+    "sample_sd": 0.0,
+    "minimum": 0.0,
+    "maximum": 0.0
+  },
+  {
+    "metric": "agents_with_memory",
+    "n": 3,
+    "mean": 18.666666666666668,
+    "sample_sd": 0.5773502691896257,
+    "minimum": 18.0,
+    "maximum": 19.0
+  },
+  {
+    "metric": "bid_total_tokens",
+    "n": 3,
+    "mean": 52380.333333333336,
+    "sample_sd": 3223.7776494872182,
+    "minimum": 50314.0,
+    "maximum": 56095.0
+  },
+  {
+    "metric": "bid_total_latency_seconds",
+    "n": 3,
+    "mean": 30.968970215666435,
+    "sample_sd": 5.559726922118147,
+    "minimum": 26.48189441999959,
+    "maximum": 37.188709385000195
+  },
+  {
+    "metric": "generated_resource_count",
+    "n": 3,
+    "mean": 18.666666666666668,
+    "sample_sd": 0.5773502691896257,
+    "minimum": 18.0,
+    "maximum": 19.0
+  },
+  {
+    "metric": "generated_resource_entropy_normalized",
+    "n": 3,
+    "mean": 0.9868845130840721,
+    "sample_sd": 0.004102450009405984,
+    "minimum": 0.9836444088026804,
+    "maximum": 0.9914972879422872
+  }
+]

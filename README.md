@@ -268,3 +268,16 @@ activity, and resource-distribution distances were 0.9000, 0.0763, and
 promising timing observation, not superiority over AgentSimulator or
 the statistical baselines. The complete sanitized output is under
 `results/multi_llm_agent_loanapp_pilot/`.
+
+The follow-up repeated experiment uses seeds 9400, 9500, and 9600 with
+ten generated cases per seed. Across 445 independent resource-agent
+bids, all responses were valid, no fallback was used, and mean proposal
+execution was 98.27%. Mean activity and resource distances were 0.1006
+and 0.1597. Mean cycle-time relative error was 43.69%, but ranged from
+2.39% to 102.73%, indicating high process-level variability despite
+stable interface-level behavior. In a matched deterministic multi-agent
+comparison, the real condition had lower mean activity distance and
+cycle-time error, but worse mean trace distance. These three small runs
+remain descriptive and do not establish overall outperformance. Results
+and paired summaries are under
+`results/multi_llm_agent_loanapp_repeated/`.

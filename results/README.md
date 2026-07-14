@@ -34,6 +34,9 @@ distance metrics unless stated otherwise.
 - `multi_llm_agent_loanapp_pilot/`: mock integration and actual
   per-resource LLM-bidding runs inside the upstream AgentSimulator
   environment. The ten-case real run is a feasibility pilot.
+- `multi_llm_agent_loanapp_repeated/`: three matched ten-case actual
+  multi-LLM runs and deterministic multi-agent controls, including
+  aggregate and paired summaries.
 - `official_agentsimulator_loanapp_autonomous/`: one direct execution of
   the upstream autonomous AgentSimulator on its official temporal split.
 - `official_split_comparison_pilot/`: three descriptive local

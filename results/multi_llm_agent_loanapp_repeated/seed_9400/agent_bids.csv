@@ -1,0 +1,148 @@
+case_id,activity,resource,agent_type,valid,accept,suitability,expected_delay_minutes,reason,memory_items,error_type,selected
+0,Check application form completeness,Clerk-000001,Role 1,true,true,0.138165,0.0,Suitability based on agent type and available time,0,,true
+0,Check application form completeness,Clerk-000006,Role 1,true,true,0.138165,0.0,Suitability based on agent type and available time,0,,false
+0,Appraise property,Appraiser-000001,Role 4,true,true,0.508156,0.0,Agent has suitable prior activity for the task,0,,true
+0,Appraise property,Appraiser-000002,Role 4,true,true,0.491844,0.0,Agent has suitable prior activity for the task,0,,false
+0,AML check,AML Investigator-000002,Role 3,true,true,0.508156,0.0,Suitability based on agent type and activity prior,0,,true
+0,AML check,AML Investigator-000001,Role 3,true,true,0.491844,0.0,Suitability based on agent type and recent tasks,0,,false
+0,Check credit history,Clerk-000005,Role 1,true,true,0.139272,0.0,Suitability based on agent type and available time,0,,true
+0,Check credit history,Clerk-000002,Role 1,true,true,0.138018,0.0,Suitability based on agent type and available time,0,,false
+0,Assess loan risk,Loan Officer-000001,Role 2,true,true,0.264743,0.0,Suitability based on agent type and available capabilities,0,,true
+0,Assess loan risk,Loan Officer-000004,Role 2,true,true,0.25345,0.0,Suitability based on agent type and available capabilities,0,,false
+1,Check application form completeness,Clerk-000006,Role 1,true,true,0.138165,30.0,Available at the same time as the task and has some relevant capabilities,0,,true
+1,Check application form completeness,Clerk-000008,Role 1,true,true,0.1359,30.0,Available at the same time as the task and has some relevant activity history,0,,false
+0,Reject application,Clerk-000008,Role 1,true,true,0.136778,0.0,Suitability based on agent type and activity prior,0,,true
+0,Reject application,Clerk-000004,Role 1,true,true,0.130699,0.0,Suitability based on agent type and activity prior,0,,false
+1,AML check,AML Investigator-000001,Role 3,true,true,0.491844,0.0,Agent has suitable type and capabilities for the task.,0,,false
+1,AML check,AML Investigator-000002,Role 3,true,true,0.508156,0.0,Suitability based on past activity priority and capability count.,1,,true
+2,Check application form completeness,Clerk-000007,Role 1,true,true,0.130238,0.0,Suitability based on agent type and available time,0,,true
+2,Check application form completeness,Clerk-000003,Role 1,true,true,0.124575,0.0,Suitability based on agent type and available time,0,,false
+1,Check credit history,Clerk-000002,Role 1,true,true,0.138018,0.0,Suitability based on agent type and available time,0,,true
+1,Check credit history,Clerk-000004,Role 1,true,true,0.136763,0.0,Suitability based on agent type and available time,0,,false
+2,Check credit history,Clerk-000004,Role 1,true,true,0.136763,0.0,Suitability based on agent type and available time,0,,true
+2,Check credit history,Clerk-000003,Role 1,true,true,0.126725,0.0,Suitability based on agent type and available capabilities,0,,false
+3,Check application form completeness,Clerk-000003,Role 1,true,true,0.124575,0.0,Suitability based on agent type and available time,0,,false
+3,Check application form completeness,Clerk-000001,Role 1,true,true,0.138165,30.0,Recent task was completed 30 minutes ago,1,,true
+1,Appraise property,Appraiser-000002,Role 4,true,true,0.491844,0.0,Agent has suitable prior activity for the task,0,,false
+1,Appraise property,Appraiser-000001,Role 4,true,true,0.508156,14.0,"Recent task was completed 2 hours ago, and agent has a suitable activity priority.",1,,true
+3,Check credit history,Clerk-000003,Role 1,true,true,0.126725,0.0,Suitability based on agent type and available capabilities,0,,false
+3,Check credit history,Clerk-000005,Role 1,true,true,0.139272,0.0,Suitability based on past activity priority,1,,true
+4,Check application form completeness,Clerk-000003,Role 1,true,true,0.124575,0.0,Suitability based on agent type and available time,0,,false
+4,Check application form completeness,Clerk-000006,Role 1,true,true,0.138165,30.0,Recent task with similar activity was completed 30 minutes ago,1,,true
+2,AML check,AML Investigator-000001,Role 3,true,true,0.491844,0.0,Suitability based on agent type and activity prior,0,,false
+2,AML check,AML Investigator-000002,Role 3,true,true,0.508156,0.0,"Suitability based on past activity, agent type and available at time.",2,,true
+1,Assess loan risk,Loan Officer-000004,Role 2,true,true,0.25345,0.0,Suitability based on agent type and available capabilities,0,,true
+1,Assess loan risk,Loan Officer-000002,Role 2,true,true,0.25,0.0,The agent has a low suitability score due to low activity prior.,0,,false
+4,Check credit history,Clerk-000003,Role 1,true,true,0.126725,0.0,Suitability based on agent type and available capabilities,0,,false
+4,Check credit history,Clerk-000004,Role 1,true,true,0.136763,0.0,"Suitability based on past activity priority, agent type and capability count.",1,,true
+3,Appraise property,Appraiser-000002,Role 4,true,true,0.491844,0.0,Agent has suitable prior activity for the task,0,,true
+5,Check application form completeness,Clerk-000003,Role 1,true,true,0.124575,0.0,Suitability based on agent type and available time,0,,false
+5,Check application form completeness,Clerk-000008,Role 1,true,true,0.1359,34.0,"Recent task was completed 44 minutes ago, and the agent has been available for 34 minutes.",1,,true
+2,Appraise property,Appraiser-000002,Role 4,true,true,0.491844,0.0,Suitability based on agent type and recent task history,1,,false
+2,Appraise property,Appraiser-000001,Role 4,true,true,0.508156,0.0,High suitability due to recent experience with similar tasks,2,,true
+1,Design loan offer,Loan Officer-000003,Role 2,true,true,0.282051,0.0,Suitability based on agent type and available time,0,,true
+1,Design loan offer,Loan Officer-000002,Role 2,true,true,0.245726,0.0,Suitability based on agent type and available time,0,,false
+4,Appraise property,Appraiser-000002,Role 4,true,true,0.491844,0.0,Suitability based on agent type and recent task history,1,,false
+4,Appraise property,Appraiser-000001,Role 4,true,true,0.508156,0.0,Suitability based on past activity matches the task's activity.,2,,true
+3,AML check,AML Investigator-000001,Role 3,true,true,0.491844,0.0,Suitability based on agent type and activity prior,0,,false
+3,AML check,AML Investigator-000002,Role 3,true,true,0.508156,0.0,High suitability due to recent AML check activities,3,,true
+2,Appraise property,Appraiser-000002,Role 4,true,true,0.491844,21.0,Recent task was completed 21 minutes ago,1,,true
+5,Check credit history,Clerk-000003,Role 1,true,true,0.126725,0.0,Suitability based on agent type and available capabilities,0,,false
+5,Check credit history,Clerk-000002,Role 1,true,true,0.138018,27.0,Recent task of similar activity was completed 46 minutes ago,1,,true
+6,Check application form completeness,Clerk-000003,Role 1,true,true,0.124575,0.0,Suitability based on agent type and available time,0,,false
+6,Check application form completeness,Clerk-000007,Role 1,true,true,0.130238,0.0,Suitability based on recent task similarity,1,,true
+1,Approve loan offer,Senior Officer-000001,Role 5,true,true,0.5,0.0,Agent has suitable type and is available at the time of the task,0,,true
+1,Approve loan offer,Senior Officer-000002,Role 5,true,true,0.5,0.0,Agent has suitable type and is available at the time of the task,0,,false
+4,Appraise property,Appraiser-000001,Role 4,true,true,0.508156,0.0,Suitability based on past activity matches the task's activity.,2,,true
+4,Appraise property,Appraiser-000002,Role 4,true,true,0.491844,0.0,Agent has relevant recent experience with the task activity.,2,,false
+2,Assess loan risk,Loan Officer-000002,Role 2,true,true,0.25,0.0,Suitability based on agent type and recent tasks,0,,false
+2,Assess loan risk,Loan Officer-000001,Role 2,true,true,0.264743,20.0,Recent task of similar activity took 20 minutes,1,,true
+6,Check credit history,Clerk-000003,Role 1,true,true,0.126725,0.0,Suitability based on agent type and available capabilities,0,,false
+6,Check credit history,Clerk-000005,Role 1,true,true,0.139272,0.0,Suitability based on recent task history,2,,true
+5,AML check,AML Investigator-000001,Role 3,true,true,0.491844,0.0,Suitability based on agent type and activity prior,0,,true
+7,Check application form completeness,Clerk-000003,Role 1,true,true,0.124575,0.0,Suitability based on agent type and available time,0,,false
+7,Check application form completeness,Clerk-000001,Role 1,true,true,0.5,10.0,"Recent tasks have similar activity, but not the same case_id",2,,true
+1,Cancel application,Clerk-000003,Role 1,true,true,0.113793,0.0,Suitability based on agent type and available time,0,,false
+1,Cancel application,Clerk-000004,Role 1,true,true,0.137931,0.0,"Suitability based on past activity, no delay expected",2,,true
+3,Assess loan risk,Loan Officer-000002,Role 2,true,true,0.25,0.0,Suitability based on agent type and recent tasks,0,,false
+3,Assess loan risk,Loan Officer-000004,Role 2,true,true,0.25345,4.0,Recent task of similar activity and recent assignment,1,,true
+4,AML check,AML Investigator-000001,Role 3,true,true,0.491844,17.0,Recent AML check task was completed 17 minutes ago,1,,false
+4,AML check,AML Investigator-000002,Role 3,true,true,0.508156,0.0,Agent has relevant recent experience with AML check activity,3,,true
+2,Design loan offer,Loan Officer-000002,Role 2,true,true,0.245726,0.0,Suitability based on agent type and available time,0,,true
+2,Design loan offer,Loan Officer-000001,Role 2,true,true,0.228632,0.0,Suitability based on recent task similarity and agent type,2,,false
+6,Appraise property,Appraiser-000001,Role 4,true,true,0.508156,0.0,Suitability based on past activity matches the task's activity.,2,,true
+6,Appraise property,Appraiser-000002,Role 4,true,true,0.491844,0.0,Suitability based on recent task history and capability count,2,,false
+7,Check credit history,Clerk-000003,Role 1,true,true,0.126725,0.0,Suitability based on agent type and available capabilities,0,,false
+7,Check credit history,Clerk-000002,Role 1,true,true,0.5,0.0,Recent similar task completed 44 minutes ago,2,,true
+5,Appraise property,Appraiser-000002,Role 4,true,true,0.491844,0.0,Suitability based on recent task history and capability count,2,,false
+5,Appraise property,Appraiser-000001,Role 4,true,true,0.508156,0.0,High suitability due to recent experience with similar tasks,3,,true
+3,Reject application,Clerk-000003,Role 1,true,true,0.118541,0.0,Suitability based on agent type and available time,0,,false
+3,Reject application,Clerk-000008,Role 1,true,true,0.136778,0.0,"Suitability based on past activity priority, agent type and recent tasks",2,,true
+4,Appraise property,Appraiser-000002,Role 4,true,true,0.491844,0.0,Suitability based on recent task history and capability count.,2,,true
+6,AML check,AML Investigator-000001,Role 3,true,true,0.491844,0.0,Suitability based on past activity matches the task's activity.,2,,true
+2,Approve loan offer,Senior Officer-000002,Role 5,true,true,0.5,0.0,Agent has the required capability count and is available at the specified time.,0,,true
+8,Check application form completeness,Clerk-000003,Role 1,true,true,0.124575,0.0,Suitability based on agent type and available time,0,,false
+8,Check application form completeness,Clerk-000006,Role 1,true,true,0.5,0.0,"Recent tasks are similar to the current task, but the agent has not been assigned to many tasks recently.",2,,true
+7,AML check,AML Investigator-000001,Role 3,true,true,0.491844,0.0,Suitability based on past activity matches the task's activity,3,,false
+7,AML check,AML Investigator-000002,Role 3,true,true,0.508156,0.0,Agent has relevant recent experience with AML check activity,3,,true
+4,Assess loan risk,Loan Officer-000002,Role 2,true,true,0.5,10.0,"Recent task is similar but not the same activity, and agent has some available time",1,,true
+4,Assess loan risk,Loan Officer-000003,Role 2,true,true,0.5,10.0,"Recent task is similar, but not exactly the same activity",1,,false
+6,Assess loan risk,Loan Officer-000002,Role 2,true,true,0.5,15.0,"Agent has some relevant experience with loan activities, but not directly with assessing loan risk.",1,,true
+6,Assess loan risk,Loan Officer-000001,Role 2,true,true,0.264743,0.0,"Suitability based on past activity, no delay expected",2,,false
+2,Approve application,Clerk-000003,Role 1,true,true,0.129213,0.0,Suitability based on agent type and available time,0,,false
+2,Approve application,Clerk-000007,Role 1,true,true,0.5,10.0,"Recent tasks have similar activity, but not the exact task, and the agent has some capability overlap",2,,true
+9,Check application form completeness,Clerk-000003,Role 1,true,true,0.124575,0.0,Suitability based on agent type and available time,0,,false
+9,Check application form completeness,Clerk-000001,Role 1,true,true,0.138165,0.0,High suitability due to recent experience with similar tasks,3,,true
+8,Return application back to applicant,Clerk-000003,Role 1,true,true,0.127907,0.0,"Suitability based on activity prior, agent type and capability count",0,,false
+8,Return application back to applicant,Clerk-000006,Role 1,true,true,0.5,0.0,"Recent tasks are similar to the current task, but not exactly the same.",3,,true
+7,Appraise property,Appraiser-000002,Role 4,true,true,0.491844,0.0,Suitability based on past activity matches the task's activity,3,,true
+5,Assess loan risk,Loan Officer-000003,Role 2,true,true,0.5,0.0,Agent has relevant capability count and recent task is not too dissimilar,1,,true
+5,Assess loan risk,Loan Officer-000001,Role 2,true,true,0.264743,0.0,"Suitability based on past activity, agent type and recent tasks",2,,false
+4,Assess loan risk,Loan Officer-000001,Role 2,true,true,0.264743,0.0,"Suitability based on past activity, agent type and recent tasks",2,,true
+6,Design loan offer,Loan Officer-000002,Role 2,true,true,0.245726,0.0,"Suitability based on recent activity, agent type and capability count.",2,,false
+6,Design loan offer,Loan Officer-000001,Role 2,true,true,0.5,0.0,Suitability is moderate due to recent experience with similar tasks.,3,,true
+8,Applicant completes form,Applicant-000001,Role 6,true,true,1.0,0.0,High suitability due to matching agent type and recent inactivity.,0,,true
+7,Assess loan risk,Loan Officer-000004,Role 2,true,true,0.25345,0.0,"Suitability based on past activity, agent type and recent tasks",2,,false
+7,Assess loan risk,Loan Officer-000002,Role 2,true,true,0.5,15.0,Recent experience with similar tasks and available at the time of request,2,,true
+5,Reject application,Clerk-000003,Role 1,true,true,0.118541,0.0,Suitability based on agent type and activity prior,0,,false
+5,Reject application,Clerk-000008,Role 1,true,true,0.136778,0.0,Suitability based on past activity prior,3,,true
+4,Design loan offer,Loan Officer-000003,Role 2,true,true,0.282051,0.0,Suitability based on recent task 'Design loan offer' and capability count.,2,,true
+4,Design loan offer,Loan Officer-000004,Role 2,true,true,0.24359,0.0,Suitability based on past activity prior,2,,false
+6,Approve loan offer,Senior Officer-000001,Role 5,true,true,0.5,33.0,Recent task of similar activity took 33 minutes,1,,true
+6,Approve loan offer,Senior Officer-000002,Role 5,true,true,0.5,42.0,Recent task was completed 42 minutes ago,1,,false
+9,AML check,AML Investigator-000001,Role 3,true,true,0.491844,0.0,Suitability based on past activity matches the required task activity.,3,,true
+8,Check application form completeness,Clerk-000003,Role 1,true,true,0.124575,0.0,Suitability based on agent type and available time,0,,false
+8,Check application form completeness,Clerk-000007,Role 1,true,true,0.130238,0.0,Suitability based on recent task history,3,,true
+7,Design loan offer,Loan Officer-000004,Role 2,true,true,0.5,0.0,Suitability is moderate due to recent experience with similar tasks.,2,,true
+7,Design loan offer,Loan Officer-000003,Role 2,true,true,0.282051,0.0,Suitability based on past activity matches the task's activity,3,,false
+4,Approve loan offer,Senior Officer-000002,Role 5,true,true,0.5,34.0,Recent task of similar activity took 34 minutes,1,,true
+6,Cancel application,Clerk-000003,Role 1,true,true,0.113793,0.0,Suitability based on agent type and available time,0,,false
+6,Cancel application,Clerk-000005,Role 1,true,true,0.141379,0.0,Suitability based on recent task history,3,,true
+9,Appraise property,Appraiser-000001,Role 4,true,true,0.508156,0.0,High suitability due to recent experience with similar tasks,3,,true
+9,Appraise property,Appraiser-000002,Role 4,true,true,0.491844,0.0,Suitability based on past activity matches the task's activity,3,,false
+7,Approve loan offer,Senior Officer-000001,Role 5,true,true,0.5,0.0,Agent has relevant capability count and recent task history,2,,true
+7,Approve loan offer,Senior Officer-000002,Role 5,true,true,0.5,0.0,Agent has relevant capability count and recent experience with similar tasks.,2,,false
+8,Check credit history,Clerk-000003,Role 1,true,true,0.126725,0.0,Suitability based on agent type and available capabilities,0,,false
+8,Check credit history,Clerk-000002,Role 1,true,true,0.5,0.0,"Recent tasks show familiarity with the activity, but no recent completion.",3,,true
+4,Approve application,Clerk-000003,Role 1,true,true,0.129213,0.0,Available and has capability for the task,0,,false
+4,Approve application,Clerk-000004,Role 1,true,true,0.5,10.0,Recent tasks indicate moderate familiarity with similar activities,3,,true
+7,Approve application,Clerk-000003,Role 1,true,true,0.129213,0.0,Available and has capability for the task,0,,false
+7,Approve application,Clerk-000008,Role 1,true,true,0.5,5.0,"Recent tasks show a mix of approval and rejection activities, indicating moderate suitability for approving the application.",3,,true
+8,AML check,AML Investigator-000001,Role 3,true,true,0.491844,0.0,High suitability due to recent AML check activities,3,,false
+8,AML check,AML Investigator-000002,Role 3,true,true,0.508156,0.0,Suitability based on past activity matches the required task activity.,3,,true
+9,Check credit history,Clerk-000003,Role 1,true,true,0.126725,0.0,Suitability based on agent type and available time,0,,false
+9,Check credit history,Clerk-000005,Role 1,true,true,0.139272,0.0,Suitability based on past activity matches the task's activity,3,,true
+8,Appraise property,Appraiser-000001,Role 4,true,true,0.508156,0.0,High suitability due to recent experience with similar tasks,3,,true
+8,Appraise property,Appraiser-000002,Role 4,true,true,0.491844,0.0,Suitability based on past activity matches the task's activity,3,,false
+9,Assess loan risk,Loan Officer-000003,Role 2,true,true,0.5,10.0,Recent tasks show moderate relevance to the task activity,3,,true
+9,Assess loan risk,Loan Officer-000001,Role 2,true,true,0.264743,0.0,"Suitability based on past activity, agent type and capability count.",3,,false
+8,Assess loan risk,Loan Officer-000004,Role 2,true,true,0.25345,0.0,"Suitability based on past activity, agent type and recent tasks",3,,false
+8,Assess loan risk,Loan Officer-000002,Role 2,true,true,0.5,0.0,Recent experience with similar tasks,3,,true
+9,Reject application,Clerk-000003,Role 1,true,true,0.118541,0.0,Suitability based on agent type and activity prior,0,,false
+9,Reject application,Clerk-000001,Role 1,true,true,0.5,0.0,"Recent tasks are similar to the task at hand, but not identical.",3,,true
+8,Design loan offer,Loan Officer-000003,Role 2,true,true,0.282051,0.0,Suitability based on past activity matches the task's activity,3,,false
+8,Design loan offer,Loan Officer-000004,Role 2,true,true,0.8,5.0,Recent experience with similar tasks and available at the time of request,3,,true
+8,Approve loan offer,Senior Officer-000002,Role 5,true,true,0.5,0.0,Agent has relevant capability count and recent experience with similar tasks.,2,,false
+8,Approve loan offer,Senior Officer-000001,Role 5,true,true,0.8,5.0,Recent experience with similar tasks and available at the time of request,3,,true
+8,Cancel application,Clerk-000003,Role 1,true,true,0.113793,0.0,Available and has relevant capability,0,,false
+8,Cancel application,Clerk-000004,Role 1,true,true,0.137931,0.0,"Suitability based on past activity prior, agent type and recent tasks",3,,true

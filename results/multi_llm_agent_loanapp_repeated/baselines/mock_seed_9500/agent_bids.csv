@@ -1,0 +1,168 @@
+case_id,activity,resource,agent_type,valid,accept,suitability,expected_delay_minutes,reason,memory_items,error_type,selected
+0,Check application form completeness,Clerk-000001,Role 1,true,true,0.439807,0.0,The task is feasible and the score combines local experience and workload.,0,,true
+0,Check application form completeness,Clerk-000006,Role 1,true,true,0.439807,0.0,The task is feasible and the score combines local experience and workload.,0,,false
+0,AML check,AML Investigator-000002,Role 3,true,true,0.680301,0.0,The task is feasible and the score combines local experience and workload.,0,,true
+0,AML check,AML Investigator-000001,Role 3,true,true,0.669699,0.0,The task is feasible and the score combines local experience and workload.,0,,false
+1,Check application form completeness,Clerk-000006,Role 1,true,true,0.439807,0.0,The task is feasible and the score combines local experience and workload.,0,,true
+1,Check application form completeness,Clerk-000008,Role 1,true,true,0.438335,0.0,The task is feasible and the score combines local experience and workload.,0,,false
+0,Appraise property,Appraiser-000001,Role 4,true,true,0.680301,0.0,The task is feasible and the score combines local experience and workload.,0,,true
+0,Appraise property,Appraiser-000002,Role 4,true,true,0.669699,0.0,The task is feasible and the score combines local experience and workload.,0,,false
+1,Appraise property,Appraiser-000002,Role 4,true,true,0.669699,0.0,The task is feasible and the score combines local experience and workload.,0,,true
+2,Check application form completeness,Clerk-000008,Role 1,true,true,0.438335,0.0,The task is feasible and the score combines local experience and workload.,0,,true
+2,Check application form completeness,Clerk-000007,Role 1,true,true,0.434655,0.0,The task is feasible and the score combines local experience and workload.,0,,false
+0,Check credit history,Clerk-000005,Role 1,true,true,0.440527,0.0,The task is feasible and the score combines local experience and workload.,0,,true
+0,Check credit history,Clerk-000002,Role 1,true,true,0.439712,0.0,The task is feasible and the score combines local experience and workload.,0,,false
+3,Check application form completeness,Clerk-000007,Role 1,true,true,0.434655,0.0,The task is feasible and the score combines local experience and workload.,0,,true
+3,Check application form completeness,Clerk-000003,Role 1,true,true,0.430974,0.0,The task is feasible and the score combines local experience and workload.,0,,false
+2,Return application back to applicant,Clerk-000003,Role 1,true,true,0.43314,0.0,The task is feasible and the score combines local experience and workload.,0,,true
+2,Return application back to applicant,Clerk-000002,Role 1,true,true,0.425581,0.0,The task is feasible and the score combines local experience and workload.,0,,false
+1,AML check,AML Investigator-000001,Role 3,true,true,0.669699,0.0,The task is feasible and the score combines local experience and workload.,0,,true
+1,AML check,AML Investigator-000002,Role 3,true,true,0.505301,0.0,The task is feasible and the score combines local experience and workload.,1,,false
+0,Assess loan risk,Loan Officer-000001,Role 2,true,true,0.522083,0.0,The task is feasible and the score combines local experience and workload.,0,,true
+0,Assess loan risk,Loan Officer-000004,Role 2,true,true,0.514742,0.0,The task is feasible and the score combines local experience and workload.,0,,false
+2,Applicant completes form,Applicant-000001,Role 6,true,true,1.0,0.0,The task is feasible and the score combines local experience and workload.,0,,true
+3,Check credit history,Clerk-000002,Role 1,true,true,0.439712,0.0,The task is feasible and the score combines local experience and workload.,0,,true
+3,Check credit history,Clerk-000004,Role 1,true,true,0.438896,0.0,The task is feasible and the score combines local experience and workload.,0,,false
+4,Check application form completeness,Clerk-000004,Role 1,true,true,0.41846,0.0,The task is feasible and the score combines local experience and workload.,0,,true
+4,Check application form completeness,Clerk-000001,Role 1,true,true,0.264807,0.0,The task is feasible and the score combines local experience and workload.,1,,false
+1,Check credit history,Clerk-000002,Role 1,true,true,0.264712,0.0,The task is feasible and the score combines local experience and workload.,1,,true
+1,Check credit history,Clerk-000004,Role 1,true,true,0.263896,0.0,The task is feasible and the score combines local experience and workload.,1,,false
+0,Reject application,Clerk-000001,Role 1,true,true,0.27576,0.0,The task is feasible and the score combines local experience and workload.,1,,true
+0,Reject application,Clerk-000008,Role 1,true,true,0.263906,0.0,The task is feasible and the score combines local experience and workload.,1,,false
+3,AML check,AML Investigator-000002,Role 3,true,true,0.505301,0.0,The task is feasible and the score combines local experience and workload.,1,,true
+4,Check credit history,Clerk-000004,Role 1,true,true,0.263896,0.0,The task is feasible and the score combines local experience and workload.,1,,true
+4,Check credit history,Clerk-000003,Role 1,true,true,0.257371,0.0,The task is feasible and the score combines local experience and workload.,1,,false
+5,Check application form completeness,Clerk-000006,Role 1,true,true,0.264807,0.0,The task is feasible and the score combines local experience and workload.,1,,true
+5,Check application form completeness,Clerk-000008,Role 1,true,true,0.263335,0.0,The task is feasible and the score combines local experience and workload.,1,,false
+2,Check application form completeness,Clerk-000008,Role 1,true,true,0.263335,0.0,The task is feasible and the score combines local experience and workload.,1,,true
+2,Check application form completeness,Clerk-000007,Role 1,true,true,0.259655,0.0,The task is feasible and the score combines local experience and workload.,1,,false
+1,Assess loan risk,Loan Officer-000004,Role 2,true,true,0.514742,0.0,The task is feasible and the score combines local experience and workload.,0,,true
+1,Assess loan risk,Loan Officer-000002,Role 2,true,true,0.513112,0.0,The task is feasible and the score combines local experience and workload.,0,,false
+3,Appraise property,Appraiser-000001,Role 4,true,true,0.505301,0.0,The task is feasible and the score combines local experience and workload.,1,,true
+3,Appraise property,Appraiser-000002,Role 4,true,true,0.494699,0.0,The task is feasible and the score combines local experience and workload.,1,,false
+5,AML check,AML Investigator-000002,Role 3,true,true,0.446968,0.0,The task is feasible and the score combines local experience and workload.,2,,true
+4,Appraise property,Appraiser-000001,Role 4,true,true,0.505301,0.0,The task is feasible and the score combines local experience and workload.,1,,true
+6,Check application form completeness,Clerk-000007,Role 1,true,true,0.259655,0.0,The task is feasible and the score combines local experience and workload.,1,,true
+6,Check application form completeness,Clerk-000003,Role 1,true,true,0.255974,0.0,The task is feasible and the score combines local experience and workload.,1,,false
+2,Appraise property,Appraiser-000001,Role 4,true,true,0.446968,0.0,The task is feasible and the score combines local experience and workload.,2,,true
+1,Design loan offer,Loan Officer-000003,Role 2,true,true,0.533333,0.0,The task is feasible and the score combines local experience and workload.,0,,true
+1,Design loan offer,Loan Officer-000002,Role 2,true,true,0.509722,0.0,The task is feasible and the score combines local experience and workload.,0,,false
+4,AML check,AML Investigator-000001,Role 3,true,true,0.494699,0.0,The task is feasible and the score combines local experience and workload.,1,,true
+4,AML check,AML Investigator-000002,Role 3,true,true,0.417801,0.0,The task is feasible and the score combines local experience and workload.,3,,false
+3,Appraise property,Appraiser-000002,Role 4,true,true,0.494699,0.0,The task is feasible and the score combines local experience and workload.,1,,true
+6,Return application back to applicant,Clerk-000003,Role 1,true,true,0.25814,0.0,The task is feasible and the score combines local experience and workload.,1,,true
+6,Return application back to applicant,Clerk-000006,Role 1,true,true,0.237597,0.0,The task is feasible and the score combines local experience and workload.,2,,false
+7,Check application form completeness,Clerk-000006,Role 1,true,true,0.206474,0.0,The task is feasible and the score combines local experience and workload.,2,,true
+7,Check application form completeness,Clerk-000008,Role 1,true,true,0.205002,0.0,The task is feasible and the score combines local experience and workload.,2,,false
+5,Check credit history,Clerk-000005,Role 1,true,true,0.265527,0.0,The task is feasible and the score combines local experience and workload.,1,,true
+5,Check credit history,Clerk-000004,Role 1,true,true,0.205563,0.0,The task is feasible and the score combines local experience and workload.,2,,false
+1,Approve loan offer,Senior Officer-000001,Role 5,true,true,0.675,0.0,The task is feasible and the score combines local experience and workload.,0,,true
+1,Approve loan offer,Senior Officer-000002,Role 5,true,true,0.675,0.0,The task is feasible and the score combines local experience and workload.,0,,false
+2,AML check,AML Investigator-000001,Role 3,true,true,0.436365,0.0,The task is feasible and the score combines local experience and workload.,2,,true
+2,AML check,AML Investigator-000002,Role 3,true,true,0.417801,0.0,The task is feasible and the score combines local experience and workload.,3,,false
+4,Assess loan risk,Loan Officer-000002,Role 2,true,true,0.513112,0.0,The task is feasible and the score combines local experience and workload.,0,,true
+6,Applicant completes form,Applicant-000001,Role 6,true,true,0.825,0.0,The task is feasible and the score combines local experience and workload.,1,,true
+7,Check credit history,Clerk-000002,Role 1,true,true,0.206378,0.0,The task is feasible and the score combines local experience and workload.,2,,true
+7,Check credit history,Clerk-000004,Role 1,true,true,0.205563,0.0,The task is feasible and the score combines local experience and workload.,2,,false
+8,Check application form completeness,Clerk-000008,Role 1,true,true,0.205002,0.0,The task is feasible and the score combines local experience and workload.,2,,true
+8,Check application form completeness,Clerk-000007,Role 1,true,true,0.201321,0.0,The task is feasible and the score combines local experience and workload.,2,,false
+3,Assess loan risk,Loan Officer-000001,Role 2,true,true,0.347083,0.0,The task is feasible and the score combines local experience and workload.,1,,true
+3,Assess loan risk,Loan Officer-000004,Role 2,true,true,0.339743,0.0,The task is feasible and the score combines local experience and workload.,1,,false
+1,Approve application,Clerk-000004,Role 1,true,true,0.207959,0.0,The task is feasible and the score combines local experience and workload.,2,,true
+1,Approve application,Clerk-000003,Role 1,true,true,0.200655,0.0,The task is feasible and the score combines local experience and workload.,2,,false
+5,Appraise property,Appraiser-000002,Role 4,true,true,0.436365,0.0,The task is feasible and the score combines local experience and workload.,2,,true
+5,Appraise property,Appraiser-000001,Role 4,true,true,0.417801,0.0,The task is feasible and the score combines local experience and workload.,3,,false
+2,Check credit history,Clerk-000005,Role 1,true,true,0.207193,0.0,The task is feasible and the score combines local experience and workload.,2,,true
+2,Check credit history,Clerk-000003,Role 1,true,true,0.199038,0.0,The task is feasible and the score combines local experience and workload.,2,,false
+4,Design loan offer,Loan Officer-000002,Role 2,true,true,0.334722,0.0,The task is feasible and the score combines local experience and workload.,1,,true
+7,AML check,AML Investigator-000002,Role 3,true,true,0.417801,0.0,The task is feasible and the score combines local experience and workload.,3,,true
+6,Check application form completeness,Clerk-000001,Role 1,true,true,0.206474,0.0,The task is feasible and the score combines local experience and workload.,2,,true
+6,Check application form completeness,Clerk-000007,Role 1,true,true,0.201321,0.0,The task is feasible and the score combines local experience and workload.,2,,false
+9,Check application form completeness,Clerk-000007,Role 1,true,true,0.201321,0.0,The task is feasible and the score combines local experience and workload.,2,,true
+9,Check application form completeness,Clerk-000003,Role 1,true,true,0.19764,0.0,The task is feasible and the score combines local experience and workload.,2,,false
+8,AML check,AML Investigator-000001,Role 3,true,true,0.407199,0.0,The task is feasible and the score combines local experience and workload.,3,,true
+8,AML check,AML Investigator-000002,Role 3,true,true,0.400301,0.0,The task is feasible and the score combines local experience and workload.,3,,false
+5,Assess loan risk,Loan Officer-000004,Role 2,true,true,0.339743,0.0,The task is feasible and the score combines local experience and workload.,1,,true
+5,Assess loan risk,Loan Officer-000003,Role 2,true,true,0.325063,0.0,The task is feasible and the score combines local experience and workload.,1,,false
+2,Assess loan risk,Loan Officer-000003,Role 2,true,true,0.325063,0.0,The task is feasible and the score combines local experience and workload.,1,,true
+2,Assess loan risk,Loan Officer-000001,Role 2,true,true,0.28875,0.0,The task is feasible and the score combines local experience and workload.,2,,false
+4,Approve loan offer,Senior Officer-000002,Role 5,true,true,0.675,0.0,The task is feasible and the score combines local experience and workload.,0,,true
+9,Appraise property,Appraiser-000001,Role 4,true,true,0.417801,0.0,The task is feasible and the score combines local experience and workload.,3,,true
+9,Appraise property,Appraiser-000002,Role 4,true,true,0.407199,0.0,The task is feasible and the score combines local experience and workload.,3,,false
+8,Check credit history,Clerk-000003,Role 1,true,true,0.199038,0.0,The task is feasible and the score combines local experience and workload.,2,,true
+8,Check credit history,Clerk-000002,Role 1,true,true,0.177212,0.0,The task is feasible and the score combines local experience and workload.,3,,false
+3,Design loan offer,Loan Officer-000002,Role 2,true,true,0.276389,0.0,The task is feasible and the score combines local experience and workload.,2,,true
+3,Design loan offer,Loan Officer-000001,Role 2,true,true,0.265277,0.0,The task is feasible and the score combines local experience and workload.,2,,false
+5,Design loan offer,Loan Officer-000004,Role 2,true,true,0.275,0.0,The task is feasible and the score combines local experience and workload.,2,,true
+5,Design loan offer,Loan Officer-000001,Role 2,true,true,0.265277,0.0,The task is feasible and the score combines local experience and workload.,2,,false
+7,Appraise property,Appraiser-000001,Role 4,true,true,0.417801,0.0,The task is feasible and the score combines local experience and workload.,3,,true
+7,Appraise property,Appraiser-000002,Role 4,true,true,0.407199,0.0,The task is feasible and the score combines local experience and workload.,3,,false
+6,Check credit history,Clerk-000005,Role 1,true,true,0.178027,0.0,The task is feasible and the score combines local experience and workload.,3,,true
+6,Check credit history,Clerk-000002,Role 1,true,true,0.177212,0.0,The task is feasible and the score combines local experience and workload.,3,,false
+2,Reject application,Clerk-000001,Role 1,true,true,0.18826,0.0,The task is feasible and the score combines local experience and workload.,3,,true
+2,Reject application,Clerk-000008,Role 1,true,true,0.176406,0.0,The task is feasible and the score combines local experience and workload.,3,,false
+4,Approve application,Clerk-000002,Role 1,true,true,0.178792,0.0,The task is feasible and the score combines local experience and workload.,3,,true
+4,Approve application,Clerk-000006,Role 1,true,true,0.160534,0.0,The task is feasible and the score combines local experience and workload.,3,,false
+9,Return application back to applicant,Clerk-000006,Role 1,true,true,0.208431,0.0,The task is feasible and the score combines local experience and workload.,3,,true
+9,Return application back to applicant,Clerk-000007,Role 1,true,true,0.208431,0.0,The task is feasible and the score combines local experience and workload.,3,,false
+8,Appraise property,Appraiser-000002,Role 4,true,true,0.407199,0.0,The task is feasible and the score combines local experience and workload.,3,,true
+8,Appraise property,Appraiser-000001,Role 4,true,true,0.400301,0.0,The task is feasible and the score combines local experience and workload.,3,,false
+3,Approve loan offer,Senior Officer-000001,Role 5,true,true,0.5,0.0,The task is feasible and the score combines local experience and workload.,1,,true
+3,Approve loan offer,Senior Officer-000002,Role 5,true,true,0.5,0.0,The task is feasible and the score combines local experience and workload.,1,,false
+5,Approve loan offer,Senior Officer-000002,Role 5,true,true,0.5,0.0,The task is feasible and the score combines local experience and workload.,1,,true
+5,Approve loan offer,Senior Officer-000001,Role 5,true,true,0.441667,0.0,The task is feasible and the score combines local experience and workload.,2,,false
+7,Assess loan risk,Loan Officer-000001,Role 2,true,true,0.28875,0.0,The task is feasible and the score combines local experience and workload.,2,,true
+7,Assess loan risk,Loan Officer-000004,Role 2,true,true,0.252243,0.0,The task is feasible and the score combines local experience and workload.,3,,false
+6,AML check,AML Investigator-000002,Role 3,true,true,0.400301,0.0,The task is feasible and the score combines local experience and workload.,3,,true
+6,AML check,AML Investigator-000001,Role 3,true,true,0.389699,0.0,The task is feasible and the score combines local experience and workload.,3,,false
+8,Appraise property,Appraiser-000002,Role 4,true,true,0.407199,0.0,The task is feasible and the score combines local experience and workload.,3,,true
+8,Appraise property,Appraiser-000001,Role 4,true,true,0.400301,0.0,The task is feasible and the score combines local experience and workload.,3,,false
+3,Cancel application,Clerk-000004,Role 1,true,true,0.177155,0.0,The task is feasible and the score combines local experience and workload.,3,,true
+3,Cancel application,Clerk-000007,Role 1,true,true,0.170431,0.0,The task is feasible and the score combines local experience and workload.,3,,false
+5,Approve application,Clerk-000008,Role 1,true,true,0.182444,0.0,The task is feasible and the score combines local experience and workload.,3,,true
+5,Approve application,Clerk-000003,Role 1,true,true,0.171488,0.0,The task is feasible and the score combines local experience and workload.,3,,false
+7,Design loan offer,Loan Officer-000003,Role 2,true,true,0.3,0.0,The task is feasible and the score combines local experience and workload.,2,,true
+7,Design loan offer,Loan Officer-000002,Role 2,true,true,0.247222,0.0,The task is feasible and the score combines local experience and workload.,3,,false
+6,Appraise property,Appraiser-000002,Role 4,true,true,0.407199,0.0,The task is feasible and the score combines local experience and workload.,3,,true
+6,Appraise property,Appraiser-000001,Role 4,true,true,0.388635,0.0,The task is feasible and the score combines local experience and workload.,3,,false
+9,Applicant completes form,Applicant-000001,Role 6,true,true,0.766667,0.0,The task is feasible and the score combines local experience and workload.,2,,true
+8,Assess loan risk,Loan Officer-000001,Role 2,true,true,0.259583,0.0,The task is feasible and the score combines local experience and workload.,3,,true
+8,Assess loan risk,Loan Officer-000004,Role 2,true,true,0.252243,0.0,The task is feasible and the score combines local experience and workload.,3,,false
+7,Approve loan offer,Senior Officer-000001,Role 5,true,true,0.441667,0.0,The task is feasible and the score combines local experience and workload.,2,,true
+7,Approve loan offer,Senior Officer-000002,Role 5,true,true,0.441667,0.0,The task is feasible and the score combines local experience and workload.,2,,false
+6,Assess loan risk,Loan Officer-000001,Role 2,true,true,0.259583,0.0,The task is feasible and the score combines local experience and workload.,3,,true
+6,Assess loan risk,Loan Officer-000004,Role 2,true,true,0.252243,0.0,The task is feasible and the score combines local experience and workload.,3,,false
+8,Design loan offer,Loan Officer-000002,Role 2,true,true,0.247222,0.0,The task is feasible and the score combines local experience and workload.,3,,false
+8,Design loan offer,Loan Officer-000003,Role 2,true,true,0.253333,0.0,The task is feasible and the score combines local experience and workload.,3,,true
+9,Check application form completeness,Clerk-000007,Role 1,true,true,0.172155,0.0,The task is feasible and the score combines local experience and workload.,3,,true
+9,Check application form completeness,Clerk-000003,Role 1,true,true,0.168474,0.0,The task is feasible and the score combines local experience and workload.,3,,false
+6,Reject application,Clerk-000003,Role 1,true,true,0.164552,0.0,The task is feasible and the score combines local experience and workload.,3,,false
+6,Reject application,Clerk-000001,Role 1,true,true,0.17076,0.0,The task is feasible and the score combines local experience and workload.,3,,true
+8,Approve loan offer,Senior Officer-000002,Role 5,true,true,0.441667,0.0,The task is feasible and the score combines local experience and workload.,2,,true
+8,Approve loan offer,Senior Officer-000001,Role 5,true,true,0.4125,0.0,The task is feasible and the score combines local experience and workload.,3,,false
+9,Return application back to applicant,Clerk-000003,Role 1,true,true,0.17064,0.0,The task is feasible and the score combines local experience and workload.,3,,false
+9,Return application back to applicant,Clerk-000006,Role 1,true,true,0.190931,0.0,The task is feasible and the score combines local experience and workload.,3,,true
+7,Cancel application,Clerk-000003,Role 1,true,true,0.161465,0.0,The task is feasible and the score combines local experience and workload.,3,,false
+7,Cancel application,Clerk-000005,Role 1,true,true,0.161896,0.0,The task is feasible and the score combines local experience and workload.,3,,true
+8,Approve loan offer,Senior Officer-000002,Role 5,true,true,0.441667,0.0,The task is feasible and the score combines local experience and workload.,2,,true
+8,Approve loan offer,Senior Officer-000001,Role 5,true,true,0.4125,0.0,The task is feasible and the score combines local experience and workload.,3,,false
+9,Applicant completes form,Applicant-000001,Role 6,true,true,0.7375,0.0,The task is feasible and the score combines local experience and workload.,3,,true
+8,Approve application,Clerk-000003,Role 1,true,true,0.171488,0.0,The task is feasible and the score combines local experience and workload.,3,,true
+8,Approve application,Clerk-000002,Role 1,true,true,0.161292,0.0,The task is feasible and the score combines local experience and workload.,3,,false
+9,Check application form completeness,Clerk-000008,Role 1,true,true,0.158335,0.0,The task is feasible and the score combines local experience and workload.,3,,true
+9,Check application form completeness,Clerk-000007,Role 1,true,true,0.154655,0.0,The task is feasible and the score combines local experience and workload.,3,,false
+9,Return application back to applicant,Clerk-000007,Role 1,true,true,0.190931,0.0,The task is feasible and the score combines local experience and workload.,3,,true
+9,Return application back to applicant,Clerk-000003,Role 1,true,true,0.15314,0.0,The task is feasible and the score combines local experience and workload.,3,,false
+9,Applicant completes form,Applicant-000001,Role 6,true,true,0.72,0.0,The task is feasible and the score combines local experience and workload.,3,,true
+9,Check application form completeness,Clerk-000003,Role 1,true,true,0.150974,0.0,The task is feasible and the score combines local experience and workload.,3,,true
+9,Check application form completeness,Clerk-000002,Role 1,true,true,0.145085,0.0,The task is feasible and the score combines local experience and workload.,3,,false
+9,Check credit history,Clerk-000002,Role 1,true,true,0.159712,0.0,The task is feasible and the score combines local experience and workload.,3,,true
+9,Check credit history,Clerk-000004,Role 1,true,true,0.158896,0.0,The task is feasible and the score combines local experience and workload.,3,,false
+9,AML check,AML Investigator-000001,Role 3,true,true,0.389699,0.0,The task is feasible and the score combines local experience and workload.,3,,true
+9,AML check,AML Investigator-000002,Role 3,true,true,0.388635,0.0,The task is feasible and the score combines local experience and workload.,3,,false
+9,Appraise property,Appraiser-000002,Role 4,true,true,0.389699,0.0,The task is feasible and the score combines local experience and workload.,3,,true
+9,Appraise property,Appraiser-000001,Role 4,true,true,0.388635,0.0,The task is feasible and the score combines local experience and workload.,3,,false
+9,Assess loan risk,Loan Officer-000004,Role 2,true,true,0.252243,0.0,The task is feasible and the score combines local experience and workload.,3,,true
+9,Assess loan risk,Loan Officer-000002,Role 2,true,true,0.250612,0.0,The task is feasible and the score combines local experience and workload.,3,,false
+9,Reject application,Clerk-000004,Role 1,true,true,0.154954,0.0,The task is feasible and the score combines local experience and workload.,3,,false
+9,Reject application,Clerk-000001,Role 1,true,true,0.159093,0.0,The task is feasible and the score combines local experience and workload.,3,,true

@@ -1,0 +1,65 @@
+[
+  {
+    "metric": "trace_variant_distance",
+    "n": 3,
+    "real_mean": 0.8666666666666667,
+    "mock_mean": 0.7333333333333334,
+    "mean_delta_real_minus_mock": 0.13333333333333333,
+    "delta_sample_sd": 0.3055050463303894,
+    "real_wins": 1
+  },
+  {
+    "metric": "activity_distribution_distance",
+    "n": 3,
+    "real_mean": 0.10063411540900445,
+    "mock_mean": 0.14495266591455339,
+    "mean_delta_real_minus_mock": -0.04431855050554894,
+    "delta_sample_sd": 0.052903999577201696,
+    "real_wins": 2
+  },
+  {
+    "metric": "resource_distribution_distance",
+    "n": 3,
+    "real_mean": 0.15972592122877471,
+    "mock_mean": 0.16448717319860695,
+    "mean_delta_real_minus_mock": -0.004761251969832236,
+    "delta_sample_sd": 0.055019927754835656,
+    "real_wins": 1
+  },
+  {
+    "metric": "mean_cycle_time_relative_error",
+    "n": 3,
+    "real_mean": 0.43692096080174475,
+    "mock_mean": 0.6556914906580881,
+    "mean_delta_real_minus_mock": -0.21877052985634338,
+    "delta_sample_sd": 0.3511229033225553,
+    "real_wins": 2
+  },
+  {
+    "metric": "proposal_execution_rate",
+    "n": 3,
+    "real_mean": 0.9826506024096385,
+    "mock_mean": 0.9753300714507612,
+    "mean_delta_real_minus_mock": 0.007320530958877376,
+    "delta_sample_sd": 0.024462136855380064,
+    "real_wins": "not_directional"
+  },
+  {
+    "metric": "bid_disagreement_rate",
+    "n": 3,
+    "real_mean": 0.22685056013527793,
+    "mock_mean": 0.08886688412550481,
+    "mean_delta_real_minus_mock": 0.13798367600977313,
+    "delta_sample_sd": 0.02868226940479439,
+    "real_wins": "not_directional"
+  },
+  {
+    "metric": "generated_resource_entropy_normalized",
+    "n": 3,
+    "real_mean": 0.9868845130840721,
+    "mock_mean": 0.9880829228243084,
+    "mean_delta_real_minus_mock": -0.0011984097402362541,
+    "delta_sample_sd": 0.010265067756094188,
+    "real_wins": "not_directional"
+  }
+]
