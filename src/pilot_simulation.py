@@ -256,6 +256,7 @@ class OpenAICompatibleResourceSelector:
         timeout: float = 30.0,
         min_interval: float = 0.0,
         seed: int | None = None,
+        cache_path: Path | None = None,
     ):
         self.model = model
         self.api_key = api_key
@@ -263,7 +264,14 @@ class OpenAICompatibleResourceSelector:
         self.timeout = timeout
         self.min_interval = max(0.0, min_interval)
         self.seed = seed
+        self.prompt_version = "resource-choice-v3-compact-schema"
+        self.cache_path = cache_path
+        self.cached_records: list[dict] = []
+        if cache_path and cache_path.exists():
+            with cache_path.open(encoding="utf-8") as cache_file:
+                self.cached_records = [json.loads(line) for line in cache_file if line.strip()]
         self.calls = 0
+        self.cache_hits = 0
         self.api_attempts = 0
         self.successful_calls = 0
         self.invalid_outputs = 0
@@ -295,28 +303,60 @@ class OpenAICompatibleResourceSelector:
         feasible = [
             {
                 "resource": resource,
-                "historical_count": int(candidates[resource]),
-                "historical_prior": round(priors.get(resource, 0.0), 6),
-                "events_assigned_so_far": int(resource_usage[resource]),
+                "count": int(candidates[resource]),
+                "prior": round(priors.get(resource, 0.0), 6),
+                "assigned": int(resource_usage[resource]),
             }
             for resource in sorted(candidates)
         ]
+        context = {
+            "activity": activity,
+            "previous_resource": previous_resource,
+            "feasible": feasible,
+            "fallback": reason_hint,
+        }
+        self.calls += 1
+        if self.calls <= len(self.cached_records):
+            cached = self.cached_records[self.calls - 1]
+            if cached.get("model", self.model) != self.model:
+                raise RuntimeError(f"LLM cache model mismatch at decision {self.calls}")
+            if cached.get("prompt_version", self.prompt_version) != self.prompt_version:
+                raise RuntimeError(f"LLM cache prompt mismatch at decision {self.calls}")
+            if cached.get("context") != context:
+                raise RuntimeError(f"LLM cache context mismatch at decision {self.calls}")
+            diagnostic = dict(cached["diagnostic"])
+            diagnostic["call"] = self.calls
+            diagnostic["cache_hit"] = 1
+            self.cache_hits += 1
+            self.api_attempts += int(diagnostic.get("api_attempts", 0))
+            self.rate_limit_retries += int(diagnostic.get("rate_limit_retries", 0))
+            self.prompt_tokens += int(diagnostic.get("prompt_tokens", 0))
+            self.completion_tokens += int(diagnostic.get("completion_tokens", 0))
+            self.total_tokens += int(diagnostic.get("total_tokens", 0))
+            self.total_latency_seconds += float(diagnostic.get("latency_seconds", 0.0))
+            self.call_diagnostics.append(diagnostic)
+            if diagnostic.get("status") != "success":
+                raise RuntimeError(f"Replaying cached LLM failure at decision {self.calls}")
+            self.successful_calls += 1
+            return dict(cached["decision"])
+
+        max_tokens = 256 if self.model.startswith("openai/gpt-oss-") else 128
         payload = {
             "model": self.model,
             "temperature": 0,
-            "max_tokens": 256,
+            "max_tokens": max_tokens,
             "response_format": {"type": "json_object"},
             "messages": [
                 {
                     "role": "system",
                     "content": (
-                        "You are a constrained business-process simulation agent. "
-                        "Choose exactly one resource from feasible_resources. "
-                        "Return only JSON with keys resource, reason, and factors. "
-                        "The factors value must be a list containing one or more of "
-                        "historical_capability, handover_continuity, and workload_balance. "
-                        "Name the selected resource in the reason. "
-                        "Do not invent resources, activities, timestamps, or schema fields."
+                        "Choose one feasible business-process resource. Return JSON only with "
+                        "resource, reason, and factors. factors must be a non-empty JSON list "
+                        "containing one or more of "
+                        "historical_capability, handover_continuity, workload_balance. "
+                        "Mention the resource in reason. Never invent values. Example: "
+                        '{"resource":"R1","reason":"Selected R1 using history.",'
+                        '"factors":["historical_capability"]}'
                     ),
                 },
                 {
@@ -325,12 +365,9 @@ class OpenAICompatibleResourceSelector:
                         {
                             "activity": activity,
                             "previous_resource": previous_resource,
-                            "decision_goal": (
-                                "Select a plausible next resource while respecting historical "
-                                "capabilities, handover context, and workload balance."
-                            ),
-                            "feasible_resources": feasible,
-                            "fallback_policy_if_uncertain": reason_hint,
+                            "goal": "plausible assignment using history, handover, and workload",
+                            "feasible": feasible,
+                            "fallback": reason_hint,
                         },
                         sort_keys=True,
                     ),
@@ -354,10 +391,11 @@ class OpenAICompatibleResourceSelector:
             },
             method="POST",
         )
-        self.calls += 1
         started = time.monotonic()
+        decision = None
         diagnostic = {
             "call": self.calls,
+            "cache_hit": 0,
             "api_attempts": 0,
             "rate_limit_retries": 0,
             "model": self.model,
@@ -424,12 +462,13 @@ class OpenAICompatibleResourceSelector:
                     "total_tokens": total_tokens,
                 }
             )
-            return {
+            decision = {
                 "resource": selected,
                 "reason": str(parsed.get("reason", "")).strip()
                 or f"Selected feasible resource {selected}.",
                 "factors": factors,
             }
+            return decision
         except Exception as exc:
             diagnostic["error_type"] = type(exc).__name__
             error_message = str(exc)
@@ -448,11 +487,33 @@ class OpenAICompatibleResourceSelector:
             diagnostic["latency_seconds"] = round(latency, 6)
             self.total_latency_seconds += latency
             self.call_diagnostics.append(diagnostic)
+            if decision is not None and self.cache_path is not None:
+                self.cache_path.parent.mkdir(parents=True, exist_ok=True)
+                record = {
+                    "model": self.model,
+                    "prompt_version": self.prompt_version,
+                    "context": context,
+                    "decision": decision,
+                    "diagnostic": diagnostic,
+                }
+                with self.cache_path.open("a", encoding="utf-8") as cache_file:
+                    cache_file.write(json.dumps(record, sort_keys=True) + "\n")
+                    cache_file.flush()
+                    os.fsync(cache_file.fileno())
+                self.cached_records.append(record)
+                if self.calls % 25 == 0:
+                    print(
+                        f"LLM progress: {self.calls} decisions, "
+                        f"{self.successful_calls} successful, {self.fallbacks} fallbacks",
+                        flush=True,
+                    )
 
     def summary(self) -> dict:
         return {
             "llm_model": self.model,
+            "llm_prompt_version": self.prompt_version,
             "llm_calls": self.calls,
+            "llm_cache_hits": self.cache_hits,
             "llm_api_attempts": self.api_attempts,
             "llm_successful_calls": self.successful_calls,
             "llm_invalid_outputs": self.invalid_outputs,

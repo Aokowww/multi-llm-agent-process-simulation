@@ -139,6 +139,7 @@ def main() -> None:
             timeout=args.llm_timeout,
             min_interval=min_interval,
             seed=args.seed,
+            cache_path=args.output_dir / "llm_response_cache.jsonl",
         )
 
     rows = []

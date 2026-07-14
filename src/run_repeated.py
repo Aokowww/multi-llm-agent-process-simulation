@@ -132,6 +132,7 @@ def main() -> None:
     for run_index in range(args.runs):
         for mode in modes:
             run_seed = args.seed + run_index * 100
+            run_dir = args.output_dir / f"run_{run_index + 1:02d}"
             llm_selector = None
             if mode == "llm_agent_real" and api_key:
                 llm_selector = OpenAICompatibleResourceSelector(
@@ -141,6 +142,7 @@ def main() -> None:
                     timeout=args.llm_timeout,
                     min_interval=llm_min_interval,
                     seed=run_seed,
+                    cache_path=run_dir / "llm_response_cache.jsonl",
                 )
             generated, reasoning_rows, handover_rows = simulate(
                 profiles,
@@ -164,7 +166,6 @@ def main() -> None:
                 result["llm_provider"] = args.llm_provider
             rows.append(result)
             if args.save_logs:
-                run_dir = args.output_dir / f"run_{run_index + 1:02d}"
                 write_log(run_dir / f"simulated_{mode}.csv", generated)
                 if reasoning_rows:
                     write_table(

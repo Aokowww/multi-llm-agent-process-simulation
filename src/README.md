@@ -12,7 +12,8 @@ simulations, and compute evaluation metrics.
 - `run_repeated.py`: repeats simulations across random seeds and
   aggregates lightweight log-reproduction metrics. It also provides
   quota-aware real-LLM provider presets, fixed case sampling, fail-fast
-  API-key checks, and per-call diagnostics.
+  API-key checks, per-call diagnostics, prompt-version metadata, and a
+  resumable context-validated response cache.
 - `evaluate_agent_decisions.py`: evaluates resource selections separately
   from end-to-end event-log distances, including top-1 agreement,
   feasible-action coverage, fallback rate, and structured-reason checks.
@@ -31,3 +32,8 @@ All scripts use the canonical event-log schema:
 ```text
 case_id, activity, resource, start_time, end_time
 ```
+
+For long API-backed runs, completed decisions are stored in
+`llm_response_cache.jsonl`. Restarting an identical command replays the
+validated cache before issuing new requests. This file contains model
+outputs and diagnostics but never the API key.

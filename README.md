@@ -128,12 +128,14 @@ python src/run_repeated.py \
   --seed 4200
 ```
 
-Run a quota-aware real-LLM pilot on a fixed 100-case LoanApp sample. Groq
-is the recommended no-cost starting point because its OpenAI-compatible
-API supports JSON output. The default `openai/gpt-oss-20b` free quota is
-sufficient for approximately one 100-case LoanApp run per daily quota
-window. Create a Groq API key, expose it only through the environment,
-and run one replication:
+Run a quota-aware real-LLM pilot on LoanApp. Groq is a convenient
+no-cost starting point because its OpenAI-compatible API supports JSON
+output. The default `openai/gpt-oss-20b` preset is suitable for the
+small pilot, but its tested free token-per-day limit is not enough for
+a full 100-case per-event run. The time-stamped full-run condition uses
+`llama-3.1-8b-instant`, which has a larger free quota but is scheduled
+for retirement on 16 August 2026. Create a Groq API key, expose it only
+through the environment, and run one replication:
 
 ```bash
 export GROQ_API_KEY="..."
@@ -146,12 +148,19 @@ python src/run_repeated.py \
   --max-cases 100 \
   --include-real-llm \
   --llm-provider groq \
+  --llm-model llama-3.1-8b-instant \
+  --llm-min-interval 4.8 \
   --save-logs
 ```
 
 Schedule additional replications over separate daily quota windows and
 use distinct base seeds. The bounded study protocol uses three
 replications in total.
+
+Each completed API decision is appended to
+`run_NN/llm_response_cache.jsonl`. Re-running the same command validates
+the saved contexts and resumes without repeating completed calls. The
+cache contains model decisions and diagnostics, never the API key.
 
 Evaluate local resource choices separately from end-to-end log quality:
 

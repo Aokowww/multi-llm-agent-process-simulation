@@ -28,6 +28,9 @@ distance metrics unless stated otherwise.
 - `real_llm_loanapp_pilot/`: clean API-backed LoanApp smoke-test and
   decision-benchmark summaries. These are feasibility results, not the
   planned repeated performance experiment.
+- `real_llm_loanapp_llama_replications/`: sanitized summaries from the
+  three planned 100-case Llama replications. The directory remains
+  preliminary until all three seeds are present.
 
 The result files are retained to make the reported analysis inspectable
 without rerunning all simulations.
