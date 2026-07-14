@@ -4,3 +4,4 @@ pulp
 jellyfish
 certifi
 matplotlib
+pandas
