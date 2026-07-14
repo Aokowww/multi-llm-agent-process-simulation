@@ -27,10 +27,23 @@ The real LLM achieved 100% API success, 100% reason-action mention, and
 100% valid factor labels in the benchmark. The pilot therefore supports
 operational validity and auditability, not an outperformance claim.
 
+Formal Chapela-Campa distances lead to the same interpretation. The
+real LLM has the lowest absolute EMD by a small margin, while the central
+baseline has the lowest workforce EMD and the agent-profile policy has
+the lowest cycle-time Wasserstein distance. All formal results are based
+on one 20-case run and remain descriptive.
+
 ## Files
 
 - `end_to_end_metrics.csv`: lightweight end-to-end metrics by policy.
 - `api_summary.csv`: aggregate API validity, token, and latency data.
 - `decision_summary.csv`: held-out decision metrics by policy.
+- `formal_distances.csv`: selected formal BPS distances for the same
+  clean end-to-end pilot.
 - `paired_comparison.csv`: paired uncertainty estimates for real LLM
   versus deterministic prior baselines.
+mode,cases,seed,bigram,trigram,absolute_emd,case_arrival_emd,circadian_emd,workforce_emd,relative_emd,cycle_time_wass
+central_baseline,20,8100,0.1686746988,0.2741935484,855.9335664336,818.75,8.3113953752,11.1201991869,1.9300699301,54.35
+agent_profile,20,8100,0.1686746988,0.2741935484,860.0069930070,818.75,8.4300519849,11.3789949315,1.9370629371,33.10
+llm_agent_proxy,20,8100,0.1686746988,0.2741935484,848.0524475524,818.75,11.5367492285,14.2681906126,8.7902097902,210.55
+llm_agent_real,20,8100,0.1686746988,0.2741935484,847.5944055944,818.75,11.4255821049,13.6018674113,8.8671328671,188.20
