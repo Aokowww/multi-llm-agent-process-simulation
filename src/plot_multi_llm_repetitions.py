@@ -30,38 +30,56 @@ COLORS = {"control": "#7884B4", "llm": "#D58A63"}
 
 def draw_panel(ax, frame: pd.DataFrame, metrics: list[str], labels: list[str]) -> None:
     x = np.arange(len(metrics))
-    width = 0.34
-    for offset, column, label, color in (
-        (-width / 2, "mock_multi_agent", "Deterministic control", COLORS["control"]),
-        (width / 2, "real_multi_llm", "Actual multi-LLM", COLORS["llm"]),
-    ):
-        values = [frame.loc[frame.metric == metric, column].to_numpy() for metric in metrics]
-        means = np.array([v.mean() for v in values])
-        errors = np.array([v.std(ddof=1) for v in values])
-        ax.bar(
-            x + offset,
-            means,
-            width,
-            yerr=errors,
-            color=color,
+    left = x - 0.13
+    right = x + 0.13
+    control_values = [
+        frame.loc[frame.metric == metric, "mock_multi_agent"].to_numpy()
+        for metric in metrics
+    ]
+    llm_values = [
+        frame.loc[frame.metric == metric, "real_multi_llm"].to_numpy()
+        for metric in metrics
+    ]
+
+    for index, (control, llm) in enumerate(zip(control_values, llm_values)):
+        for control_value, llm_value in zip(control, llm):
+            ax.plot(
+                [left[index], right[index]],
+                [control_value, llm_value],
+                color="#A8ADB5",
+                linewidth=0.75,
+                zorder=1,
+            )
+        ax.scatter(
+            np.full(len(control), left[index]),
+            control,
+            s=20,
+            color=COLORS["control"],
             edgecolor="white",
             linewidth=0.5,
-            capsize=2.5,
-            error_kw={"elinewidth": 0.8, "capthick": 0.8, "ecolor": "#3F3F3F"},
-            label=label,
-            zorder=2,
+            label="Deterministic control" if index == 0 else None,
+            zorder=3,
         )
-        for index, run_values in enumerate(values):
-            jitter = np.linspace(-0.045, 0.045, len(run_values))
-            ax.scatter(
-                np.full(len(run_values), x[index] + offset) + jitter,
-                run_values,
-                s=11,
-                facecolor="white",
-                edgecolor="#303030",
-                linewidth=0.55,
-                zorder=3,
-            )
+        ax.scatter(
+            np.full(len(llm), right[index]),
+            llm,
+            s=20,
+            color=COLORS["llm"],
+            edgecolor="white",
+            linewidth=0.5,
+            label="Actual multi-LLM" if index == 0 else None,
+            zorder=3,
+        )
+        ax.scatter(
+            [left[index], right[index]],
+            [control.mean(), llm.mean()],
+            s=48,
+            marker="D",
+            facecolor="white",
+            edgecolor=[COLORS["control"], COLORS["llm"]],
+            linewidth=1.2,
+            zorder=4,
+        )
     ax.set_xticks(x, labels)
     ax.set_ylim(bottom=0)
     ax.set_ylabel("Metric value")
