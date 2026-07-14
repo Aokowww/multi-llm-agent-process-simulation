@@ -1,0 +1,14 @@
+{
+  "train_log": "data/agentsimulator_loanapp/official_split/LoanApp_train_agentsimulator_split.csv.gz",
+  "test_log": "data/agentsimulator_loanapp/official_split/LoanApp_test_agentsimulator_split.csv.gz",
+  "evaluated_cases": 200,
+  "runs": 3,
+  "seed": 9200,
+  "real_llm_included": false,
+  "agentsimulator_baselines_included": false,
+  "llm_provider": null,
+  "llm_model": null,
+  "llm_api_key_env": null,
+  "llm_base_url": null,
+  "llm_min_interval": null
+}

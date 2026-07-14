@@ -96,6 +96,7 @@ def main() -> None:
     parser.add_argument("--seed", type=int, default=1000)
     parser.add_argument("--save-logs", action="store_true")
     parser.add_argument("--include-real-llm", action="store_true")
+    parser.add_argument("--include-resource-agent-prototypes", action="store_true")
     parser.add_argument("--max-cases", type=int)
     parser.add_argument("--llm-provider", choices=sorted(PROVIDERS), default="groq")
     parser.add_argument("--llm-model")
@@ -122,6 +123,8 @@ def main() -> None:
 
     rows = []
     modes = ["central_baseline", "agent_profile", "llm_agent_proxy"]
+    if args.include_resource_agent_prototypes:
+        modes.extend(["resource_agent_orchestrated", "resource_agent_autonomous"])
     if args.include_real_llm:
         modes.append("llm_agent_real")
     api_key = os.getenv(llm_api_key_env)
@@ -208,6 +211,7 @@ def main() -> None:
         "runs": args.runs,
         "seed": args.seed,
         "real_llm_included": args.include_real_llm,
+        "resource_agent_prototypes_included": args.include_resource_agent_prototypes,
         "llm_provider": args.llm_provider if args.include_real_llm else None,
         "llm_model": llm_model if args.include_real_llm else None,
         "llm_api_key_env": llm_api_key_env if args.include_real_llm else None,

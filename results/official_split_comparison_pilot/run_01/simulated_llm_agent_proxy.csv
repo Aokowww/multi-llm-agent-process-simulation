@@ -1,0 +1,1496 @@
+case_id,activity,resource,start_time,end_time
+S_llm_agent_proxy_0000,Check application form completeness,Clerk-000006,2023-04-20T08:00:00+00:00,2023-04-20T08:14:01+00:00
+S_llm_agent_proxy_0000,AML check,AML Investigator-000001,2023-04-20T08:14:01+00:00,2023-04-20T09:04:14+00:00
+S_llm_agent_proxy_0000,Check credit history,Clerk-000007,2023-04-20T09:04:14+00:00,2023-04-20T09:23:13+00:00
+S_llm_agent_proxy_0000,Appraise property,Appraiser-000001,2023-04-20T09:23:13+00:00,2023-04-20T09:42:35+00:00
+S_llm_agent_proxy_0000,Assess loan risk,Loan Officer-000004,2023-04-20T09:42:35+00:00,2023-04-20T10:02:35+00:00
+S_llm_agent_proxy_0000,Reject application,Clerk-000007,2023-04-20T10:02:35+00:00,2023-04-20T10:12:35+00:00
+S_llm_agent_proxy_0001,Check application form completeness,Clerk-000005,2023-04-20T08:30:00+00:00,2023-04-20T08:55:09+00:00
+S_llm_agent_proxy_0001,AML check,AML Investigator-000001,2023-04-20T08:55:09+00:00,2023-04-20T09:18:20+00:00
+S_llm_agent_proxy_0001,Check credit history,Clerk-000008,2023-04-20T09:18:20+00:00,2023-04-20T09:37:56+00:00
+S_llm_agent_proxy_0001,Appraise property,Appraiser-000001,2023-04-20T09:37:56+00:00,2023-04-20T10:04:39+00:00
+S_llm_agent_proxy_0001,Assess loan risk,Loan Officer-000003,2023-04-20T10:04:39+00:00,2023-04-20T10:24:39+00:00
+S_llm_agent_proxy_0001,Design loan offer,Loan Officer-000001,2023-04-20T10:24:39+00:00,2023-04-20T10:25:16+00:00
+S_llm_agent_proxy_0001,Approve loan offer,Senior Officer-000002,2023-04-20T10:25:16+00:00,2023-04-20T10:45:16+00:00
+S_llm_agent_proxy_0001,Approve application,Clerk-000002,2023-04-20T10:45:16+00:00,2023-04-20T10:50:16+00:00
+S_llm_agent_proxy_0002,Check application form completeness,Clerk-000008,2023-04-20T09:00:00+00:00,2023-04-20T09:14:07+00:00
+S_llm_agent_proxy_0002,Check credit history,Clerk-000001,2023-04-20T09:14:07+00:00,2023-04-20T10:28:46+00:00
+S_llm_agent_proxy_0002,Appraise property,Appraiser-000001,2023-04-20T10:28:46+00:00,2023-04-20T11:10:22+00:00
+S_llm_agent_proxy_0002,AML check,AML Investigator-000001,2023-04-20T11:40:05+00:00,2023-04-20T11:41:19+00:00
+S_llm_agent_proxy_0002,Assess loan risk,Loan Officer-000002,2023-04-20T13:11:05+00:00,2023-04-20T13:31:05+00:00
+S_llm_agent_proxy_0002,Design loan offer,Loan Officer-000004,2023-04-20T13:31:05+00:00,2023-04-20T13:31:19+00:00
+S_llm_agent_proxy_0002,Approve loan offer,Senior Officer-000001,2023-04-20T13:31:19+00:00,2023-04-21T05:51:19+00:00
+S_llm_agent_proxy_0002,Approve application,Clerk-000001,2023-04-21T05:51:19+00:00,2023-04-21T05:56:19+00:00
+S_llm_agent_proxy_0003,Check application form completeness,Clerk-000007,2023-04-20T09:30:00+00:00,2023-04-20T10:18:39+00:00
+S_llm_agent_proxy_0003,Check credit history,Clerk-000008,2023-04-20T10:18:39+00:00,2023-04-20T10:19:55+00:00
+S_llm_agent_proxy_0003,AML check,AML Investigator-000002,2023-04-20T10:19:55+00:00,2023-04-20T10:43:50+00:00
+S_llm_agent_proxy_0003,Appraise property,Appraiser-000001,2023-04-20T10:43:50+00:00,2023-04-20T10:58:31+00:00
+S_llm_agent_proxy_0003,Assess loan risk,Loan Officer-000002,2023-04-20T10:58:31+00:00,2023-04-20T11:18:31+00:00
+S_llm_agent_proxy_0003,Design loan offer,Loan Officer-000003,2023-04-20T11:18:31+00:00,2023-04-20T11:21:32+00:00
+S_llm_agent_proxy_0003,Approve loan offer,Senior Officer-000001,2023-04-20T11:21:32+00:00,2023-04-20T11:41:32+00:00
+S_llm_agent_proxy_0003,Approve application,Clerk-000001,2023-04-20T11:41:32+00:00,2023-04-20T11:46:32+00:00
+S_llm_agent_proxy_0004,Check application form completeness,Clerk-000007,2023-04-21T02:00:00+00:00,2023-04-21T02:09:42+00:00
+S_llm_agent_proxy_0004,AML check,AML Investigator-000002,2023-04-21T02:09:42+00:00,2023-04-21T02:14:52+00:00
+S_llm_agent_proxy_0004,Check credit history,Clerk-000002,2023-04-21T02:14:52+00:00,2023-04-21T02:39:08+00:00
+S_llm_agent_proxy_0004,Appraise property,Appraiser-000001,2023-04-21T02:39:08+00:00,2023-04-21T03:05:21+00:00
+S_llm_agent_proxy_0004,Assess loan risk,Loan Officer-000001,2023-04-21T03:32:19+00:00,2023-04-21T03:52:19+00:00
+S_llm_agent_proxy_0004,Design loan offer,Loan Officer-000003,2023-04-21T03:52:19+00:00,2023-04-21T04:10:39+00:00
+S_llm_agent_proxy_0004,Approve loan offer,Senior Officer-000002,2023-04-21T04:10:39+00:00,2023-04-21T04:30:39+00:00
+S_llm_agent_proxy_0004,Approve application,Clerk-000006,2023-04-21T04:30:39+00:00,2023-04-21T04:35:39+00:00
+S_llm_agent_proxy_0005,Check application form completeness,Clerk-000005,2023-04-21T02:30:00+00:00,2023-04-21T02:39:22+00:00
+S_llm_agent_proxy_0005,AML check,AML Investigator-000001,2023-04-21T02:39:22+00:00,2023-04-21T03:31:33+00:00
+S_llm_agent_proxy_0005,Check credit history,Clerk-000005,2023-04-21T03:31:33+00:00,2023-04-21T03:34:58+00:00
+S_llm_agent_proxy_0005,Appraise property,Appraiser-000001,2023-04-21T03:34:58+00:00,2023-04-21T04:58:23+00:00
+S_llm_agent_proxy_0005,Assess loan risk,Loan Officer-000001,2023-04-21T05:28:29+00:00,2023-04-21T05:48:29+00:00
+S_llm_agent_proxy_0005,Reject application,Clerk-000007,2023-04-21T05:48:29+00:00,2023-04-21T05:58:29+00:00
+S_llm_agent_proxy_0006,Check application form completeness,Clerk-000007,2023-04-21T03:00:00+00:00,2023-04-21T19:35:05+00:00
+S_llm_agent_proxy_0006,Appraise property,Appraiser-000002,2023-04-21T19:35:05+00:00,2023-04-21T20:13:06+00:00
+S_llm_agent_proxy_0006,Check credit history,Clerk-000007,2023-04-21T20:13:06+00:00,2023-04-21T20:13:41+00:00
+S_llm_agent_proxy_0006,AML check,AML Investigator-000001,2023-04-21T20:13:41+00:00,2023-04-21T20:17:19+00:00
+S_llm_agent_proxy_0006,Assess loan risk,Loan Officer-000004,2023-04-21T20:28:15+00:00,2023-04-21T20:48:15+00:00
+S_llm_agent_proxy_0006,Reject application,Clerk-000002,2023-04-21T20:48:15+00:00,2023-04-21T20:58:15+00:00
+S_llm_agent_proxy_0007,Check application form completeness,Clerk-000007,2023-04-21T03:30:00+00:00,2023-04-21T03:51:41+00:00
+S_llm_agent_proxy_0007,Check credit history,Clerk-000006,2023-04-21T03:51:41+00:00,2023-04-21T04:14:31+00:00
+S_llm_agent_proxy_0007,Appraise property,Appraiser-000001,2023-04-21T04:14:31+00:00,2023-04-21T04:25:53+00:00
+S_llm_agent_proxy_0007,AML check,AML Investigator-000002,2023-04-21T20:42:31+00:00,2023-04-21T21:46:44+00:00
+S_llm_agent_proxy_0007,Assess loan risk,Loan Officer-000003,2023-04-21T21:58:08+00:00,2023-04-21T22:18:08+00:00
+S_llm_agent_proxy_0007,Reject application,Clerk-000002,2023-04-21T22:18:08+00:00,2023-04-21T22:28:08+00:00
+S_llm_agent_proxy_0008,Check application form completeness,Clerk-000006,2023-04-21T04:00:00+00:00,2023-04-21T04:15:57+00:00
+S_llm_agent_proxy_0008,AML check,AML Investigator-000002,2023-04-21T04:15:57+00:00,2023-04-21T04:35:19+00:00
+S_llm_agent_proxy_0008,Appraise property,Appraiser-000001,2023-04-21T20:46:59+00:00,2023-04-21T20:50:24+00:00
+S_llm_agent_proxy_0008,Check credit history,Clerk-000002,2023-04-21T20:50:24+00:00,2023-04-21T20:54:33+00:00
+S_llm_agent_proxy_0008,Assess loan risk,Loan Officer-000002,2023-04-21T21:15:08+00:00,2023-04-21T21:35:08+00:00
+S_llm_agent_proxy_0008,Design loan offer,Loan Officer-000001,2023-04-21T21:35:08+00:00,2023-04-21T21:48:57+00:00
+S_llm_agent_proxy_0008,Approve loan offer,Senior Officer-000001,2023-04-21T21:48:57+00:00,2023-04-21T22:08:57+00:00
+S_llm_agent_proxy_0008,Approve application,Clerk-000002,2023-04-21T22:08:57+00:00,2023-04-21T22:13:57+00:00
+S_llm_agent_proxy_0009,Check application form completeness,Clerk-000004,2023-04-21T04:30:00+00:00,2023-04-21T20:31:57+00:00
+S_llm_agent_proxy_0009,Check credit history,Clerk-000008,2023-04-21T20:31:57+00:00,2023-04-21T21:06:52+00:00
+S_llm_agent_proxy_0009,AML check,AML Investigator-000002,2023-04-21T21:08:12+00:00,2023-04-21T21:24:23+00:00
+S_llm_agent_proxy_0009,Appraise property,Appraiser-000001,2023-04-21T21:24:23+00:00,2023-04-21T21:33:20+00:00
+S_llm_agent_proxy_0009,Assess loan risk,Loan Officer-000002,2023-04-21T21:52:05+00:00,2023-04-21T22:12:05+00:00
+S_llm_agent_proxy_0009,Reject application,Clerk-000007,2023-04-21T22:12:05+00:00,2023-04-21T22:22:05+00:00
+S_llm_agent_proxy_0010,Check application form completeness,Clerk-000002,2023-04-21T05:00:00+00:00,2023-04-21T05:16:35+00:00
+S_llm_agent_proxy_0010,AML check,AML Investigator-000002,2023-04-21T05:16:35+00:00,2023-04-21T05:45:50+00:00
+S_llm_agent_proxy_0010,Check credit history,Clerk-000003,2023-04-21T05:45:50+00:00,2023-04-21T06:25:46+00:00
+S_llm_agent_proxy_0010,Appraise property,Appraiser-000002,2023-04-21T06:25:46+00:00,2023-04-21T07:44:21+00:00
+S_llm_agent_proxy_0010,Assess loan risk,Loan Officer-000001,2023-04-21T07:44:21+00:00,2023-04-21T08:04:21+00:00
+S_llm_agent_proxy_0010,Design loan offer,Loan Officer-000002,2023-04-21T08:04:21+00:00,2023-04-21T08:11:41+00:00
+S_llm_agent_proxy_0010,Approve loan offer,Senior Officer-000002,2023-04-21T08:11:41+00:00,2023-04-21T08:31:41+00:00
+S_llm_agent_proxy_0010,Approve application,Clerk-000001,2023-04-21T08:31:41+00:00,2023-04-21T08:36:41+00:00
+S_llm_agent_proxy_0011,Check application form completeness,Clerk-000002,2023-04-21T05:30:00+00:00,2023-04-21T06:14:15+00:00
+S_llm_agent_proxy_0011,Appraise property,Appraiser-000001,2023-04-21T06:14:15+00:00,2023-04-21T06:17:19+00:00
+S_llm_agent_proxy_0011,Check credit history,Clerk-000005,2023-04-21T06:17:19+00:00,2023-04-21T06:19:23+00:00
+S_llm_agent_proxy_0011,AML check,AML Investigator-000001,2023-04-21T06:19:23+00:00,2023-04-21T22:49:42+00:00
+S_llm_agent_proxy_0011,Assess loan risk,Loan Officer-000001,2023-04-21T22:49:42+00:00,2023-04-21T23:09:42+00:00
+S_llm_agent_proxy_0011,Reject application,Clerk-000001,2023-04-21T23:09:42+00:00,2023-04-21T23:19:42+00:00
+S_llm_agent_proxy_0012,Check application form completeness,Clerk-000007,2023-04-21T06:00:00+00:00,2023-04-21T06:04:36+00:00
+S_llm_agent_proxy_0012,AML check,AML Investigator-000002,2023-04-21T06:04:36+00:00,2023-04-21T06:13:24+00:00
+S_llm_agent_proxy_0012,Check credit history,Clerk-000006,2023-04-21T06:13:24+00:00,2023-04-21T06:13:53+00:00
+S_llm_agent_proxy_0012,Appraise property,Appraiser-000001,2023-04-21T06:13:53+00:00,2023-04-21T06:18:12+00:00
+S_llm_agent_proxy_0012,Assess loan risk,Loan Officer-000004,2023-04-21T06:18:12+00:00,2023-04-21T06:38:12+00:00
+S_llm_agent_proxy_0012,Design loan offer,Loan Officer-000003,2023-04-21T06:38:12+00:00,2023-04-21T06:40:28+00:00
+S_llm_agent_proxy_0012,Approve loan offer,Senior Officer-000002,2023-04-21T06:40:28+00:00,2023-04-21T07:00:28+00:00
+S_llm_agent_proxy_0012,Approve application,Clerk-000002,2023-04-21T07:00:28+00:00,2023-04-21T07:05:28+00:00
+S_llm_agent_proxy_0013,Check application form completeness,Clerk-000007,2023-04-21T06:30:00+00:00,2023-04-21T06:35:34+00:00
+S_llm_agent_proxy_0013,Check credit history,Clerk-000004,2023-04-21T06:35:34+00:00,2023-04-21T07:50:44+00:00
+S_llm_agent_proxy_0013,Appraise property,Appraiser-000002,2023-04-21T07:50:44+00:00,2023-04-21T07:57:36+00:00
+S_llm_agent_proxy_0013,AML check,AML Investigator-000002,2023-04-21T08:16:17+00:00,2023-04-21T08:31:28+00:00
+S_llm_agent_proxy_0013,Assess loan risk,Loan Officer-000003,2023-04-21T08:31:28+00:00,2023-04-21T08:51:28+00:00
+S_llm_agent_proxy_0013,Design loan offer,Loan Officer-000001,2023-04-21T08:51:28+00:00,2023-04-21T08:54:07+00:00
+S_llm_agent_proxy_0013,Approve loan offer,Senior Officer-000002,2023-04-21T08:54:07+00:00,2023-04-21T09:14:07+00:00
+S_llm_agent_proxy_0013,Cancel application,Clerk-000001,2023-04-21T09:14:07+00:00,2023-04-21T09:19:07+00:00
+S_llm_agent_proxy_0014,Check application form completeness,Clerk-000003,2023-04-21T07:00:00+00:00,2023-04-21T07:00:13+00:00
+S_llm_agent_proxy_0014,AML check,AML Investigator-000002,2023-04-21T07:00:13+00:00,2023-04-21T07:34:55+00:00
+S_llm_agent_proxy_0014,Check credit history,Clerk-000001,2023-04-21T07:34:55+00:00,2023-04-21T07:41:27+00:00
+S_llm_agent_proxy_0014,Appraise property,Appraiser-000001,2023-04-21T07:41:27+00:00,2023-04-21T08:21:43+00:00
+S_llm_agent_proxy_0014,Assess loan risk,Loan Officer-000004,2023-04-21T09:16:20+00:00,2023-04-21T09:36:20+00:00
+S_llm_agent_proxy_0014,Reject application,Clerk-000004,2023-04-21T09:36:20+00:00,2023-04-21T09:46:20+00:00
+S_llm_agent_proxy_0015,Check application form completeness,Clerk-000004,2023-04-21T07:30:00+00:00,2023-04-21T07:37:57+00:00
+S_llm_agent_proxy_0015,Check credit history,Clerk-000005,2023-04-21T07:37:57+00:00,2023-04-21T07:43:06+00:00
+S_llm_agent_proxy_0015,Appraise property,Appraiser-000002,2023-04-21T07:43:06+00:00,2023-04-21T07:52:23+00:00
+S_llm_agent_proxy_0015,AML check,AML Investigator-000001,2023-04-21T07:52:23+00:00,2023-04-21T08:56:32+00:00
+S_llm_agent_proxy_0015,Assess loan risk,Loan Officer-000002,2023-04-21T09:34:26+00:00,2023-04-21T09:54:26+00:00
+S_llm_agent_proxy_0015,Reject application,Clerk-000004,2023-04-21T09:54:26+00:00,2023-04-21T10:04:26+00:00
+S_llm_agent_proxy_0016,Check application form completeness,Clerk-000003,2023-04-21T08:00:00+00:00,2023-04-21T08:01:10+00:00
+S_llm_agent_proxy_0016,Return application back to applicant,Clerk-000002,2023-04-21T08:01:10+00:00,2023-04-21T08:06:10+00:00
+S_llm_agent_proxy_0016,Applicant completes form,Applicant-000001,2023-04-21T08:06:10+00:00,2023-04-21T09:06:10+00:00
+S_llm_agent_proxy_0016,Check application form completeness,Clerk-000001,2023-04-21T09:06:10+00:00,2023-04-21T09:38:32+00:00
+S_llm_agent_proxy_0016,AML check,AML Investigator-000002,2023-04-21T09:38:32+00:00,2023-04-21T09:43:11+00:00
+S_llm_agent_proxy_0016,Check credit history,Clerk-000006,2023-04-21T09:43:11+00:00,2023-04-21T09:49:12+00:00
+S_llm_agent_proxy_0016,Appraise property,Appraiser-000002,2023-04-21T09:49:12+00:00,2023-04-21T10:15:18+00:00
+S_llm_agent_proxy_0016,Assess loan risk,Loan Officer-000002,2023-04-21T10:15:18+00:00,2023-04-21T10:35:18+00:00
+S_llm_agent_proxy_0016,Reject application,Clerk-000008,2023-04-21T10:35:18+00:00,2023-04-21T10:45:18+00:00
+S_llm_agent_proxy_0017,Check application form completeness,Clerk-000004,2023-04-21T08:30:00+00:00,2023-04-21T08:33:01+00:00
+S_llm_agent_proxy_0017,AML check,AML Investigator-000002,2023-04-21T08:33:01+00:00,2023-04-21T10:32:02+00:00
+S_llm_agent_proxy_0017,Appraise property,Appraiser-000001,2023-04-21T10:32:02+00:00,2023-04-21T12:25:45+00:00
+S_llm_agent_proxy_0017,Check credit history,Clerk-000002,2023-04-21T12:25:45+00:00,2023-04-21T13:03:05+00:00
+S_llm_agent_proxy_0017,Assess loan risk,Loan Officer-000001,2023-04-21T13:03:05+00:00,2023-04-21T13:23:05+00:00
+S_llm_agent_proxy_0017,Reject application,Clerk-000003,2023-04-21T13:23:05+00:00,2023-04-21T13:33:05+00:00
+S_llm_agent_proxy_0018,Check application form completeness,Clerk-000001,2023-04-21T09:00:00+00:00,2023-04-21T09:14:04+00:00
+S_llm_agent_proxy_0018,Check credit history,Clerk-000002,2023-04-21T09:14:04+00:00,2023-04-21T09:29:30+00:00
+S_llm_agent_proxy_0018,Appraise property,Appraiser-000001,2023-04-21T09:29:30+00:00,2023-04-24T02:10:43+00:00
+S_llm_agent_proxy_0018,AML check,AML Investigator-000001,2023-04-24T02:10:43+00:00,2023-04-24T02:23:18+00:00
+S_llm_agent_proxy_0018,Assess loan risk,Loan Officer-000001,2023-04-24T03:02:19+00:00,2023-04-24T03:22:19+00:00
+S_llm_agent_proxy_0018,Reject application,Clerk-000006,2023-04-24T03:22:19+00:00,2023-04-24T03:32:19+00:00
+S_llm_agent_proxy_0019,Check application form completeness,Clerk-000002,2023-04-21T09:30:00+00:00,2023-04-21T10:02:00+00:00
+S_llm_agent_proxy_0019,Return application back to applicant,Clerk-000004,2023-04-21T10:02:00+00:00,2023-04-21T10:07:00+00:00
+S_llm_agent_proxy_0019,Applicant completes form,Applicant-000001,2023-04-21T10:07:00+00:00,2023-04-22T03:07:00+00:00
+S_llm_agent_proxy_0019,Check application form completeness,Clerk-000001,2023-04-22T03:07:00+00:00,2023-04-22T03:17:33+00:00
+S_llm_agent_proxy_0019,AML check,AML Investigator-000002,2023-04-22T03:17:33+00:00,2023-04-22T03:22:12+00:00
+S_llm_agent_proxy_0019,Check credit history,Clerk-000004,2023-04-22T03:22:12+00:00,2023-04-22T03:57:45+00:00
+S_llm_agent_proxy_0019,Appraise property,Appraiser-000002,2023-04-22T03:57:45+00:00,2023-04-22T04:40:25+00:00
+S_llm_agent_proxy_0019,Assess loan risk,Loan Officer-000002,2023-04-22T06:28:29+00:00,2023-04-22T06:48:29+00:00
+S_llm_agent_proxy_0019,Reject application,Clerk-000008,2023-04-22T06:48:29+00:00,2023-04-22T06:58:29+00:00
+S_llm_agent_proxy_0020,Check application form completeness,Clerk-000008,2023-04-21T10:00:00+00:00,2023-04-21T10:18:13+00:00
+S_llm_agent_proxy_0020,Appraise property,Appraiser-000001,2023-04-21T10:18:13+00:00,2023-04-21T10:37:55+00:00
+S_llm_agent_proxy_0020,Check credit history,Clerk-000002,2023-04-21T10:37:55+00:00,2023-04-21T11:26:08+00:00
+S_llm_agent_proxy_0020,AML check,AML Investigator-000001,2023-04-21T11:50:53+00:00,2023-04-21T13:46:28+00:00
+S_llm_agent_proxy_0020,Assess loan risk,Loan Officer-000004,2023-04-21T14:08:49+00:00,2023-04-21T14:28:49+00:00
+S_llm_agent_proxy_0020,Reject application,Clerk-000008,2023-04-21T14:28:49+00:00,2023-04-21T14:38:49+00:00
+S_llm_agent_proxy_0021,Check application form completeness,Clerk-000001,2023-04-21T10:30:00+00:00,2023-04-21T11:31:44+00:00
+S_llm_agent_proxy_0021,Check credit history,Clerk-000004,2023-04-21T11:31:44+00:00,2023-04-24T03:54:00+00:00
+S_llm_agent_proxy_0021,Appraise property,Appraiser-000001,2023-04-24T03:54:00+00:00,2023-04-24T05:09:32+00:00
+S_llm_agent_proxy_0021,AML check,AML Investigator-000002,2023-04-24T05:09:32+00:00,2023-04-24T05:10:33+00:00
+S_llm_agent_proxy_0021,Assess loan risk,Loan Officer-000001,2023-04-24T05:10:33+00:00,2023-04-24T05:30:33+00:00
+S_llm_agent_proxy_0021,Design loan offer,Loan Officer-000001,2023-04-24T05:30:33+00:00,2023-04-24T05:54:21+00:00
+S_llm_agent_proxy_0021,Approve loan offer,Senior Officer-000001,2023-04-24T05:54:21+00:00,2023-04-24T06:14:21+00:00
+S_llm_agent_proxy_0021,Approve application,Clerk-000004,2023-04-24T06:14:21+00:00,2023-04-24T06:19:21+00:00
+S_llm_agent_proxy_0022,Check application form completeness,Clerk-000002,2023-04-21T11:00:00+00:00,2023-04-21T11:00:57+00:00
+S_llm_agent_proxy_0022,Appraise property,Appraiser-000002,2023-04-21T11:00:57+00:00,2023-04-21T11:48:55+00:00
+S_llm_agent_proxy_0022,AML check,AML Investigator-000002,2023-04-21T11:48:55+00:00,2023-04-21T12:12:49+00:00
+S_llm_agent_proxy_0022,Check credit history,Clerk-000005,2023-04-21T12:12:49+00:00,2023-04-21T12:14:42+00:00
+S_llm_agent_proxy_0022,Assess loan risk,Loan Officer-000001,2023-04-21T12:14:42+00:00,2023-04-21T12:34:42+00:00
+S_llm_agent_proxy_0022,Reject application,Clerk-000002,2023-04-21T12:34:42+00:00,2023-04-21T12:44:42+00:00
+S_llm_agent_proxy_0023,Check application form completeness,Clerk-000001,2023-04-21T11:30:00+00:00,2023-04-21T11:44:40+00:00
+S_llm_agent_proxy_0023,Return application back to applicant,Clerk-000008,2023-04-21T11:44:40+00:00,2023-04-21T11:49:40+00:00
+S_llm_agent_proxy_0023,Applicant completes form,Applicant-000001,2023-04-21T11:49:40+00:00,2023-04-22T04:49:40+00:00
+S_llm_agent_proxy_0023,Check application form completeness,Clerk-000001,2023-04-22T04:49:40+00:00,2023-04-22T04:55:50+00:00
+S_llm_agent_proxy_0023,Check credit history,Clerk-000003,2023-04-22T04:55:50+00:00,2023-04-22T23:54:01+00:00
+S_llm_agent_proxy_0023,Appraise property,Appraiser-000001,2023-04-22T23:54:01+00:00,2023-04-23T00:14:08+00:00
+S_llm_agent_proxy_0023,AML check,AML Investigator-000002,2023-04-23T00:14:08+00:00,2023-04-23T00:18:16+00:00
+S_llm_agent_proxy_0023,Assess loan risk,Loan Officer-000002,2023-04-23T00:18:16+00:00,2023-04-23T00:38:16+00:00
+S_llm_agent_proxy_0023,Design loan offer,Loan Officer-000003,2023-04-23T00:38:16+00:00,2023-04-23T01:06:36+00:00
+S_llm_agent_proxy_0023,Approve loan offer,Senior Officer-000002,2023-04-23T01:06:36+00:00,2023-04-23T01:26:36+00:00
+S_llm_agent_proxy_0023,Approve application,Clerk-000004,2023-04-23T01:26:36+00:00,2023-04-23T01:31:36+00:00
+S_llm_agent_proxy_0024,Check application form completeness,Clerk-000001,2023-04-21T12:00:00+00:00,2023-04-21T12:24:20+00:00
+S_llm_agent_proxy_0024,Check credit history,Clerk-000003,2023-04-21T12:24:20+00:00,2023-04-21T12:40:16+00:00
+S_llm_agent_proxy_0024,Appraise property,Appraiser-000001,2023-04-21T12:40:16+00:00,2023-04-21T12:44:29+00:00
+S_llm_agent_proxy_0024,AML check,AML Investigator-000002,2023-04-21T12:44:29+00:00,2023-04-21T13:26:34+00:00
+S_llm_agent_proxy_0024,Assess loan risk,Loan Officer-000001,2023-04-21T13:27:12+00:00,2023-04-21T13:47:12+00:00
+S_llm_agent_proxy_0024,Design loan offer,Loan Officer-000004,2023-04-21T13:47:12+00:00,2023-04-21T13:47:22+00:00
+S_llm_agent_proxy_0024,Approve loan offer,Senior Officer-000001,2023-04-21T13:47:22+00:00,2023-04-21T14:07:22+00:00
+S_llm_agent_proxy_0024,Approve application,Clerk-000002,2023-04-21T14:07:22+00:00,2023-04-21T14:12:22+00:00
+S_llm_agent_proxy_0025,Check application form completeness,Clerk-000007,2023-04-22T04:30:00+00:00,2023-04-24T20:35:57+00:00
+S_llm_agent_proxy_0025,Check credit history,Clerk-000006,2023-04-24T20:35:57+00:00,2023-04-24T21:12:12+00:00
+S_llm_agent_proxy_0025,Appraise property,Appraiser-000001,2023-04-24T21:12:12+00:00,2023-04-24T21:12:47+00:00
+S_llm_agent_proxy_0025,AML check,AML Investigator-000001,2023-04-24T21:12:47+00:00,2023-04-24T21:33:15+00:00
+S_llm_agent_proxy_0025,Assess loan risk,Loan Officer-000001,2023-04-24T21:33:15+00:00,2023-04-24T21:53:15+00:00
+S_llm_agent_proxy_0025,Reject application,Clerk-000003,2023-04-24T21:53:15+00:00,2023-04-24T22:03:15+00:00
+S_llm_agent_proxy_0026,Check application form completeness,Clerk-000006,2023-04-22T05:00:00+00:00,2023-04-22T05:12:30+00:00
+S_llm_agent_proxy_0026,Check credit history,Clerk-000007,2023-04-22T05:12:30+00:00,2023-04-22T05:42:01+00:00
+S_llm_agent_proxy_0026,Appraise property,Appraiser-000002,2023-04-22T05:42:01+00:00,2023-04-22T23:56:37+00:00
+S_llm_agent_proxy_0026,AML check,AML Investigator-000002,2023-04-22T23:56:37+00:00,2023-04-23T00:10:45+00:00
+S_llm_agent_proxy_0026,Assess loan risk,Loan Officer-000003,2023-04-23T00:59:45+00:00,2023-04-23T01:19:45+00:00
+S_llm_agent_proxy_0026,Reject application,Clerk-000006,2023-04-23T01:19:45+00:00,2023-04-23T01:29:45+00:00
+S_llm_agent_proxy_0027,Check application form completeness,Clerk-000001,2023-04-22T05:30:00+00:00,2023-04-22T05:39:18+00:00
+S_llm_agent_proxy_0027,Check credit history,Clerk-000002,2023-04-22T05:39:18+00:00,2023-04-22T05:49:51+00:00
+S_llm_agent_proxy_0027,Appraise property,Appraiser-000002,2023-04-22T05:49:51+00:00,2023-04-22T06:39:46+00:00
+S_llm_agent_proxy_0027,AML check,AML Investigator-000001,2023-04-22T06:39:46+00:00,2023-04-22T06:47:38+00:00
+S_llm_agent_proxy_0027,Assess loan risk,Loan Officer-000003,2023-04-22T06:47:38+00:00,2023-04-22T07:07:38+00:00
+S_llm_agent_proxy_0027,Design loan offer,Loan Officer-000002,2023-04-22T07:07:38+00:00,2023-04-22T07:11:13+00:00
+S_llm_agent_proxy_0027,Approve loan offer,Senior Officer-000001,2023-04-22T07:11:13+00:00,2023-04-22T07:31:13+00:00
+S_llm_agent_proxy_0027,Approve application,Clerk-000008,2023-04-22T07:31:13+00:00,2023-04-22T07:36:13+00:00
+S_llm_agent_proxy_0028,Check application form completeness,Clerk-000002,2023-04-22T06:00:00+00:00,2023-04-22T06:21:34+00:00
+S_llm_agent_proxy_0028,Check credit history,Clerk-000005,2023-04-22T06:21:34+00:00,2023-04-22T07:06:36+00:00
+S_llm_agent_proxy_0028,AML check,AML Investigator-000002,2023-04-22T07:06:36+00:00,2023-04-22T08:00:52+00:00
+S_llm_agent_proxy_0028,Appraise property,Appraiser-000001,2023-04-22T08:00:52+00:00,2023-04-22T08:07:04+00:00
+S_llm_agent_proxy_0028,Assess loan risk,Loan Officer-000002,2023-04-22T08:07:04+00:00,2023-04-22T08:27:04+00:00
+S_llm_agent_proxy_0028,Design loan offer,Loan Officer-000001,2023-04-22T08:27:04+00:00,2023-04-22T08:33:51+00:00
+S_llm_agent_proxy_0028,Approve loan offer,Senior Officer-000002,2023-04-22T08:33:51+00:00,2023-04-23T00:53:51+00:00
+S_llm_agent_proxy_0028,Approve application,Clerk-000002,2023-04-23T00:53:51+00:00,2023-04-23T00:58:51+00:00
+S_llm_agent_proxy_0029,Check application form completeness,Clerk-000002,2023-04-22T06:30:00+00:00,2023-04-22T06:30:53+00:00
+S_llm_agent_proxy_0029,AML check,AML Investigator-000002,2023-04-22T06:30:53+00:00,2023-04-22T06:46:07+00:00
+S_llm_agent_proxy_0029,Appraise property,Appraiser-000001,2023-04-22T08:04:32+00:00,2023-04-22T08:23:49+00:00
+S_llm_agent_proxy_0029,Check credit history,Clerk-000006,2023-04-22T08:23:49+00:00,2023-04-22T08:46:12+00:00
+S_llm_agent_proxy_0029,Assess loan risk,Loan Officer-000004,2023-04-22T08:57:22+00:00,2023-04-22T09:17:22+00:00
+S_llm_agent_proxy_0029,Design loan offer,Loan Officer-000002,2023-04-22T09:17:22+00:00,2023-04-22T09:37:30+00:00
+S_llm_agent_proxy_0029,Approve loan offer,Senior Officer-000002,2023-04-22T09:37:30+00:00,2023-04-22T09:57:30+00:00
+S_llm_agent_proxy_0029,Cancel application,Clerk-000003,2023-04-22T09:57:30+00:00,2023-04-22T10:02:30+00:00
+S_llm_agent_proxy_0030,Check application form completeness,Clerk-000003,2023-04-22T07:00:00+00:00,2023-04-22T07:32:26+00:00
+S_llm_agent_proxy_0030,Appraise property,Appraiser-000002,2023-04-22T07:32:26+00:00,2023-04-22T07:42:08+00:00
+S_llm_agent_proxy_0030,Check credit history,Clerk-000001,2023-04-22T07:42:08+00:00,2023-04-22T07:59:40+00:00
+S_llm_agent_proxy_0030,AML check,AML Investigator-000001,2023-04-22T08:44:13+00:00,2023-04-23T03:16:54+00:00
+S_llm_agent_proxy_0030,Assess loan risk,Loan Officer-000002,2023-04-23T03:35:36+00:00,2023-04-23T03:55:36+00:00
+S_llm_agent_proxy_0030,Design loan offer,Loan Officer-000004,2023-04-23T03:55:36+00:00,2023-04-23T04:03:38+00:00
+S_llm_agent_proxy_0030,Approve loan offer,Senior Officer-000002,2023-04-23T04:03:38+00:00,2023-04-23T04:23:38+00:00
+S_llm_agent_proxy_0030,Cancel application,Clerk-000003,2023-04-23T04:23:38+00:00,2023-04-25T20:28:38+00:00
+S_llm_agent_proxy_0031,Check application form completeness,Clerk-000001,2023-04-22T23:30:00+00:00,2023-04-22T23:46:09+00:00
+S_llm_agent_proxy_0031,Check credit history,Clerk-000003,2023-04-22T23:46:09+00:00,2023-04-23T00:01:10+00:00
+S_llm_agent_proxy_0031,Appraise property,Appraiser-000001,2023-04-23T00:01:10+00:00,2023-04-23T00:24:35+00:00
+S_llm_agent_proxy_0031,AML check,AML Investigator-000002,2023-04-23T00:56:54+00:00,2023-04-23T01:13:29+00:00
+S_llm_agent_proxy_0031,Assess loan risk,Loan Officer-000003,2023-04-23T01:13:58+00:00,2023-04-23T01:33:58+00:00
+S_llm_agent_proxy_0031,Design loan offer,Loan Officer-000001,2023-04-23T01:33:58+00:00,2023-04-23T01:34:41+00:00
+S_llm_agent_proxy_0031,Approve loan offer,Senior Officer-000001,2023-04-23T01:34:41+00:00,2023-04-23T01:54:41+00:00
+S_llm_agent_proxy_0031,Cancel application,Clerk-000001,2023-04-23T01:54:41+00:00,2023-04-23T01:59:41+00:00
+S_llm_agent_proxy_0032,Check application form completeness,Clerk-000003,2023-04-23T00:00:00+00:00,2023-04-23T00:17:57+00:00
+S_llm_agent_proxy_0032,Appraise property,Appraiser-000002,2023-04-23T00:17:57+00:00,2023-04-23T00:59:32+00:00
+S_llm_agent_proxy_0032,AML check,AML Investigator-000002,2023-04-23T00:59:32+00:00,2023-04-23T01:05:55+00:00
+S_llm_agent_proxy_0032,Check credit history,Clerk-000002,2023-04-23T01:05:55+00:00,2023-04-23T01:36:23+00:00
+S_llm_agent_proxy_0032,Assess loan risk,Loan Officer-000004,2023-04-23T01:36:23+00:00,2023-04-23T01:56:23+00:00
+S_llm_agent_proxy_0032,Design loan offer,Loan Officer-000002,2023-04-23T01:56:23+00:00,2023-04-23T01:56:44+00:00
+S_llm_agent_proxy_0032,Approve loan offer,Senior Officer-000001,2023-04-23T01:56:44+00:00,2023-04-23T18:16:44+00:00
+S_llm_agent_proxy_0032,Cancel application,Clerk-000003,2023-04-23T18:16:44+00:00,2023-04-23T18:21:44+00:00
+S_llm_agent_proxy_0033,Check application form completeness,Clerk-000008,2023-04-23T00:30:00+00:00,2023-04-23T00:39:05+00:00
+S_llm_agent_proxy_0033,Appraise property,Appraiser-000001,2023-04-23T00:39:05+00:00,2023-04-23T00:40:22+00:00
+S_llm_agent_proxy_0033,AML check,AML Investigator-000002,2023-04-23T01:53:09+00:00,2023-04-25T20:16:03+00:00
+S_llm_agent_proxy_0033,Check credit history,Clerk-000001,2023-04-25T20:16:03+00:00,2023-04-25T20:35:48+00:00
+S_llm_agent_proxy_0033,Assess loan risk,Loan Officer-000002,2023-04-25T20:35:48+00:00,2023-04-25T20:55:48+00:00
+S_llm_agent_proxy_0033,Design loan offer,Loan Officer-000001,2023-04-25T20:55:48+00:00,2023-04-25T21:33:45+00:00
+S_llm_agent_proxy_0033,Approve loan offer,Senior Officer-000002,2023-04-25T21:33:45+00:00,2023-04-25T21:53:45+00:00
+S_llm_agent_proxy_0033,Approve application,Clerk-000006,2023-04-25T21:53:45+00:00,2023-04-25T21:58:45+00:00
+S_llm_agent_proxy_0034,Check application form completeness,Clerk-000003,2023-04-23T01:00:00+00:00,2023-04-23T01:08:45+00:00
+S_llm_agent_proxy_0034,Check credit history,Clerk-000005,2023-04-23T01:08:45+00:00,2023-04-23T01:18:58+00:00
+S_llm_agent_proxy_0034,Appraise property,Appraiser-000002,2023-04-23T01:18:58+00:00,2023-04-23T18:22:52+00:00
+S_llm_agent_proxy_0034,AML check,AML Investigator-000001,2023-04-23T18:22:52+00:00,2023-04-23T18:34:54+00:00
+S_llm_agent_proxy_0034,Assess loan risk,Loan Officer-000002,2023-04-23T18:34:54+00:00,2023-04-23T18:54:54+00:00
+S_llm_agent_proxy_0034,Reject application,Clerk-000008,2023-04-23T18:54:54+00:00,2023-04-23T19:04:54+00:00
+S_llm_agent_proxy_0035,Check application form completeness,Clerk-000003,2023-04-23T01:30:00+00:00,2023-04-23T02:04:36+00:00
+S_llm_agent_proxy_0035,AML check,AML Investigator-000002,2023-04-23T02:04:36+00:00,2023-04-23T02:12:16+00:00
+S_llm_agent_proxy_0035,Appraise property,Appraiser-000002,2023-04-23T02:12:16+00:00,2023-04-23T02:41:30+00:00
+S_llm_agent_proxy_0035,Check credit history,Clerk-000004,2023-04-23T02:41:30+00:00,2023-04-23T02:46:26+00:00
+S_llm_agent_proxy_0035,Assess loan risk,Loan Officer-000003,2023-04-23T19:35:35+00:00,2023-04-23T19:55:35+00:00
+S_llm_agent_proxy_0035,Reject application,Clerk-000003,2023-04-23T19:55:35+00:00,2023-04-23T20:05:35+00:00
+S_llm_agent_proxy_0036,Check application form completeness,Clerk-000004,2023-04-23T02:00:00+00:00,2023-04-23T02:24:13+00:00
+S_llm_agent_proxy_0036,AML check,AML Investigator-000001,2023-04-23T02:24:13+00:00,2023-04-23T02:25:47+00:00
+S_llm_agent_proxy_0036,Check credit history,Clerk-000007,2023-04-23T02:25:47+00:00,2023-04-23T02:27:53+00:00
+S_llm_agent_proxy_0036,Appraise property,Appraiser-000002,2023-04-23T02:27:53+00:00,2023-04-23T02:52:02+00:00
+S_llm_agent_proxy_0036,Assess loan risk,Loan Officer-000001,2023-04-23T03:06:56+00:00,2023-04-23T03:26:56+00:00
+S_llm_agent_proxy_0036,Design loan offer,Loan Officer-000001,2023-04-23T03:26:56+00:00,2023-04-23T03:48:55+00:00
+S_llm_agent_proxy_0036,Approve loan offer,Senior Officer-000001,2023-04-23T03:48:55+00:00,2023-04-23T04:08:55+00:00
+S_llm_agent_proxy_0036,Cancel application,Clerk-000008,2023-04-23T04:08:55+00:00,2023-04-23T04:13:55+00:00
+S_llm_agent_proxy_0037,Check application form completeness,Clerk-000007,2023-04-23T02:30:00+00:00,2023-04-23T02:59:09+00:00
+S_llm_agent_proxy_0037,Check credit history,Clerk-000003,2023-04-23T02:59:09+00:00,2023-04-23T03:03:40+00:00
+S_llm_agent_proxy_0037,Appraise property,Appraiser-000001,2023-04-23T03:05:09+00:00,2023-04-23T03:22:19+00:00
+S_llm_agent_proxy_0037,AML check,AML Investigator-000001,2023-04-23T03:22:19+00:00,2023-04-23T03:23:59+00:00
+S_llm_agent_proxy_0037,Assess loan risk,Loan Officer-000004,2023-04-23T04:59:12+00:00,2023-04-23T05:19:12+00:00
+S_llm_agent_proxy_0037,Reject application,Clerk-000008,2023-04-23T05:19:12+00:00,2023-04-23T05:29:12+00:00
+S_llm_agent_proxy_0038,Check application form completeness,Clerk-000004,2023-04-23T03:00:00+00:00,2023-04-23T03:22:57+00:00
+S_llm_agent_proxy_0038,AML check,AML Investigator-000001,2023-04-23T03:22:57+00:00,2023-04-23T03:36:09+00:00
+S_llm_agent_proxy_0038,Check credit history,Clerk-000001,2023-04-23T03:36:09+00:00,2023-04-23T20:18:47+00:00
+S_llm_agent_proxy_0038,Appraise property,Appraiser-000001,2023-04-23T20:18:47+00:00,2023-04-23T21:36:10+00:00
+S_llm_agent_proxy_0038,Assess loan risk,Loan Officer-000001,2023-04-23T21:47:38+00:00,2023-04-24T14:07:38+00:00
+S_llm_agent_proxy_0038,Design loan offer,Loan Officer-000002,2023-04-24T14:07:38+00:00,2023-04-24T14:17:25+00:00
+S_llm_agent_proxy_0038,Approve loan offer,Senior Officer-000001,2023-04-24T14:17:25+00:00,2023-04-24T14:37:25+00:00
+S_llm_agent_proxy_0038,Approve application,Clerk-000005,2023-04-24T14:37:25+00:00,2023-04-24T14:42:25+00:00
+S_llm_agent_proxy_0039,Check application form completeness,Clerk-000001,2023-04-23T03:30:00+00:00,2023-04-23T04:18:57+00:00
+S_llm_agent_proxy_0039,Check credit history,Clerk-000002,2023-04-23T04:18:57+00:00,2023-04-23T04:22:46+00:00
+S_llm_agent_proxy_0039,Appraise property,Appraiser-000002,2023-04-23T04:22:46+00:00,2023-04-23T05:11:33+00:00
+S_llm_agent_proxy_0039,AML check,AML Investigator-000002,2023-04-23T05:11:33+00:00,2023-04-23T05:31:24+00:00
+S_llm_agent_proxy_0039,Assess loan risk,Loan Officer-000004,2023-04-23T05:49:27+00:00,2023-04-23T06:09:27+00:00
+S_llm_agent_proxy_0039,Design loan offer,Loan Officer-000004,2023-04-23T06:09:27+00:00,2023-04-23T06:24:40+00:00
+S_llm_agent_proxy_0039,Approve loan offer,Senior Officer-000002,2023-04-23T06:24:40+00:00,2023-04-23T06:44:40+00:00
+S_llm_agent_proxy_0039,Approve application,Clerk-000003,2023-04-23T06:44:40+00:00,2023-04-23T06:49:40+00:00
+S_llm_agent_proxy_0040,Check application form completeness,Clerk-000002,2023-04-23T04:00:00+00:00,2023-04-23T04:56:20+00:00
+S_llm_agent_proxy_0040,AML check,AML Investigator-000001,2023-04-23T04:56:20+00:00,2023-04-23T05:05:43+00:00
+S_llm_agent_proxy_0040,Check credit history,Clerk-000003,2023-04-23T05:05:43+00:00,2023-04-23T05:28:57+00:00
+S_llm_agent_proxy_0040,Appraise property,Appraiser-000001,2023-04-23T05:28:57+00:00,2023-04-23T05:36:00+00:00
+S_llm_agent_proxy_0040,Assess loan risk,Loan Officer-000002,2023-04-23T06:17:31+00:00,2023-04-23T06:37:31+00:00
+S_llm_agent_proxy_0040,Design loan offer,Loan Officer-000001,2023-04-23T06:37:31+00:00,2023-04-23T06:54:57+00:00
+S_llm_agent_proxy_0040,Approve loan offer,Senior Officer-000001,2023-04-23T06:54:57+00:00,2023-04-23T07:14:57+00:00
+S_llm_agent_proxy_0040,Approve application,Clerk-000003,2023-04-23T07:14:57+00:00,2023-04-23T07:19:57+00:00
+S_llm_agent_proxy_0041,Check application form completeness,Clerk-000002,2023-04-23T20:30:00+00:00,2023-04-23T20:34:54+00:00
+S_llm_agent_proxy_0041,Check credit history,Clerk-000001,2023-04-23T20:34:54+00:00,2023-04-23T21:18:49+00:00
+S_llm_agent_proxy_0041,Appraise property,Appraiser-000002,2023-04-23T21:18:49+00:00,2023-04-23T22:07:49+00:00
+S_llm_agent_proxy_0041,AML check,AML Investigator-000001,2023-04-23T22:33:52+00:00,2023-04-23T22:44:35+00:00
+S_llm_agent_proxy_0041,Assess loan risk,Loan Officer-000001,2023-04-23T22:44:35+00:00,2023-04-23T23:04:35+00:00
+S_llm_agent_proxy_0041,Design loan offer,Loan Officer-000001,2023-04-23T23:04:35+00:00,2023-04-23T23:18:20+00:00
+S_llm_agent_proxy_0041,Approve loan offer,Senior Officer-000002,2023-04-23T23:18:20+00:00,2023-04-23T23:38:20+00:00
+S_llm_agent_proxy_0041,Cancel application,Clerk-000006,2023-04-23T23:38:20+00:00,2023-04-23T23:43:20+00:00
+S_llm_agent_proxy_0042,Check application form completeness,Clerk-000007,2023-04-23T21:00:00+00:00,2023-04-23T21:14:36+00:00
+S_llm_agent_proxy_0042,AML check,AML Investigator-000002,2023-04-23T21:14:36+00:00,2023-04-23T21:45:27+00:00
+S_llm_agent_proxy_0042,Check credit history,Clerk-000008,2023-04-23T21:45:27+00:00,2023-04-23T23:15:32+00:00
+S_llm_agent_proxy_0042,Appraise property,Appraiser-000002,2023-04-23T23:15:32+00:00,2023-04-24T00:00:48+00:00
+S_llm_agent_proxy_0042,Assess loan risk,Loan Officer-000003,2023-04-24T00:49:52+00:00,2023-04-24T01:09:52+00:00
+S_llm_agent_proxy_0042,Design loan offer,Loan Officer-000002,2023-04-24T01:09:52+00:00,2023-04-24T01:27:29+00:00
+S_llm_agent_proxy_0042,Approve loan offer,Senior Officer-000001,2023-04-24T01:27:29+00:00,2023-04-24T01:47:29+00:00
+S_llm_agent_proxy_0042,Approve application,Clerk-000004,2023-04-24T01:47:29+00:00,2023-04-24T01:52:29+00:00
+S_llm_agent_proxy_0043,Check application form completeness,Clerk-000008,2023-04-23T21:30:00+00:00,2023-04-23T21:30:45+00:00
+S_llm_agent_proxy_0043,Check credit history,Clerk-000006,2023-04-23T21:30:45+00:00,2023-04-23T21:40:49+00:00
+S_llm_agent_proxy_0043,Appraise property,Appraiser-000002,2023-04-23T21:40:49+00:00,2023-04-23T22:25:32+00:00
+S_llm_agent_proxy_0043,AML check,AML Investigator-000001,2023-04-23T22:25:32+00:00,2023-04-23T22:39:56+00:00
+S_llm_agent_proxy_0043,Assess loan risk,Loan Officer-000002,2023-04-23T22:39:56+00:00,2023-04-23T22:59:56+00:00
+S_llm_agent_proxy_0043,Design loan offer,Loan Officer-000004,2023-04-23T22:59:56+00:00,2023-04-23T23:11:02+00:00
+S_llm_agent_proxy_0043,Approve loan offer,Senior Officer-000001,2023-04-23T23:11:02+00:00,2023-04-23T23:31:02+00:00
+S_llm_agent_proxy_0043,Cancel application,Clerk-000007,2023-04-23T23:31:02+00:00,2023-04-23T23:36:02+00:00
+S_llm_agent_proxy_0044,Check application form completeness,Clerk-000008,2023-04-23T22:00:00+00:00,2023-04-23T22:09:08+00:00
+S_llm_agent_proxy_0044,AML check,AML Investigator-000001,2023-04-23T22:09:08+00:00,2023-04-23T22:16:22+00:00
+S_llm_agent_proxy_0044,Appraise property,Appraiser-000002,2023-04-23T22:16:22+00:00,2023-04-24T15:47:42+00:00
+S_llm_agent_proxy_0044,Check credit history,Clerk-000006,2023-04-24T15:47:42+00:00,2023-04-24T16:54:04+00:00
+S_llm_agent_proxy_0044,Assess loan risk,Loan Officer-000004,2023-04-24T17:01:12+00:00,2023-04-24T17:21:12+00:00
+S_llm_agent_proxy_0044,Design loan offer,Loan Officer-000003,2023-04-24T17:21:12+00:00,2023-04-24T17:48:48+00:00
+S_llm_agent_proxy_0044,Approve loan offer,Senior Officer-000001,2023-04-24T17:48:48+00:00,2023-04-24T18:08:48+00:00
+S_llm_agent_proxy_0044,Approve application,Clerk-000001,2023-04-24T18:08:48+00:00,2023-04-24T18:13:48+00:00
+S_llm_agent_proxy_0045,Check application form completeness,Clerk-000003,2023-04-23T22:30:00+00:00,2023-04-23T22:34:06+00:00
+S_llm_agent_proxy_0045,Return application back to applicant,Clerk-000008,2023-04-23T22:34:06+00:00,2023-04-23T22:39:06+00:00
+S_llm_agent_proxy_0045,Applicant completes form,Applicant-000001,2023-04-23T23:10:45+00:00,2023-04-24T00:10:45+00:00
+S_llm_agent_proxy_0045,Check application form completeness,Clerk-000003,2023-04-24T00:10:45+00:00,2023-04-24T01:07:41+00:00
+S_llm_agent_proxy_0045,Check credit history,Clerk-000007,2023-04-24T01:07:41+00:00,2023-04-24T01:11:21+00:00
+S_llm_agent_proxy_0045,AML check,AML Investigator-000002,2023-04-24T01:11:21+00:00,2023-04-24T18:13:39+00:00
+S_llm_agent_proxy_0045,Appraise property,Appraiser-000001,2023-04-24T18:13:39+00:00,2023-04-24T19:54:50+00:00
+S_llm_agent_proxy_0045,Assess loan risk,Loan Officer-000003,2023-04-24T19:54:50+00:00,2023-04-24T20:14:50+00:00
+S_llm_agent_proxy_0045,Design loan offer,Loan Officer-000003,2023-04-24T20:14:50+00:00,2023-04-25T13:29:07+00:00
+S_llm_agent_proxy_0045,Approve loan offer,Senior Officer-000001,2023-04-25T13:40:40+00:00,2023-04-25T14:00:40+00:00
+S_llm_agent_proxy_0045,Approve application,Clerk-000003,2023-04-25T14:00:40+00:00,2023-04-25T14:05:40+00:00
+S_llm_agent_proxy_0046,Check application form completeness,Clerk-000001,2023-04-23T23:00:00+00:00,2023-04-23T23:41:34+00:00
+S_llm_agent_proxy_0046,Check credit history,Clerk-000003,2023-04-23T23:41:34+00:00,2023-04-23T23:49:13+00:00
+S_llm_agent_proxy_0046,Appraise property,Appraiser-000002,2023-04-23T23:49:13+00:00,2023-04-24T00:10:52+00:00
+S_llm_agent_proxy_0046,AML check,AML Investigator-000001,2023-04-24T00:10:52+00:00,2023-04-24T00:47:11+00:00
+S_llm_agent_proxy_0046,Assess loan risk,Loan Officer-000004,2023-04-24T01:19:54+00:00,2023-04-24T01:39:54+00:00
+S_llm_agent_proxy_0046,Design loan offer,Loan Officer-000002,2023-04-24T01:39:54+00:00,2023-04-24T01:41:24+00:00
+S_llm_agent_proxy_0046,Approve loan offer,Senior Officer-000002,2023-04-24T01:41:24+00:00,2023-04-24T02:01:24+00:00
+S_llm_agent_proxy_0046,Cancel application,Clerk-000004,2023-04-24T02:01:24+00:00,2023-04-24T02:06:24+00:00
+S_llm_agent_proxy_0047,Check application form completeness,Clerk-000001,2023-04-23T23:30:00+00:00,2023-04-24T15:48:58+00:00
+S_llm_agent_proxy_0047,Appraise property,Appraiser-000002,2023-04-24T15:48:58+00:00,2023-04-24T16:14:19+00:00
+S_llm_agent_proxy_0047,Check credit history,Clerk-000008,2023-04-24T16:14:19+00:00,2023-04-24T18:56:43+00:00
+S_llm_agent_proxy_0047,AML check,AML Investigator-000002,2023-04-24T18:56:43+00:00,2023-04-24T19:05:35+00:00
+S_llm_agent_proxy_0047,Assess loan risk,Loan Officer-000004,2023-04-24T19:05:35+00:00,2023-04-24T19:25:35+00:00
+S_llm_agent_proxy_0047,Reject application,Clerk-000003,2023-04-24T19:25:35+00:00,2023-04-24T19:35:35+00:00
+S_llm_agent_proxy_0048,Check application form completeness,Clerk-000005,2023-04-24T00:00:00+00:00,2023-04-24T00:13:19+00:00
+S_llm_agent_proxy_0048,Check credit history,Clerk-000006,2023-04-24T00:13:19+00:00,2023-04-24T00:59:37+00:00
+S_llm_agent_proxy_0048,Appraise property,Appraiser-000001,2023-04-24T00:59:37+00:00,2023-04-24T02:25:21+00:00
+S_llm_agent_proxy_0048,AML check,AML Investigator-000001,2023-04-24T02:25:21+00:00,2023-04-24T02:27:04+00:00
+S_llm_agent_proxy_0048,Assess loan risk,Loan Officer-000001,2023-04-24T02:27:04+00:00,2023-04-24T02:47:04+00:00
+S_llm_agent_proxy_0048,Design loan offer,Loan Officer-000003,2023-04-24T02:47:04+00:00,2023-04-24T02:57:24+00:00
+S_llm_agent_proxy_0048,Approve loan offer,Senior Officer-000001,2023-04-24T02:57:24+00:00,2023-04-24T03:17:24+00:00
+S_llm_agent_proxy_0048,Cancel application,Clerk-000003,2023-04-24T03:17:24+00:00,2023-04-24T03:22:24+00:00
+S_llm_agent_proxy_0049,Check application form completeness,Clerk-000007,2023-04-24T00:30:00+00:00,2023-04-24T00:50:23+00:00
+S_llm_agent_proxy_0049,Return application back to applicant,Clerk-000005,2023-04-24T00:50:23+00:00,2023-04-24T00:55:23+00:00
+S_llm_agent_proxy_0049,Applicant completes form,Applicant-000001,2023-04-24T00:55:23+00:00,2023-04-24T01:55:23+00:00
+S_llm_agent_proxy_0049,Check application form completeness,Clerk-000007,2023-04-24T01:55:23+00:00,2023-04-24T01:58:04+00:00
+S_llm_agent_proxy_0049,Appraise property,Appraiser-000002,2023-04-24T01:58:04+00:00,2023-04-24T02:28:27+00:00
+S_llm_agent_proxy_0049,AML check,AML Investigator-000001,2023-04-24T02:28:27+00:00,2023-04-24T02:33:59+00:00
+S_llm_agent_proxy_0049,Check credit history,Clerk-000008,2023-04-24T02:33:59+00:00,2023-04-24T02:53:36+00:00
+S_llm_agent_proxy_0049,Assess loan risk,Loan Officer-000002,2023-04-24T03:23:26+00:00,2023-04-26T19:43:26+00:00
+S_llm_agent_proxy_0049,Design loan offer,Loan Officer-000003,2023-04-26T19:43:26+00:00,2023-04-26T19:48:34+00:00
+S_llm_agent_proxy_0049,Approve loan offer,Senior Officer-000001,2023-04-26T19:48:34+00:00,2023-04-26T20:08:34+00:00
+S_llm_agent_proxy_0049,Cancel application,Clerk-000003,2023-04-26T20:08:34+00:00,2023-04-26T20:13:34+00:00
+S_llm_agent_proxy_0050,Check application form completeness,Clerk-000005,2023-04-24T01:00:00+00:00,2023-04-24T01:00:05+00:00
+S_llm_agent_proxy_0050,Check credit history,Clerk-000008,2023-04-24T01:00:05+00:00,2023-04-24T01:03:26+00:00
+S_llm_agent_proxy_0050,AML check,AML Investigator-000001,2023-04-24T01:03:26+00:00,2023-04-24T01:51:59+00:00
+S_llm_agent_proxy_0050,Appraise property,Appraiser-000002,2023-04-24T01:51:59+00:00,2023-04-24T01:55:42+00:00
+S_llm_agent_proxy_0050,Assess loan risk,Loan Officer-000003,2023-04-24T02:14:50+00:00,2023-04-24T02:34:50+00:00
+S_llm_agent_proxy_0050,Design loan offer,Loan Officer-000004,2023-04-24T02:34:50+00:00,2023-04-24T02:51:45+00:00
+S_llm_agent_proxy_0050,Approve loan offer,Senior Officer-000001,2023-04-24T02:51:45+00:00,2023-04-24T03:11:45+00:00
+S_llm_agent_proxy_0050,Cancel application,Clerk-000006,2023-04-24T03:11:45+00:00,2023-04-24T03:16:45+00:00
+S_llm_agent_proxy_0051,Check application form completeness,Clerk-000005,2023-04-24T01:30:00+00:00,2023-04-24T01:43:19+00:00
+S_llm_agent_proxy_0051,AML check,AML Investigator-000002,2023-04-24T01:43:19+00:00,2023-04-24T01:56:00+00:00
+S_llm_agent_proxy_0051,Check credit history,Clerk-000008,2023-04-24T01:56:00+00:00,2023-04-24T03:26:05+00:00
+S_llm_agent_proxy_0051,Appraise property,Appraiser-000002,2023-04-24T03:26:05+00:00,2023-04-24T04:02:36+00:00
+S_llm_agent_proxy_0051,Assess loan risk,Loan Officer-000001,2023-04-24T04:02:36+00:00,2023-04-24T04:22:36+00:00
+S_llm_agent_proxy_0051,Design loan offer,Loan Officer-000002,2023-04-24T04:22:36+00:00,2023-04-24T05:04:08+00:00
+S_llm_agent_proxy_0051,Approve loan offer,Senior Officer-000001,2023-04-24T05:04:08+00:00,2023-04-24T05:24:08+00:00
+S_llm_agent_proxy_0051,Cancel application,Clerk-000005,2023-04-24T05:24:08+00:00,2023-04-24T05:29:08+00:00
+S_llm_agent_proxy_0052,Check application form completeness,Clerk-000002,2023-04-24T02:00:00+00:00,2023-04-24T02:28:41+00:00
+S_llm_agent_proxy_0052,Return application back to applicant,Clerk-000003,2023-04-24T02:28:41+00:00,2023-04-24T02:33:41+00:00
+S_llm_agent_proxy_0052,Applicant completes form,Applicant-000001,2023-04-24T02:33:41+00:00,2023-04-24T03:33:41+00:00
+S_llm_agent_proxy_0052,Check application form completeness,Clerk-000005,2023-04-24T03:33:41+00:00,2023-04-24T03:55:10+00:00
+S_llm_agent_proxy_0052,Check credit history,Clerk-000007,2023-04-24T03:55:10+00:00,2023-04-24T04:12:00+00:00
+S_llm_agent_proxy_0052,AML check,AML Investigator-000001,2023-04-24T04:12:00+00:00,2023-04-24T05:06:34+00:00
+S_llm_agent_proxy_0052,Appraise property,Appraiser-000001,2023-04-24T05:06:34+00:00,2023-04-24T05:09:27+00:00
+S_llm_agent_proxy_0052,Assess loan risk,Loan Officer-000004,2023-04-24T05:56:14+00:00,2023-04-24T06:16:14+00:00
+S_llm_agent_proxy_0052,Reject application,Clerk-000005,2023-04-24T06:16:14+00:00,2023-04-24T06:26:14+00:00
+S_llm_agent_proxy_0053,Check application form completeness,Clerk-000001,2023-04-24T02:30:00+00:00,2023-04-24T03:00:59+00:00
+S_llm_agent_proxy_0053,Check credit history,Clerk-000006,2023-04-24T03:00:59+00:00,2023-04-24T05:04:36+00:00
+S_llm_agent_proxy_0053,AML check,AML Investigator-000002,2023-04-24T05:04:36+00:00,2023-04-24T05:06:52+00:00
+S_llm_agent_proxy_0053,Appraise property,Appraiser-000002,2023-04-24T05:18:09+00:00,2023-04-24T05:32:24+00:00
+S_llm_agent_proxy_0053,Assess loan risk,Loan Officer-000003,2023-04-24T06:09:07+00:00,2023-04-24T06:29:07+00:00
+S_llm_agent_proxy_0053,Reject application,Clerk-000003,2023-04-24T06:29:07+00:00,2023-04-24T06:39:07+00:00
+S_llm_agent_proxy_0054,Check application form completeness,Clerk-000004,2023-04-24T03:00:00+00:00,2023-04-24T03:06:35+00:00
+S_llm_agent_proxy_0054,Check credit history,Clerk-000007,2023-04-24T03:06:35+00:00,2023-04-24T03:23:29+00:00
+S_llm_agent_proxy_0054,Appraise property,Appraiser-000002,2023-04-24T03:23:29+00:00,2023-04-24T03:36:44+00:00
+S_llm_agent_proxy_0054,AML check,AML Investigator-000002,2023-04-24T04:10:12+00:00,2023-04-24T05:42:46+00:00
+S_llm_agent_proxy_0054,Assess loan risk,Loan Officer-000001,2023-04-26T22:34:02+00:00,2023-04-26T22:54:02+00:00
+S_llm_agent_proxy_0054,Reject application,Clerk-000005,2023-04-26T22:54:02+00:00,2023-04-26T23:04:02+00:00
+S_llm_agent_proxy_0055,Check application form completeness,Clerk-000004,2023-04-24T03:30:00+00:00,2023-04-24T03:38:42+00:00
+S_llm_agent_proxy_0055,Check credit history,Clerk-000007,2023-04-24T03:38:42+00:00,2023-04-24T05:09:01+00:00
+S_llm_agent_proxy_0055,AML check,AML Investigator-000002,2023-04-24T05:09:01+00:00,2023-04-24T05:36:28+00:00
+S_llm_agent_proxy_0055,Appraise property,Appraiser-000001,2023-04-24T05:36:28+00:00,2023-04-24T05:42:05+00:00
+S_llm_agent_proxy_0055,Assess loan risk,Loan Officer-000003,2023-04-24T05:48:01+00:00,2023-04-24T06:08:01+00:00
+S_llm_agent_proxy_0055,Reject application,Clerk-000001,2023-04-24T06:08:01+00:00,2023-04-24T06:18:01+00:00
+S_llm_agent_proxy_0056,Check application form completeness,Clerk-000007,2023-04-24T04:00:00+00:00,2023-04-24T04:09:42+00:00
+S_llm_agent_proxy_0056,Check credit history,Clerk-000004,2023-04-24T04:09:42+00:00,2023-04-24T04:26:55+00:00
+S_llm_agent_proxy_0056,AML check,AML Investigator-000001,2023-04-24T04:26:55+00:00,2023-04-24T04:46:09+00:00
+S_llm_agent_proxy_0056,Appraise property,Appraiser-000002,2023-04-24T04:46:09+00:00,2023-04-24T05:17:42+00:00
+S_llm_agent_proxy_0056,Assess loan risk,Loan Officer-000001,2023-04-24T05:44:40+00:00,2023-04-24T06:04:40+00:00
+S_llm_agent_proxy_0056,Reject application,Clerk-000007,2023-04-24T06:04:40+00:00,2023-04-24T06:14:40+00:00
+S_llm_agent_proxy_0057,Check application form completeness,Clerk-000002,2023-04-24T04:30:00+00:00,2023-04-24T04:37:52+00:00
+S_llm_agent_proxy_0057,Check credit history,Clerk-000005,2023-04-24T04:37:52+00:00,2023-04-24T05:25:58+00:00
+S_llm_agent_proxy_0057,Appraise property,Appraiser-000002,2023-04-24T05:25:58+00:00,2023-04-24T05:52:37+00:00
+S_llm_agent_proxy_0057,AML check,AML Investigator-000002,2023-04-24T05:52:37+00:00,2023-04-24T06:34:28+00:00
+S_llm_agent_proxy_0057,Assess loan risk,Loan Officer-000004,2023-04-24T08:04:27+00:00,2023-04-24T08:24:27+00:00
+S_llm_agent_proxy_0057,Design loan offer,Loan Officer-000001,2023-04-24T08:24:27+00:00,2023-04-24T08:24:49+00:00
+S_llm_agent_proxy_0057,Approve loan offer,Senior Officer-000002,2023-04-24T08:24:49+00:00,2023-04-24T08:44:49+00:00
+S_llm_agent_proxy_0057,Cancel application,Clerk-000006,2023-04-24T08:44:49+00:00,2023-04-24T08:49:49+00:00
+S_llm_agent_proxy_0058,Check application form completeness,Clerk-000002,2023-04-24T05:00:00+00:00,2023-04-24T05:18:34+00:00
+S_llm_agent_proxy_0058,Appraise property,Appraiser-000001,2023-04-24T05:18:34+00:00,2023-04-24T05:30:36+00:00
+S_llm_agent_proxy_0058,Check credit history,Clerk-000002,2023-04-24T05:30:36+00:00,2023-04-24T05:53:47+00:00
+S_llm_agent_proxy_0058,AML check,AML Investigator-000001,2023-04-24T05:53:47+00:00,2023-04-24T06:01:47+00:00
+S_llm_agent_proxy_0058,Assess loan risk,Loan Officer-000003,2023-04-24T06:01:47+00:00,2023-04-24T06:21:47+00:00
+S_llm_agent_proxy_0058,Design loan offer,Loan Officer-000001,2023-04-24T06:21:47+00:00,2023-04-24T06:35:36+00:00
+S_llm_agent_proxy_0058,Approve loan offer,Senior Officer-000001,2023-04-24T06:35:36+00:00,2023-04-24T06:55:36+00:00
+S_llm_agent_proxy_0058,Cancel application,Clerk-000002,2023-04-24T06:55:36+00:00,2023-04-24T07:00:36+00:00
+S_llm_agent_proxy_0059,Check application form completeness,Clerk-000005,2023-04-24T05:30:00+00:00,2023-04-24T06:04:35+00:00
+S_llm_agent_proxy_0059,AML check,AML Investigator-000002,2023-04-24T06:04:35+00:00,2023-04-24T06:16:04+00:00
+S_llm_agent_proxy_0059,Appraise property,Appraiser-000001,2023-04-24T06:16:04+00:00,2023-04-24T06:31:32+00:00
+S_llm_agent_proxy_0059,Check credit history,Clerk-000008,2023-04-24T06:31:32+00:00,2023-04-24T23:01:14+00:00
+S_llm_agent_proxy_0059,Assess loan risk,Loan Officer-000001,2023-04-24T23:01:14+00:00,2023-04-24T23:21:14+00:00
+S_llm_agent_proxy_0059,Reject application,Clerk-000004,2023-04-24T23:21:14+00:00,2023-04-24T23:31:14+00:00
+S_llm_agent_proxy_0060,Check application form completeness,Clerk-000007,2023-04-24T06:00:00+00:00,2023-04-24T06:43:37+00:00
+S_llm_agent_proxy_0060,Check credit history,Clerk-000005,2023-04-24T06:43:37+00:00,2023-04-24T06:47:32+00:00
+S_llm_agent_proxy_0060,Appraise property,Appraiser-000002,2023-04-24T06:47:32+00:00,2023-04-24T06:49:06+00:00
+S_llm_agent_proxy_0060,AML check,AML Investigator-000002,2023-04-24T06:49:06+00:00,2023-04-24T06:53:55+00:00
+S_llm_agent_proxy_0060,Assess loan risk,Loan Officer-000001,2023-04-24T06:53:55+00:00,2023-04-24T07:13:55+00:00
+S_llm_agent_proxy_0060,Design loan offer,Loan Officer-000002,2023-04-24T07:13:55+00:00,2023-04-24T07:24:01+00:00
+S_llm_agent_proxy_0060,Approve loan offer,Senior Officer-000001,2023-04-24T07:24:01+00:00,2023-04-24T07:44:01+00:00
+S_llm_agent_proxy_0060,Cancel application,Clerk-000007,2023-04-24T07:44:01+00:00,2023-04-24T07:49:01+00:00
+S_llm_agent_proxy_0061,Check application form completeness,Clerk-000007,2023-04-24T06:30:00+00:00,2023-04-24T07:28:16+00:00
+S_llm_agent_proxy_0061,Appraise property,Appraiser-000002,2023-04-24T07:28:16+00:00,2023-04-24T07:46:46+00:00
+S_llm_agent_proxy_0061,Check credit history,Clerk-000002,2023-04-24T07:46:46+00:00,2023-04-24T07:48:40+00:00
+S_llm_agent_proxy_0061,AML check,AML Investigator-000002,2023-04-24T09:04:15+00:00,2023-04-24T09:44:27+00:00
+S_llm_agent_proxy_0061,Assess loan risk,Loan Officer-000003,2023-04-24T09:44:27+00:00,2023-04-24T10:04:27+00:00
+S_llm_agent_proxy_0061,Reject application,Clerk-000003,2023-04-24T10:04:27+00:00,2023-04-24T10:14:27+00:00
+S_llm_agent_proxy_0062,Check application form completeness,Clerk-000008,2023-04-24T07:00:00+00:00,2023-04-24T23:37:38+00:00
+S_llm_agent_proxy_0062,AML check,AML Investigator-000002,2023-04-24T23:37:38+00:00,2023-04-24T23:40:05+00:00
+S_llm_agent_proxy_0062,Check credit history,Clerk-000007,2023-04-24T23:40:05+00:00,2023-04-25T00:28:37+00:00
+S_llm_agent_proxy_0062,Appraise property,Appraiser-000001,2023-04-25T00:28:37+00:00,2023-04-25T00:32:47+00:00
+S_llm_agent_proxy_0062,Assess loan risk,Loan Officer-000004,2023-04-25T00:43:25+00:00,2023-04-25T01:03:25+00:00
+S_llm_agent_proxy_0062,Reject application,Clerk-000005,2023-04-25T01:03:25+00:00,2023-04-25T01:13:25+00:00
+S_llm_agent_proxy_0063,Check application form completeness,Clerk-000003,2023-04-24T07:30:00+00:00,2023-04-24T23:31:25+00:00
+S_llm_agent_proxy_0063,Appraise property,Appraiser-000001,2023-04-24T23:31:25+00:00,2023-04-24T23:46:42+00:00
+S_llm_agent_proxy_0063,AML check,AML Investigator-000002,2023-04-24T23:46:42+00:00,2023-04-24T23:59:02+00:00
+S_llm_agent_proxy_0063,Check credit history,Clerk-000001,2023-04-24T23:59:02+00:00,2023-04-25T17:05:25+00:00
+S_llm_agent_proxy_0063,Assess loan risk,Loan Officer-000003,2023-04-25T18:04:10+00:00,2023-04-26T10:24:10+00:00
+S_llm_agent_proxy_0063,Design loan offer,Loan Officer-000001,2023-04-26T10:24:10+00:00,2023-04-26T10:32:13+00:00
+S_llm_agent_proxy_0063,Approve loan offer,Senior Officer-000001,2023-04-26T10:32:13+00:00,2023-04-26T10:52:13+00:00
+S_llm_agent_proxy_0063,Cancel application,Clerk-000008,2023-04-26T10:52:13+00:00,2023-04-26T10:57:13+00:00
+S_llm_agent_proxy_0064,Check application form completeness,Clerk-000008,2023-04-24T08:00:00+00:00,2023-04-24T08:11:36+00:00
+S_llm_agent_proxy_0064,AML check,AML Investigator-000001,2023-04-24T08:11:36+00:00,2023-04-24T09:31:32+00:00
+S_llm_agent_proxy_0064,Check credit history,Clerk-000003,2023-04-24T09:31:32+00:00,2023-04-24T09:32:27+00:00
+S_llm_agent_proxy_0064,Appraise property,Appraiser-000002,2023-04-24T09:32:27+00:00,2023-04-24T09:46:26+00:00
+S_llm_agent_proxy_0064,Assess loan risk,Loan Officer-000004,2023-04-24T10:24:03+00:00,2023-04-24T10:44:03+00:00
+S_llm_agent_proxy_0064,Design loan offer,Loan Officer-000002,2023-04-24T10:44:03+00:00,2023-04-24T11:02:46+00:00
+S_llm_agent_proxy_0064,Approve loan offer,Senior Officer-000002,2023-04-24T11:02:46+00:00,2023-04-24T11:22:46+00:00
+S_llm_agent_proxy_0064,Approve application,Clerk-000006,2023-04-24T11:22:46+00:00,2023-04-24T11:27:46+00:00
+S_llm_agent_proxy_0065,Check application form completeness,Clerk-000003,2023-04-24T08:30:00+00:00,2023-04-25T01:19:50+00:00
+S_llm_agent_proxy_0065,Check credit history,Clerk-000005,2023-04-25T01:19:50+00:00,2023-04-25T01:27:49+00:00
+S_llm_agent_proxy_0065,Appraise property,Appraiser-000001,2023-04-25T01:27:49+00:00,2023-04-25T18:02:46+00:00
+S_llm_agent_proxy_0065,AML check,AML Investigator-000002,2023-04-25T18:02:46+00:00,2023-04-25T18:16:10+00:00
+S_llm_agent_proxy_0065,Assess loan risk,Loan Officer-000003,2023-04-25T18:16:10+00:00,2023-04-25T18:36:10+00:00
+S_llm_agent_proxy_0065,Reject application,Clerk-000001,2023-04-25T18:36:10+00:00,2023-04-25T18:46:10+00:00
+S_llm_agent_proxy_0066,Check application form completeness,Clerk-000002,2023-04-24T09:00:00+00:00,2023-04-24T09:22:44+00:00
+S_llm_agent_proxy_0066,Appraise property,Appraiser-000002,2023-04-24T09:22:44+00:00,2023-04-24T09:31:53+00:00
+S_llm_agent_proxy_0066,Check credit history,Clerk-000005,2023-04-24T09:31:53+00:00,2023-04-25T01:57:06+00:00
+S_llm_agent_proxy_0066,AML check,AML Investigator-000002,2023-04-25T01:57:06+00:00,2023-04-25T19:41:01+00:00
+S_llm_agent_proxy_0066,Assess loan risk,Loan Officer-000001,2023-04-25T19:41:01+00:00,2023-04-25T20:01:01+00:00
+S_llm_agent_proxy_0066,Reject application,Clerk-000002,2023-04-25T20:01:01+00:00,2023-04-25T20:11:01+00:00
+S_llm_agent_proxy_0067,Check application form completeness,Clerk-000005,2023-04-24T09:30:00+00:00,2023-04-24T09:37:15+00:00
+S_llm_agent_proxy_0067,AML check,AML Investigator-000002,2023-04-24T09:37:15+00:00,2023-04-24T10:00:31+00:00
+S_llm_agent_proxy_0067,Check credit history,Clerk-000007,2023-04-24T10:00:31+00:00,2023-04-24T10:44:41+00:00
+S_llm_agent_proxy_0067,Appraise property,Appraiser-000001,2023-04-24T10:44:41+00:00,2023-04-24T11:14:35+00:00
+S_llm_agent_proxy_0067,Assess loan risk,Loan Officer-000004,2023-04-24T11:14:35+00:00,2023-04-24T11:34:35+00:00
+S_llm_agent_proxy_0067,Design loan offer,Loan Officer-000003,2023-04-24T11:34:35+00:00,2023-04-24T11:44:55+00:00
+S_llm_agent_proxy_0067,Approve loan offer,Senior Officer-000002,2023-04-24T11:44:55+00:00,2023-04-24T12:04:55+00:00
+S_llm_agent_proxy_0067,Approve application,Clerk-000002,2023-04-24T12:04:55+00:00,2023-04-24T12:09:55+00:00
+S_llm_agent_proxy_0068,Check application form completeness,Clerk-000002,2023-04-24T10:00:00+00:00,2023-04-25T02:52:57+00:00
+S_llm_agent_proxy_0068,Check credit history,Clerk-000004,2023-04-25T02:52:57+00:00,2023-04-25T02:57:28+00:00
+S_llm_agent_proxy_0068,AML check,AML Investigator-000002,2023-04-25T02:57:28+00:00,2023-04-25T04:10:33+00:00
+S_llm_agent_proxy_0068,Appraise property,Appraiser-000002,2023-04-25T04:19:01+00:00,2023-04-25T04:44:23+00:00
+S_llm_agent_proxy_0068,Assess loan risk,Loan Officer-000003,2023-04-25T05:03:31+00:00,2023-04-25T05:23:31+00:00
+S_llm_agent_proxy_0068,Design loan offer,Loan Officer-000004,2023-04-25T05:23:31+00:00,2023-04-25T05:42:41+00:00
+S_llm_agent_proxy_0068,Approve loan offer,Senior Officer-000001,2023-04-25T05:42:41+00:00,2023-04-25T06:02:41+00:00
+S_llm_agent_proxy_0068,Approve application,Clerk-000007,2023-04-25T06:02:41+00:00,2023-04-25T06:07:41+00:00
+S_llm_agent_proxy_0069,Check application form completeness,Clerk-000001,2023-04-24T10:30:00+00:00,2023-04-24T10:43:03+00:00
+S_llm_agent_proxy_0069,Check credit history,Clerk-000005,2023-04-24T10:43:03+00:00,2023-04-24T11:29:15+00:00
+S_llm_agent_proxy_0069,Appraise property,Appraiser-000001,2023-04-24T11:29:15+00:00,2023-04-24T11:48:52+00:00
+S_llm_agent_proxy_0069,AML check,AML Investigator-000001,2023-04-24T11:48:52+00:00,2023-04-24T12:21:17+00:00
+S_llm_agent_proxy_0069,Assess loan risk,Loan Officer-000002,2023-04-24T12:21:17+00:00,2023-04-24T12:41:17+00:00
+S_llm_agent_proxy_0069,Reject application,Clerk-000007,2023-04-24T12:41:17+00:00,2023-04-24T12:51:17+00:00
+S_llm_agent_proxy_0070,Check application form completeness,Clerk-000001,2023-04-24T11:00:00+00:00,2023-04-24T11:02:26+00:00
+S_llm_agent_proxy_0070,Check credit history,Clerk-000004,2023-04-24T11:02:26+00:00,2023-04-24T12:11:59+00:00
+S_llm_agent_proxy_0070,AML check,AML Investigator-000001,2023-04-24T12:11:59+00:00,2023-04-25T04:38:57+00:00
+S_llm_agent_proxy_0070,Appraise property,Appraiser-000001,2023-04-25T04:38:57+00:00,2023-04-25T04:46:29+00:00
+S_llm_agent_proxy_0070,Assess loan risk,Loan Officer-000002,2023-04-25T05:02:15+00:00,2023-04-25T05:22:15+00:00
+S_llm_agent_proxy_0070,Reject application,Clerk-000007,2023-04-25T05:22:15+00:00,2023-04-25T05:32:15+00:00
+S_llm_agent_proxy_0071,Check application form completeness,Clerk-000008,2023-04-24T11:30:00+00:00,2023-04-24T11:39:41+00:00
+S_llm_agent_proxy_0071,Check credit history,Clerk-000005,2023-04-24T11:39:41+00:00,2023-04-24T11:46:26+00:00
+S_llm_agent_proxy_0071,AML check,AML Investigator-000001,2023-04-24T11:46:26+00:00,2023-04-24T11:50:58+00:00
+S_llm_agent_proxy_0071,Appraise property,Appraiser-000002,2023-04-24T11:50:58+00:00,2023-04-24T12:50:48+00:00
+S_llm_agent_proxy_0071,Assess loan risk,Loan Officer-000001,2023-04-25T07:21:12+00:00,2023-04-25T07:41:12+00:00
+S_llm_agent_proxy_0071,Design loan offer,Loan Officer-000004,2023-04-25T07:41:12+00:00,2023-04-25T07:51:22+00:00
+S_llm_agent_proxy_0071,Approve loan offer,Senior Officer-000001,2023-04-25T07:51:22+00:00,2023-04-25T08:11:22+00:00
+S_llm_agent_proxy_0071,Cancel application,Clerk-000008,2023-04-25T08:11:22+00:00,2023-04-25T08:16:22+00:00
+S_llm_agent_proxy_0072,Check application form completeness,Clerk-000003,2023-04-24T12:00:00+00:00,2023-04-24T12:00:41+00:00
+S_llm_agent_proxy_0072,Return application back to applicant,Clerk-000006,2023-04-24T12:00:41+00:00,2023-04-24T12:05:41+00:00
+S_llm_agent_proxy_0072,Applicant completes form,Applicant-000001,2023-04-24T12:05:41+00:00,2023-04-24T13:05:41+00:00
+S_llm_agent_proxy_0072,Check application form completeness,Clerk-000001,2023-04-24T13:05:41+00:00,2023-04-24T13:30:39+00:00
+S_llm_agent_proxy_0072,Return application back to applicant,Clerk-000008,2023-04-24T13:30:39+00:00,2023-04-24T13:35:39+00:00
+S_llm_agent_proxy_0072,Applicant completes form,Applicant-000001,2023-04-24T15:34:41+00:00,2023-04-24T16:34:41+00:00
+S_llm_agent_proxy_0072,Check application form completeness,Clerk-000001,2023-04-24T16:34:41+00:00,2023-04-24T16:43:48+00:00
+S_llm_agent_proxy_0072,Appraise property,Appraiser-000002,2023-04-24T16:43:48+00:00,2023-04-24T17:05:27+00:00
+S_llm_agent_proxy_0072,AML check,AML Investigator-000001,2023-04-24T17:05:27+00:00,2023-04-24T17:33:31+00:00
+S_llm_agent_proxy_0072,Check credit history,Clerk-000002,2023-04-24T17:33:31+00:00,2023-04-24T18:43:54+00:00
+S_llm_agent_proxy_0072,Assess loan risk,Loan Officer-000004,2023-04-24T19:22:32+00:00,2023-04-24T19:42:32+00:00
+S_llm_agent_proxy_0072,Reject application,Clerk-000001,2023-04-24T19:42:32+00:00,2023-04-24T19:52:32+00:00
+S_llm_agent_proxy_0073,Check application form completeness,Clerk-000005,2023-04-24T12:30:00+00:00,2023-04-24T12:46:22+00:00
+S_llm_agent_proxy_0073,AML check,AML Investigator-000001,2023-04-24T12:46:22+00:00,2023-04-24T12:52:46+00:00
+S_llm_agent_proxy_0073,Appraise property,Appraiser-000002,2023-04-24T12:52:46+00:00,2023-04-24T13:02:55+00:00
+S_llm_agent_proxy_0073,Check credit history,Clerk-000007,2023-04-24T13:02:55+00:00,2023-04-24T13:22:43+00:00
+S_llm_agent_proxy_0073,Assess loan risk,Loan Officer-000004,2023-04-24T13:22:43+00:00,2023-04-24T13:42:43+00:00
+S_llm_agent_proxy_0073,Reject application,Clerk-000004,2023-04-24T13:42:43+00:00,2023-04-24T13:52:43+00:00
+S_llm_agent_proxy_0074,Check application form completeness,Clerk-000004,2023-04-24T13:00:00+00:00,2023-04-24T13:55:48+00:00
+S_llm_agent_proxy_0074,AML check,AML Investigator-000002,2023-04-24T13:55:48+00:00,2023-04-24T13:56:38+00:00
+S_llm_agent_proxy_0074,Appraise property,Appraiser-000001,2023-04-24T13:56:38+00:00,2023-04-24T14:57:57+00:00
+S_llm_agent_proxy_0074,Check credit history,Clerk-000006,2023-04-24T14:57:57+00:00,2023-04-24T15:59:23+00:00
+S_llm_agent_proxy_0074,Assess loan risk,Loan Officer-000002,2023-04-25T08:48:32+00:00,2023-04-25T09:08:32+00:00
+S_llm_agent_proxy_0074,Design loan offer,Loan Officer-000003,2023-04-25T09:08:32+00:00,2023-04-25T09:18:36+00:00
+S_llm_agent_proxy_0074,Approve loan offer,Senior Officer-000001,2023-04-25T09:18:36+00:00,2023-04-25T09:38:36+00:00
+S_llm_agent_proxy_0074,Approve application,Clerk-000007,2023-04-25T09:38:36+00:00,2023-04-25T09:43:36+00:00
+S_llm_agent_proxy_0075,Check application form completeness,Clerk-000001,2023-04-24T13:30:00+00:00,2023-04-24T13:44:03+00:00
+S_llm_agent_proxy_0075,Return application back to applicant,Clerk-000008,2023-04-24T13:44:03+00:00,2023-04-24T13:49:03+00:00
+S_llm_agent_proxy_0075,Applicant completes form,Applicant-000001,2023-04-24T15:14:52+00:00,2023-04-24T16:14:52+00:00
+S_llm_agent_proxy_0075,Check application form completeness,Clerk-000001,2023-04-24T16:14:52+00:00,2023-04-24T16:35:22+00:00
+S_llm_agent_proxy_0075,Appraise property,Appraiser-000001,2023-04-24T16:35:22+00:00,2023-04-24T16:46:22+00:00
+S_llm_agent_proxy_0075,AML check,AML Investigator-000002,2023-04-24T16:46:22+00:00,2023-04-24T17:02:11+00:00
+S_llm_agent_proxy_0075,Check credit history,Clerk-000002,2023-04-24T17:02:11+00:00,2023-04-24T17:06:45+00:00
+S_llm_agent_proxy_0075,Assess loan risk,Loan Officer-000003,2023-04-24T17:09:09+00:00,2023-04-24T17:29:09+00:00
+S_llm_agent_proxy_0075,Design loan offer,Loan Officer-000003,2023-04-24T17:29:09+00:00,2023-04-24T17:57:05+00:00
+S_llm_agent_proxy_0075,Approve loan offer,Senior Officer-000001,2023-04-24T17:57:05+00:00,2023-04-24T18:17:05+00:00
+S_llm_agent_proxy_0075,Cancel application,Clerk-000004,2023-04-24T18:17:05+00:00,2023-04-24T18:22:05+00:00
+S_llm_agent_proxy_0076,Check application form completeness,Clerk-000004,2023-04-24T14:00:00+00:00,2023-04-24T14:03:28+00:00
+S_llm_agent_proxy_0076,AML check,AML Investigator-000001,2023-04-24T14:03:28+00:00,2023-04-24T14:50:39+00:00
+S_llm_agent_proxy_0076,Check credit history,Clerk-000005,2023-04-24T14:50:39+00:00,2023-04-24T15:03:04+00:00
+S_llm_agent_proxy_0076,Appraise property,Appraiser-000002,2023-04-24T15:03:04+00:00,2023-04-24T15:09:56+00:00
+S_llm_agent_proxy_0076,Assess loan risk,Loan Officer-000003,2023-04-24T15:09:56+00:00,2023-04-24T15:29:56+00:00
+S_llm_agent_proxy_0076,Design loan offer,Loan Officer-000001,2023-04-24T15:29:56+00:00,2023-04-24T15:42:11+00:00
+S_llm_agent_proxy_0076,Approve loan offer,Senior Officer-000002,2023-04-24T15:42:11+00:00,2023-04-24T16:02:11+00:00
+S_llm_agent_proxy_0076,Cancel application,Clerk-000006,2023-04-24T16:02:11+00:00,2023-04-24T16:07:11+00:00
+S_llm_agent_proxy_0077,Check application form completeness,Clerk-000003,2023-04-24T14:30:00+00:00,2023-04-24T14:46:26+00:00
+S_llm_agent_proxy_0077,AML check,AML Investigator-000002,2023-04-24T14:46:26+00:00,2023-04-24T16:01:55+00:00
+S_llm_agent_proxy_0077,Appraise property,Appraiser-000001,2023-04-24T16:01:55+00:00,2023-04-24T16:02:57+00:00
+S_llm_agent_proxy_0077,Check credit history,Clerk-000001,2023-04-24T16:02:57+00:00,2023-04-24T16:11:53+00:00
+S_llm_agent_proxy_0077,Assess loan risk,Loan Officer-000002,2023-04-24T16:22:07+00:00,2023-04-24T16:42:07+00:00
+S_llm_agent_proxy_0077,Reject application,Clerk-000004,2023-04-24T16:42:07+00:00,2023-04-24T16:52:07+00:00
+S_llm_agent_proxy_0078,Check application form completeness,Clerk-000006,2023-04-24T15:00:00+00:00,2023-04-24T15:38:41+00:00
+S_llm_agent_proxy_0078,Appraise property,Appraiser-000001,2023-04-24T15:38:41+00:00,2023-04-24T15:40:38+00:00
+S_llm_agent_proxy_0078,Check credit history,Clerk-000008,2023-04-24T15:40:38+00:00,2023-04-24T15:56:29+00:00
+S_llm_agent_proxy_0078,AML check,AML Investigator-000002,2023-04-24T15:56:29+00:00,2023-04-24T16:15:27+00:00
+S_llm_agent_proxy_0078,Assess loan risk,Loan Officer-000001,2023-04-24T16:15:27+00:00,2023-04-24T16:35:27+00:00
+S_llm_agent_proxy_0078,Design loan offer,Loan Officer-000003,2023-04-24T16:35:27+00:00,2023-04-24T17:03:25+00:00
+S_llm_agent_proxy_0078,Approve loan offer,Senior Officer-000002,2023-04-24T17:03:25+00:00,2023-04-24T17:23:25+00:00
+S_llm_agent_proxy_0078,Cancel application,Clerk-000002,2023-04-24T17:23:25+00:00,2023-04-24T17:28:25+00:00
+S_llm_agent_proxy_0079,Check application form completeness,Clerk-000003,2023-04-24T15:30:00+00:00,2023-04-24T15:36:01+00:00
+S_llm_agent_proxy_0079,Check credit history,Clerk-000006,2023-04-24T15:36:01+00:00,2023-04-24T16:25:04+00:00
+S_llm_agent_proxy_0079,Appraise property,Appraiser-000001,2023-04-24T16:25:04+00:00,2023-04-24T16:54:39+00:00
+S_llm_agent_proxy_0079,AML check,AML Investigator-000001,2023-04-24T16:54:39+00:00,2023-04-24T17:08:19+00:00
+S_llm_agent_proxy_0079,Assess loan risk,Loan Officer-000003,2023-04-24T17:17:40+00:00,2023-04-24T17:37:40+00:00
+S_llm_agent_proxy_0079,Design loan offer,Loan Officer-000003,2023-04-24T17:37:40+00:00,2023-04-24T17:49:12+00:00
+S_llm_agent_proxy_0079,Approve loan offer,Senior Officer-000002,2023-04-24T17:49:12+00:00,2023-04-24T18:09:12+00:00
+S_llm_agent_proxy_0079,Cancel application,Clerk-000007,2023-04-24T18:09:12+00:00,2023-04-24T18:14:12+00:00
+S_llm_agent_proxy_0080,Check application form completeness,Clerk-000002,2023-04-24T16:00:00+00:00,2023-04-24T16:25:11+00:00
+S_llm_agent_proxy_0080,Return application back to applicant,Clerk-000006,2023-04-24T16:25:11+00:00,2023-04-24T16:30:11+00:00
+S_llm_agent_proxy_0080,Applicant completes form,Applicant-000001,2023-04-24T16:30:11+00:00,2023-04-24T17:30:11+00:00
+S_llm_agent_proxy_0080,Check application form completeness,Clerk-000003,2023-04-24T17:30:11+00:00,2023-04-24T17:45:41+00:00
+S_llm_agent_proxy_0080,Appraise property,Appraiser-000002,2023-04-24T17:45:41+00:00,2023-04-24T18:11:42+00:00
+S_llm_agent_proxy_0080,AML check,AML Investigator-000002,2023-04-24T18:11:42+00:00,2023-04-24T18:22:59+00:00
+S_llm_agent_proxy_0080,Check credit history,Clerk-000005,2023-04-24T18:22:59+00:00,2023-04-24T18:35:01+00:00
+S_llm_agent_proxy_0080,Assess loan risk,Loan Officer-000003,2023-04-24T18:50:37+00:00,2023-04-24T19:10:37+00:00
+S_llm_agent_proxy_0080,Reject application,Clerk-000001,2023-04-24T19:10:37+00:00,2023-04-24T19:20:37+00:00
+S_llm_agent_proxy_0081,Check application form completeness,Clerk-000008,2023-04-24T16:30:00+00:00,2023-04-25T08:41:31+00:00
+S_llm_agent_proxy_0081,AML check,AML Investigator-000002,2023-04-25T08:41:31+00:00,2023-04-25T08:46:49+00:00
+S_llm_agent_proxy_0081,Check credit history,Clerk-000004,2023-04-25T08:46:49+00:00,2023-04-25T10:32:22+00:00
+S_llm_agent_proxy_0081,Appraise property,Appraiser-000001,2023-04-25T10:32:22+00:00,2023-04-25T10:33:26+00:00
+S_llm_agent_proxy_0081,Assess loan risk,Loan Officer-000004,2023-04-25T11:37:31+00:00,2023-04-25T11:57:31+00:00
+S_llm_agent_proxy_0081,Design loan offer,Loan Officer-000001,2023-04-25T11:57:31+00:00,2023-04-25T12:05:56+00:00
+S_llm_agent_proxy_0081,Approve loan offer,Senior Officer-000002,2023-04-25T12:05:56+00:00,2023-04-25T12:25:56+00:00
+S_llm_agent_proxy_0081,Approve application,Clerk-000003,2023-04-25T12:25:56+00:00,2023-04-25T12:30:56+00:00
+S_llm_agent_proxy_0082,Check application form completeness,Clerk-000003,2023-04-24T17:00:00+00:00,2023-04-25T09:00:40+00:00
+S_llm_agent_proxy_0082,Check credit history,Clerk-000001,2023-04-25T09:00:40+00:00,2023-04-25T09:12:33+00:00
+S_llm_agent_proxy_0082,Appraise property,Appraiser-000002,2023-04-25T09:12:33+00:00,2023-04-25T10:07:50+00:00
+S_llm_agent_proxy_0082,AML check,AML Investigator-000001,2023-04-25T10:07:50+00:00,2023-04-25T10:43:57+00:00
+S_llm_agent_proxy_0082,Assess loan risk,Loan Officer-000004,2023-04-25T11:34:12+00:00,2023-04-25T11:54:12+00:00
+S_llm_agent_proxy_0082,Reject application,Clerk-000004,2023-04-25T11:54:12+00:00,2023-04-25T12:04:12+00:00
+S_llm_agent_proxy_0083,Check application form completeness,Clerk-000001,2023-04-24T17:30:00+00:00,2023-04-24T17:41:02+00:00
+S_llm_agent_proxy_0083,Appraise property,Appraiser-000002,2023-04-24T17:41:02+00:00,2023-04-24T17:52:39+00:00
+S_llm_agent_proxy_0083,AML check,AML Investigator-000001,2023-04-24T17:52:39+00:00,2023-04-24T18:22:01+00:00
+S_llm_agent_proxy_0083,Check credit history,Clerk-000002,2023-04-24T18:22:01+00:00,2023-04-24T19:40:59+00:00
+S_llm_agent_proxy_0083,Assess loan risk,Loan Officer-000001,2023-04-24T20:19:09+00:00,2023-04-24T20:39:09+00:00
+S_llm_agent_proxy_0083,Reject application,Clerk-000007,2023-04-24T20:39:09+00:00,2023-04-24T20:49:09+00:00
+S_llm_agent_proxy_0084,Check application form completeness,Clerk-000003,2023-04-24T18:00:00+00:00,2023-04-24T18:32:51+00:00
+S_llm_agent_proxy_0084,Return application back to applicant,Clerk-000008,2023-04-24T18:32:51+00:00,2023-04-24T18:37:51+00:00
+S_llm_agent_proxy_0084,Applicant completes form,Applicant-000001,2023-04-24T18:37:51+00:00,2023-04-24T19:37:51+00:00
+S_llm_agent_proxy_0084,Check application form completeness,Clerk-000002,2023-04-24T19:37:51+00:00,2023-04-24T20:06:49+00:00
+S_llm_agent_proxy_0084,Check credit history,Clerk-000003,2023-04-24T20:06:49+00:00,2023-04-24T20:19:47+00:00
+S_llm_agent_proxy_0084,AML check,AML Investigator-000001,2023-04-24T20:19:47+00:00,2023-04-24T20:26:23+00:00
+S_llm_agent_proxy_0084,Appraise property,Appraiser-000002,2023-04-24T20:26:23+00:00,2023-04-24T20:34:15+00:00
+S_llm_agent_proxy_0084,Assess loan risk,Loan Officer-000003,2023-04-24T21:28:53+00:00,2023-04-24T21:48:53+00:00
+S_llm_agent_proxy_0084,Reject application,Clerk-000003,2023-04-24T21:48:53+00:00,2023-04-24T21:58:53+00:00
+S_llm_agent_proxy_0085,Check application form completeness,Clerk-000008,2023-04-24T18:30:00+00:00,2023-04-24T18:41:24+00:00
+S_llm_agent_proxy_0085,Appraise property,Appraiser-000001,2023-04-24T18:41:24+00:00,2023-04-24T19:02:52+00:00
+S_llm_agent_proxy_0085,Check credit history,Clerk-000003,2023-04-24T19:02:52+00:00,2023-04-24T19:13:03+00:00
+S_llm_agent_proxy_0085,AML check,AML Investigator-000001,2023-04-24T19:57:36+00:00,2023-04-24T20:13:06+00:00
+S_llm_agent_proxy_0085,Assess loan risk,Loan Officer-000002,2023-04-24T20:13:06+00:00,2023-04-24T20:33:06+00:00
+S_llm_agent_proxy_0085,Design loan offer,Loan Officer-000001,2023-04-24T20:33:06+00:00,2023-04-24T20:40:02+00:00
+S_llm_agent_proxy_0085,Approve loan offer,Senior Officer-000002,2023-04-24T20:40:02+00:00,2023-04-24T21:00:02+00:00
+S_llm_agent_proxy_0085,Cancel application,Clerk-000007,2023-04-24T21:00:02+00:00,2023-04-24T21:05:02+00:00
+S_llm_agent_proxy_0086,Check application form completeness,Clerk-000003,2023-04-24T19:00:00+00:00,2023-04-24T19:48:59+00:00
+S_llm_agent_proxy_0086,Appraise property,Appraiser-000001,2023-04-24T19:48:59+00:00,2023-04-24T19:59:45+00:00
+S_llm_agent_proxy_0086,AML check,AML Investigator-000001,2023-04-24T19:59:45+00:00,2023-04-24T20:14:40+00:00
+S_llm_agent_proxy_0086,Check credit history,Clerk-000001,2023-04-24T20:14:40+00:00,2023-04-24T20:55:41+00:00
+S_llm_agent_proxy_0086,Assess loan risk,Loan Officer-000004,2023-04-24T20:55:41+00:00,2023-04-24T21:15:41+00:00
+S_llm_agent_proxy_0086,Reject application,Clerk-000008,2023-04-24T21:15:41+00:00,2023-04-24T21:25:41+00:00
+S_llm_agent_proxy_0087,Check application form completeness,Clerk-000002,2023-04-24T19:30:00+00:00,2023-04-24T19:40:20+00:00
+S_llm_agent_proxy_0087,Appraise property,Appraiser-000002,2023-04-24T19:40:20+00:00,2023-04-24T22:24:29+00:00
+S_llm_agent_proxy_0087,AML check,AML Investigator-000001,2023-04-24T22:24:29+00:00,2023-04-24T23:00:47+00:00
+S_llm_agent_proxy_0087,Check credit history,Clerk-000006,2023-04-24T23:00:47+00:00,2023-04-24T23:35:54+00:00
+S_llm_agent_proxy_0087,Assess loan risk,Loan Officer-000004,2023-04-24T23:35:54+00:00,2023-04-24T23:55:54+00:00
+S_llm_agent_proxy_0087,Reject application,Clerk-000003,2023-04-24T23:55:54+00:00,2023-04-25T00:05:54+00:00
+S_llm_agent_proxy_0088,Check application form completeness,Clerk-000003,2023-04-24T20:00:00+00:00,2023-04-24T20:17:25+00:00
+S_llm_agent_proxy_0088,Check credit history,Clerk-000005,2023-04-24T20:17:25+00:00,2023-04-24T20:57:09+00:00
+S_llm_agent_proxy_0088,AML check,AML Investigator-000001,2023-04-24T20:57:09+00:00,2023-04-24T21:01:36+00:00
+S_llm_agent_proxy_0088,Appraise property,Appraiser-000002,2023-04-24T21:01:36+00:00,2023-04-24T21:07:58+00:00
+S_llm_agent_proxy_0088,Assess loan risk,Loan Officer-000003,2023-04-24T22:44:21+00:00,2023-04-24T23:04:21+00:00
+S_llm_agent_proxy_0088,Design loan offer,Loan Officer-000004,2023-04-24T23:04:21+00:00,2023-04-24T23:05:47+00:00
+S_llm_agent_proxy_0088,Approve loan offer,Senior Officer-000001,2023-04-24T23:05:47+00:00,2023-04-24T23:25:47+00:00
+S_llm_agent_proxy_0088,Cancel application,Clerk-000006,2023-04-24T23:25:47+00:00,2023-04-24T23:30:47+00:00
+S_llm_agent_proxy_0089,Check application form completeness,Clerk-000006,2023-04-24T20:30:00+00:00,2023-04-24T20:31:16+00:00
+S_llm_agent_proxy_0089,Check credit history,Clerk-000008,2023-04-24T20:31:16+00:00,2023-04-25T14:19:15+00:00
+S_llm_agent_proxy_0089,AML check,AML Investigator-000001,2023-04-25T14:19:15+00:00,2023-04-25T17:34:49+00:00
+S_llm_agent_proxy_0089,Appraise property,Appraiser-000002,2023-04-25T17:34:49+00:00,2023-04-25T18:21:56+00:00
+S_llm_agent_proxy_0089,Assess loan risk,Loan Officer-000004,2023-04-25T18:21:56+00:00,2023-04-25T18:41:56+00:00
+S_llm_agent_proxy_0089,Reject application,Clerk-000007,2023-04-25T18:41:56+00:00,2023-04-25T18:51:56+00:00
+S_llm_agent_proxy_0090,Check application form completeness,Clerk-000004,2023-04-24T21:00:00+00:00,2023-04-24T21:31:55+00:00
+S_llm_agent_proxy_0090,Appraise property,Appraiser-000001,2023-04-24T21:31:55+00:00,2023-04-24T22:25:41+00:00
+S_llm_agent_proxy_0090,AML check,AML Investigator-000002,2023-04-25T15:29:17+00:00,2023-04-25T15:46:11+00:00
+S_llm_agent_proxy_0090,Check credit history,Clerk-000003,2023-04-25T15:46:11+00:00,2023-04-25T15:52:54+00:00
+S_llm_agent_proxy_0090,Assess loan risk,Loan Officer-000003,2023-04-25T16:32:55+00:00,2023-04-25T16:52:55+00:00
+S_llm_agent_proxy_0090,Design loan offer,Loan Officer-000001,2023-04-25T16:52:55+00:00,2023-04-25T17:01:43+00:00
+S_llm_agent_proxy_0090,Approve loan offer,Senior Officer-000001,2023-04-25T17:01:43+00:00,2023-04-25T17:21:43+00:00
+S_llm_agent_proxy_0090,Cancel application,Clerk-000008,2023-04-25T17:21:43+00:00,2023-04-25T17:26:43+00:00
+S_llm_agent_proxy_0091,Check application form completeness,Clerk-000005,2023-04-24T21:30:00+00:00,2023-04-24T21:31:19+00:00
+S_llm_agent_proxy_0091,Appraise property,Appraiser-000002,2023-04-24T21:31:19+00:00,2023-04-24T21:43:07+00:00
+S_llm_agent_proxy_0091,Check credit history,Clerk-000001,2023-04-24T21:43:07+00:00,2023-04-24T22:24:08+00:00
+S_llm_agent_proxy_0091,AML check,AML Investigator-000002,2023-04-24T22:24:08+00:00,2023-04-25T17:03:50+00:00
+S_llm_agent_proxy_0091,Assess loan risk,Loan Officer-000002,2023-04-25T17:32:09+00:00,2023-04-25T17:52:09+00:00
+S_llm_agent_proxy_0091,Design loan offer,Loan Officer-000001,2023-04-25T17:52:09+00:00,2023-04-25T17:52:45+00:00
+S_llm_agent_proxy_0091,Approve loan offer,Senior Officer-000001,2023-04-25T17:52:45+00:00,2023-04-25T18:12:45+00:00
+S_llm_agent_proxy_0091,Approve application,Clerk-000002,2023-04-25T18:12:45+00:00,2023-04-25T18:17:45+00:00
+S_llm_agent_proxy_0092,Check application form completeness,Clerk-000004,2023-04-24T22:00:00+00:00,2023-04-25T14:36:33+00:00
+S_llm_agent_proxy_0092,Appraise property,Appraiser-000002,2023-04-25T14:36:33+00:00,2023-04-25T15:15:39+00:00
+S_llm_agent_proxy_0092,Check credit history,Clerk-000001,2023-04-25T15:15:39+00:00,2023-04-25T16:01:12+00:00
+S_llm_agent_proxy_0092,AML check,AML Investigator-000002,2023-04-25T16:01:12+00:00,2023-04-25T16:25:06+00:00
+S_llm_agent_proxy_0092,Assess loan risk,Loan Officer-000002,2023-04-25T17:02:37+00:00,2023-04-25T17:22:37+00:00
+S_llm_agent_proxy_0092,Reject application,Clerk-000006,2023-04-25T17:22:37+00:00,2023-04-25T17:32:37+00:00
+S_llm_agent_proxy_0093,Check application form completeness,Clerk-000008,2023-04-24T22:30:00+00:00,2023-04-24T22:38:26+00:00
+S_llm_agent_proxy_0093,Appraise property,Appraiser-000001,2023-04-24T22:38:26+00:00,2023-04-24T22:42:01+00:00
+S_llm_agent_proxy_0093,AML check,AML Investigator-000001,2023-04-24T22:42:01+00:00,2023-04-25T00:00:46+00:00
+S_llm_agent_proxy_0093,Check credit history,Clerk-000006,2023-04-25T00:00:46+00:00,2023-04-25T00:33:33+00:00
+S_llm_agent_proxy_0093,Assess loan risk,Loan Officer-000001,2023-04-25T01:32:17+00:00,2023-04-25T01:52:17+00:00
+S_llm_agent_proxy_0093,Design loan offer,Loan Officer-000003,2023-04-25T01:52:17+00:00,2023-04-25T02:07:00+00:00
+S_llm_agent_proxy_0093,Approve loan offer,Senior Officer-000001,2023-04-25T02:07:00+00:00,2023-04-25T02:27:00+00:00
+S_llm_agent_proxy_0093,Cancel application,Clerk-000003,2023-04-25T02:27:00+00:00,2023-04-25T02:32:00+00:00
+S_llm_agent_proxy_0094,Check application form completeness,Clerk-000001,2023-04-24T23:00:00+00:00,2023-04-24T23:23:48+00:00
+S_llm_agent_proxy_0094,Return application back to applicant,Clerk-000006,2023-04-24T23:23:48+00:00,2023-04-24T23:28:48+00:00
+S_llm_agent_proxy_0094,Applicant completes form,Applicant-000001,2023-04-24T23:28:48+00:00,2023-04-25T00:28:48+00:00
+S_llm_agent_proxy_0094,Check application form completeness,Clerk-000001,2023-04-25T00:28:48+00:00,2023-04-25T00:53:29+00:00
+S_llm_agent_proxy_0094,Check credit history,Clerk-000007,2023-04-25T00:53:29+00:00,2023-04-25T02:06:02+00:00
+S_llm_agent_proxy_0094,AML check,AML Investigator-000001,2023-04-25T02:06:02+00:00,2023-04-25T02:07:32+00:00
+S_llm_agent_proxy_0094,Appraise property,Appraiser-000001,2023-04-25T02:07:32+00:00,2023-04-25T02:09:10+00:00
+S_llm_agent_proxy_0094,Assess loan risk,Loan Officer-000002,2023-04-25T02:09:10+00:00,2023-04-25T02:29:10+00:00
+S_llm_agent_proxy_0094,Design loan offer,Loan Officer-000003,2023-04-25T02:29:10+00:00,2023-04-25T02:44:51+00:00
+S_llm_agent_proxy_0094,Approve loan offer,Senior Officer-000001,2023-04-25T02:44:51+00:00,2023-04-25T03:04:51+00:00
+S_llm_agent_proxy_0094,Approve application,Clerk-000001,2023-04-25T03:04:51+00:00,2023-04-25T03:09:51+00:00
+S_llm_agent_proxy_0095,Check application form completeness,Clerk-000006,2023-04-24T23:30:00+00:00,2023-04-24T23:53:46+00:00
+S_llm_agent_proxy_0095,Appraise property,Appraiser-000001,2023-04-24T23:53:46+00:00,2023-04-25T00:11:50+00:00
+S_llm_agent_proxy_0095,AML check,AML Investigator-000001,2023-04-25T00:11:50+00:00,2023-04-25T00:21:23+00:00
+S_llm_agent_proxy_0095,Check credit history,Clerk-000001,2023-04-25T00:21:23+00:00,2023-04-25T00:23:35+00:00
+S_llm_agent_proxy_0095,Assess loan risk,Loan Officer-000004,2023-04-25T00:23:35+00:00,2023-04-25T00:43:35+00:00
+S_llm_agent_proxy_0095,Design loan offer,Loan Officer-000001,2023-04-25T00:43:35+00:00,2023-04-25T00:47:35+00:00
+S_llm_agent_proxy_0095,Approve loan offer,Senior Officer-000002,2023-04-25T00:47:35+00:00,2023-04-25T17:07:35+00:00
+S_llm_agent_proxy_0095,Cancel application,Clerk-000008,2023-04-25T17:07:35+00:00,2023-04-25T17:12:35+00:00
+S_llm_agent_proxy_0096,Check application form completeness,Clerk-000005,2023-04-25T00:00:00+00:00,2023-04-25T00:28:11+00:00
+S_llm_agent_proxy_0096,Return application back to applicant,Clerk-000006,2023-04-25T00:28:11+00:00,2023-04-25T00:33:11+00:00
+S_llm_agent_proxy_0096,Applicant completes form,Applicant-000001,2023-04-25T00:33:11+00:00,2023-04-25T01:33:11+00:00
+S_llm_agent_proxy_0096,Check application form completeness,Clerk-000003,2023-04-25T01:33:11+00:00,2023-04-25T01:48:24+00:00
+S_llm_agent_proxy_0096,AML check,AML Investigator-000001,2023-04-25T01:48:24+00:00,2023-04-25T02:07:13+00:00
+S_llm_agent_proxy_0096,Appraise property,Appraiser-000002,2023-04-25T02:07:13+00:00,2023-04-25T02:20:43+00:00
+S_llm_agent_proxy_0096,Check credit history,Clerk-000002,2023-04-25T02:20:43+00:00,2023-04-25T02:30:04+00:00
+S_llm_agent_proxy_0096,Assess loan risk,Loan Officer-000002,2023-04-25T02:30:04+00:00,2023-04-25T02:50:04+00:00
+S_llm_agent_proxy_0096,Reject application,Clerk-000008,2023-04-25T02:50:04+00:00,2023-04-25T03:00:04+00:00
+S_llm_agent_proxy_0097,Check application form completeness,Clerk-000003,2023-04-25T00:30:00+00:00,2023-04-25T00:42:20+00:00
+S_llm_agent_proxy_0097,AML check,AML Investigator-000001,2023-04-25T00:42:20+00:00,2023-04-25T01:12:12+00:00
+S_llm_agent_proxy_0097,Appraise property,Appraiser-000002,2023-04-25T01:12:12+00:00,2023-04-25T01:18:06+00:00
+S_llm_agent_proxy_0097,Check credit history,Clerk-000001,2023-04-25T01:18:06+00:00,2023-04-25T02:20:02+00:00
+S_llm_agent_proxy_0097,Assess loan risk,Loan Officer-000001,2023-04-25T02:20:02+00:00,2023-04-25T02:40:02+00:00
+S_llm_agent_proxy_0097,Design loan offer,Loan Officer-000004,2023-04-25T02:40:02+00:00,2023-04-25T02:49:18+00:00
+S_llm_agent_proxy_0097,Approve loan offer,Senior Officer-000001,2023-04-25T02:49:18+00:00,2023-04-25T03:09:18+00:00
+S_llm_agent_proxy_0097,Cancel application,Clerk-000002,2023-04-25T03:09:18+00:00,2023-04-25T03:14:18+00:00
+S_llm_agent_proxy_0098,Check application form completeness,Clerk-000002,2023-04-25T01:00:00+00:00,2023-04-25T01:05:39+00:00
+S_llm_agent_proxy_0098,Check credit history,Clerk-000005,2023-04-25T01:05:39+00:00,2023-04-25T01:46:25+00:00
+S_llm_agent_proxy_0098,AML check,AML Investigator-000001,2023-04-25T01:46:25+00:00,2023-04-25T01:53:50+00:00
+S_llm_agent_proxy_0098,Appraise property,Appraiser-000001,2023-04-25T01:54:31+00:00,2023-04-25T18:22:48+00:00
+S_llm_agent_proxy_0098,Assess loan risk,Loan Officer-000003,2023-04-25T18:22:48+00:00,2023-04-25T18:42:48+00:00
+S_llm_agent_proxy_0098,Reject application,Clerk-000006,2023-04-25T18:42:48+00:00,2023-04-25T18:52:48+00:00
+S_llm_agent_proxy_0099,Check application form completeness,Clerk-000004,2023-04-25T01:30:00+00:00,2023-04-25T02:25:48+00:00
+S_llm_agent_proxy_0099,AML check,AML Investigator-000001,2023-04-25T02:25:48+00:00,2023-04-25T02:39:00+00:00
+S_llm_agent_proxy_0099,Appraise property,Appraiser-000001,2023-04-25T02:39:00+00:00,2023-04-25T02:58:14+00:00
+S_llm_agent_proxy_0099,Check credit history,Clerk-000004,2023-04-25T02:58:14+00:00,2023-04-25T03:04:24+00:00
+S_llm_agent_proxy_0099,Assess loan risk,Loan Officer-000003,2023-04-25T03:13:41+00:00,2023-04-25T03:33:41+00:00
+S_llm_agent_proxy_0099,Reject application,Clerk-000006,2023-04-25T03:33:41+00:00,2023-04-25T03:43:41+00:00
+S_llm_agent_proxy_0100,Check application form completeness,Clerk-000004,2023-04-25T02:00:00+00:00,2023-04-25T02:06:22+00:00
+S_llm_agent_proxy_0100,AML check,AML Investigator-000002,2023-04-25T02:06:22+00:00,2023-04-25T02:33:07+00:00
+S_llm_agent_proxy_0100,Check credit history,Clerk-000002,2023-04-25T02:33:07+00:00,2023-04-25T19:55:45+00:00
+S_llm_agent_proxy_0100,Appraise property,Appraiser-000002,2023-04-25T19:55:45+00:00,2023-04-25T20:11:25+00:00
+S_llm_agent_proxy_0100,Assess loan risk,Loan Officer-000001,2023-04-25T20:50:56+00:00,2023-04-25T21:10:56+00:00
+S_llm_agent_proxy_0100,Design loan offer,Loan Officer-000002,2023-04-25T21:10:56+00:00,2023-04-25T21:15:12+00:00
+S_llm_agent_proxy_0100,Approve loan offer,Senior Officer-000002,2023-04-25T21:15:12+00:00,2023-04-25T21:35:12+00:00
+S_llm_agent_proxy_0100,Cancel application,Clerk-000007,2023-04-25T21:35:12+00:00,2023-04-25T21:40:12+00:00
+S_llm_agent_proxy_0101,Check application form completeness,Clerk-000004,2023-04-25T02:30:00+00:00,2023-04-25T02:51:54+00:00
+S_llm_agent_proxy_0101,Check credit history,Clerk-000007,2023-04-25T02:51:54+00:00,2023-04-25T03:43:12+00:00
+S_llm_agent_proxy_0101,Appraise property,Appraiser-000001,2023-04-25T03:43:12+00:00,2023-04-25T03:54:42+00:00
+S_llm_agent_proxy_0101,AML check,AML Investigator-000002,2023-04-25T04:08:23+00:00,2023-04-25T05:15:08+00:00
+S_llm_agent_proxy_0101,Assess loan risk,Loan Officer-000002,2023-04-25T05:27:45+00:00,2023-04-25T05:47:45+00:00
+S_llm_agent_proxy_0101,Reject application,Clerk-000005,2023-04-25T05:47:45+00:00,2023-04-25T05:57:45+00:00
+S_llm_agent_proxy_0102,Check application form completeness,Clerk-000003,2023-04-25T03:00:00+00:00,2023-04-25T03:24:44+00:00
+S_llm_agent_proxy_0102,Return application back to applicant,Clerk-000008,2023-04-25T03:24:44+00:00,2023-04-25T03:29:44+00:00
+S_llm_agent_proxy_0102,Applicant completes form,Applicant-000001,2023-04-25T03:29:44+00:00,2023-04-25T04:29:44+00:00
+S_llm_agent_proxy_0102,Check application form completeness,Clerk-000007,2023-04-25T04:29:44+00:00,2023-04-25T04:30:09+00:00
+S_llm_agent_proxy_0102,AML check,AML Investigator-000002,2023-04-25T04:30:09+00:00,2023-04-27T20:33:57+00:00
+S_llm_agent_proxy_0102,Check credit history,Clerk-000006,2023-04-27T20:33:57+00:00,2023-04-27T21:30:45+00:00
+S_llm_agent_proxy_0102,Appraise property,Appraiser-000001,2023-04-27T21:30:45+00:00,2023-04-28T13:59:02+00:00
+S_llm_agent_proxy_0102,Assess loan risk,Loan Officer-000002,2023-04-28T14:28:42+00:00,2023-04-28T14:48:42+00:00
+S_llm_agent_proxy_0102,Design loan offer,Loan Officer-000002,2023-04-28T14:48:42+00:00,2023-04-28T15:04:02+00:00
+S_llm_agent_proxy_0102,Approve loan offer,Senior Officer-000001,2023-04-28T15:04:02+00:00,2023-04-28T15:24:02+00:00
+S_llm_agent_proxy_0102,Cancel application,Clerk-000008,2023-04-28T15:24:02+00:00,2023-04-28T15:29:02+00:00
+S_llm_agent_proxy_0103,Check application form completeness,Clerk-000006,2023-04-25T03:30:00+00:00,2023-04-25T04:08:39+00:00
+S_llm_agent_proxy_0103,Check credit history,Clerk-000008,2023-04-25T04:08:39+00:00,2023-04-25T04:26:22+00:00
+S_llm_agent_proxy_0103,Appraise property,Appraiser-000002,2023-04-25T04:26:22+00:00,2023-04-25T06:11:44+00:00
+S_llm_agent_proxy_0103,AML check,AML Investigator-000002,2023-04-25T06:11:44+00:00,2023-04-25T06:29:29+00:00
+S_llm_agent_proxy_0103,Assess loan risk,Loan Officer-000001,2023-04-25T06:29:29+00:00,2023-04-25T06:49:29+00:00
+S_llm_agent_proxy_0103,Design loan offer,Loan Officer-000003,2023-04-25T06:49:29+00:00,2023-04-25T06:52:37+00:00
+S_llm_agent_proxy_0103,Approve loan offer,Senior Officer-000001,2023-04-25T06:52:37+00:00,2023-04-25T07:12:37+00:00
+S_llm_agent_proxy_0103,Cancel application,Clerk-000004,2023-04-25T07:12:37+00:00,2023-04-25T07:17:37+00:00
+S_llm_agent_proxy_0104,Check application form completeness,Clerk-000002,2023-04-25T04:00:00+00:00,2023-04-25T20:06:06+00:00
+S_llm_agent_proxy_0104,Check credit history,Clerk-000004,2023-04-25T20:06:06+00:00,2023-04-25T20:13:02+00:00
+S_llm_agent_proxy_0104,Appraise property,Appraiser-000002,2023-04-25T20:13:02+00:00,2023-04-25T20:26:41+00:00
+S_llm_agent_proxy_0104,AML check,AML Investigator-000002,2023-04-25T20:26:41+00:00,2023-04-26T13:47:38+00:00
+S_llm_agent_proxy_0104,Assess loan risk,Loan Officer-000001,2023-04-26T15:07:17+00:00,2023-04-26T15:27:17+00:00
+S_llm_agent_proxy_0104,Design loan offer,Loan Officer-000001,2023-04-26T15:27:17+00:00,2023-04-26T15:49:35+00:00
+S_llm_agent_proxy_0104,Approve loan offer,Senior Officer-000002,2023-04-26T15:49:35+00:00,2023-04-26T16:09:35+00:00
+S_llm_agent_proxy_0104,Cancel application,Clerk-000006,2023-04-26T16:09:35+00:00,2023-04-26T16:14:35+00:00
+S_llm_agent_proxy_0105,Check application form completeness,Clerk-000008,2023-04-25T04:30:00+00:00,2023-04-25T04:39:05+00:00
+S_llm_agent_proxy_0105,Return application back to applicant,Clerk-000004,2023-04-25T04:39:05+00:00,2023-04-25T04:44:05+00:00
+S_llm_agent_proxy_0105,Applicant completes form,Applicant-000001,2023-04-25T04:44:05+00:00,2023-04-25T05:44:05+00:00
+S_llm_agent_proxy_0105,Check application form completeness,Clerk-000008,2023-04-25T05:44:05+00:00,2023-04-25T06:08:44+00:00
+S_llm_agent_proxy_0105,Check credit history,Clerk-000006,2023-04-25T06:08:44+00:00,2023-04-25T06:15:47+00:00
+S_llm_agent_proxy_0105,AML check,AML Investigator-000002,2023-04-25T06:15:47+00:00,2023-04-25T06:37:19+00:00
+S_llm_agent_proxy_0105,Appraise property,Appraiser-000002,2023-04-25T06:37:19+00:00,2023-04-25T06:51:02+00:00
+S_llm_agent_proxy_0105,Assess loan risk,Loan Officer-000003,2023-04-25T08:02:45+00:00,2023-04-25T08:22:45+00:00
+S_llm_agent_proxy_0105,Design loan offer,Loan Officer-000001,2023-04-25T08:22:45+00:00,2023-04-25T08:31:50+00:00
+S_llm_agent_proxy_0105,Approve loan offer,Senior Officer-000001,2023-04-25T08:31:50+00:00,2023-04-25T08:51:50+00:00
+S_llm_agent_proxy_0105,Approve application,Clerk-000007,2023-04-25T08:51:50+00:00,2023-04-25T08:56:50+00:00
+S_llm_agent_proxy_0106,Check application form completeness,Clerk-000007,2023-04-25T05:00:00+00:00,2023-04-25T05:10:20+00:00
+S_llm_agent_proxy_0106,AML check,AML Investigator-000002,2023-04-25T05:10:20+00:00,2023-04-25T05:39:12+00:00
+S_llm_agent_proxy_0106,Check credit history,Clerk-000007,2023-04-25T05:39:12+00:00,2023-04-25T05:46:25+00:00
+S_llm_agent_proxy_0106,Appraise property,Appraiser-000002,2023-04-25T05:46:25+00:00,2023-04-25T05:57:34+00:00
+S_llm_agent_proxy_0106,Assess loan risk,Loan Officer-000004,2023-04-25T05:57:34+00:00,2023-04-25T06:17:34+00:00
+S_llm_agent_proxy_0106,Design loan offer,Loan Officer-000002,2023-04-25T06:17:34+00:00,2023-04-25T06:25:24+00:00
+S_llm_agent_proxy_0106,Approve loan offer,Senior Officer-000001,2023-04-25T06:25:24+00:00,2023-04-25T06:45:24+00:00
+S_llm_agent_proxy_0106,Cancel application,Clerk-000008,2023-04-25T06:45:24+00:00,2023-04-25T06:50:24+00:00
+S_llm_agent_proxy_0107,Check application form completeness,Clerk-000006,2023-04-25T05:30:00+00:00,2023-04-25T05:34:18+00:00
+S_llm_agent_proxy_0107,Appraise property,Appraiser-000001,2023-04-25T05:34:18+00:00,2023-04-25T06:25:05+00:00
+S_llm_agent_proxy_0107,Check credit history,Clerk-000001,2023-04-25T06:25:05+00:00,2023-04-25T06:40:48+00:00
+S_llm_agent_proxy_0107,AML check,AML Investigator-000001,2023-04-25T06:40:48+00:00,2023-04-25T07:05:23+00:00
+S_llm_agent_proxy_0107,Assess loan risk,Loan Officer-000001,2023-04-25T07:05:23+00:00,2023-04-25T07:25:23+00:00
+S_llm_agent_proxy_0107,Design loan offer,Loan Officer-000003,2023-04-25T07:25:23+00:00,2023-04-25T07:37:21+00:00
+S_llm_agent_proxy_0107,Approve loan offer,Senior Officer-000002,2023-04-25T07:37:21+00:00,2023-04-25T07:57:21+00:00
+S_llm_agent_proxy_0107,Approve application,Clerk-000008,2023-04-25T07:57:21+00:00,2023-04-25T08:02:21+00:00
+S_llm_agent_proxy_0108,Check application form completeness,Clerk-000006,2023-04-25T06:00:00+00:00,2023-04-25T06:00:58+00:00
+S_llm_agent_proxy_0108,AML check,AML Investigator-000002,2023-04-25T06:00:58+00:00,2023-04-25T06:37:22+00:00
+S_llm_agent_proxy_0108,Check credit history,Clerk-000002,2023-04-25T06:37:22+00:00,2023-04-25T06:44:42+00:00
+S_llm_agent_proxy_0108,Appraise property,Appraiser-000002,2023-04-25T06:44:42+00:00,2023-04-25T06:54:04+00:00
+S_llm_agent_proxy_0108,Assess loan risk,Loan Officer-000002,2023-04-25T07:03:19+00:00,2023-04-25T07:23:19+00:00
+S_llm_agent_proxy_0108,Reject application,Clerk-000004,2023-04-25T07:23:19+00:00,2023-04-25T07:33:19+00:00
+S_llm_agent_proxy_0109,Check application form completeness,Clerk-000007,2023-04-25T06:30:00+00:00,2023-04-25T06:47:11+00:00
+S_llm_agent_proxy_0109,Check credit history,Clerk-000006,2023-04-25T06:47:11+00:00,2023-04-25T06:47:39+00:00
+S_llm_agent_proxy_0109,AML check,AML Investigator-000001,2023-04-25T06:47:39+00:00,2023-04-25T06:53:32+00:00
+S_llm_agent_proxy_0109,Appraise property,Appraiser-000001,2023-04-25T06:53:32+00:00,2023-04-25T07:35:19+00:00
+S_llm_agent_proxy_0109,Assess loan risk,Loan Officer-000002,2023-04-25T07:35:19+00:00,2023-04-25T07:55:19+00:00
+S_llm_agent_proxy_0109,Reject application,Clerk-000001,2023-04-25T07:55:19+00:00,2023-04-25T08:05:19+00:00
+S_llm_agent_proxy_0110,Check application form completeness,Clerk-000001,2023-04-25T07:00:00+00:00,2023-04-25T07:23:26+00:00
+S_llm_agent_proxy_0110,Appraise property,Appraiser-000002,2023-04-25T07:23:26+00:00,2023-04-25T07:45:02+00:00
+S_llm_agent_proxy_0110,AML check,AML Investigator-000001,2023-04-25T08:18:30+00:00,2023-04-25T08:22:10+00:00
+S_llm_agent_proxy_0110,Check credit history,Clerk-000002,2023-04-25T08:22:10+00:00,2023-04-25T09:37:59+00:00
+S_llm_agent_proxy_0110,Assess loan risk,Loan Officer-000003,2023-04-25T09:37:59+00:00,2023-04-25T09:57:59+00:00
+S_llm_agent_proxy_0110,Reject application,Clerk-000002,2023-04-25T09:57:59+00:00,2023-04-25T10:07:59+00:00
+S_llm_agent_proxy_0111,Check application form completeness,Clerk-000008,2023-04-25T07:30:00+00:00,2023-04-25T07:50:23+00:00
+S_llm_agent_proxy_0111,AML check,AML Investigator-000002,2023-04-25T07:50:23+00:00,2023-04-25T08:32:52+00:00
+S_llm_agent_proxy_0111,Check credit history,Clerk-000003,2023-04-25T08:32:52+00:00,2023-04-25T08:42:22+00:00
+S_llm_agent_proxy_0111,Appraise property,Appraiser-000002,2023-04-25T08:42:22+00:00,2023-04-25T08:43:55+00:00
+S_llm_agent_proxy_0111,Assess loan risk,Loan Officer-000001,2023-04-25T08:43:55+00:00,2023-04-25T09:03:55+00:00
+S_llm_agent_proxy_0111,Design loan offer,Loan Officer-000002,2023-04-25T09:03:55+00:00,2023-04-25T09:16:35+00:00
+S_llm_agent_proxy_0111,Approve loan offer,Senior Officer-000001,2023-04-25T09:16:35+00:00,2023-04-25T09:36:35+00:00
+S_llm_agent_proxy_0111,Cancel application,Clerk-000008,2023-04-25T09:36:35+00:00,2023-04-25T09:41:35+00:00
+S_llm_agent_proxy_0112,Check application form completeness,Clerk-000005,2023-04-25T08:00:00+00:00,2023-04-25T08:11:10+00:00
+S_llm_agent_proxy_0112,Check credit history,Clerk-000002,2023-04-25T08:11:10+00:00,2023-04-25T08:43:55+00:00
+S_llm_agent_proxy_0112,Appraise property,Appraiser-000002,2023-04-25T08:43:55+00:00,2023-04-28T00:51:55+00:00
+S_llm_agent_proxy_0112,AML check,AML Investigator-000001,2023-04-28T00:51:55+00:00,2023-04-28T01:03:25+00:00
+S_llm_agent_proxy_0112,Assess loan risk,Loan Officer-000002,2023-04-28T02:33:10+00:00,2023-04-28T02:53:10+00:00
+S_llm_agent_proxy_0112,Reject application,Clerk-000005,2023-04-28T02:53:10+00:00,2023-04-28T03:03:10+00:00
+S_llm_agent_proxy_0113,Check application form completeness,Clerk-000005,2023-04-25T08:30:00+00:00,2023-04-25T08:48:11+00:00
+S_llm_agent_proxy_0113,Appraise property,Appraiser-000001,2023-04-25T08:48:11+00:00,2023-04-25T09:10:34+00:00
+S_llm_agent_proxy_0113,Check credit history,Clerk-000003,2023-04-25T09:10:34+00:00,2023-04-25T09:42:43+00:00
+S_llm_agent_proxy_0113,AML check,AML Investigator-000001,2023-04-25T09:42:43+00:00,2023-04-25T10:01:48+00:00
+S_llm_agent_proxy_0113,Assess loan risk,Loan Officer-000002,2023-04-25T10:01:48+00:00,2023-04-25T10:21:48+00:00
+S_llm_agent_proxy_0113,Reject application,Clerk-000001,2023-04-25T10:21:48+00:00,2023-04-25T10:31:48+00:00
+S_llm_agent_proxy_0114,Check application form completeness,Clerk-000008,2023-04-25T09:00:00+00:00,2023-04-26T01:12:58+00:00
+S_llm_agent_proxy_0114,Appraise property,Appraiser-000001,2023-04-26T01:12:58+00:00,2023-04-26T01:52:49+00:00
+S_llm_agent_proxy_0114,Check credit history,Clerk-000004,2023-04-26T01:52:49+00:00,2023-04-26T01:57:19+00:00
+S_llm_agent_proxy_0114,AML check,AML Investigator-000001,2023-04-26T01:57:19+00:00,2023-04-26T03:16:03+00:00
+S_llm_agent_proxy_0114,Assess loan risk,Loan Officer-000004,2023-04-26T04:02:24+00:00,2023-04-26T04:22:24+00:00
+S_llm_agent_proxy_0114,Design loan offer,Loan Officer-000003,2023-04-26T04:22:24+00:00,2023-04-26T04:24:06+00:00
+S_llm_agent_proxy_0114,Approve loan offer,Senior Officer-000001,2023-04-26T04:24:06+00:00,2023-04-26T04:44:06+00:00
+S_llm_agent_proxy_0114,Cancel application,Clerk-000007,2023-04-26T04:44:06+00:00,2023-04-26T04:49:06+00:00
+S_llm_agent_proxy_0115,Check application form completeness,Clerk-000006,2023-04-25T09:30:00+00:00,2023-04-25T10:12:12+00:00
+S_llm_agent_proxy_0115,AML check,AML Investigator-000001,2023-04-25T10:12:12+00:00,2023-04-25T13:27:45+00:00
+S_llm_agent_proxy_0115,Check credit history,Clerk-000003,2023-04-25T13:27:45+00:00,2023-04-25T13:43:34+00:00
+S_llm_agent_proxy_0115,Appraise property,Appraiser-000001,2023-04-25T13:43:34+00:00,2023-04-25T13:47:59+00:00
+S_llm_agent_proxy_0115,Assess loan risk,Loan Officer-000004,2023-04-26T06:17:01+00:00,2023-04-26T06:37:01+00:00
+S_llm_agent_proxy_0115,Reject application,Clerk-000003,2023-04-26T06:37:01+00:00,2023-04-26T06:47:01+00:00
+S_llm_agent_proxy_0116,Check application form completeness,Clerk-000001,2023-04-25T10:00:00+00:00,2023-04-25T10:00:33+00:00
+S_llm_agent_proxy_0116,Check credit history,Clerk-000006,2023-04-25T10:00:33+00:00,2023-04-25T10:35:41+00:00
+S_llm_agent_proxy_0116,AML check,AML Investigator-000002,2023-04-25T10:35:41+00:00,2023-04-26T02:59:12+00:00
+S_llm_agent_proxy_0116,Appraise property,Appraiser-000001,2023-04-26T02:59:12+00:00,2023-04-26T03:55:31+00:00
+S_llm_agent_proxy_0116,Assess loan risk,Loan Officer-000001,2023-04-26T04:06:54+00:00,2023-04-26T04:26:54+00:00
+S_llm_agent_proxy_0116,Design loan offer,Loan Officer-000004,2023-04-26T04:26:54+00:00,2023-04-26T04:48:38+00:00
+S_llm_agent_proxy_0116,Approve loan offer,Senior Officer-000002,2023-04-26T04:48:38+00:00,2023-04-26T05:08:38+00:00
+S_llm_agent_proxy_0116,Cancel application,Clerk-000007,2023-04-26T05:08:38+00:00,2023-04-26T05:13:38+00:00
+S_llm_agent_proxy_0117,Check application form completeness,Clerk-000008,2023-04-28T02:30:00+00:00,2023-04-28T02:38:31+00:00
+S_llm_agent_proxy_0117,Check credit history,Clerk-000007,2023-04-28T02:38:31+00:00,2023-04-28T03:08:03+00:00
+S_llm_agent_proxy_0117,Appraise property,Appraiser-000002,2023-04-28T03:08:03+00:00,2023-04-28T04:04:39+00:00
+S_llm_agent_proxy_0117,AML check,AML Investigator-000001,2023-04-28T04:04:39+00:00,2023-04-28T04:47:55+00:00
+S_llm_agent_proxy_0117,Assess loan risk,Loan Officer-000004,2023-04-28T06:10:35+00:00,2023-04-28T06:30:35+00:00
+S_llm_agent_proxy_0117,Design loan offer,Loan Officer-000003,2023-04-28T06:30:35+00:00,2023-04-28T06:34:57+00:00
+S_llm_agent_proxy_0117,Approve loan offer,Senior Officer-000001,2023-04-28T06:34:57+00:00,2023-04-28T06:54:57+00:00
+S_llm_agent_proxy_0117,Cancel application,Clerk-000005,2023-04-28T06:54:57+00:00,2023-04-28T06:59:57+00:00
+S_llm_agent_proxy_0118,Check application form completeness,Clerk-000008,2023-04-28T03:00:00+00:00,2023-04-28T03:14:06+00:00
+S_llm_agent_proxy_0118,Check credit history,Clerk-000002,2023-04-28T03:14:06+00:00,2023-04-28T03:15:02+00:00
+S_llm_agent_proxy_0118,Appraise property,Appraiser-000001,2023-04-28T03:28:34+00:00,2023-04-28T03:28:54+00:00
+S_llm_agent_proxy_0118,AML check,AML Investigator-000001,2023-04-28T03:28:54+00:00,2023-04-28T22:01:35+00:00
+S_llm_agent_proxy_0118,Assess loan risk,Loan Officer-000002,2023-04-28T22:53:14+00:00,2023-04-28T23:13:14+00:00
+S_llm_agent_proxy_0118,Reject application,Clerk-000004,2023-04-28T23:13:14+00:00,2023-04-28T23:23:14+00:00
+S_llm_agent_proxy_0119,Check application form completeness,Clerk-000004,2023-04-28T03:30:00+00:00,2023-04-28T03:36:27+00:00
+S_llm_agent_proxy_0119,Appraise property,Appraiser-000001,2023-04-28T03:36:27+00:00,2023-04-28T03:59:39+00:00
+S_llm_agent_proxy_0119,Check credit history,Clerk-000007,2023-04-28T03:59:39+00:00,2023-04-28T04:04:00+00:00
+S_llm_agent_proxy_0119,AML check,AML Investigator-000002,2023-04-28T04:04:00+00:00,2023-04-28T04:21:53+00:00
+S_llm_agent_proxy_0119,Assess loan risk,Loan Officer-000003,2023-04-28T04:21:53+00:00,2023-04-28T04:41:53+00:00
+S_llm_agent_proxy_0119,Design loan offer,Loan Officer-000001,2023-04-28T04:41:53+00:00,2023-04-28T04:59:49+00:00
+S_llm_agent_proxy_0119,Approve loan offer,Senior Officer-000001,2023-04-28T04:59:49+00:00,2023-04-28T05:19:49+00:00
+S_llm_agent_proxy_0119,Approve application,Clerk-000007,2023-04-28T05:19:49+00:00,2023-04-28T05:24:49+00:00
+S_llm_agent_proxy_0120,Check application form completeness,Clerk-000002,2023-04-28T04:00:00+00:00,2023-04-28T04:13:17+00:00
+S_llm_agent_proxy_0120,Check credit history,Clerk-000003,2023-04-28T04:13:17+00:00,2023-04-28T04:27:42+00:00
+S_llm_agent_proxy_0120,Appraise property,Appraiser-000001,2023-04-28T04:27:42+00:00,2023-04-28T20:47:15+00:00
+S_llm_agent_proxy_0120,AML check,AML Investigator-000001,2023-04-28T20:47:15+00:00,2023-04-28T21:37:03+00:00
+S_llm_agent_proxy_0120,Assess loan risk,Loan Officer-000002,2023-04-28T21:37:03+00:00,2023-04-28T21:57:03+00:00
+S_llm_agent_proxy_0120,Design loan offer,Loan Officer-000001,2023-04-28T21:57:03+00:00,2023-04-28T22:01:39+00:00
+S_llm_agent_proxy_0120,Approve loan offer,Senior Officer-000001,2023-04-28T22:01:39+00:00,2023-04-28T22:21:39+00:00
+S_llm_agent_proxy_0120,Cancel application,Clerk-000008,2023-04-28T22:21:39+00:00,2023-04-28T22:26:39+00:00
+S_llm_agent_proxy_0121,Check application form completeness,Clerk-000001,2023-04-28T04:30:00+00:00,2023-04-28T04:59:55+00:00
+S_llm_agent_proxy_0121,Check credit history,Clerk-000004,2023-04-28T04:59:55+00:00,2023-04-28T05:24:57+00:00
+S_llm_agent_proxy_0121,Appraise property,Appraiser-000002,2023-04-28T05:24:57+00:00,2023-04-28T06:28:22+00:00
+S_llm_agent_proxy_0121,AML check,AML Investigator-000001,2023-04-28T06:28:22+00:00,2023-04-28T06:42:56+00:00
+S_llm_agent_proxy_0121,Assess loan risk,Loan Officer-000004,2023-04-28T06:42:56+00:00,2023-04-28T07:02:56+00:00
+S_llm_agent_proxy_0121,Design loan offer,Loan Officer-000003,2023-04-28T07:02:56+00:00,2023-04-28T07:12:37+00:00
+S_llm_agent_proxy_0121,Approve loan offer,Senior Officer-000001,2023-04-28T07:12:37+00:00,2023-04-28T07:32:37+00:00
+S_llm_agent_proxy_0121,Cancel application,Clerk-000007,2023-04-28T07:32:37+00:00,2023-04-28T07:37:37+00:00
+S_llm_agent_proxy_0122,Check application form completeness,Clerk-000001,2023-04-28T21:00:00+00:00,2023-04-28T21:15:45+00:00
+S_llm_agent_proxy_0122,AML check,AML Investigator-000001,2023-04-28T21:15:45+00:00,2023-04-28T22:12:30+00:00
+S_llm_agent_proxy_0122,Appraise property,Appraiser-000002,2023-04-28T22:12:30+00:00,2023-04-28T22:13:57+00:00
+S_llm_agent_proxy_0122,Check credit history,Clerk-000005,2023-04-28T22:13:57+00:00,2023-04-28T22:58:24+00:00
+S_llm_agent_proxy_0122,Assess loan risk,Loan Officer-000004,2023-04-28T22:58:24+00:00,2023-04-28T23:18:24+00:00
+S_llm_agent_proxy_0122,Reject application,Clerk-000003,2023-04-28T23:18:24+00:00,2023-04-28T23:28:24+00:00
+S_llm_agent_proxy_0123,Check application form completeness,Clerk-000001,2023-04-28T21:30:00+00:00,2023-04-28T21:30:33+00:00
+S_llm_agent_proxy_0123,Check credit history,Clerk-000004,2023-04-28T21:30:33+00:00,2023-04-28T21:44:59+00:00
+S_llm_agent_proxy_0123,AML check,AML Investigator-000001,2023-04-28T21:44:59+00:00,2023-04-28T21:51:53+00:00
+S_llm_agent_proxy_0123,Appraise property,Appraiser-000001,2023-04-28T21:51:53+00:00,2023-04-28T21:56:13+00:00
+S_llm_agent_proxy_0123,Assess loan risk,Loan Officer-000002,2023-04-28T21:56:13+00:00,2023-04-28T22:16:13+00:00
+S_llm_agent_proxy_0123,Reject application,Clerk-000005,2023-04-28T22:16:13+00:00,2023-04-28T22:26:13+00:00
+S_llm_agent_proxy_0124,Check application form completeness,Clerk-000006,2023-04-28T22:00:00+00:00,2023-04-28T22:04:10+00:00
+S_llm_agent_proxy_0124,AML check,AML Investigator-000002,2023-04-28T22:04:10+00:00,2023-04-28T22:31:18+00:00
+S_llm_agent_proxy_0124,Appraise property,Appraiser-000002,2023-04-28T22:31:18+00:00,2023-04-28T23:15:31+00:00
+S_llm_agent_proxy_0124,Check credit history,Clerk-000001,2023-04-28T23:15:31+00:00,2023-04-29T00:12:28+00:00
+S_llm_agent_proxy_0124,Assess loan risk,Loan Officer-000002,2023-04-29T00:21:20+00:00,2023-04-29T00:41:20+00:00
+S_llm_agent_proxy_0124,Design loan offer,Loan Officer-000003,2023-04-29T00:41:20+00:00,2023-04-29T00:45:15+00:00
+S_llm_agent_proxy_0124,Approve loan offer,Senior Officer-000002,2023-04-29T00:45:15+00:00,2023-04-29T01:05:15+00:00
+S_llm_agent_proxy_0124,Cancel application,Clerk-000007,2023-04-29T01:05:15+00:00,2023-04-29T17:10:15+00:00
+S_llm_agent_proxy_0125,Check application form completeness,Clerk-000005,2023-04-28T22:30:00+00:00,2023-04-28T22:30:47+00:00
+S_llm_agent_proxy_0125,AML check,AML Investigator-000002,2023-04-28T22:30:47+00:00,2023-04-28T22:59:08+00:00
+S_llm_agent_proxy_0125,Check credit history,Clerk-000006,2023-04-28T22:59:08+00:00,2023-04-28T23:31:55+00:00
+S_llm_agent_proxy_0125,Appraise property,Appraiser-000002,2023-04-29T01:13:14+00:00,2023-04-29T18:26:12+00:00
+S_llm_agent_proxy_0125,Assess loan risk,Loan Officer-000003,2023-04-29T18:29:19+00:00,2023-04-29T18:49:19+00:00
+S_llm_agent_proxy_0125,Reject application,Clerk-000001,2023-04-29T18:49:19+00:00,2023-04-29T18:59:19+00:00
+S_llm_agent_proxy_0126,Check application form completeness,Clerk-000006,2023-04-28T23:00:00+00:00,2023-04-28T23:01:24+00:00
+S_llm_agent_proxy_0126,Check credit history,Clerk-000001,2023-04-28T23:01:24+00:00,2023-04-28T23:11:29+00:00
+S_llm_agent_proxy_0126,Appraise property,Appraiser-000002,2023-04-28T23:11:29+00:00,2023-04-28T23:52:46+00:00
+S_llm_agent_proxy_0126,AML check,AML Investigator-000002,2023-04-28T23:52:46+00:00,2023-04-29T00:00:05+00:00
+S_llm_agent_proxy_0126,Assess loan risk,Loan Officer-000004,2023-04-29T00:00:05+00:00,2023-04-29T00:20:05+00:00
+S_llm_agent_proxy_0126,Reject application,Clerk-000001,2023-04-29T00:20:05+00:00,2023-04-29T00:30:05+00:00
+S_llm_agent_proxy_0127,Check application form completeness,Clerk-000002,2023-04-28T23:30:00+00:00,2023-04-28T23:58:26+00:00
+S_llm_agent_proxy_0127,AML check,AML Investigator-000001,2023-04-28T23:58:26+00:00,2023-04-29T00:02:57+00:00
+S_llm_agent_proxy_0127,Appraise property,Appraiser-000001,2023-04-29T00:46:23+00:00,2023-04-29T01:09:18+00:00
+S_llm_agent_proxy_0127,Check credit history,Clerk-000006,2023-04-29T01:09:18+00:00,2023-04-29T02:01:51+00:00
+S_llm_agent_proxy_0127,Assess loan risk,Loan Officer-000003,2023-04-29T18:24:11+00:00,2023-04-29T18:44:11+00:00
+S_llm_agent_proxy_0127,Reject application,Clerk-000001,2023-04-29T18:44:11+00:00,2023-04-29T18:54:11+00:00
+S_llm_agent_proxy_0128,Check application form completeness,Clerk-000005,2023-04-29T00:00:00+00:00,2023-04-29T00:01:04+00:00
+S_llm_agent_proxy_0128,Check credit history,Clerk-000001,2023-04-29T00:01:04+00:00,2023-04-29T00:06:00+00:00
+S_llm_agent_proxy_0128,Appraise property,Appraiser-000002,2023-04-29T00:06:00+00:00,2023-04-29T00:31:22+00:00
+S_llm_agent_proxy_0128,AML check,AML Investigator-000001,2023-04-29T00:57:26+00:00,2023-04-29T01:36:19+00:00
+S_llm_agent_proxy_0128,Assess loan risk,Loan Officer-000002,2023-04-29T01:40:02+00:00,2023-04-29T02:00:02+00:00
+S_llm_agent_proxy_0128,Design loan offer,Loan Officer-000004,2023-04-29T02:00:02+00:00,2023-04-29T02:00:42+00:00
+S_llm_agent_proxy_0128,Approve loan offer,Senior Officer-000001,2023-04-29T02:00:42+00:00,2023-04-29T18:20:42+00:00
+S_llm_agent_proxy_0128,Cancel application,Clerk-000006,2023-04-29T18:20:42+00:00,2023-04-29T18:25:42+00:00
+S_llm_agent_proxy_0129,Check application form completeness,Clerk-000006,2023-04-29T00:30:00+00:00,2023-04-29T01:12:12+00:00
+S_llm_agent_proxy_0129,Appraise property,Appraiser-000002,2023-04-29T01:12:12+00:00,2023-04-29T01:43:42+00:00
+S_llm_agent_proxy_0129,AML check,AML Investigator-000002,2023-04-29T01:43:42+00:00,2023-04-29T01:45:44+00:00
+S_llm_agent_proxy_0129,Check credit history,Clerk-000006,2023-04-29T01:45:44+00:00,2023-04-29T03:03:44+00:00
+S_llm_agent_proxy_0129,Assess loan risk,Loan Officer-000003,2023-04-29T03:39:55+00:00,2023-04-29T03:59:55+00:00
+S_llm_agent_proxy_0129,Reject application,Clerk-000005,2023-04-29T03:59:55+00:00,2023-04-29T04:09:55+00:00
+S_llm_agent_proxy_0130,Check application form completeness,Clerk-000002,2023-04-29T01:00:00+00:00,2023-04-29T01:16:35+00:00
+S_llm_agent_proxy_0130,Check credit history,Clerk-000005,2023-04-29T01:16:35+00:00,2023-04-29T01:21:35+00:00
+S_llm_agent_proxy_0130,AML check,AML Investigator-000001,2023-04-29T02:15:29+00:00,2023-04-29T03:56:08+00:00
+S_llm_agent_proxy_0130,Appraise property,Appraiser-000002,2023-04-29T03:56:08+00:00,2023-04-29T03:56:32+00:00
+S_llm_agent_proxy_0130,Assess loan risk,Loan Officer-000001,2023-04-29T04:55:12+00:00,2023-04-29T05:15:12+00:00
+S_llm_agent_proxy_0130,Design loan offer,Loan Officer-000002,2023-04-29T05:15:12+00:00,2023-04-29T05:30:33+00:00
+S_llm_agent_proxy_0130,Approve loan offer,Senior Officer-000001,2023-04-29T05:30:33+00:00,2023-04-29T05:50:33+00:00
+S_llm_agent_proxy_0130,Cancel application,Clerk-000008,2023-04-29T05:50:33+00:00,2023-04-29T05:55:33+00:00
+S_llm_agent_proxy_0131,Check application form completeness,Clerk-000002,2023-04-29T01:30:00+00:00,2023-04-29T03:00:23+00:00
+S_llm_agent_proxy_0131,Check credit history,Clerk-000001,2023-04-29T03:00:23+00:00,2023-04-29T03:00:37+00:00
+S_llm_agent_proxy_0131,Appraise property,Appraiser-000001,2023-04-29T03:00:37+00:00,2023-04-29T03:22:23+00:00
+S_llm_agent_proxy_0131,AML check,AML Investigator-000002,2023-04-29T03:22:23+00:00,2023-04-29T03:30:03+00:00
+S_llm_agent_proxy_0131,Assess loan risk,Loan Officer-000003,2023-04-29T03:46:51+00:00,2023-04-29T04:06:51+00:00
+S_llm_agent_proxy_0131,Reject application,Clerk-000005,2023-04-29T04:06:51+00:00,2023-04-29T04:16:51+00:00
+S_llm_agent_proxy_0132,Check application form completeness,Clerk-000001,2023-04-29T02:00:00+00:00,2023-04-29T02:38:52+00:00
+S_llm_agent_proxy_0132,AML check,AML Investigator-000002,2023-04-29T02:38:52+00:00,2023-04-29T02:51:13+00:00
+S_llm_agent_proxy_0132,Appraise property,Appraiser-000001,2023-04-29T02:51:13+00:00,2023-04-29T02:56:52+00:00
+S_llm_agent_proxy_0132,Check credit history,Clerk-000005,2023-04-29T02:56:52+00:00,2023-04-29T03:07:20+00:00
+S_llm_agent_proxy_0132,Assess loan risk,Loan Officer-000004,2023-04-29T04:18:57+00:00,2023-04-29T04:38:57+00:00
+S_llm_agent_proxy_0132,Design loan offer,Loan Officer-000002,2023-04-29T04:38:57+00:00,2023-04-29T04:49:29+00:00
+S_llm_agent_proxy_0132,Approve loan offer,Senior Officer-000001,2023-04-29T04:49:29+00:00,2023-04-29T05:09:29+00:00
+S_llm_agent_proxy_0132,Cancel application,Clerk-000005,2023-04-29T05:09:29+00:00,2023-04-29T05:14:29+00:00
+S_llm_agent_proxy_0133,Check application form completeness,Clerk-000003,2023-04-29T02:30:00+00:00,2023-04-29T19:11:03+00:00
+S_llm_agent_proxy_0133,AML check,AML Investigator-000001,2023-04-29T19:11:03+00:00,2023-04-29T19:47:11+00:00
+S_llm_agent_proxy_0133,Check credit history,Clerk-000002,2023-04-29T19:47:11+00:00,2023-04-29T19:56:31+00:00
+S_llm_agent_proxy_0133,Appraise property,Appraiser-000002,2023-04-29T19:56:31+00:00,2023-04-29T20:22:25+00:00
+S_llm_agent_proxy_0133,Assess loan risk,Loan Officer-000003,2023-04-29T20:22:25+00:00,2023-04-29T20:42:25+00:00
+S_llm_agent_proxy_0133,Design loan offer,Loan Officer-000002,2023-04-29T20:42:25+00:00,2023-04-29T20:55:06+00:00
+S_llm_agent_proxy_0133,Approve loan offer,Senior Officer-000001,2023-04-29T20:55:06+00:00,2023-04-29T21:15:06+00:00
+S_llm_agent_proxy_0133,Approve application,Clerk-000001,2023-04-29T21:15:06+00:00,2023-04-29T21:20:06+00:00
+S_llm_agent_proxy_0134,Check application form completeness,Clerk-000007,2023-04-29T03:00:00+00:00,2023-04-29T03:02:53+00:00
+S_llm_agent_proxy_0134,AML check,AML Investigator-000001,2023-04-29T03:02:53+00:00,2023-04-29T03:08:06+00:00
+S_llm_agent_proxy_0134,Appraise property,Appraiser-000001,2023-04-29T03:08:06+00:00,2023-04-29T04:18:25+00:00
+S_llm_agent_proxy_0134,Check credit history,Clerk-000004,2023-04-29T04:18:25+00:00,2023-04-29T05:38:44+00:00
+S_llm_agent_proxy_0134,Assess loan risk,Loan Officer-000002,2023-04-29T06:50:20+00:00,2023-04-29T07:10:20+00:00
+S_llm_agent_proxy_0134,Reject application,Clerk-000003,2023-04-29T07:10:20+00:00,2023-04-29T07:20:20+00:00
+S_llm_agent_proxy_0135,Check application form completeness,Clerk-000004,2023-04-29T19:30:00+00:00,2023-04-29T19:51:41+00:00
+S_llm_agent_proxy_0135,Check credit history,Clerk-000007,2023-04-29T19:51:41+00:00,2023-04-29T20:10:53+00:00
+S_llm_agent_proxy_0135,Appraise property,Appraiser-000002,2023-04-29T20:10:53+00:00,2023-04-29T20:58:07+00:00
+S_llm_agent_proxy_0135,AML check,AML Investigator-000001,2023-04-29T20:58:07+00:00,2023-04-29T21:45:18+00:00
+S_llm_agent_proxy_0135,Assess loan risk,Loan Officer-000002,2023-04-29T21:53:19+00:00,2023-04-29T22:13:19+00:00
+S_llm_agent_proxy_0135,Reject application,Clerk-000008,2023-04-29T22:13:19+00:00,2023-04-29T22:23:19+00:00
+S_llm_agent_proxy_0136,Check application form completeness,Clerk-000004,2023-04-30T12:00:00+00:00,2023-04-30T12:24:26+00:00
+S_llm_agent_proxy_0136,Check credit history,Clerk-000001,2023-04-30T12:24:26+00:00,2023-04-30T12:47:53+00:00
+S_llm_agent_proxy_0136,AML check,AML Investigator-000002,2023-04-30T12:47:53+00:00,2023-05-01T05:39:39+00:00
+S_llm_agent_proxy_0136,Appraise property,Appraiser-000001,2023-05-01T05:39:39+00:00,2023-05-01T06:01:53+00:00
+S_llm_agent_proxy_0136,Assess loan risk,Loan Officer-000004,2023-05-01T06:01:53+00:00,2023-05-01T06:21:53+00:00
+S_llm_agent_proxy_0136,Reject application,Clerk-000005,2023-05-01T06:21:53+00:00,2023-05-01T06:31:53+00:00
+S_llm_agent_proxy_0137,Check application form completeness,Clerk-000003,2023-04-30T12:30:00+00:00,2023-04-30T12:51:30+00:00
+S_llm_agent_proxy_0137,Return application back to applicant,Clerk-000008,2023-04-30T12:51:30+00:00,2023-04-30T12:56:30+00:00
+S_llm_agent_proxy_0137,Applicant completes form,Applicant-000001,2023-04-30T13:04:50+00:00,2023-04-30T14:04:50+00:00
+S_llm_agent_proxy_0137,Check application form completeness,Clerk-000005,2023-04-30T14:04:50+00:00,2023-04-30T14:34:09+00:00
+S_llm_agent_proxy_0137,AML check,AML Investigator-000001,2023-04-30T14:34:09+00:00,2023-05-01T07:25:31+00:00
+S_llm_agent_proxy_0137,Check credit history,Clerk-000007,2023-05-01T07:25:31+00:00,2023-05-01T08:09:41+00:00
+S_llm_agent_proxy_0137,Appraise property,Appraiser-000001,2023-05-01T08:09:41+00:00,2023-05-01T09:00:33+00:00
+S_llm_agent_proxy_0137,Assess loan risk,Loan Officer-000004,2023-05-01T09:00:33+00:00,2023-05-01T09:20:33+00:00
+S_llm_agent_proxy_0137,Design loan offer,Loan Officer-000003,2023-05-01T09:20:33+00:00,2023-05-01T09:24:28+00:00
+S_llm_agent_proxy_0137,Approve loan offer,Senior Officer-000002,2023-05-01T09:24:28+00:00,2023-05-01T09:44:28+00:00
+S_llm_agent_proxy_0137,Cancel application,Clerk-000004,2023-05-01T09:44:28+00:00,2023-05-01T09:49:28+00:00
+S_llm_agent_proxy_0138,Check application form completeness,Clerk-000002,2023-04-30T13:00:00+00:00,2023-04-30T13:18:34+00:00
+S_llm_agent_proxy_0138,Check credit history,Clerk-000008,2023-04-30T13:18:34+00:00,2023-05-03T06:54:15+00:00
+S_llm_agent_proxy_0138,AML check,AML Investigator-000002,2023-05-03T06:54:15+00:00,2023-05-03T07:56:58+00:00
+S_llm_agent_proxy_0138,Appraise property,Appraiser-000002,2023-05-03T07:56:58+00:00,2023-05-03T08:17:47+00:00
+S_llm_agent_proxy_0138,Assess loan risk,Loan Officer-000002,2023-05-03T08:23:07+00:00,2023-05-03T08:43:07+00:00
+S_llm_agent_proxy_0138,Design loan offer,Loan Officer-000001,2023-05-03T08:43:07+00:00,2023-05-03T08:45:11+00:00
+S_llm_agent_proxy_0138,Approve loan offer,Senior Officer-000002,2023-05-03T08:45:11+00:00,2023-05-03T09:05:11+00:00
+S_llm_agent_proxy_0138,Approve application,Clerk-000001,2023-05-03T09:05:11+00:00,2023-05-03T09:10:11+00:00
+S_llm_agent_proxy_0139,Check application form completeness,Clerk-000001,2023-04-30T13:30:00+00:00,2023-04-30T13:44:49+00:00
+S_llm_agent_proxy_0139,Appraise property,Appraiser-000002,2023-04-30T13:44:49+00:00,2023-04-30T13:46:00+00:00
+S_llm_agent_proxy_0139,AML check,AML Investigator-000002,2023-04-30T13:46:00+00:00,2023-04-30T14:16:05+00:00
+S_llm_agent_proxy_0139,Check credit history,Clerk-000008,2023-04-30T14:16:05+00:00,2023-04-30T14:32:42+00:00
+S_llm_agent_proxy_0139,Assess loan risk,Loan Officer-000001,2023-04-30T15:13:51+00:00,2023-05-03T07:33:51+00:00
+S_llm_agent_proxy_0139,Design loan offer,Loan Officer-000002,2023-05-03T07:33:51+00:00,2023-05-03T07:34:47+00:00
+S_llm_agent_proxy_0139,Approve loan offer,Senior Officer-000002,2023-05-03T07:34:47+00:00,2023-05-03T07:54:47+00:00
+S_llm_agent_proxy_0139,Cancel application,Clerk-000005,2023-05-03T07:54:47+00:00,2023-05-03T07:59:47+00:00
+S_llm_agent_proxy_0140,Check application form completeness,Clerk-000004,2023-04-30T14:00:00+00:00,2023-05-01T06:00:44+00:00
+S_llm_agent_proxy_0140,AML check,AML Investigator-000002,2023-05-01T06:00:44+00:00,2023-05-01T06:02:18+00:00
+S_llm_agent_proxy_0140,Check credit history,Clerk-000002,2023-05-01T06:02:18+00:00,2023-05-01T06:22:11+00:00
+S_llm_agent_proxy_0140,Appraise property,Appraiser-000001,2023-05-01T06:22:11+00:00,2023-05-01T06:38:12+00:00
+S_llm_agent_proxy_0140,Assess loan risk,Loan Officer-000004,2023-05-01T06:38:12+00:00,2023-05-01T06:58:12+00:00
+S_llm_agent_proxy_0140,Reject application,Clerk-000006,2023-05-01T06:58:12+00:00,2023-05-01T07:08:12+00:00
+S_llm_agent_proxy_0141,Check application form completeness,Clerk-000006,2023-04-30T14:30:00+00:00,2023-04-30T15:19:08+00:00
+S_llm_agent_proxy_0141,Check credit history,Clerk-000004,2023-04-30T15:19:08+00:00,2023-04-30T16:04:08+00:00
+S_llm_agent_proxy_0141,AML check,AML Investigator-000002,2023-04-30T16:04:08+00:00,2023-04-30T16:06:16+00:00
+S_llm_agent_proxy_0141,Appraise property,Appraiser-000001,2023-04-30T16:06:16+00:00,2023-04-30T16:19:31+00:00
+S_llm_agent_proxy_0141,Assess loan risk,Loan Officer-000002,2023-05-01T09:58:18+00:00,2023-05-01T10:18:18+00:00
+S_llm_agent_proxy_0141,Design loan offer,Loan Officer-000003,2023-05-01T10:18:18+00:00,2023-05-01T10:45:49+00:00
+S_llm_agent_proxy_0141,Approve loan offer,Senior Officer-000002,2023-05-01T10:45:49+00:00,2023-05-01T11:05:49+00:00
+S_llm_agent_proxy_0141,Approve application,Clerk-000005,2023-05-01T11:05:49+00:00,2023-05-01T11:10:49+00:00
+S_llm_agent_proxy_0142,Check application form completeness,Clerk-000008,2023-04-30T15:00:00+00:00,2023-04-30T15:10:41+00:00
+S_llm_agent_proxy_0142,Appraise property,Appraiser-000001,2023-04-30T15:10:41+00:00,2023-04-30T16:39:55+00:00
+S_llm_agent_proxy_0142,Check credit history,Clerk-000002,2023-04-30T16:39:55+00:00,2023-04-30T16:40:51+00:00
+S_llm_agent_proxy_0142,AML check,AML Investigator-000002,2023-04-30T16:40:51+00:00,2023-04-30T16:55:00+00:00
+S_llm_agent_proxy_0142,Assess loan risk,Loan Officer-000001,2023-04-30T16:55:00+00:00,2023-04-30T17:15:00+00:00
+S_llm_agent_proxy_0142,Reject application,Clerk-000007,2023-04-30T17:15:00+00:00,2023-04-30T17:25:00+00:00
+S_llm_agent_proxy_0143,Check application form completeness,Clerk-000003,2023-04-30T15:30:00+00:00,2023-04-30T15:51:30+00:00
+S_llm_agent_proxy_0143,AML check,AML Investigator-000001,2023-04-30T15:51:30+00:00,2023-04-30T16:04:50+00:00
+S_llm_agent_proxy_0143,Check credit history,Clerk-000005,2023-04-30T16:04:50+00:00,2023-04-30T16:49:17+00:00
+S_llm_agent_proxy_0143,Appraise property,Appraiser-000002,2023-04-30T16:49:17+00:00,2023-04-30T17:37:13+00:00
+S_llm_agent_proxy_0143,Assess loan risk,Loan Officer-000002,2023-04-30T17:37:13+00:00,2023-04-30T17:57:13+00:00
+S_llm_agent_proxy_0143,Design loan offer,Loan Officer-000001,2023-04-30T17:57:13+00:00,2023-04-30T18:14:38+00:00
+S_llm_agent_proxy_0143,Approve loan offer,Senior Officer-000001,2023-04-30T18:14:38+00:00,2023-04-30T18:34:38+00:00
+S_llm_agent_proxy_0143,Cancel application,Clerk-000002,2023-04-30T18:34:38+00:00,2023-04-30T18:39:38+00:00
+S_llm_agent_proxy_0144,Check application form completeness,Clerk-000003,2023-04-30T16:00:00+00:00,2023-04-30T16:44:54+00:00
+S_llm_agent_proxy_0144,Return application back to applicant,Clerk-000008,2023-04-30T16:44:54+00:00,2023-04-30T16:49:54+00:00
+S_llm_agent_proxy_0144,Applicant completes form,Applicant-000001,2023-04-30T16:49:54+00:00,2023-04-30T17:49:54+00:00
+S_llm_agent_proxy_0144,Check application form completeness,Clerk-000005,2023-04-30T17:49:54+00:00,2023-04-30T18:17:40+00:00
+S_llm_agent_proxy_0144,Appraise property,Appraiser-000001,2023-04-30T18:17:40+00:00,2023-04-30T18:25:25+00:00
+S_llm_agent_proxy_0144,Check credit history,Clerk-000004,2023-04-30T18:25:25+00:00,2023-04-30T18:48:16+00:00
+S_llm_agent_proxy_0144,AML check,AML Investigator-000002,2023-04-30T18:48:16+00:00,2023-04-30T19:03:01+00:00
+S_llm_agent_proxy_0144,Assess loan risk,Loan Officer-000003,2023-04-30T19:03:01+00:00,2023-04-30T19:23:01+00:00
+S_llm_agent_proxy_0144,Design loan offer,Loan Officer-000001,2023-04-30T19:23:01+00:00,2023-04-30T19:30:39+00:00
+S_llm_agent_proxy_0144,Approve loan offer,Senior Officer-000002,2023-04-30T19:30:39+00:00,2023-04-30T19:50:39+00:00
+S_llm_agent_proxy_0144,Cancel application,Clerk-000007,2023-04-30T19:50:39+00:00,2023-04-30T19:55:39+00:00
+S_llm_agent_proxy_0145,Check application form completeness,Clerk-000007,2023-04-30T16:30:00+00:00,2023-04-30T16:36:21+00:00
+S_llm_agent_proxy_0145,AML check,AML Investigator-000002,2023-04-30T16:36:21+00:00,2023-04-30T16:37:12+00:00
+S_llm_agent_proxy_0145,Check credit history,Clerk-000002,2023-04-30T16:37:12+00:00,2023-04-30T17:50:25+00:00
+S_llm_agent_proxy_0145,Appraise property,Appraiser-000001,2023-04-30T17:50:25+00:00,2023-04-30T18:07:35+00:00
+S_llm_agent_proxy_0145,Assess loan risk,Loan Officer-000002,2023-04-30T18:07:35+00:00,2023-04-30T18:27:35+00:00
+S_llm_agent_proxy_0145,Design loan offer,Loan Officer-000001,2023-04-30T18:27:35+00:00,2023-04-30T18:42:49+00:00
+S_llm_agent_proxy_0145,Approve loan offer,Senior Officer-000001,2023-04-30T18:42:49+00:00,2023-04-30T19:02:49+00:00
+S_llm_agent_proxy_0145,Cancel application,Clerk-000006,2023-04-30T19:02:49+00:00,2023-04-30T19:07:49+00:00
+S_llm_agent_proxy_0146,Check application form completeness,Clerk-000007,2023-04-30T17:00:00+00:00,2023-04-30T17:19:41+00:00
+S_llm_agent_proxy_0146,AML check,AML Investigator-000002,2023-04-30T17:19:41+00:00,2023-04-30T17:20:51+00:00
+S_llm_agent_proxy_0146,Check credit history,Clerk-000004,2023-04-30T17:20:51+00:00,2023-04-30T17:24:22+00:00
+S_llm_agent_proxy_0146,Appraise property,Appraiser-000001,2023-04-30T17:24:22+00:00,2023-04-30T17:27:27+00:00
+S_llm_agent_proxy_0146,Assess loan risk,Loan Officer-000002,2023-04-30T17:27:27+00:00,2023-04-30T17:47:27+00:00
+S_llm_agent_proxy_0146,Reject application,Clerk-000006,2023-04-30T17:47:27+00:00,2023-04-30T17:57:27+00:00
+S_llm_agent_proxy_0147,Check application form completeness,Clerk-000008,2023-04-30T17:30:00+00:00,2023-04-30T17:39:41+00:00
+S_llm_agent_proxy_0147,AML check,AML Investigator-000002,2023-04-30T17:39:41+00:00,2023-04-30T17:59:03+00:00
+S_llm_agent_proxy_0147,Check credit history,Clerk-000001,2023-04-30T17:59:03+00:00,2023-05-01T11:16:53+00:00
+S_llm_agent_proxy_0147,Appraise property,Appraiser-000001,2023-05-01T11:28:16+00:00,2023-05-01T11:37:21+00:00
+S_llm_agent_proxy_0147,Assess loan risk,Loan Officer-000002,2023-05-01T12:05:54+00:00,2023-05-01T12:25:54+00:00
+S_llm_agent_proxy_0147,Design loan offer,Loan Officer-000003,2023-05-01T12:25:54+00:00,2023-05-01T13:02:53+00:00
+S_llm_agent_proxy_0147,Approve loan offer,Senior Officer-000001,2023-05-01T13:02:53+00:00,2023-05-01T13:22:53+00:00
+S_llm_agent_proxy_0147,Approve application,Clerk-000006,2023-05-01T13:22:53+00:00,2023-05-01T13:27:53+00:00
+S_llm_agent_proxy_0148,Check application form completeness,Clerk-000006,2023-04-30T18:00:00+00:00,2023-04-30T18:21:07+00:00
+S_llm_agent_proxy_0148,AML check,AML Investigator-000001,2023-04-30T18:21:07+00:00,2023-04-30T18:42:04+00:00
+S_llm_agent_proxy_0148,Check credit history,Clerk-000007,2023-04-30T18:42:04+00:00,2023-04-30T19:17:46+00:00
+S_llm_agent_proxy_0148,Appraise property,Appraiser-000002,2023-04-30T19:17:46+00:00,2023-05-03T11:36:32+00:00
+S_llm_agent_proxy_0148,Assess loan risk,Loan Officer-000003,2023-05-03T11:36:32+00:00,2023-05-03T11:56:32+00:00
+S_llm_agent_proxy_0148,Design loan offer,Loan Officer-000002,2023-05-03T11:56:32+00:00,2023-05-03T11:59:35+00:00
+S_llm_agent_proxy_0148,Approve loan offer,Senior Officer-000001,2023-05-03T11:59:35+00:00,2023-05-03T12:19:35+00:00
+S_llm_agent_proxy_0148,Approve application,Clerk-000001,2023-05-03T12:19:35+00:00,2023-05-03T12:24:35+00:00
+S_llm_agent_proxy_0149,Check application form completeness,Clerk-000005,2023-04-30T18:30:00+00:00,2023-04-30T18:36:08+00:00
+S_llm_agent_proxy_0149,AML check,AML Investigator-000002,2023-04-30T18:36:08+00:00,2023-04-30T19:08:18+00:00
+S_llm_agent_proxy_0149,Check credit history,Clerk-000008,2023-04-30T19:08:18+00:00,2023-04-30T19:13:54+00:00
+S_llm_agent_proxy_0149,Appraise property,Appraiser-000002,2023-04-30T19:13:54+00:00,2023-04-30T20:02:54+00:00
+S_llm_agent_proxy_0149,Assess loan risk,Loan Officer-000001,2023-04-30T20:03:55+00:00,2023-04-30T20:23:55+00:00
+S_llm_agent_proxy_0149,Design loan offer,Loan Officer-000003,2023-04-30T20:23:55+00:00,2023-04-30T20:51:52+00:00
+S_llm_agent_proxy_0149,Approve loan offer,Senior Officer-000002,2023-04-30T20:51:52+00:00,2023-04-30T21:11:52+00:00
+S_llm_agent_proxy_0149,Cancel application,Clerk-000002,2023-04-30T21:11:52+00:00,2023-04-30T21:16:52+00:00
+S_llm_agent_proxy_0150,Check application form completeness,Clerk-000003,2023-04-30T19:00:00+00:00,2023-04-30T19:10:05+00:00
+S_llm_agent_proxy_0150,AML check,AML Investigator-000001,2023-04-30T19:10:05+00:00,2023-04-30T20:12:49+00:00
+S_llm_agent_proxy_0150,Check credit history,Clerk-000003,2023-04-30T20:12:49+00:00,2023-04-30T21:10:23+00:00
+S_llm_agent_proxy_0150,Appraise property,Appraiser-000002,2023-04-30T21:10:23+00:00,2023-04-30T21:24:22+00:00
+S_llm_agent_proxy_0150,Assess loan risk,Loan Officer-000001,2023-04-30T21:24:22+00:00,2023-04-30T21:44:22+00:00
+S_llm_agent_proxy_0150,Design loan offer,Loan Officer-000003,2023-04-30T21:45:25+00:00,2023-04-30T21:51:15+00:00
+S_llm_agent_proxy_0150,Approve loan offer,Senior Officer-000001,2023-04-30T21:51:15+00:00,2023-04-30T22:11:15+00:00
+S_llm_agent_proxy_0150,Cancel application,Clerk-000001,2023-04-30T22:11:15+00:00,2023-04-30T22:16:15+00:00
+S_llm_agent_proxy_0151,Check application form completeness,Clerk-000002,2023-04-30T19:30:00+00:00,2023-04-30T20:09:21+00:00
+S_llm_agent_proxy_0151,AML check,AML Investigator-000002,2023-04-30T20:09:21+00:00,2023-04-30T20:14:31+00:00
+S_llm_agent_proxy_0151,Check credit history,Clerk-000001,2023-04-30T20:14:31+00:00,2023-04-30T20:56:53+00:00
+S_llm_agent_proxy_0151,Appraise property,Appraiser-000002,2023-04-30T20:56:53+00:00,2023-04-30T21:15:23+00:00
+S_llm_agent_proxy_0151,Assess loan risk,Loan Officer-000004,2023-04-30T21:15:23+00:00,2023-04-30T21:35:23+00:00
+S_llm_agent_proxy_0151,Design loan offer,Loan Officer-000002,2023-04-30T21:35:23+00:00,2023-04-30T21:55:30+00:00
+S_llm_agent_proxy_0151,Approve loan offer,Senior Officer-000002,2023-04-30T21:55:30+00:00,2023-04-30T22:15:30+00:00
+S_llm_agent_proxy_0151,Approve application,Clerk-000006,2023-04-30T22:15:30+00:00,2023-04-30T22:20:30+00:00
+S_llm_agent_proxy_0152,Check application form completeness,Clerk-000001,2023-04-30T20:00:00+00:00,2023-04-30T21:01:44+00:00
+S_llm_agent_proxy_0152,Check credit history,Clerk-000007,2023-04-30T21:01:44+00:00,2023-04-30T21:16:24+00:00
+S_llm_agent_proxy_0152,AML check,AML Investigator-000002,2023-04-30T21:16:24+00:00,2023-04-30T21:19:52+00:00
+S_llm_agent_proxy_0152,Appraise property,Appraiser-000001,2023-04-30T21:19:52+00:00,2023-04-30T22:37:14+00:00
+S_llm_agent_proxy_0152,Assess loan risk,Loan Officer-000002,2023-04-30T22:37:14+00:00,2023-04-30T22:57:14+00:00
+S_llm_agent_proxy_0152,Reject application,Clerk-000002,2023-04-30T22:57:14+00:00,2023-04-30T23:07:14+00:00
+S_llm_agent_proxy_0153,Check application form completeness,Clerk-000006,2023-04-30T20:30:00+00:00,2023-04-30T20:36:45+00:00
+S_llm_agent_proxy_0153,AML check,AML Investigator-000002,2023-04-30T20:36:45+00:00,2023-04-30T20:39:48+00:00
+S_llm_agent_proxy_0153,Check credit history,Clerk-000002,2023-04-30T20:39:48+00:00,2023-04-30T20:43:12+00:00
+S_llm_agent_proxy_0153,Appraise property,Appraiser-000002,2023-04-30T20:43:12+00:00,2023-04-30T21:23:41+00:00
+S_llm_agent_proxy_0153,Assess loan risk,Loan Officer-000001,2023-04-30T21:45:00+00:00,2023-04-30T22:05:00+00:00
+S_llm_agent_proxy_0153,Design loan offer,Loan Officer-000003,2023-04-30T22:05:00+00:00,2023-04-30T22:06:57+00:00
+S_llm_agent_proxy_0153,Approve loan offer,Senior Officer-000002,2023-04-30T22:25:24+00:00,2023-04-30T22:45:24+00:00
+S_llm_agent_proxy_0153,Approve application,Clerk-000004,2023-04-30T22:45:24+00:00,2023-04-30T22:50:24+00:00
+S_llm_agent_proxy_0154,Check application form completeness,Clerk-000007,2023-05-03T13:00:00+00:00,2023-05-04T05:36:07+00:00
+S_llm_agent_proxy_0154,Appraise property,Appraiser-000001,2023-05-04T05:36:07+00:00,2023-05-04T06:49:06+00:00
+S_llm_agent_proxy_0154,Check credit history,Clerk-000003,2023-05-04T06:49:06+00:00,2023-05-04T06:55:46+00:00
+S_llm_agent_proxy_0154,AML check,AML Investigator-000001,2023-05-04T06:55:46+00:00,2023-05-05T00:22:12+00:00
+S_llm_agent_proxy_0154,Assess loan risk,Loan Officer-000004,2023-05-05T00:22:12+00:00,2023-05-05T00:42:12+00:00
+S_llm_agent_proxy_0154,Design loan offer,Loan Officer-000001,2023-05-05T00:42:12+00:00,2023-05-05T00:55:54+00:00
+S_llm_agent_proxy_0154,Approve loan offer,Senior Officer-000002,2023-05-05T00:55:54+00:00,2023-05-05T01:15:54+00:00
+S_llm_agent_proxy_0154,Cancel application,Clerk-000005,2023-05-05T01:15:54+00:00,2023-05-05T01:20:54+00:00
+S_llm_agent_proxy_0155,Check application form completeness,Clerk-000004,2023-05-03T13:30:00+00:00,2023-05-03T13:38:42+00:00
+S_llm_agent_proxy_0155,Check credit history,Clerk-000007,2023-05-03T13:38:42+00:00,2023-05-03T14:03:35+00:00
+S_llm_agent_proxy_0155,Appraise property,Appraiser-000002,2023-05-03T14:03:35+00:00,2023-05-03T14:15:59+00:00
+S_llm_agent_proxy_0155,AML check,AML Investigator-000001,2023-05-04T06:32:38+00:00,2023-05-04T06:57:27+00:00
+S_llm_agent_proxy_0155,Assess loan risk,Loan Officer-000001,2023-05-04T06:57:27+00:00,2023-05-04T07:17:27+00:00
+S_llm_agent_proxy_0155,Reject application,Clerk-000002,2023-05-04T07:17:27+00:00,2023-05-04T07:27:27+00:00
+S_llm_agent_proxy_0156,Check application form completeness,Clerk-000002,2023-05-03T14:00:00+00:00,2023-05-03T14:15:47+00:00
+S_llm_agent_proxy_0156,Check credit history,Clerk-000005,2023-05-03T14:15:47+00:00,2023-05-03T14:19:42+00:00
+S_llm_agent_proxy_0156,Appraise property,Appraiser-000001,2023-05-03T14:19:42+00:00,2023-05-03T14:40:25+00:00
+S_llm_agent_proxy_0156,AML check,AML Investigator-000001,2023-05-03T14:40:25+00:00,2023-05-03T14:59:29+00:00
+S_llm_agent_proxy_0156,Assess loan risk,Loan Officer-000004,2023-05-03T15:11:26+00:00,2023-05-03T15:31:26+00:00
+S_llm_agent_proxy_0156,Design loan offer,Loan Officer-000002,2023-05-03T15:31:26+00:00,2023-05-03T16:03:56+00:00
+S_llm_agent_proxy_0156,Approve loan offer,Senior Officer-000002,2023-05-03T16:03:56+00:00,2023-05-03T16:23:56+00:00
+S_llm_agent_proxy_0156,Approve application,Clerk-000003,2023-05-03T16:23:56+00:00,2023-05-03T16:28:56+00:00
+S_llm_agent_proxy_0157,Check application form completeness,Clerk-000002,2023-05-04T06:30:00+00:00,2023-05-04T06:44:42+00:00
+S_llm_agent_proxy_0157,Return application back to applicant,Clerk-000008,2023-05-04T06:44:42+00:00,2023-05-04T06:49:42+00:00
+S_llm_agent_proxy_0157,Applicant completes form,Applicant-000001,2023-05-04T06:49:42+00:00,2023-05-04T07:49:42+00:00
+S_llm_agent_proxy_0157,Check application form completeness,Clerk-000003,2023-05-04T07:49:42+00:00,2023-05-04T07:49:55+00:00
+S_llm_agent_proxy_0157,Appraise property,Appraiser-000001,2023-05-04T07:49:55+00:00,2023-05-04T08:19:21+00:00
+S_llm_agent_proxy_0157,Check credit history,Clerk-000005,2023-05-04T08:19:21+00:00,2023-05-05T00:36:41+00:00
+S_llm_agent_proxy_0157,AML check,AML Investigator-000001,2023-05-05T00:36:41+00:00,2023-05-05T01:21:57+00:00
+S_llm_agent_proxy_0157,Assess loan risk,Loan Officer-000002,2023-05-05T01:33:21+00:00,2023-05-05T01:53:21+00:00
+S_llm_agent_proxy_0157,Reject application,Clerk-000006,2023-05-05T01:53:21+00:00,2023-05-05T02:03:21+00:00
+S_llm_agent_proxy_0158,Check application form completeness,Clerk-000002,2023-05-04T07:00:00+00:00,2023-05-04T07:13:17+00:00
+S_llm_agent_proxy_0158,Appraise property,Appraiser-000002,2023-05-04T07:13:17+00:00,2023-05-04T07:18:10+00:00
+S_llm_agent_proxy_0158,AML check,AML Investigator-000002,2023-05-04T07:18:10+00:00,2023-05-04T07:18:59+00:00
+S_llm_agent_proxy_0158,Check credit history,Clerk-000003,2023-05-04T07:18:59+00:00,2023-05-04T07:32:32+00:00
+S_llm_agent_proxy_0158,Assess loan risk,Loan Officer-000002,2023-05-04T07:32:32+00:00,2023-05-04T07:52:32+00:00
+S_llm_agent_proxy_0158,Reject application,Clerk-000007,2023-05-04T07:52:32+00:00,2023-05-04T08:02:32+00:00
+S_llm_agent_proxy_0159,Check application form completeness,Clerk-000007,2023-05-04T07:30:00+00:00,2023-05-04T07:41:58+00:00
+S_llm_agent_proxy_0159,AML check,AML Investigator-000002,2023-05-04T07:41:58+00:00,2023-05-04T08:21:29+00:00
+S_llm_agent_proxy_0159,Check credit history,Clerk-000002,2023-05-04T08:21:29+00:00,2023-05-04T08:49:10+00:00
+S_llm_agent_proxy_0159,Appraise property,Appraiser-000002,2023-05-04T08:49:10+00:00,2023-05-04T09:02:18+00:00
+S_llm_agent_proxy_0159,Assess loan risk,Loan Officer-000004,2023-05-04T09:02:18+00:00,2023-05-04T09:22:18+00:00
+S_llm_agent_proxy_0159,Reject application,Clerk-000005,2023-05-04T09:22:18+00:00,2023-05-04T09:32:18+00:00
+S_llm_agent_proxy_0160,Check application form completeness,Clerk-000007,2023-05-04T08:00:00+00:00,2023-05-05T00:41:20+00:00
+S_llm_agent_proxy_0160,Appraise property,Appraiser-000001,2023-05-05T00:41:20+00:00,2023-05-05T01:20:18+00:00
+S_llm_agent_proxy_0160,Check credit history,Clerk-000007,2023-05-05T01:20:18+00:00,2023-05-05T01:56:33+00:00
+S_llm_agent_proxy_0160,AML check,AML Investigator-000002,2023-05-05T01:56:33+00:00,2023-05-05T02:00:54+00:00
+S_llm_agent_proxy_0160,Assess loan risk,Loan Officer-000003,2023-05-05T02:00:54+00:00,2023-05-05T02:20:54+00:00
+S_llm_agent_proxy_0160,Design loan offer,Loan Officer-000002,2023-05-05T02:20:54+00:00,2023-05-05T02:26:04+00:00
+S_llm_agent_proxy_0160,Approve loan offer,Senior Officer-000001,2023-05-05T02:26:04+00:00,2023-05-05T02:46:04+00:00
+S_llm_agent_proxy_0160,Cancel application,Clerk-000004,2023-05-05T02:46:04+00:00,2023-05-05T02:51:04+00:00
+S_llm_agent_proxy_0161,Check application form completeness,Clerk-000001,2023-05-04T08:30:00+00:00,2023-05-04T08:52:01+00:00
+S_llm_agent_proxy_0161,Appraise property,Appraiser-000001,2023-05-04T08:52:01+00:00,2023-05-04T09:55:04+00:00
+S_llm_agent_proxy_0161,Check credit history,Clerk-000004,2023-05-04T09:55:04+00:00,2023-05-04T10:17:55+00:00
+S_llm_agent_proxy_0161,AML check,AML Investigator-000002,2023-05-04T10:17:55+00:00,2023-05-04T10:25:22+00:00
+S_llm_agent_proxy_0161,Assess loan risk,Loan Officer-000004,2023-05-04T10:59:35+00:00,2023-05-04T11:19:35+00:00
+S_llm_agent_proxy_0161,Design loan offer,Loan Officer-000002,2023-05-04T11:19:35+00:00,2023-05-04T11:24:54+00:00
+S_llm_agent_proxy_0161,Approve loan offer,Senior Officer-000001,2023-05-04T11:24:54+00:00,2023-05-04T11:44:54+00:00
+S_llm_agent_proxy_0161,Cancel application,Clerk-000004,2023-05-04T11:44:54+00:00,2023-05-04T11:49:54+00:00
+S_llm_agent_proxy_0162,Check application form completeness,Clerk-000006,2023-05-04T09:00:00+00:00,2023-05-04T09:04:18+00:00
+S_llm_agent_proxy_0162,Check credit history,Clerk-000005,2023-05-04T09:04:18+00:00,2023-05-04T09:07:03+00:00
+S_llm_agent_proxy_0162,AML check,AML Investigator-000001,2023-05-04T09:44:46+00:00,2023-05-04T09:57:51+00:00
+S_llm_agent_proxy_0162,Appraise property,Appraiser-000002,2023-05-04T09:57:51+00:00,2023-05-04T10:04:57+00:00
+S_llm_agent_proxy_0162,Assess loan risk,Loan Officer-000002,2023-05-04T10:04:57+00:00,2023-05-04T10:24:57+00:00
+S_llm_agent_proxy_0162,Design loan offer,Loan Officer-000004,2023-05-04T10:24:57+00:00,2023-05-04T10:26:24+00:00
+S_llm_agent_proxy_0162,Approve loan offer,Senior Officer-000001,2023-05-04T10:26:24+00:00,2023-05-04T10:46:24+00:00
+S_llm_agent_proxy_0162,Approve application,Clerk-000002,2023-05-04T10:46:24+00:00,2023-05-04T10:51:24+00:00
+S_llm_agent_proxy_0163,Check application form completeness,Clerk-000005,2023-05-04T09:30:00+00:00,2023-05-04T09:42:44+00:00
+S_llm_agent_proxy_0163,Check credit history,Clerk-000001,2023-05-04T09:42:44+00:00,2023-05-04T11:09:03+00:00
+S_llm_agent_proxy_0163,Appraise property,Appraiser-000002,2023-05-04T11:09:03+00:00,2023-05-04T12:27:04+00:00
+S_llm_agent_proxy_0163,AML check,AML Investigator-000001,2023-05-04T12:27:04+00:00,2023-05-04T12:27:22+00:00
+S_llm_agent_proxy_0163,Assess loan risk,Loan Officer-000004,2023-05-04T13:11:55+00:00,2023-05-04T13:31:55+00:00
+S_llm_agent_proxy_0163,Design loan offer,Loan Officer-000002,2023-05-04T13:31:55+00:00,2023-05-04T13:32:00+00:00
+S_llm_agent_proxy_0163,Approve loan offer,Senior Officer-000002,2023-05-04T13:32:00+00:00,2023-05-04T13:52:00+00:00
+S_llm_agent_proxy_0163,Approve application,Clerk-000006,2023-05-04T13:52:00+00:00,2023-05-04T13:57:00+00:00
+S_llm_agent_proxy_0164,Check application form completeness,Clerk-000002,2023-05-04T10:00:00+00:00,2023-05-04T10:29:41+00:00
+S_llm_agent_proxy_0164,AML check,AML Investigator-000002,2023-05-04T10:29:41+00:00,2023-05-04T11:01:00+00:00
+S_llm_agent_proxy_0164,Check credit history,Clerk-000005,2023-05-04T11:01:00+00:00,2023-05-04T11:01:34+00:00
+S_llm_agent_proxy_0164,Appraise property,Appraiser-000002,2023-05-04T11:01:34+00:00,2023-05-04T11:08:33+00:00
+S_llm_agent_proxy_0164,Assess loan risk,Loan Officer-000002,2023-05-04T11:50:09+00:00,2023-05-04T12:10:09+00:00
+S_llm_agent_proxy_0164,Design loan offer,Loan Officer-000001,2023-05-04T12:10:09+00:00,2023-05-04T12:10:53+00:00
+S_llm_agent_proxy_0164,Approve loan offer,Senior Officer-000002,2023-05-04T12:10:53+00:00,2023-05-04T12:30:53+00:00
+S_llm_agent_proxy_0164,Approve application,Clerk-000006,2023-05-04T12:30:53+00:00,2023-05-04T12:35:53+00:00
+S_llm_agent_proxy_0165,Check application form completeness,Clerk-000005,2023-05-04T10:30:00+00:00,2023-05-04T10:37:56+00:00
+S_llm_agent_proxy_0165,Appraise property,Appraiser-000001,2023-05-04T10:37:56+00:00,2023-05-04T11:24:56+00:00
+S_llm_agent_proxy_0165,Check credit history,Clerk-000004,2023-05-04T11:24:56+00:00,2023-05-04T11:42:08+00:00
+S_llm_agent_proxy_0165,AML check,AML Investigator-000001,2023-05-04T11:42:08+00:00,2023-05-04T12:10:24+00:00
+S_llm_agent_proxy_0165,Assess loan risk,Loan Officer-000003,2023-05-04T12:10:24+00:00,2023-05-04T12:30:24+00:00
+S_llm_agent_proxy_0165,Reject application,Clerk-000005,2023-05-04T12:30:24+00:00,2023-05-04T12:40:24+00:00
+S_llm_agent_proxy_0166,Check application form completeness,Clerk-000005,2023-05-07T03:00:00+00:00,2023-05-07T03:18:36+00:00
+S_llm_agent_proxy_0166,AML check,AML Investigator-000001,2023-05-07T03:18:36+00:00,2023-05-07T03:34:08+00:00
+S_llm_agent_proxy_0166,Check credit history,Clerk-000001,2023-05-07T03:34:08+00:00,2023-05-07T03:49:02+00:00
+S_llm_agent_proxy_0166,Appraise property,Appraiser-000001,2023-05-07T03:49:02+00:00,2023-05-07T04:09:59+00:00
+S_llm_agent_proxy_0166,Assess loan risk,Loan Officer-000004,2023-05-07T04:32:44+00:00,2023-05-07T04:52:44+00:00
+S_llm_agent_proxy_0166,Design loan offer,Loan Officer-000004,2023-05-07T04:52:44+00:00,2023-05-07T04:53:23+00:00
+S_llm_agent_proxy_0166,Approve loan offer,Senior Officer-000002,2023-05-07T04:53:23+00:00,2023-05-07T05:13:23+00:00
+S_llm_agent_proxy_0166,Cancel application,Clerk-000005,2023-05-07T05:13:23+00:00,2023-05-07T05:18:23+00:00
+S_llm_agent_proxy_0167,Check application form completeness,Clerk-000007,2023-05-07T03:30:00+00:00,2023-05-07T03:40:54+00:00
+S_llm_agent_proxy_0167,AML check,AML Investigator-000002,2023-05-07T03:40:54+00:00,2023-05-07T04:10:16+00:00
+S_llm_agent_proxy_0167,Check credit history,Clerk-000003,2023-05-07T04:10:16+00:00,2023-05-07T04:23:13+00:00
+S_llm_agent_proxy_0167,Appraise property,Appraiser-000002,2023-05-07T04:23:13+00:00,2023-05-07T04:44:15+00:00
+S_llm_agent_proxy_0167,Assess loan risk,Loan Officer-000001,2023-05-07T04:44:15+00:00,2023-05-07T05:04:15+00:00
+S_llm_agent_proxy_0167,Design loan offer,Loan Officer-000002,2023-05-07T05:04:15+00:00,2023-05-07T05:13:59+00:00
+S_llm_agent_proxy_0167,Approve loan offer,Senior Officer-000002,2023-05-07T05:13:59+00:00,2023-05-07T05:33:59+00:00
+S_llm_agent_proxy_0167,Approve application,Clerk-000001,2023-05-07T05:33:59+00:00,2023-05-07T05:38:59+00:00
+S_llm_agent_proxy_0168,Check application form completeness,Clerk-000007,2023-05-07T04:00:00+00:00,2023-05-07T04:00:49+00:00
+S_llm_agent_proxy_0168,Check credit history,Clerk-000008,2023-05-07T04:00:49+00:00,2023-05-07T04:02:09+00:00
+S_llm_agent_proxy_0168,AML check,AML Investigator-000001,2023-05-07T04:02:09+00:00,2023-05-07T05:06:18+00:00
+S_llm_agent_proxy_0168,Appraise property,Appraiser-000001,2023-05-07T05:06:18+00:00,2023-05-07T22:26:16+00:00
+S_llm_agent_proxy_0168,Assess loan risk,Loan Officer-000004,2023-05-07T22:26:16+00:00,2023-05-07T22:46:16+00:00
+S_llm_agent_proxy_0168,Design loan offer,Loan Officer-000001,2023-05-07T22:46:16+00:00,2023-05-07T22:47:59+00:00
+S_llm_agent_proxy_0168,Approve loan offer,Senior Officer-000001,2023-05-07T22:47:59+00:00,2023-05-07T23:07:59+00:00
+S_llm_agent_proxy_0168,Cancel application,Clerk-000007,2023-05-07T23:07:59+00:00,2023-05-07T23:12:59+00:00
+S_llm_agent_proxy_0169,Check application form completeness,Clerk-000007,2023-05-07T04:30:00+00:00,2023-05-07T21:24:34+00:00
+S_llm_agent_proxy_0169,AML check,AML Investigator-000001,2023-05-07T21:24:34+00:00,2023-05-07T21:46:23+00:00
+S_llm_agent_proxy_0169,Check credit history,Clerk-000004,2023-05-07T21:46:23+00:00,2023-05-07T21:51:20+00:00
+S_llm_agent_proxy_0169,Appraise property,Appraiser-000001,2023-05-07T21:51:20+00:00,2023-05-07T22:08:35+00:00
+S_llm_agent_proxy_0169,Assess loan risk,Loan Officer-000003,2023-05-07T22:08:35+00:00,2023-05-07T22:28:35+00:00
+S_llm_agent_proxy_0169,Design loan offer,Loan Officer-000004,2023-05-07T22:28:35+00:00,2023-05-07T22:40:28+00:00
+S_llm_agent_proxy_0169,Approve loan offer,Senior Officer-000001,2023-05-07T22:40:28+00:00,2023-05-07T23:00:28+00:00
+S_llm_agent_proxy_0169,Approve application,Clerk-000002,2023-05-07T23:00:28+00:00,2023-05-07T23:05:28+00:00
+S_llm_agent_proxy_0170,Check application form completeness,Clerk-000002,2023-05-07T05:00:00+00:00,2023-05-07T05:06:50+00:00
+S_llm_agent_proxy_0170,Return application back to applicant,Clerk-000008,2023-05-07T05:06:50+00:00,2023-05-07T05:11:50+00:00
+S_llm_agent_proxy_0170,Applicant completes form,Applicant-000001,2023-05-07T05:11:50+00:00,2023-05-07T06:11:50+00:00
+S_llm_agent_proxy_0170,Check application form completeness,Clerk-000001,2023-05-07T06:11:50+00:00,2023-05-07T22:16:44+00:00
+S_llm_agent_proxy_0170,Check credit history,Clerk-000002,2023-05-07T22:16:44+00:00,2023-05-07T22:24:29+00:00
+S_llm_agent_proxy_0170,AML check,AML Investigator-000001,2023-05-07T22:24:29+00:00,2023-05-07T22:28:21+00:00
+S_llm_agent_proxy_0170,Appraise property,Appraiser-000001,2023-05-07T22:28:21+00:00,2023-05-07T23:15:26+00:00
+S_llm_agent_proxy_0170,Assess loan risk,Loan Officer-000002,2023-05-07T23:15:26+00:00,2023-05-07T23:35:26+00:00
+S_llm_agent_proxy_0170,Design loan offer,Loan Officer-000003,2023-05-07T23:35:26+00:00,2023-05-08T00:03:23+00:00
+S_llm_agent_proxy_0170,Approve loan offer,Senior Officer-000001,2023-05-08T00:03:23+00:00,2023-05-08T00:23:23+00:00
+S_llm_agent_proxy_0170,Cancel application,Clerk-000005,2023-05-08T00:23:23+00:00,2023-05-08T00:28:23+00:00
+S_llm_agent_proxy_0171,Check application form completeness,Clerk-000003,2023-05-07T05:30:00+00:00,2023-05-07T05:40:14+00:00
+S_llm_agent_proxy_0171,AML check,AML Investigator-000002,2023-05-07T05:40:14+00:00,2023-05-07T06:03:30+00:00
+S_llm_agent_proxy_0171,Check credit history,Clerk-000006,2023-05-07T06:03:30+00:00,2023-05-07T08:07:07+00:00
+S_llm_agent_proxy_0171,Appraise property,Appraiser-000001,2023-05-07T08:07:07+00:00,2023-05-07T08:53:36+00:00
+S_llm_agent_proxy_0171,Assess loan risk,Loan Officer-000002,2023-05-07T08:53:36+00:00,2023-05-07T09:13:36+00:00
+S_llm_agent_proxy_0171,Design loan offer,Loan Officer-000003,2023-05-07T09:13:36+00:00,2023-05-07T09:15:26+00:00
+S_llm_agent_proxy_0171,Approve loan offer,Senior Officer-000002,2023-05-07T09:15:26+00:00,2023-05-07T09:35:26+00:00
+S_llm_agent_proxy_0171,Approve application,Clerk-000006,2023-05-07T09:35:26+00:00,2023-05-07T09:40:26+00:00
+S_llm_agent_proxy_0172,Check application form completeness,Clerk-000003,2023-05-07T06:00:00+00:00,2023-05-07T06:44:03+00:00
+S_llm_agent_proxy_0172,Check credit history,Clerk-000002,2023-05-07T06:44:03+00:00,2023-05-07T07:12:31+00:00
+S_llm_agent_proxy_0172,AML check,AML Investigator-000001,2023-05-07T07:12:31+00:00,2023-05-07T07:14:25+00:00
+S_llm_agent_proxy_0172,Appraise property,Appraiser-000002,2023-05-07T07:14:25+00:00,2023-05-07T08:49:36+00:00
+S_llm_agent_proxy_0172,Assess loan risk,Loan Officer-000003,2023-05-07T08:49:36+00:00,2023-05-07T09:09:36+00:00
+S_llm_agent_proxy_0172,Design loan offer,Loan Officer-000001,2023-05-07T09:09:36+00:00,2023-05-07T09:12:20+00:00
+S_llm_agent_proxy_0172,Approve loan offer,Senior Officer-000001,2023-05-07T09:12:20+00:00,2023-05-07T09:32:20+00:00
+S_llm_agent_proxy_0172,Approve application,Clerk-000003,2023-05-07T09:32:20+00:00,2023-05-07T09:37:20+00:00
+S_llm_agent_proxy_0173,Check application form completeness,Clerk-000007,2023-05-07T06:30:00+00:00,2023-05-07T06:48:27+00:00
+S_llm_agent_proxy_0173,AML check,AML Investigator-000001,2023-05-07T06:48:27+00:00,2023-05-07T06:54:18+00:00
+S_llm_agent_proxy_0173,Appraise property,Appraiser-000002,2023-05-07T06:55:10+00:00,2023-05-08T00:25:51+00:00
+S_llm_agent_proxy_0173,Check credit history,Clerk-000008,2023-05-08T00:25:51+00:00,2023-05-08T00:27:15+00:00
+S_llm_agent_proxy_0173,Assess loan risk,Loan Officer-000004,2023-05-08T01:29:25+00:00,2023-05-08T01:49:25+00:00
+S_llm_agent_proxy_0173,Design loan offer,Loan Officer-000001,2023-05-08T01:49:25+00:00,2023-05-08T01:51:07+00:00
+S_llm_agent_proxy_0173,Approve loan offer,Senior Officer-000001,2023-05-08T01:51:07+00:00,2023-05-08T02:11:07+00:00
+S_llm_agent_proxy_0173,Cancel application,Clerk-000005,2023-05-08T02:11:07+00:00,2023-05-08T02:16:07+00:00
+S_llm_agent_proxy_0174,Check application form completeness,Clerk-000008,2023-05-07T07:00:00+00:00,2023-05-07T07:24:39+00:00
+S_llm_agent_proxy_0174,AML check,AML Investigator-000001,2023-05-07T07:24:39+00:00,2023-05-07T07:26:18+00:00
+S_llm_agent_proxy_0174,Check credit history,Clerk-000004,2023-05-07T07:26:18+00:00,2023-05-07T07:43:01+00:00
+S_llm_agent_proxy_0174,Appraise property,Appraiser-000002,2023-05-07T07:43:01+00:00,2023-05-08T00:55:59+00:00
+S_llm_agent_proxy_0174,Assess loan risk,Loan Officer-000002,2023-05-08T01:14:45+00:00,2023-05-08T01:34:45+00:00
+S_llm_agent_proxy_0174,Design loan offer,Loan Officer-000001,2023-05-08T01:34:45+00:00,2023-05-08T01:41:47+00:00
+S_llm_agent_proxy_0174,Approve loan offer,Senior Officer-000001,2023-05-08T01:41:47+00:00,2023-05-08T02:01:47+00:00
+S_llm_agent_proxy_0174,Cancel application,Clerk-000006,2023-05-08T02:01:47+00:00,2023-05-08T02:06:47+00:00
+S_llm_agent_proxy_0175,Check application form completeness,Clerk-000005,2023-05-07T07:30:00+00:00,2023-05-07T23:30:37+00:00
+S_llm_agent_proxy_0175,Appraise property,Appraiser-000002,2023-05-07T23:30:37+00:00,2023-05-08T00:19:59+00:00
+S_llm_agent_proxy_0175,AML check,AML Investigator-000001,2023-05-08T00:19:59+00:00,2023-05-08T00:54:31+00:00
+S_llm_agent_proxy_0175,Check credit history,Clerk-000001,2023-05-08T00:54:31+00:00,2023-05-08T00:59:29+00:00
+S_llm_agent_proxy_0175,Assess loan risk,Loan Officer-000001,2023-05-08T01:37:08+00:00,2023-05-08T01:57:08+00:00
+S_llm_agent_proxy_0175,Design loan offer,Loan Officer-000003,2023-05-08T01:57:08+00:00,2023-05-08T02:07:32+00:00
+S_llm_agent_proxy_0175,Approve loan offer,Senior Officer-000001,2023-05-08T02:07:32+00:00,2023-05-08T02:27:32+00:00
+S_llm_agent_proxy_0175,Cancel application,Clerk-000008,2023-05-08T02:27:32+00:00,2023-05-08T02:32:32+00:00
+S_llm_agent_proxy_0176,Check application form completeness,Clerk-000004,2023-05-07T08:00:00+00:00,2023-05-08T00:36:33+00:00
+S_llm_agent_proxy_0176,Check credit history,Clerk-000002,2023-05-08T00:36:33+00:00,2023-05-08T00:56:26+00:00
+S_llm_agent_proxy_0176,AML check,AML Investigator-000001,2023-05-08T00:56:26+00:00,2023-05-08T19:57:55+00:00
+S_llm_agent_proxy_0176,Appraise property,Appraiser-000002,2023-05-08T19:57:55+00:00,2023-05-08T20:08:04+00:00
+S_llm_agent_proxy_0176,Assess loan risk,Loan Officer-000004,2023-05-08T20:18:42+00:00,2023-05-08T20:38:42+00:00
+S_llm_agent_proxy_0176,Design loan offer,Loan Officer-000001,2023-05-08T20:38:42+00:00,2023-05-08T20:55:19+00:00
+S_llm_agent_proxy_0176,Approve loan offer,Senior Officer-000001,2023-05-08T20:55:19+00:00,2023-05-08T21:15:19+00:00
+S_llm_agent_proxy_0176,Approve application,Clerk-000003,2023-05-08T21:15:19+00:00,2023-05-08T21:20:19+00:00
+S_llm_agent_proxy_0177,Check application form completeness,Clerk-000001,2023-05-07T08:30:00+00:00,2023-05-07T09:04:23+00:00
+S_llm_agent_proxy_0177,AML check,AML Investigator-000001,2023-05-07T09:04:23+00:00,2023-05-07T09:38:16+00:00
+S_llm_agent_proxy_0177,Appraise property,Appraiser-000001,2023-05-07T09:38:16+00:00,2023-05-07T10:02:01+00:00
+S_llm_agent_proxy_0177,Check credit history,Clerk-000008,2023-05-07T10:02:01+00:00,2023-05-07T10:09:24+00:00
+S_llm_agent_proxy_0177,Assess loan risk,Loan Officer-000002,2023-05-07T11:50:47+00:00,2023-05-07T12:10:47+00:00
+S_llm_agent_proxy_0177,Design loan offer,Loan Officer-000001,2023-05-07T12:10:47+00:00,2023-05-07T12:20:31+00:00
+S_llm_agent_proxy_0177,Approve loan offer,Senior Officer-000002,2023-05-07T12:20:31+00:00,2023-05-07T12:40:31+00:00
+S_llm_agent_proxy_0177,Approve application,Clerk-000004,2023-05-07T12:40:31+00:00,2023-05-07T12:45:31+00:00
+S_llm_agent_proxy_0178,Check application form completeness,Clerk-000005,2023-05-07T09:00:00+00:00,2023-05-07T09:27:49+00:00
+S_llm_agent_proxy_0178,AML check,AML Investigator-000001,2023-05-07T09:27:49+00:00,2023-05-07T10:49:13+00:00
+S_llm_agent_proxy_0178,Appraise property,Appraiser-000001,2023-05-07T10:49:13+00:00,2023-05-07T11:11:03+00:00
+S_llm_agent_proxy_0178,Check credit history,Clerk-000006,2023-05-07T11:11:03+00:00,2023-05-07T13:06:25+00:00
+S_llm_agent_proxy_0178,Assess loan risk,Loan Officer-000003,2023-05-07T13:53:27+00:00,2023-05-07T14:13:27+00:00
+S_llm_agent_proxy_0178,Reject application,Clerk-000008,2023-05-07T14:13:27+00:00,2023-05-07T14:23:27+00:00
+S_llm_agent_proxy_0179,Check application form completeness,Clerk-000007,2023-05-07T09:30:00+00:00,2023-05-07T09:59:47+00:00
+S_llm_agent_proxy_0179,Check credit history,Clerk-000001,2023-05-07T09:59:47+00:00,2023-05-07T10:01:59+00:00
+S_llm_agent_proxy_0179,Appraise property,Appraiser-000002,2023-05-07T10:01:59+00:00,2023-05-07T11:01:48+00:00
+S_llm_agent_proxy_0179,AML check,AML Investigator-000001,2023-05-07T11:01:48+00:00,2023-05-07T11:03:13+00:00
+S_llm_agent_proxy_0179,Assess loan risk,Loan Officer-000002,2023-05-07T11:03:13+00:00,2023-05-07T11:23:13+00:00
+S_llm_agent_proxy_0179,Reject application,Clerk-000002,2023-05-07T11:23:13+00:00,2023-05-07T11:33:13+00:00
+S_llm_agent_proxy_0180,Check application form completeness,Clerk-000001,2023-05-10T02:00:00+00:00,2023-05-10T02:38:52+00:00
+S_llm_agent_proxy_0180,AML check,AML Investigator-000002,2023-05-10T02:38:52+00:00,2023-05-10T02:41:34+00:00
+S_llm_agent_proxy_0180,Appraise property,Appraiser-000001,2023-05-10T03:36:23+00:00,2023-05-10T03:56:27+00:00
+S_llm_agent_proxy_0180,Check credit history,Clerk-000002,2023-05-10T03:56:27+00:00,2023-05-10T04:06:43+00:00
+S_llm_agent_proxy_0180,Assess loan risk,Loan Officer-000002,2023-05-10T04:44:53+00:00,2023-05-10T05:04:53+00:00
+S_llm_agent_proxy_0180,Reject application,Clerk-000008,2023-05-10T05:04:53+00:00,2023-05-10T05:14:53+00:00
+S_llm_agent_proxy_0181,Check application form completeness,Clerk-000006,2023-05-10T02:30:00+00:00,2023-05-10T03:29:22+00:00
+S_llm_agent_proxy_0181,Appraise property,Appraiser-000002,2023-05-10T03:29:22+00:00,2023-05-10T04:17:17+00:00
+S_llm_agent_proxy_0181,Check credit history,Clerk-000001,2023-05-10T04:17:17+00:00,2023-05-10T05:16:39+00:00
+S_llm_agent_proxy_0181,AML check,AML Investigator-000002,2023-05-10T05:16:39+00:00,2023-05-10T05:26:01+00:00
+S_llm_agent_proxy_0181,Assess loan risk,Loan Officer-000001,2023-05-10T05:26:01+00:00,2023-05-10T05:46:01+00:00
+S_llm_agent_proxy_0181,Reject application,Clerk-000005,2023-05-10T05:46:01+00:00,2023-05-10T05:56:01+00:00
+S_llm_agent_proxy_0182,Check application form completeness,Clerk-000002,2023-05-10T03:00:00+00:00,2023-05-10T03:05:45+00:00
+S_llm_agent_proxy_0182,Check credit history,Clerk-000001,2023-05-10T03:05:45+00:00,2023-05-10T03:53:07+00:00
+S_llm_agent_proxy_0182,Appraise property,Appraiser-000002,2023-05-10T03:53:07+00:00,2023-05-10T06:02:03+00:00
+S_llm_agent_proxy_0182,AML check,AML Investigator-000001,2023-05-10T06:02:03+00:00,2023-05-10T06:06:31+00:00
+S_llm_agent_proxy_0182,Assess loan risk,Loan Officer-000004,2023-05-10T06:43:24+00:00,2023-05-10T07:03:24+00:00
+S_llm_agent_proxy_0182,Design loan offer,Loan Officer-000003,2023-05-10T07:03:24+00:00,2023-05-10T07:11:19+00:00
+S_llm_agent_proxy_0182,Approve loan offer,Senior Officer-000001,2023-05-10T07:11:19+00:00,2023-05-10T07:31:19+00:00
+S_llm_agent_proxy_0182,Cancel application,Clerk-000006,2023-05-10T07:31:19+00:00,2023-05-10T07:36:19+00:00
+S_llm_agent_proxy_0183,Check application form completeness,Clerk-000002,2023-05-12T19:30:00+00:00,2023-05-12T19:45:47+00:00
+S_llm_agent_proxy_0183,Check credit history,Clerk-000006,2023-05-12T19:45:47+00:00,2023-05-13T12:52:34+00:00
+S_llm_agent_proxy_0183,AML check,AML Investigator-000002,2023-05-13T14:08:09+00:00,2023-05-13T15:04:28+00:00
+S_llm_agent_proxy_0183,Appraise property,Appraiser-000002,2023-05-13T15:04:28+00:00,2023-05-13T15:04:45+00:00
+S_llm_agent_proxy_0183,Assess loan risk,Loan Officer-000003,2023-05-13T15:20:41+00:00,2023-05-13T15:40:41+00:00
+S_llm_agent_proxy_0183,Reject application,Clerk-000007,2023-05-13T15:40:41+00:00,2023-05-13T15:50:41+00:00
+S_llm_agent_proxy_0184,Check application form completeness,Clerk-000006,2023-05-12T20:00:00+00:00,2023-05-12T20:20:54+00:00
+S_llm_agent_proxy_0184,Appraise property,Appraiser-000002,2023-05-12T20:20:54+00:00,2023-05-12T20:30:10+00:00
+S_llm_agent_proxy_0184,AML check,AML Investigator-000001,2023-05-12T20:30:10+00:00,2023-05-12T21:16:11+00:00
+S_llm_agent_proxy_0184,Check credit history,Clerk-000005,2023-05-12T21:16:11+00:00,2023-05-12T21:22:57+00:00
+S_llm_agent_proxy_0184,Assess loan risk,Loan Officer-000004,2023-05-12T22:18:24+00:00,2023-05-12T22:38:24+00:00
+S_llm_agent_proxy_0184,Design loan offer,Loan Officer-000003,2023-05-12T22:38:24+00:00,2023-05-12T22:40:14+00:00
+S_llm_agent_proxy_0184,Approve loan offer,Senior Officer-000002,2023-05-12T22:40:14+00:00,2023-05-13T15:00:14+00:00
+S_llm_agent_proxy_0184,Cancel application,Clerk-000007,2023-05-13T15:00:14+00:00,2023-05-13T15:05:14+00:00
+S_llm_agent_proxy_0185,Check application form completeness,Clerk-000002,2023-05-12T20:30:00+00:00,2023-05-12T20:41:19+00:00
+S_llm_agent_proxy_0185,Check credit history,Clerk-000005,2023-05-12T20:41:19+00:00,2023-05-12T21:26:20+00:00
+S_llm_agent_proxy_0185,Appraise property,Appraiser-000001,2023-05-12T21:26:20+00:00,2023-05-12T22:14:17+00:00
+S_llm_agent_proxy_0185,AML check,AML Investigator-000001,2023-05-12T22:14:17+00:00,2023-05-12T23:02:20+00:00
+S_llm_agent_proxy_0185,Assess loan risk,Loan Officer-000002,2023-05-12T23:21:35+00:00,2023-05-12T23:41:35+00:00
+S_llm_agent_proxy_0185,Design loan offer,Loan Officer-000004,2023-05-12T23:41:35+00:00,2023-05-12T23:48:06+00:00
+S_llm_agent_proxy_0185,Approve loan offer,Senior Officer-000002,2023-05-12T23:48:06+00:00,2023-05-13T00:08:06+00:00
+S_llm_agent_proxy_0185,Cancel application,Clerk-000007,2023-05-13T00:08:06+00:00,2023-05-13T00:13:06+00:00
+S_llm_agent_proxy_0186,Check application form completeness,Clerk-000005,2023-05-12T21:00:00+00:00,2023-05-12T21:10:17+00:00
+S_llm_agent_proxy_0186,AML check,AML Investigator-000002,2023-05-12T21:10:17+00:00,2023-05-12T21:59:32+00:00
+S_llm_agent_proxy_0186,Check credit history,Clerk-000001,2023-05-12T21:59:32+00:00,2023-05-12T22:03:06+00:00
+S_llm_agent_proxy_0186,Appraise property,Appraiser-000001,2023-05-12T22:03:06+00:00,2023-05-12T22:18:34+00:00
+S_llm_agent_proxy_0186,Assess loan risk,Loan Officer-000002,2023-05-12T22:18:34+00:00,2023-05-12T22:38:34+00:00
+S_llm_agent_proxy_0186,Design loan offer,Loan Officer-000003,2023-05-12T22:38:34+00:00,2023-05-12T22:46:07+00:00
+S_llm_agent_proxy_0186,Approve loan offer,Senior Officer-000002,2023-05-12T22:46:07+00:00,2023-05-12T23:06:07+00:00
+S_llm_agent_proxy_0186,Cancel application,Clerk-000006,2023-05-12T23:06:07+00:00,2023-05-12T23:11:07+00:00
+S_llm_agent_proxy_0187,Check application form completeness,Clerk-000002,2023-05-12T21:30:00+00:00,2023-05-12T22:16:50+00:00
+S_llm_agent_proxy_0187,AML check,AML Investigator-000002,2023-05-12T22:16:50+00:00,2023-05-12T22:33:01+00:00
+S_llm_agent_proxy_0187,Check credit history,Clerk-000004,2023-05-12T22:33:01+00:00,2023-05-12T22:36:32+00:00
+S_llm_agent_proxy_0187,Appraise property,Appraiser-000001,2023-05-12T22:36:32+00:00,2023-05-13T00:33:19+00:00
+S_llm_agent_proxy_0187,Assess loan risk,Loan Officer-000004,2023-05-13T00:33:19+00:00,2023-05-13T00:53:19+00:00
+S_llm_agent_proxy_0187,Design loan offer,Loan Officer-000004,2023-05-13T00:53:19+00:00,2023-05-15T17:53:39+00:00
+S_llm_agent_proxy_0187,Approve loan offer,Senior Officer-000001,2023-05-15T17:53:39+00:00,2023-05-15T18:13:39+00:00
+S_llm_agent_proxy_0187,Cancel application,Clerk-000008,2023-05-15T18:13:39+00:00,2023-05-15T18:18:39+00:00
+S_llm_agent_proxy_0188,Check application form completeness,Clerk-000004,2023-05-12T22:00:00+00:00,2023-05-12T22:10:12+00:00
+S_llm_agent_proxy_0188,AML check,AML Investigator-000001,2023-05-12T22:10:12+00:00,2023-05-12T22:44:01+00:00
+S_llm_agent_proxy_0188,Check credit history,Clerk-000002,2023-05-12T22:44:01+00:00,2023-05-13T15:46:41+00:00
+S_llm_agent_proxy_0188,Appraise property,Appraiser-000002,2023-05-13T15:46:41+00:00,2023-05-13T16:13:04+00:00
+S_llm_agent_proxy_0188,Assess loan risk,Loan Officer-000004,2023-05-13T16:31:50+00:00,2023-05-13T16:51:50+00:00
+S_llm_agent_proxy_0188,Reject application,Clerk-000005,2023-05-13T16:51:50+00:00,2023-05-13T17:01:50+00:00
+S_llm_agent_proxy_0189,Check application form completeness,Clerk-000004,2023-05-12T22:30:00+00:00,2023-05-12T22:33:57+00:00
+S_llm_agent_proxy_0189,Check credit history,Clerk-000001,2023-05-12T22:33:57+00:00,2023-05-12T22:35:05+00:00
+S_llm_agent_proxy_0189,Appraise property,Appraiser-000002,2023-05-12T22:35:05+00:00,2023-05-12T23:06:28+00:00
+S_llm_agent_proxy_0189,AML check,AML Investigator-000002,2023-05-12T23:06:28+00:00,2023-05-12T23:20:56+00:00
+S_llm_agent_proxy_0189,Assess loan risk,Loan Officer-000001,2023-05-12T23:20:56+00:00,2023-05-12T23:40:56+00:00
+S_llm_agent_proxy_0189,Design loan offer,Loan Officer-000002,2023-05-12T23:40:56+00:00,2023-05-12T23:56:16+00:00
+S_llm_agent_proxy_0189,Approve loan offer,Senior Officer-000001,2023-05-12T23:56:16+00:00,2023-05-13T00:16:16+00:00
+S_llm_agent_proxy_0189,Cancel application,Clerk-000002,2023-05-13T00:16:16+00:00,2023-05-13T00:21:16+00:00
+S_llm_agent_proxy_0190,Check application form completeness,Clerk-000003,2023-05-12T23:00:00+00:00,2023-05-13T00:08:37+00:00
+S_llm_agent_proxy_0190,AML check,AML Investigator-000001,2023-05-13T00:08:37+00:00,2023-05-13T00:30:26+00:00
+S_llm_agent_proxy_0190,Check credit history,Clerk-000006,2023-05-13T00:30:26+00:00,2023-05-13T00:35:39+00:00
+S_llm_agent_proxy_0190,Appraise property,Appraiser-000002,2023-05-13T00:35:39+00:00,2023-05-13T01:02:14+00:00
+S_llm_agent_proxy_0190,Assess loan risk,Loan Officer-000001,2023-05-13T01:13:43+00:00,2023-05-13T01:33:43+00:00
+S_llm_agent_proxy_0190,Reject application,Clerk-000004,2023-05-13T01:33:43+00:00,2023-05-13T01:43:43+00:00
+S_llm_agent_proxy_0191,Check application form completeness,Clerk-000002,2023-05-12T23:30:00+00:00,2023-05-12T23:33:53+00:00
+S_llm_agent_proxy_0191,Check credit history,Clerk-000001,2023-05-12T23:33:53+00:00,2023-05-12T23:34:07+00:00
+S_llm_agent_proxy_0191,Appraise property,Appraiser-000001,2023-05-12T23:34:07+00:00,2023-05-12T23:54:19+00:00
+S_llm_agent_proxy_0191,AML check,AML Investigator-000001,2023-05-12T23:54:19+00:00,2023-05-13T00:05:57+00:00
+S_llm_agent_proxy_0191,Assess loan risk,Loan Officer-000001,2023-05-13T00:05:57+00:00,2023-05-13T00:25:57+00:00
+S_llm_agent_proxy_0191,Design loan offer,Loan Officer-000004,2023-05-13T00:25:57+00:00,2023-05-13T00:31:36+00:00
+S_llm_agent_proxy_0191,Approve loan offer,Senior Officer-000001,2023-05-13T00:31:36+00:00,2023-05-13T00:51:36+00:00
+S_llm_agent_proxy_0191,Approve application,Clerk-000004,2023-05-13T00:51:36+00:00,2023-05-13T00:56:36+00:00
+S_llm_agent_proxy_0192,Check application form completeness,Clerk-000002,2023-05-13T00:00:00+00:00,2023-05-13T00:13:17+00:00
+S_llm_agent_proxy_0192,AML check,AML Investigator-000001,2023-05-13T00:13:17+00:00,2023-05-13T00:43:10+00:00
+S_llm_agent_proxy_0192,Check credit history,Clerk-000002,2023-05-13T00:43:10+00:00,2023-05-13T00:55:30+00:00
+S_llm_agent_proxy_0192,Appraise property,Appraiser-000001,2023-05-13T00:55:30+00:00,2023-05-13T02:36:40+00:00
+S_llm_agent_proxy_0192,Assess loan risk,Loan Officer-000004,2023-05-13T02:55:04+00:00,2023-05-13T03:15:04+00:00
+S_llm_agent_proxy_0192,Design loan offer,Loan Officer-000003,2023-05-13T03:15:04+00:00,2023-05-13T03:18:06+00:00
+S_llm_agent_proxy_0192,Approve loan offer,Senior Officer-000001,2023-05-13T03:18:06+00:00,2023-05-13T03:38:06+00:00
+S_llm_agent_proxy_0192,Approve application,Clerk-000005,2023-05-13T03:38:06+00:00,2023-05-13T03:43:06+00:00
+S_llm_agent_proxy_0193,Check application form completeness,Clerk-000004,2023-05-13T00:30:00+00:00,2023-05-13T01:01:54+00:00
+S_llm_agent_proxy_0193,Return application back to applicant,Clerk-000005,2023-05-13T01:01:54+00:00,2023-05-13T01:06:54+00:00
+S_llm_agent_proxy_0193,Applicant completes form,Applicant-000001,2023-05-13T01:06:54+00:00,2023-05-13T02:06:54+00:00
+S_llm_agent_proxy_0193,Check application form completeness,Clerk-000003,2023-05-13T02:06:54+00:00,2023-05-13T02:09:55+00:00
+S_llm_agent_proxy_0193,Check credit history,Clerk-000004,2023-05-13T02:09:55+00:00,2023-05-13T02:21:19+00:00
+S_llm_agent_proxy_0193,Appraise property,Appraiser-000001,2023-05-13T02:21:19+00:00,2023-05-13T02:54:34+00:00
+S_llm_agent_proxy_0193,AML check,AML Investigator-000001,2023-05-13T02:54:34+00:00,2023-05-13T02:58:57+00:00
+S_llm_agent_proxy_0193,Assess loan risk,Loan Officer-000001,2023-05-13T02:58:57+00:00,2023-05-13T03:18:57+00:00
+S_llm_agent_proxy_0193,Reject application,Clerk-000004,2023-05-13T03:18:57+00:00,2023-05-13T19:28:57+00:00
+S_llm_agent_proxy_0194,Check application form completeness,Clerk-000007,2023-05-13T01:00:00+00:00,2023-05-13T01:29:43+00:00
+S_llm_agent_proxy_0194,Check credit history,Clerk-000005,2023-05-13T01:29:43+00:00,2023-05-13T01:57:12+00:00
+S_llm_agent_proxy_0194,Appraise property,Appraiser-000002,2023-05-13T18:49:48+00:00,2023-05-13T19:53:13+00:00
+S_llm_agent_proxy_0194,AML check,AML Investigator-000002,2023-05-13T19:53:13+00:00,2023-05-13T21:20:51+00:00
+S_llm_agent_proxy_0194,Assess loan risk,Loan Officer-000003,2023-05-13T21:43:13+00:00,2023-05-13T22:03:13+00:00
+S_llm_agent_proxy_0194,Design loan offer,Loan Officer-000003,2023-05-13T22:03:13+00:00,2023-05-13T22:14:45+00:00
+S_llm_agent_proxy_0194,Approve loan offer,Senior Officer-000001,2023-05-13T22:14:45+00:00,2023-05-13T22:34:45+00:00
+S_llm_agent_proxy_0194,Cancel application,Clerk-000006,2023-05-13T22:34:45+00:00,2023-05-13T22:39:45+00:00
+S_llm_agent_proxy_0195,Check application form completeness,Clerk-000006,2023-05-13T01:30:00+00:00,2023-05-13T01:51:02+00:00
+S_llm_agent_proxy_0195,AML check,AML Investigator-000002,2023-05-13T01:51:02+00:00,2023-05-13T02:05:12+00:00
+S_llm_agent_proxy_0195,Check credit history,Clerk-000001,2023-05-13T02:05:12+00:00,2023-05-13T02:22:44+00:00
+S_llm_agent_proxy_0195,Appraise property,Appraiser-000001,2023-05-13T02:22:44+00:00,2023-05-13T02:58:25+00:00
+S_llm_agent_proxy_0195,Assess loan risk,Loan Officer-000002,2023-05-13T03:18:25+00:00,2023-05-13T03:38:25+00:00
+S_llm_agent_proxy_0195,Design loan offer,Loan Officer-000004,2023-05-13T03:38:25+00:00,2023-05-13T03:41:07+00:00
+S_llm_agent_proxy_0195,Approve loan offer,Senior Officer-000001,2023-05-13T03:41:07+00:00,2023-05-13T04:01:07+00:00
+S_llm_agent_proxy_0195,Cancel application,Clerk-000005,2023-05-13T04:01:07+00:00,2023-05-13T04:06:07+00:00
+S_llm_agent_proxy_0196,Check application form completeness,Clerk-000002,2023-05-13T02:00:00+00:00,2023-05-13T02:22:44+00:00
+S_llm_agent_proxy_0196,Appraise property,Appraiser-000001,2023-05-13T02:22:44+00:00,2023-05-13T02:30:57+00:00
+S_llm_agent_proxy_0196,Check credit history,Clerk-000006,2023-05-13T02:30:57+00:00,2023-05-13T02:58:56+00:00
+S_llm_agent_proxy_0196,AML check,AML Investigator-000002,2023-05-13T02:58:56+00:00,2023-05-13T03:04:54+00:00
+S_llm_agent_proxy_0196,Assess loan risk,Loan Officer-000002,2023-05-13T03:04:54+00:00,2023-05-13T03:24:54+00:00
+S_llm_agent_proxy_0196,Reject application,Clerk-000002,2023-05-13T03:24:54+00:00,2023-05-13T03:34:54+00:00
+S_llm_agent_proxy_0197,Check application form completeness,Clerk-000008,2023-05-13T02:30:00+00:00,2023-05-13T02:49:46+00:00
+S_llm_agent_proxy_0197,Return application back to applicant,Clerk-000005,2023-05-13T02:49:46+00:00,2023-05-13T02:54:46+00:00
+S_llm_agent_proxy_0197,Applicant completes form,Applicant-000001,2023-05-13T02:54:46+00:00,2023-05-13T03:54:46+00:00
+S_llm_agent_proxy_0197,Check application form completeness,Clerk-000006,2023-05-13T03:54:46+00:00,2023-05-13T04:06:54+00:00
+S_llm_agent_proxy_0197,Check credit history,Clerk-000005,2023-05-13T04:06:54+00:00,2023-05-13T22:38:30+00:00
+S_llm_agent_proxy_0197,Appraise property,Appraiser-000001,2023-05-13T22:38:30+00:00,2023-05-13T23:35:12+00:00
+S_llm_agent_proxy_0197,AML check,AML Investigator-000002,2023-05-13T23:35:12+00:00,2023-05-13T23:52:25+00:00
+S_llm_agent_proxy_0197,Assess loan risk,Loan Officer-000003,2023-05-13T23:52:25+00:00,2023-05-14T00:12:25+00:00
+S_llm_agent_proxy_0197,Reject application,Clerk-000004,2023-05-14T00:12:25+00:00,2023-05-14T00:22:25+00:00
+S_llm_agent_proxy_0198,Check application form completeness,Clerk-000005,2023-05-13T03:00:00+00:00,2023-05-13T03:55:38+00:00
+S_llm_agent_proxy_0198,AML check,AML Investigator-000002,2023-05-13T03:55:38+00:00,2023-05-13T04:10:23+00:00
+S_llm_agent_proxy_0198,Check credit history,Clerk-000001,2023-05-13T04:10:23+00:00,2023-05-13T04:36:20+00:00
+S_llm_agent_proxy_0198,Appraise property,Appraiser-000001,2023-05-13T04:36:20+00:00,2023-05-13T05:03:30+00:00
+S_llm_agent_proxy_0198,Assess loan risk,Loan Officer-000004,2023-05-13T05:03:30+00:00,2023-05-13T05:23:30+00:00
+S_llm_agent_proxy_0198,Design loan offer,Loan Officer-000004,2023-05-13T05:23:30+00:00,2023-05-13T05:33:07+00:00
+S_llm_agent_proxy_0198,Approve loan offer,Senior Officer-000001,2023-05-13T05:33:07+00:00,2023-05-13T05:53:07+00:00
+S_llm_agent_proxy_0198,Cancel application,Clerk-000005,2023-05-13T05:53:07+00:00,2023-05-13T05:58:07+00:00
+S_llm_agent_proxy_0199,Check application form completeness,Clerk-000007,2023-05-13T03:30:00+00:00,2023-05-13T03:46:55+00:00
+S_llm_agent_proxy_0199,Appraise property,Appraiser-000002,2023-05-13T03:46:55+00:00,2023-05-13T04:46:44+00:00
+S_llm_agent_proxy_0199,Check credit history,Clerk-000003,2023-05-13T04:46:44+00:00,2023-05-13T04:55:12+00:00
+S_llm_agent_proxy_0199,AML check,AML Investigator-000001,2023-05-13T05:03:52+00:00,2023-05-13T05:15:18+00:00
+S_llm_agent_proxy_0199,Assess loan risk,Loan Officer-000004,2023-05-13T05:15:18+00:00,2023-05-13T05:35:18+00:00
+S_llm_agent_proxy_0199,Reject application,Clerk-000003,2023-05-13T05:35:18+00:00,2023-05-13T05:45:18+00:00

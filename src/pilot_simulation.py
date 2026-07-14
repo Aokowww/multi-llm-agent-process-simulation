@@ -25,6 +25,12 @@ from pathlib import Path
 
 import certifi
 
+from resource_agents import (
+    RESOURCE_AGENT_MODES,
+    discover_resource_agent_profiles,
+    simulate_resource_agent_process,
+)
+
 
 SCHEMA = ["case_id", "activity", "resource", "start_time", "end_time"]
 REASONING_SCHEMA = [
@@ -148,6 +154,7 @@ def learn_profiles(rows: list[dict]) -> dict:
     waits = defaultdict(list)
     wait_fallbacks = defaultdict(list)
     handovers = defaultdict(Counter)
+    detailed_handovers = defaultdict(Counter)
     activity_counts = Counter()
     resource_counts = Counter()
     by_case = defaultdict(list)
@@ -176,6 +183,9 @@ def learn_profiles(rows: list[dict]) -> dict:
             waits[(previous_activity, current_activity)].append(wait)
             wait_fallbacks[current_activity].append(wait)
             handovers[(previous["resource"], current_activity)][current["resource"]] += 1
+            detailed_handovers[
+                (previous["resource"], previous_activity, current_activity)
+            ][current["resource"]] += 1
     mean_durations = {
         f"{resource}|{activity}": statistics.mean(values)
         for (resource, activity), values in durations.items()
@@ -202,10 +212,15 @@ def learn_profiles(rows: list[dict]) -> dict:
             f"{previous_resource}||{activity}": dict(counter)
             for (previous_resource, activity), counter in handovers.items()
         },
+        "detailed_handover_priors": {
+            f"{previous_resource}||{previous_activity}||{activity}": dict(counter)
+            for (previous_resource, previous_activity, activity), counter in detailed_handovers.items()
+        },
         "case_interarrival_samples": interarrival_samples,
         "activity_counts": dict(activity_counts),
         "resource_counts": dict(resource_counts),
         "trace_variants": {"||".join(k): v for k, v in trace_variants.items()},
+        "resource_agents": discover_resource_agent_profiles(rows),
     }
 
 
@@ -690,6 +705,14 @@ def simulate(
     base_start: datetime | None = None,
     llm_selector: OpenAICompatibleResourceSelector | None = None,
 ) -> tuple[list[dict], list[dict], list[dict]]:
+    if mode in RESOURCE_AGENT_MODES:
+        return simulate_resource_agent_process(
+            profiles,
+            n_cases,
+            mode,
+            seed,
+            base_start or datetime(2026, 2, 2, 9, 0, 0),
+        )
     structure_rng = random.Random(seed)
     decision_rng = random.Random(seed + 1_000_003)
     timing_rng = random.Random(seed + 2_000_003)

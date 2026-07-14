@@ -31,6 +31,13 @@ distance metrics unless stated otherwise.
 - `real_llm_loanapp_llama_replications/`: sanitized summaries from the
   three planned 100-case Llama replications. The directory remains
   preliminary until all three seeds are present.
+- `multi_llm_agent_loanapp_pilot/`: mock integration and actual
+  per-resource LLM-bidding runs inside the upstream AgentSimulator
+  environment. The ten-case real run is a feasibility pilot.
+- `official_agentsimulator_loanapp_autonomous/`: one direct execution of
+  the upstream autonomous AgentSimulator on its official temporal split.
+- `official_split_comparison_pilot/`: three descriptive local
+  agent-profile runs on the same official split.
 
 The result files are retained to make the reported analysis inspectable
 without rerunning all simulations.

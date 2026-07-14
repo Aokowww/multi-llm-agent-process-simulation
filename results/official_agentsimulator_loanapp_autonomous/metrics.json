@@ -1,0 +1,14 @@
+{
+  "source": "upstream AgentSimulator autonomous condition",
+  "train_cases": 797,
+  "test_cases": 200,
+  "generated_cases": 200,
+  "test_events": 1490,
+  "generated_events": 1552,
+  "trace_variant_distance": 0.18500000000000005,
+  "activity_distribution_distance": 0.030222964090500258,
+  "resource_distribution_distance": 0.03654172144191517,
+  "mean_cycle_time_reference": 667.27878275,
+  "mean_cycle_time_generated": 1043.04857834775,
+  "mean_cycle_time_relative_error": 0.5631376349913622
+}

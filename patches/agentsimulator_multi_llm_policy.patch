@@ -1,0 +1,156 @@
+diff --git a/source/agent_simulator.py b/source/agent_simulator.py
+index 9af61e3..e6ae447 100644
+--- a/source/agent_simulator.py
++++ b/source/agent_simulator.py
+@@ -21,11 +21,24 @@ class AgentSimulator:
+             self.params['central_orchestration'],
+             self.params['discover_extr_delays']
+         )
++        self.simulation_parameters['resource_selection_policy'] = self.params.get(
++            'resource_selection_policy'
++        )
++        max_cases = self.params.get('max_cases')
++        if max_cases:
++            self.simulation_parameters['case_arrival_times'] = self.simulation_parameters[
++                'case_arrival_times'
++            ][:max_cases + 1]
+ 
+         print(f"agent to resource: {self.simulation_parameters['agent_to_resource']}")
+ 
+         # simulate process
+-        simulate_process(self.df_train, self.simulation_parameters, self.data_dir, self.params['num_simulations'])
++        self.models = simulate_process(
++            self.df_train,
++            self.simulation_parameters,
++            self.data_dir,
++            self.params['num_simulations'],
++        )
+ 
+     def _split_log(self):
+         """
+diff --git a/source/agents/contractor.py b/source/agents/contractor.py
+index 6e88176..4a5af89 100644
+--- a/source/agents/contractor.py
++++ b/source/agents/contractor.py
+@@ -102,7 +102,7 @@ class ContractorAgent(Agent):
+         #                     current_probabilities = self.model.agent_transition_probabilities[current_agent]
+         #             sorted_agent_keys = sorted(sorted_agent_keys, key=lambda x: current_probabilities.get(x, 0), reverse=True)
+ 
+-        if self.model.central_orchestration == False:
++        if self.model.central_orchestration == False and self.model.resource_selection_policy is None:
+             # 3) sort by transition probs
+             current_agent = self.case.previous_agent
+             if current_agent != -1:
+@@ -145,6 +145,23 @@ class ContractorAgent(Agent):
+                             sorted_agent_keys = sorted_agent_keys
+                         # print(f"sorted_agent_keys after: {sorted_agent_keys}")
+                         end_time = time.time()
++
++        if self.model.resource_selection_policy is not None and not isinstance(sorted_agent_keys[0], list):
++            context = {
++                'case_id': self.case.case_id,
++                'activity': self.activities[self.new_activity_index],
++                'previous_activity': self.case.get_last_activity(),
++                'previous_agent': self.case.previous_agent,
++                'current_timestamp': self.case.current_timestamp,
++            }
++            proposed_order = self.model.resource_selection_policy.rank(
++                context,
++                list(sorted_agent_keys),
++                self.model,
++            )
++            if len(proposed_order) != len(sorted_agent_keys) or set(proposed_order) != set(sorted_agent_keys):
++                raise ValueError('Resource selection policy must return a permutation of candidate agents')
++            sorted_agent_keys = proposed_order
+                         
+         # print(f"sorted_agent_keys: {sorted_agent_keys}")
+ 
+@@ -484,4 +501,4 @@ class ContractorAgent(Agent):
+         potential_agents.insert(0, 9999)
+ 
+ 
+-        return potential_agents, case_ended
+\ No newline at end of file
++        return potential_agents, case_ended
+diff --git a/source/agents/resource.py b/source/agents/resource.py
+index cd1ef6b..e0a6866 100644
+--- a/source/agents/resource.py
++++ b/source/agents/resource.py
+@@ -102,6 +102,13 @@ class ResourceAgent(Agent):
+                                     'end_timestamp': self.contractor_agent.case.current_timestamp,
+                                     'TimeStep': self.model.schedule.steps,
+                                     })
++                if self.model.resource_selection_policy is not None:
++                    self.model.resource_selection_policy.record_execution(
++                        self.contractor_agent.case.case_id,
++                        self.resource,
++                        current_timestamp,
++                        self.model,
++                    )
+             elif self.start_time_in_calendar(current_timestamp):
+                 # print(f"simulate interruption")
+                 # end_time_without_interruptions = current_timestamp + pd.Timedelta(seconds=activity_duration)
+@@ -123,6 +130,13 @@ class ResourceAgent(Agent):
+                                     'end_timestamp': self.contractor_agent.case.current_timestamp,
+                                     'TimeStep': self.model.schedule.steps,
+                                     })
++                if self.model.resource_selection_policy is not None:
++                    self.model.resource_selection_policy.record_execution(
++                        self.contractor_agent.case.case_id,
++                        self.resource,
++                        current_timestamp,
++                        self.model,
++                    )
+ 
+             else:
+                 # print(f"#######agent {self.resource} is free but time not within calendar")
+@@ -389,4 +403,4 @@ class ResourceAgent(Agent):
+                         hour=0, minute=0, second=0, microsecond=0
+                     )
+         
+-        return current_time
+\ No newline at end of file
++        return current_time
+diff --git a/source/simulation.py b/source/simulation.py
+index b7d26d4..4978110 100644
+--- a/source/simulation.py
++++ b/source/simulation.py
+@@ -9,12 +9,14 @@ from source.utils import store_simulated_log
+ 
+ 
+ def simulate_process(df_train, simulation_parameters, data_dir, num_simulations):
++    models = []
+     start_timestamp = simulation_parameters['case_arrival_times'][0]
+     simulation_parameters['start_timestamp'] = start_timestamp
+     simulation_parameters['case_arrival_times'] = simulation_parameters['case_arrival_times'][1:]
+     for i in range(num_simulations):
+         # Create the model using the loaded data
+         business_process_model = BusinessProcessModel(df_train, simulation_parameters)
++        models.append(business_process_model)
+ 
+         # define list of cases
+         case_id = 0
+@@ -33,6 +35,7 @@ def simulate_process(df_train, simulation_parameters, data_dir, num_simulations)
+         simulated_log['resource'] = simulated_log['agent'].map(simulation_parameters['agent_to_resource'])
+         # save log to csv
+         store_simulated_log(data_dir, simulated_log, i)
++    return models
+ 
+ class Case:
+     """
+@@ -83,6 +86,8 @@ class BusinessProcessModel(Model):
+         self.timer = simulation_parameters['timers']
+         self.activities_without_waiting_time = simulation_parameters['activities_without_waiting_time']
+         self.agent_transition_probabilities = simulation_parameters['agent_transition_probabilities']
++        self.agent_to_resource = simulation_parameters['agent_to_resource']
++        self.resource_selection_policy = simulation_parameters.get('resource_selection_policy')
+         self.central_orchestration = simulation_parameters['central_orchestration']
+         self.discover_parallel_work = False
+         self.schedule = MyScheduler(self,)
+@@ -169,4 +174,4 @@ class MyScheduler(BaseScheduler):
+             self.model.random.shuffle(agent_keys_)
+         for agent_key in agent_keys_:
+             if agent_key in self._agents:
+-                getattr(self._agents[agent_key], method)(self, agent_keys, cases)
+\ No newline at end of file
++                getattr(self._agents[agent_key], method)(self, agent_keys, cases)

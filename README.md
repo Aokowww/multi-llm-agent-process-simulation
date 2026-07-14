@@ -1,7 +1,7 @@
-# Resource-Centric LLM-Augmented Multi-Agent Process Simulation
+# Resource-Centric Multi-LLM-Agent Process Simulation
 
 This repository contains the public research artifact for a
-resource-centric, LLM-augmented business process simulation prototype.
+resource-centric, multi-LLM-agent business process simulation prototype.
 The repository is intended to support inspection and reproducibility of
 the implemented experiments. It contains data, source code, and result
 files only; draft writing materials are intentionally not included.
@@ -47,6 +47,25 @@ OpenRouter, and custom OpenAI-compatible endpoints. It records API
 successes, invalid outputs, fallbacks, latency, and token use. A missing
 API key causes the experiment to stop so that fallback-only output cannot
 be reported as a real-LLM result.
+
+The optional `resource_agent_orchestrated` and
+`resource_agent_autonomous` modes are diagnostic prototypes informed by
+AgentSimulator's resource-agent abstraction. They add persistent resource
+availability, empirical calendars, capabilities, processing-time samples,
+and handover-conditioned allocation. They are not the upstream
+AgentSimulator implementation and must not be reported as such. The archived
+official comparison was produced by running the upstream repository and then
+normalising its output with `src/import_agentsimulator_outputs.py`.
+
+The `multi_llm_agent` condition is a narrower integration with the
+upstream AgentSimulator execution environment. For each task, the
+adapter shortlists feasible and available ResourceAgents. Each
+shortlisted agent receives its own log-derived profile, current state,
+and bounded local memory, and independently returns a structured bid.
+The contractor resolves the bids and AgentSimulator executes the
+selected resource. The implementation therefore changes task-allocation
+behaviour while retaining upstream process discovery, calendars,
+durations, queues, and resource state.
 
 ## Data Sources
 
@@ -127,6 +146,35 @@ python src/run_repeated.py \
   --runs 10 \
   --seed 4200
 ```
+
+The official upstream split used for the direct AgentSimulator comparison is
+stored under `data/agentsimulator_loanapp/official_split/`. The corresponding
+upstream output and metrics are under
+`results/official_agentsimulator_loanapp_autonomous/`.
+
+Run the independent resource-agent bidding pilot against a local clone
+of upstream AgentSimulator at commit `665a6926878859072769aa25c12fe9d6056ad510`.
+Apply `patches/agentsimulator_multi_llm_policy.patch` to that clone first.
+
+```bash
+export GROQ_API_KEY="..."
+python src/run_agentsimulator_policy_experiment.py \
+  --agentsimulator-path path/to/AgentSimulator \
+  --log-path path/to/AgentSimulator/raw_data/LoanApp.csv.gz \
+  --output-dir outputs/multi_llm_agent_loanapp \
+  --policy multi_llm_agent \
+  --max-cases 10 \
+  --top-k 2 \
+  --memory-size 3 \
+  --seed 9400 \
+  --llm-provider groq \
+  --llm-model llama-3.1-8b-instant \
+  --llm-min-interval 4.8
+```
+
+Use `--policy mock_multi_agent` without API arguments for an integration
+test. Mock output validates the adapter and trace schema but is not a
+real-LLM performance result.
 
 Run a quota-aware real-LLM pilot on LoanApp. Groq is a convenient
 no-cost starting point because its OpenAI-compatible API supports JSON
@@ -210,3 +258,13 @@ outperformance. On 100 sampled held-out decisions, real-LLM top-1
 agreement was 34.34%, compared with 33.33% for activity-prior argmax;
 the paired confidence interval included zero. The corresponding files
 are under `results/real_llm_loanapp_pilot/`.
+
+The independent multi-LLM LoanApp pilot completed 147 bids across ten
+generated cases. All bids were valid, no fallback was used, and 96.0%
+of proposed resources were recorded as the executing resource. The
+generated log had a 2.39% mean cycle-time relative error, while trace,
+activity, and resource-distribution distances were 0.9000, 0.0763, and
+0.1804. These single-seed results establish technical feasibility and a
+promising timing observation, not superiority over AgentSimulator or
+the statistical baselines. The complete sanitized output is under
+`results/multi_llm_agent_loanapp_pilot/`.
