@@ -25,7 +25,7 @@ plt.rcParams.update(
     }
 )
 
-COLORS = {"control": "#7884B4", "llm": "#D58A63"}
+COLORS = {"control": "#767676", "llm": "#0F4D92"}
 
 
 def draw_panel(ax, frame: pd.DataFrame, metrics: list[str], labels: list[str]) -> None:
@@ -82,7 +82,6 @@ def draw_panel(ax, frame: pd.DataFrame, metrics: list[str], labels: list[str]) -
         )
     ax.set_xticks(x, labels)
     ax.set_ylim(bottom=0)
-    ax.set_ylabel("Metric value")
     ax.grid(axis="y", color="#E5E7EB", linewidth=0.6, zorder=0)
     ax.tick_params(axis="both", length=3, width=0.7)
 
@@ -108,6 +107,7 @@ def main() -> None:
         ["Trace", "Activity", "Resource", "Cycle time"],
     )
     axes[0].set_title("Process-output distance", loc="left", fontweight="bold", pad=7)
+    axes[0].set_ylabel("Distance / relative error")
     axes[0].text(-0.12, 1.04, "a", transform=axes[0].transAxes, fontweight="bold", fontsize=9)
 
     draw_panel(
@@ -121,6 +121,7 @@ def main() -> None:
         ["Proposal\nexecution", "Bid\ndisagreement", "Resource\nentropy"],
     )
     axes[1].set_title("Agent-level diagnostics", loc="left", fontweight="bold", pad=7)
+    axes[1].set_ylabel("Rate / normalized value")
     axes[1].text(-0.12, 1.04, "b", transform=axes[1].transAxes, fontweight="bold", fontsize=9)
     axes[1].legend(
         loc="upper center",

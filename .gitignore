@@ -15,3 +15,4 @@ manuscript/
 *.fls
 *.out
 *.synctex.gz
+results/**/figures/*.tiff

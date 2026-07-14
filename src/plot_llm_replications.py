@@ -19,10 +19,16 @@ LABELS = {
     "llm_agent_real": "Real LLM",
 }
 COLORS = {
-    "central_baseline": "#6F7B8A",
-    "agent_profile": "#2C7FB8",
-    "llm_agent_proxy": "#E69F00",
-    "llm_agent_real": "#B2182B",
+    "central_baseline": "#767676",
+    "agent_profile": "#4F8A55",
+    "llm_agent_proxy": "#D17C55",
+    "llm_agent_real": "#0F4D92",
+}
+MARKERS = {
+    "central_baseline": "o",
+    "agent_profile": "s",
+    "llm_agent_proxy": "^",
+    "llm_agent_real": "D",
 }
 
 
@@ -69,7 +75,7 @@ def main() -> None:
             panel.plot(
                 seeds,
                 [run[mode] for run in values],
-                marker="o",
+                marker=MARKERS[mode],
                 markersize=4,
                 linewidth=1.4 if mode == "llm_agent_real" else 1.0,
                 color=COLORS[mode],
@@ -80,8 +86,6 @@ def main() -> None:
         panel.set_xlabel("Seed")
         panel.grid(axis="y", color="#D9DDE2", linewidth=0.6, alpha=0.8)
         panel.tick_params(length=3, width=0.7)
-        direction_y = 0.82 if panel_index == 0 else 0.96
-        panel.text(0.02, direction_y, "lower is better", transform=panel.transAxes, va="top", color="#5F6772")
         panel.text(-0.13, 1.07, "abc"[panel_index], transform=panel.transAxes, fontweight="bold", fontsize=9)
 
     axes[0].set_ylabel("Distance")
