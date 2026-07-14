@@ -19,6 +19,10 @@ simulations, and compute evaluation metrics.
   feasible-action coverage, fallback rate, and structured-reason checks.
 - `plot_llm_replications.py`: produces paired three-seed real-LLM
   figures in PDF, SVG, and PNG formats from sanitized result tables.
+- `analyze_llm_specific_evaluation.py`: computes resource coverage,
+  assignment entropy, effective resource count, HHI, activity-conditional
+  diversity, interface validity, trace grounding, latency, and token use
+  from the three completed LoanApp API runs.
 - `analyze_dataset_suitability.py`: reports train/test resource overlap,
   action-mask coverage, handover-context coverage, and feasible-set size
   before a dataset is used for resource-agent evaluation.

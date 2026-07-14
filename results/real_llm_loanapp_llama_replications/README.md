@@ -31,5 +31,14 @@ They can be regenerated with `src/plot_llm_replications.py`.
 within-activity concentration used to diagnose the resource-identity
 failure without publishing raw model responses.
 
+`llm_specific_evaluation/` contains run-level and summary tables for the
+additional agent-level metrics. The real LLM has mean resource coverage
+of 0.544, normalized assignment entropy of 0.656, and an effective
+resource count of 6.90. All comparison policies have full coverage,
+normalized entropy above 0.982, and more than 18 effective resources.
+Within activities, the real LLM has mean capability coverage of 0.386
+and conditional entropy of 0.078. The calculation is implemented in
+`src/analyze_llm_specific_evaluation.py`.
+
 Raw prompts, response caches, reasoning traces, private paths, and API
 credentials are not included in the public repository.
