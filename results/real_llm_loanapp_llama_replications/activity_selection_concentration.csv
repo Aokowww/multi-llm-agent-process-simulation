@@ -1,0 +1,12 @@
+activity,decisions,feasible_resources,resources_used,dominant_resource_share
+Check application form completeness,322,8,2,0.9317
+Check credit history,300,7,3,0.9533
+AML check,300,2,1,1.0000
+Appraise property,300,2,1,1.0000
+Assess loan risk,300,4,2,0.9967
+Design loan offer,163,4,3,0.6810
+Approve loan offer,163,2,1,1.0000
+Reject application,137,8,1,1.0000
+Cancel application,107,8,3,0.9533
+Approve application,56,8,3,0.8750
+Return application back to applicant,22,5,2,0.8636

@@ -1,0 +1,2 @@
+model,prompt_version,seeds,cases_per_seed,decisions,api_attempts,successful_calls,invalid_outputs,fallbacks,rate_limit_retries,prompt_tokens,completion_tokens,total_tokens,weighted_mean_latency_seconds,reason_action_rate,valid_factor_rate
+llama-3.1-8b-instant,resource-choice-v3-compact-schema,8200|8300|8400,100,2192,2192,2192,0,0,0,724849,86447,811296,0.194559,1.0,1.0

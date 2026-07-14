@@ -8,15 +8,28 @@ The Llama condition is separate from the earlier GPT-OSS pilot. It is a
 time-stamped free-tier experiment because the provider has announced
 retirement of this endpoint on 16 August 2026.
 
-Current completion status: **2 of 3 replications**.
+Current completion status: **3 of 3 replications**.
 
-No repeated-result or significance claim should be made until seeds
-8200, 8300, and 8400 have all completed and been analyzed together.
+Seeds 8200, 8300, and 8400 are summarized in
+`three_run_summary.csv`. The table reports descriptive mean, sample
+standard deviation, and within-seed win count. With only three paired
+replications, these results are not presented as a significance test.
 
-Across the first two seeds, the real-LLM condition has the lowest mean
-cycle-time distance and the lowest mean workforce EMD, but a much worse
-identity-level resource-distribution distance. This is a preliminary
-dimension-specific pattern, not an overall performance claim.
+Across all three seeds, the real-LLM condition has the lowest mean
+workforce EMD and wins that metric in two seeds. It does not have the
+lowest mean cycle-time or relative-event distance. Its identity-level
+resource-distribution distance is consistently much worse than every
+comparison policy. The result is a dimension-specific trade-off, not
+an overall performance gain.
+
+`three_run_paired_metrics.pdf` and its SVG/PNG counterparts visualize
+the paired resource-distribution, cycle-time, and workforce results.
+They can be regenerated with `src/plot_llm_replications.py`.
+
+`decision_mechanism_diagnostics.csv` and
+`activity_selection_concentration.csv` summarize the factor labels and
+within-activity concentration used to diagnose the resource-identity
+failure without publishing raw model responses.
 
 Raw prompts, response caches, reasoning traces, private paths, and API
 credentials are not included in the public repository.

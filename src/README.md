@@ -17,6 +17,8 @@ simulations, and compute evaluation metrics.
 - `evaluate_agent_decisions.py`: evaluates resource selections separately
   from end-to-end event-log distances, including top-1 agreement,
   feasible-action coverage, fallback rate, and structured-reason checks.
+- `plot_llm_replications.py`: produces paired three-seed real-LLM
+  figures in PDF, SVG, and PNG formats from sanitized result tables.
 - `analyze_dataset_suitability.py`: reports train/test resource overlap,
   action-mask coverage, handover-context coverage, and feasible-set size
   before a dataset is used for resource-agent evaluation.

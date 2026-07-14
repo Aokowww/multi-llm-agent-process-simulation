@@ -1,0 +1,5 @@
+mode,resources_used,max_resource_share,assignment_entropy,handovers
+central_baseline,19,0.0712,2.8988,624
+agent_profile,19,0.0685,2.9055,628
+llm_agent_proxy,19,0.0712,2.9038,635
+llm_agent_real,10,0.2648,1.9618,630

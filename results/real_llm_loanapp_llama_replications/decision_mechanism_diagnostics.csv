@@ -1,0 +1,7 @@
+metric,value,denominator
+historical_capability_mention_rate,0.9406934307,2192
+handover_continuity_mention_rate,0.2915145985,2192
+workload_balance_mention_rate,0.0383211679,2192
+maximum_prior_selection_rate,0.2906021898,2192
+previous_resource_continuation_rate_when_feasible,0.1655844156,308
+mean_selected_historical_prior,0.2909857664,2192
