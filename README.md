@@ -1,19 +1,19 @@
-# Resource-Centric Multi-LLM-Agent Process Simulation
+# Constrained LLM Resource Allocation for Business Process Simulation
 
-This repository contains the public research artifact for a
-resource-centric, multi-LLM-agent business process simulation prototype.
+This repository contains the public research artifact for experiments on
+constrained LLM resource allocation in data-driven business process simulation.
 The repository is intended to support inspection and reproducibility of
 the implemented experiments. It contains data, source code, and result
 files only; draft writing materials are intentionally not included.
 
 ## Purpose
 
-The prototype studies whether an LLM-style local decision module can be
-embedded in a data-driven business process simulation pipeline without
-breaking event-log compatibility. The simulator does not allow the
-LLM-style component to freely generate process behaviour. Instead, local
-resource-assignment decisions are constrained by event-log-derived
-capabilities, timing samples, resource priors, and handover priors.
+The experiments test whether an LLM can replace the resource-allocation rule
+without taking control of the remaining simulation model. The centralized
+condition selects one resource from the complete eligible-resource list. The
+AgentSimulator integration collects independent bids from shortlisted resource
+agents. Both conditions retain simulator control of process execution, timing,
+resource eligibility, availability checks, and event-log generation.
 
 ## Repository Contents
 
@@ -29,9 +29,18 @@ The top-level files are:
 - `requirements.txt`: minimal Python package requirements.
 - `.gitignore`: local output, cache, and excluded writing folders.
 
-## Simulation Conditions
+## Reported Simulation Conditions
 
-The implementation compares three main policies:
+The reported LoanApp experiments compare:
+
+- centralized LLM allocation with uniform allocation, frequency-weighted
+  allocation, and a deterministic development proxy; and
+- LLM resource-agent bids inside AgentSimulator with a matched fixed-score
+  control using the same shortlist and task-allocation procedure.
+
+The implementation also contains earlier development conditions:
+
+The earlier lightweight simulator compares three policies:
 
 - `central_baseline`: samples a feasible resource from the resources
   that historically performed the activity.
@@ -57,19 +66,20 @@ AgentSimulator implementation and must not be reported as such. The archived
 official comparison was produced by running the upstream repository and then
 normalising its output with `src/import_agentsimulator_outputs.py`.
 
-The `multi_llm_agent` condition is a narrower integration with the
-upstream AgentSimulator execution environment. For each task, the
-adapter shortlists feasible and available ResourceAgents. Each
-shortlisted agent receives its own log-derived profile, current state,
-and bounded local memory, and independently returns a structured bid.
-The contractor resolves the bids and AgentSimulator executes the
-selected resource. The implementation therefore changes task-allocation
-behaviour while retaining upstream process discovery, calendars,
-durations, queues, and resource state.
+The `multi_llm_agent` condition is an integration with the upstream
+AgentSimulator execution environment. For each task, AgentSimulator identifies
+eligible resource agents. The adapter restricts the shortlist to currently
+available agents when any are free; otherwise, all eligible candidates remain
+under consideration. Each shortlisted agent receives its own log-derived
+profile, current state, and bounded local memory, and independently returns a
+structured bid. The integration ranks the bids and passes the reordered
+candidate list to AgentSimulator's task-allocation procedure. Upstream process
+discovery, calendars, durations, queues, and resource state remain unchanged.
 
 ## Data Sources
 
-The primary evaluation uses the public artifact associated with:
+The supporting AcademicCredentials evaluation uses the public artifact
+associated with:
 
 Chapela-Campa, D., Benchekroun, I., Baron, O., Dumas, M., Krass, D., and
 Senderovich, A. 2025. "A Framework for Measuring the Quality of Business
@@ -83,7 +93,7 @@ through command-line arguments.
 
 The repository includes a prepared robustness dataset derived from:
 
-Kirchdorfer, L., Blumel, R., Kampik, T., Van der Aa, H., and
+Kirchdorfer, L., Blümel, R., Kampik, T., van der Aa, H., and
 Stuckenschmidt, H. 2024. "AgentSimulator: An Agent-Based Approach for
 Data-Driven Business Process Simulation," ICPM 2024.
 https://doi.org/10.1109/ICPM63005.2024.10680660
@@ -176,14 +186,9 @@ Use `--policy mock_multi_agent` without API arguments for an integration
 test. Mock output validates the adapter and trace schema but is not a
 real-LLM performance result.
 
-Run a quota-aware real-LLM pilot on LoanApp. Groq is a convenient
-no-cost starting point because its OpenAI-compatible API supports JSON
-output. The default `openai/gpt-oss-20b` preset is suitable for the
-small pilot, but its tested free token-per-day limit is not enough for
-a full 100-case per-event run. The time-stamped full-run condition uses
-`llama-3.1-8b-instant`, which has a larger free quota but is scheduled
-for retirement on 16 August 2026. Create a Groq API key, expose it only
-through the environment, and run one replication:
+Run one centralized real-LLM replication on LoanApp. Create a Groq API key,
+expose it only through the environment, and use the model recorded in the
+published experiment metadata:
 
 ```bash
 export GROQ_API_KEY="..."

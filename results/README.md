@@ -29,8 +29,8 @@ distance metrics unless stated otherwise.
   decision-benchmark summaries. These are feasibility results, not the
   planned repeated performance experiment.
 - `real_llm_loanapp_llama_replications/`: sanitized summaries from the
-  three planned 100-case Llama replications. The directory remains
-  preliminary until all three seeds are present.
+  three completed 100-case Llama replications using seeds 8200, 8300,
+  and 8400.
 - `multi_llm_agent_loanapp_pilot/`: mock integration and actual
   per-resource LLM-bidding runs inside the upstream AgentSimulator
   environment. The ten-case real run is a feasibility pilot.
