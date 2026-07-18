@@ -1,0 +1,21 @@
+{
+  "policy": "mock_multi_agent",
+  "upstream_commit_required": "665a6926878859072769aa25c12fe9d6056ad510",
+  "log_file": "LoanApp.csv.gz",
+  "test_cases": 10,
+  "generated_cases": 10,
+  "max_cases": 10,
+  "top_k": 2,
+  "memory_size": 3,
+  "seed": 9500,
+  "scenario": "resource_unavailability",
+  "arrival_rate_multiplier": 1.0,
+  "unavailable_resource_count": 2,
+  "unavailable_resources": [
+    "Clerk-000005",
+    "Clerk-000001"
+  ],
+  "llm_provider": null,
+  "llm_model": null,
+  "llm_api_key_env": null
+}

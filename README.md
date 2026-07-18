@@ -186,6 +186,33 @@ Use `--policy mock_multi_agent` without API arguments for an integration
 test. Mock output validates the adapter and trace schema but is not a
 real-LLM performance result.
 
+The same runner supports paired AgentSimulator what-if scenarios. The
+`high_load` condition multiplies the case-arrival rate by compressing
+inter-arrival times. The `resource_unavailability` condition removes the
+requested number of high-frequency resources while preserving at least one
+eligible resource for every activity.
+
+```bash
+python src/run_agentsimulator_policy_experiment.py \
+  --agentsimulator-path path/to/AgentSimulator \
+  --log-path path/to/AgentSimulator/raw_data/LoanApp.csv.gz \
+  --output-dir outputs/multi_llm_agent_high_load \
+  --policy multi_llm_agent \
+  --max-cases 10 \
+  --seed 9400 \
+  --scenario high_load \
+  --arrival-rate-multiplier 1.6 \
+  --llm-provider groq \
+  --llm-model llama-3.1-8b-instant \
+  --llm-min-interval 4.8
+```
+
+Run the same seed and scenario with `--policy mock_multi_agent`, then use
+`src/analyze_agentsimulator_what_if.py` to calculate each policy's response
+relative to its own unchanged baseline. Scenario outputs include cycle time,
+throughput, handovers, aggregate resource utilization, resource concentration,
+bottleneck resource, output validity, and fallback counts.
+
 Run one centralized real-LLM replication on LoanApp. Create a Groq API key,
 expose it only through the environment, and use the model recorded in the
 published experiment metadata:

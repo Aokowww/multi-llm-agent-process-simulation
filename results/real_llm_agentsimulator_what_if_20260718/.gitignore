@@ -1,0 +1,4 @@
+**/run.log
+**/agent_bid_cache.jsonl
+**/agent_bids.csv
+**/bid_call_diagnostics.csv

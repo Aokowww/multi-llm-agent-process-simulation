@@ -1,8 +1,8 @@
 diff --git a/source/agent_simulator.py b/source/agent_simulator.py
-index 9af61e3..e6ae447 100644
+index 9af61e3..56d65c8 100644
 --- a/source/agent_simulator.py
 +++ b/source/agent_simulator.py
-@@ -21,11 +21,24 @@ class AgentSimulator:
+@@ -21,11 +21,55 @@ class AgentSimulator:
              self.params['central_orchestration'],
              self.params['discover_extr_delays']
          )
@@ -14,6 +14,37 @@ index 9af61e3..e6ae447 100644
 +            self.simulation_parameters['case_arrival_times'] = self.simulation_parameters[
 +                'case_arrival_times'
 +            ][:max_cases + 1]
++
++        arrival_rate_multiplier = float(self.params.get('arrival_rate_multiplier', 1.0))
++        if arrival_rate_multiplier <= 0:
++            raise ValueError('arrival_rate_multiplier must be greater than zero')
++        if arrival_rate_multiplier != 1.0:
++            arrivals = self.simulation_parameters['case_arrival_times']
++            origin = arrivals[0]
++            self.simulation_parameters['case_arrival_times'] = [
++                origin + (arrival - origin) / arrival_rate_multiplier
++                for arrival in arrivals
++            ]
++
++        unavailable_count = int(self.params.get('unavailable_resource_count', 0))
++        unavailable_agents = []
++        if unavailable_count > 0:
++            activity_agents = {
++                activity: set(values['agent'])
++                for activity, values in self.df_train.groupby('activity_name')
++            }
++            counts = self.df_train['agent'].value_counts()
++            for agent_id in counts.index:
++                proposed = set(unavailable_agents + [agent_id])
++                if all(agents - proposed for agents in activity_agents.values()):
++                    unavailable_agents.append(agent_id)
++                if len(unavailable_agents) == unavailable_count:
++                    break
++        self.simulation_parameters['unavailable_agents'] = set(unavailable_agents)
++        self.simulation_parameters['what_if_unavailable_resources'] = [
++            str(self.simulation_parameters['agent_to_resource'].get(agent_id, agent_id))
++            for agent_id in unavailable_agents
++        ]
  
          print(f"agent to resource: {self.simulation_parameters['agent_to_resource']}")
  
@@ -29,7 +60,7 @@ index 9af61e3..e6ae447 100644
      def _split_log(self):
          """
 diff --git a/source/agents/contractor.py b/source/agents/contractor.py
-index 6e88176..4a5af89 100644
+index 6e88176..737478e 100644
 --- a/source/agents/contractor.py
 +++ b/source/agents/contractor.py
 @@ -102,7 +102,7 @@ class ContractorAgent(Agent):
@@ -41,10 +72,19 @@ index 6e88176..4a5af89 100644
              # 3) sort by transition probs
              current_agent = self.case.previous_agent
              if current_agent != -1:
-@@ -145,6 +145,23 @@ class ContractorAgent(Agent):
+@@ -145,6 +145,32 @@ class ContractorAgent(Agent):
                              sorted_agent_keys = sorted_agent_keys
                          # print(f"sorted_agent_keys after: {sorted_agent_keys}")
                          end_time = time.time()
++
++        if not isinstance(sorted_agent_keys[0], list) and self.model.unavailable_agents:
++            available_agent_keys = [
++                agent_id
++                for agent_id in sorted_agent_keys
++                if agent_id not in self.model.unavailable_agents
++            ]
++            if available_agent_keys:
++                sorted_agent_keys = available_agent_keys
 +
 +        if self.model.resource_selection_policy is not None and not isinstance(sorted_agent_keys[0], list):
 +            context = {
@@ -65,7 +105,7 @@ index 6e88176..4a5af89 100644
                          
          # print(f"sorted_agent_keys: {sorted_agent_keys}")
  
-@@ -484,4 +501,4 @@ class ContractorAgent(Agent):
+@@ -484,4 +510,4 @@ class ContractorAgent(Agent):
          potential_agents.insert(0, 9999)
  
  
@@ -112,7 +152,7 @@ index cd1ef6b..e0a6866 100644
 \ No newline at end of file
 +        return current_time
 diff --git a/source/simulation.py b/source/simulation.py
-index b7d26d4..4978110 100644
+index b7d26d4..bdc7c3a 100644
 --- a/source/simulation.py
 +++ b/source/simulation.py
 @@ -9,12 +9,14 @@ from source.utils import store_simulated_log
@@ -138,16 +178,17 @@ index b7d26d4..4978110 100644
  
  class Case:
      """
-@@ -83,6 +86,8 @@ class BusinessProcessModel(Model):
+@@ -83,6 +86,9 @@ class BusinessProcessModel(Model):
          self.timer = simulation_parameters['timers']
          self.activities_without_waiting_time = simulation_parameters['activities_without_waiting_time']
          self.agent_transition_probabilities = simulation_parameters['agent_transition_probabilities']
 +        self.agent_to_resource = simulation_parameters['agent_to_resource']
 +        self.resource_selection_policy = simulation_parameters.get('resource_selection_policy')
++        self.unavailable_agents = simulation_parameters.get('unavailable_agents', set())
          self.central_orchestration = simulation_parameters['central_orchestration']
          self.discover_parallel_work = False
          self.schedule = MyScheduler(self,)
-@@ -169,4 +174,4 @@ class MyScheduler(BaseScheduler):
+@@ -169,4 +175,4 @@ class MyScheduler(BaseScheduler):
              self.model.random.shuffle(agent_keys_)
          for agent_key in agent_keys_:
              if agent_key in self._agents:
